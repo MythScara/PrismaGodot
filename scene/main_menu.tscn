@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://dgy03wp6jxryu"]
+[gd_scene load_steps=3 format=3 uid="uid://dgy03wp6jxryu"]
 
-[node name="Main Menu" type="Node2D"]
+[ext_resource type="Script" path="res://script/main_menu.gd" id="1_gcnt1"]
+[ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/start_scene.tscn" id="2_0lpom"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="MenuScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gcnt1")
+start_scene = ExtResource("2_0lpom")
+settings_scene = ExtResource("2_0lpom")
+
+[node name="Background" type="ColorRect" parent="MenuScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="MenuScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 150
+text = "PRISMADIANE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 512.0
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "START GAME"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 576.0
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "SETTINGS"
+flat = true
+
+[node name="ExitGameButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 640.0
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "EXIT GAME"
+flat = true
+
+[connection signal="pressed" from="MenuScreen/StartGameButton" to="MenuScreen" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MenuScreen/SettingsButton" to="MenuScreen" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MenuScreen/ExitGameButton" to="MenuScreen" method="_on_exit_game_button_pressed"]
