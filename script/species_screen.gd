@@ -35,7 +35,7 @@ var species_data = {
 	"Stats": [48000, 20000, 8000, 12000, 4800, 1200, 1200, 4000, 2800, 7200, 7200, 2800]}
 }
 
-var values = ["HP  ", "MP  ", "SHD ", "STM ", "ATK ", "DEF ", "MGA ", "MGD ", "SHR ", "STR ", "AG  ", "CAP "]
+var values = ["HP", "MP", "SHD", "STM", "ATK", "DEF", "MGA", "MGD", "SHR", "STR", "AG", "CAP"]
 var base_stat = [40000, 40000, 8000, 8000, 4000, 4000, 4000, 4000, 4000, 4000, 4000, 4000]
 
 @onready var description = $SpeciesDescription

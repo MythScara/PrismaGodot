@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://brayaanbjj2q1"]
+[gd_scene load_steps=3 format=3 uid="uid://brayaanbjj2q1"]
+
+[ext_resource type="Script" path="res://script/element_screen.gd" id="1_bawap"]
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="2_slbkg"]
 
 [node name="ElementMenu" type="CanvasLayer"]
 
@@ -7,16 +10,188 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_bawap")
 
 [node name="Background" type="ColorRect" parent="ElementScreen"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
+[node name="SpeciesBackground" type="ColorRect" parent="ElementScreen"]
+offset_left = 320.0
+offset_top = 256.0
+offset_right = 1536.0
+offset_bottom = 1024.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
 [node name="Title" type="Label" parent="ElementScreen"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 256.0
 theme_override_font_sizes/font_size = 90
 text = "CHARACTER CREATION : ELEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ElementGrid" type="GridContainer" parent="ElementScreen"]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 256.0
+offset_right = 1856.0
+offset_bottom = 1024.0
+theme_override_constants/v_separation = 50
+
+[node name="SolarButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 320.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "SOLAR"
+flat = true
+alignment = 0
+
+[node name="NatureButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = 384.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "NATURE"
+flat = true
+alignment = 0
+
+[node name="SpiritButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 384.0
+offset_right = 256.0
+offset_bottom = 448.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "SPIRIT"
+flat = true
+alignment = 0
+
+[node name="VoidButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 448.0
+offset_right = 256.0
+offset_bottom = 512.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "VOID"
+flat = true
+alignment = 0
+
+[node name="ArcButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 512.0
+offset_right = 256.0
+offset_bottom = 576.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "ARC"
+flat = true
+alignment = 0
+
+[node name="FrostButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 576.0
+offset_right = 256.0
+offset_bottom = 640.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "FROST"
+flat = true
+alignment = 0
+
+[node name="MetalButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 640.0
+offset_right = 256.0
+offset_bottom = 704.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "METAL"
+flat = true
+alignment = 0
+
+[node name="DivineButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 704.0
+offset_right = 256.0
+offset_bottom = 768.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+toggle_mode = true
+text = "DIVINE"
+flat = true
+alignment = 0
+
+[node name="ContinueButton" type="Button" parent="ElementScreen"]
+offset_left = 64.0
+offset_top = 960.0
+offset_right = 273.0
+offset_bottom = 1024.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
+theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/focus = ExtResource("2_slbkg")
+text = "CONTINUE"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="ElementScreen/ContinueButton" to="ElementScreen" method="_on_continue_button_pressed"]
