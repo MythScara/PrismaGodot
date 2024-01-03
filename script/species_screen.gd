@@ -1,5 +1,7 @@
 extends Control
 
+@export var continue_screen : PackedScene
+
 var species_data = {
 	"Human": {
 	"Description": "Humans are an immigrant race forced to evacuate their home planet Earth after it was destroyed by famine, pollution, and war. They sought refuge on Prismadiane and soon became the planets most abundant work force. Humans are dedicated and hardworking, they control most of the markets on Prismadiane giving them access to the planets best gear at exceptional prices.",
@@ -41,20 +43,35 @@ var base_stat = [40000, 40000, 8000, 8000, 4000, 4000, 4000, 4000, 4000, 4000, 4
 @onready var bonusTwo = $SpeciesBonus2
 @onready var bonusThree = $SpeciesBonus3
 @onready var statGrid = $SpeciesStatGrid
+@onready var human_button = $HumanButton
+@onready var meka_button = $MekaButton
+@onready var daemon_button = $DaemonButton
+@onready var sylph_button = $SylphButton
+@onready var kaiju_button = $KaijuButton
+var selected_button = null
+
+
+func _ready():
+	_update_stats_grid(base_stat)
 
 func _on_human_button_pressed():
+	_set_active(human_button)
 	_update_information("Human")
 	
 func _on_meka_button_pressed():
+	_set_active(meka_button)
 	_update_information("Meka")
 
 func _on_daemon_button_pressed():
+	_set_active(daemon_button)
 	_update_information("Daemon")
 
 func _on_sylph_button_pressed():
+	_set_active(sylph_button)
 	_update_information("Sylph")
 
 func _on_kaiju_button_pressed():
+	_set_active(kaiju_button)
 	_update_information("Kaiju")
 
 func _update_information(key: String):
@@ -66,6 +83,19 @@ func _update_information(key: String):
 	bonusThree.bbcode_text = species["Bonus3"]
 	# Update stats in the grid
 	_update_stats_grid(species["Stats"])
+	
+	var stats_dict = {}
+	for i in range(species["Stats"].size()):
+		stats_dict[values[i]] = species["Stats"][i]
+	PlayerStats.set_stats(stats_dict)
+	PlayerStats.species = key
+	
+	var bonuses_dict = {
+		"Bonus 1": species["Bonus1"],
+		"Bonus 2": species["Bonus2"],
+		"Bonus 3": species["Bonus3"]
+	}
+	PlayerStats.set_bonuses(bonuses_dict)
 
 func _update_stats_grid(stats: Array):
 	# Clear existing stats in the grid    
@@ -101,3 +131,15 @@ func _update_stats_grid(stats: Array):
 		# Add the hbox to the statGrid       
 		statGrid.add_child(hbox)
 
+func _set_active(new_button: Button):
+	if selected_button != null and selected_button != new_button:
+		selected_button.set_pressed(false)
+	
+	selected_button = new_button
+	new_button.set_pressed(true)
+
+func _on_continue_button_pressed():
+	if continue_screen:
+		get_tree().change_scene_to_packed(continue_screen)
+	else:
+		print("No Scene Set")

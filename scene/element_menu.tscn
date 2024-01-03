@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://brayaanbjj2q1"]
+
+[node name="ElementMenu" type="CanvasLayer"]
+
+[node name="ElementScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="ElementScreen"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="ElementScreen"]
+offset_right = 1920.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 90
+text = "CHARACTER CREATION : ELEMENT"
+horizontal_alignment = 1
+vertical_alignment = 1

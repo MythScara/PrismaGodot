@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgy03wp6jxryu"]
+[gd_scene load_steps=4 format=3 uid="uid://dgy03wp6jxryu"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_gcnt1"]
-[ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/start_scene.tscn" id="2_0lpom"]
+[ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/species_menu.tscn" id="2_0lpom"]
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_0ujv6"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -33,8 +34,13 @@ offset_left = 768.0
 offset_top = 448.0
 offset_right = 1152.0
 offset_bottom = 512.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "START GAME"
 flat = true
 
@@ -44,8 +50,13 @@ offset_left = 768.0
 offset_top = 512.0
 offset_right = 1152.0
 offset_bottom = 576.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "SETTINGS"
 flat = true
 
@@ -55,8 +66,13 @@ offset_left = 768.0
 offset_top = 576.0
 offset_right = 1152.0
 offset_bottom = 640.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "EXIT GAME"
 flat = true
 
