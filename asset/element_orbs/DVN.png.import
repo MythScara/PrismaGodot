@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgbceajab6lo6"
-path="res://.godot/imported/Void Orb.png-d662556b1272a9b0a4fe1cbd63262653.ctex"
+uid="uid://dijxkwr66gbvi"
+path="res://.godot/imported/DVN.png-7eeef9e1717a475b6962f4adaa9a68ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/element_orbs/Void Orb.png"
-dest_files=["res://.godot/imported/Void Orb.png-d662556b1272a9b0a4fe1cbd63262653.ctex"]
+source_file="res://asset/element_orbs/DVN.png"
+dest_files=["res://.godot/imported/DVN.png-7eeef9e1717a475b6962f4adaa9a68ac.ctex"]
 
 [params]
 

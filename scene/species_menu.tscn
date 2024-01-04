@@ -19,6 +19,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
+[node name="SpeciesOutline" type="ColorRect" parent="SpeciesScreen"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 248.0
+offset_right = 1864.0
+offset_bottom = 1032.0
+
 [node name="SpeciesBackground" type="ColorRect" parent="SpeciesScreen"]
 layout_mode = 0
 offset_left = 320.0
@@ -39,60 +46,60 @@ vertical_alignment = 1
 [node name="SpeciesDescription" type="RichTextLabel" parent="SpeciesScreen"]
 layout_mode = 0
 offset_left = 336.0
-offset_top = 272.0
+offset_top = 264.0
 offset_right = 1840.0
-offset_bottom = 448.0
+offset_bottom = 576.0
 theme_override_fonts/bold_font = ExtResource("1_ekm6r")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Select a [b]Species[/b] from the list on the left. Each [b]Species[/b] has their own set of bonuses and starting stats which will be listed below. The stats currently listed below are the base values required to max out a stat. When a stat is [color=\"green\"]GREEN[/color], the stat has more than the required amount to be maxed by endgame. When a stat is [color=\"red\"]RED[/color] it will require additional points to be maxed out by endgame. "
 
 [node name="SpeciesBonus1" type="RichTextLabel" parent="SpeciesScreen"]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 488.0
+offset_top = 609.0
 offset_right = 1792.0
-offset_bottom = 552.0
+offset_bottom = 673.0
 theme_override_fonts/bold_font = ExtResource("1_ekm6r")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Bonus 1 will appear here."
 
 [node name="SpeciesBonus2" type="RichTextLabel" parent="SpeciesScreen"]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 520.0
+offset_top = 649.0
 offset_right = 1792.0
-offset_bottom = 584.0
+offset_bottom = 713.0
 theme_override_fonts/bold_font = ExtResource("1_ekm6r")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Bonus 2 will appear here."
 
 [node name="SpeciesBonus3" type="RichTextLabel" parent="SpeciesScreen"]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 552.0
+offset_top = 689.0
 offset_right = 1792.0
-offset_bottom = 616.0
+offset_bottom = 753.0
 theme_override_fonts/bold_font = ExtResource("1_ekm6r")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Bonus 3 will appear here."
 
 [node name="SpeciesStatGrid" type="GridContainer" parent="SpeciesScreen"]
 top_level = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 704.0
-offset_right = 1792.0
-offset_bottom = 960.0
-theme_override_constants/h_separation = 100
-theme_override_constants/v_separation = 50
+offset_left = 336.0
+offset_top = 800.0
+offset_right = 1840.0
+offset_bottom = 1008.0
+theme_override_constants/h_separation = 85
+theme_override_constants/v_separation = 40
 columns = 4
 
 [node name="HumanButton" type="Button" parent="SpeciesScreen"]
@@ -186,6 +193,7 @@ flat = true
 alignment = 0
 
 [node name="ContinueButton" type="Button" parent="SpeciesScreen"]
+visible = false
 layout_mode = 0
 offset_left = 64.0
 offset_top = 960.0
@@ -193,6 +201,7 @@ offset_right = 256.0
 offset_bottom = 1024.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.588235, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_07m8k")
 theme_override_styles/hover = ExtResource("3_07m8k")

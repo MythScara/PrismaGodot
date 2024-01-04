@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4cmqoq1k51vp"
-path="res://.godot/imported/Frost Orb.png-5c4a820e583416bd8fccb278a28bf3e8.ctex"
+uid="uid://cjaylwdn88vnk"
+path="res://.godot/imported/SLR.png-28e774dc2287fa0dbe3e8063f525de1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/element_orbs/Frost Orb.png"
-dest_files=["res://.godot/imported/Frost Orb.png-5c4a820e583416bd8fccb278a28bf3e8.ctex"]
+source_file="res://asset/element_orbs/SLR.png"
+dest_files=["res://.godot/imported/SLR.png-28e774dc2287fa0dbe3e8063f525de1e.ctex"]
 
 [params]
 

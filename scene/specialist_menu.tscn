@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b64xklwdq3pxa"]
+
+[node name="SpecialistMenu" type="CanvasLayer"]
+
+[node name="SpecialistScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="ColorRect" parent="SpecialistScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="SpecialistScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 90
+text = "CHARACTER CREATION : SPECIALIST"
+horizontal_alignment = 1
+vertical_alignment = 1

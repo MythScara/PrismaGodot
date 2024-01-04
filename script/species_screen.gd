@@ -48,8 +48,8 @@ var base_stat = [40000, 40000, 8000, 8000, 4000, 4000, 4000, 4000, 4000, 4000, 4
 @onready var daemon_button = $DaemonButton
 @onready var sylph_button = $SylphButton
 @onready var kaiju_button = $KaijuButton
+@onready var continue_button = $ContinueButton
 var selected_button = null
-
 
 func _ready():
 	_update_stats_grid(base_stat)
@@ -132,6 +132,9 @@ func _update_stats_grid(stats: Array):
 		statGrid.add_child(hbox)
 
 func _set_active(new_button: Button):
+	if continue_button.visible == false:
+		continue_button.visible = true
+	
 	if selected_button != null and selected_button != new_button:
 		selected_button.set_pressed(false)
 	
@@ -139,7 +142,7 @@ func _set_active(new_button: Button):
 	new_button.set_pressed(true)
 
 func _on_continue_button_pressed():
-	if continue_screen:
+	if continue_screen and PlayerStats.species != null:
 		get_tree().change_scene_to_packed(continue_screen)
 	else:
 		print("No Scene Set")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqavui2og3q5p"
-path="res://.godot/imported/Spirit Orb.png-4db6cd48837172a9686b1486967b2491.ctex"
+uid="uid://4cmqoq1k51vp"
+path="res://.godot/imported/FST.png-85c0857e485368d75570198054f558fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/element_orbs/Spirit Orb.png"
-dest_files=["res://.godot/imported/Spirit Orb.png-4db6cd48837172a9686b1486967b2491.ctex"]
+source_file="res://asset/element_orbs/FST.png"
+dest_files=["res://.godot/imported/FST.png-85c0857e485368d75570198054f558fd.ctex"]
 
 [params]
 

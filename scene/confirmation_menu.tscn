@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://coivfl30ich1h"]
+
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_ydj7p"]
+
+[node name="ConfirmationMenu" type="CanvasLayer"]
+
+[node name="ConfirmationScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="ColorRect" parent="ConfirmationScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="ConfirmationScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 90
+text = "CHARACTER CREATION : CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="ConfirmationScreen"]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 960.0
+offset_right = 1855.0
+offset_bottom = 1024.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_ydj7p")
+theme_override_styles/hover = ExtResource("1_ydj7p")
+theme_override_styles/pressed = ExtResource("1_ydj7p")
+theme_override_styles/focus = ExtResource("1_ydj7p")
+text = "START ADVENTURE"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="ConfirmationScreen"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 960.0
+offset_right = 777.0
+offset_bottom = 1024.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_ydj7p")
+theme_override_styles/hover = ExtResource("1_ydj7p")
+theme_override_styles/pressed = ExtResource("1_ydj7p")
+theme_override_styles/focus = ExtResource("1_ydj7p")
+text = "RETURN TO CHARACTER CREATION"
+flat = true

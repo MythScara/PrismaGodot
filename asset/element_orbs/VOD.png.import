@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjaylwdn88vnk"
-path="res://.godot/imported/Solar Orb.png-21f61dc5ef9853d95c5ee32cc29d95ce.ctex"
+uid="uid://bgbceajab6lo6"
+path="res://.godot/imported/VOD.png-1bf27c39a153dc8646ae9a415f76f42e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/element_orbs/Solar Orb.png"
-dest_files=["res://.godot/imported/Solar Orb.png-21f61dc5ef9853d95c5ee32cc29d95ce.ctex"]
+source_file="res://asset/element_orbs/VOD.png"
+dest_files=["res://.godot/imported/VOD.png-1bf27c39a153dc8646ae9a415f76f42e.ctex"]
 
 [params]
 
