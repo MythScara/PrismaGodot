@@ -6,7 +6,7 @@ var species_data = {
 	"Human": {
 	"Description": "Humans are an immigrant race forced to evacuate their home planet Earth after it was destroyed by famine, pollution, and war. They sought refuge on Prismadiane and soon became the planets most abundant work force. Humans are dedicated and hardworking, they control most of the markets on Prismadiane giving them access to the planets best gear at exceptional prices.",
 	"Bonus1": "- Prisma cost for [b]General Vendor[/b] purchases is decreased by [b]10%[/b]",
-	"Bonus2": "- Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]",
+	"Bonus2": "- [b]Summons[/b] cooldown reduced by [b]20%[/b]",
 	"Bonus3": "- Prisma gained from [b]Loot Caches[/b] increased by [b]5%[/b]",
 	"Stats": [20000, 48000, 9600, 8000, 2800, 6000, 4000, 2800, 4000, 4000, 2800, 6000]},
 	"Meka": {
@@ -17,21 +17,21 @@ var species_data = {
 	"Stats": [40000, 20000, 14400, 5600, 4000, 7200, 2800, 6000, 4800, 1200, 1200, 4800]},
 	"Daemon": {
 	"Description": "When the Demons of the underworld rose up and cast darkness upon the planet, they began to possess and absorb the civilians. As time passed, generation after generation began to develop resistance against the Demons; eventually these civilians mutated into the Demon hybrid known as Daemons. Daemons are persistent and resilient, never allowing themselves to be broken down. Their strengthened immune systems allow them to run headfirst into battle with overwhelming confidence.",
-	"Bonus1": "- [b]MP[/b] gained from defeated enemies increased by [b]10%[/b]",
+	"Bonus1": "- [b]Magic Power[/b] gained from defeated enemies increased by [b]10%[/b]",
 	"Bonus2": "- [b]Magic Scrolls[/b] offer [b]1[/b] additional choice",
-	"Bonus3": "- [b]Summons[/b] gain [b]20% ATK[/b] and [b]10% DEF[/b] while on the field",
+	"Bonus3": "- [b]Summons[/b] gain [b]20% MGA[/b] and [b]10% MGD[/b] while on the field",
 	"Stats": [28000, 72000, 2400, 9600, 7200, 4000, 6000, 2800, 2000, 1200, 4800, 4000]},
 	"Sylph": {
 	"Description": "Sylphs are distant descendants of the Celestials, and the true natives of Prismadiane. Natural power rushes through their veins and the purest magic flows in their blood. The Sylphs are known for their close bond to the planet and their flawless control over their summons. Although their power is far weaker than their ancestors’, once awakened the Sylphs can effortlessly vanquish foes with extraordinary prowess.",
 	"Bonus1": "- [b]Summons[/b] require [b]50%[/b] less [b]Summon Tokens[/b]",
-	"Bonus2": "- [b]Summons[/b] gain [b]20% HP[/b] and [b]10% DEF[/b] while on the field",
-	"Bonus3": "- [b]MP[/b] gained from planetary resources increased by [b]10%[/b]",
+	"Bonus2": "- [b]Summons[/b] gain [b]20% HP[/b] and [b]10% MP[/b] while on the field",
+	"Bonus3": "- [b]Magic Power[/b] gained from planetary resources increased by [b]10%[/b]",
 	"Stats": [60000, 40000, 1200, 2800, 1200, 2000, 4800, 6000, 6000, 7200, 4000, 2800]},
 	"Kaiju": {
 	"Description": "The Kaiju are primal creatures who have evolved to the degree where they can no longer be considered simply animals. With heightened senses, Kaiju rely heavily on their instincts and are extremely prideful. The Kaiju are the planet’s most resourceful scavengers with an unmatched knowledge of their surroundings.",
-	"Bonus1": "- [b]Bounty[/b] slots increased by [b]2[/b]",
+	"Bonus1": "- Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]",
 	"Bonus2": "- Prisma reward from defeating enemies increased by [b]5%[/b]",
-	"Bonus3": "- [b]High-Value Targets[/b] are always marked on [b]Mini-Map[/b]",
+	"Bonus3": "- [b]Summons[/b] gain [b]20% ATK[/b] and [b]20% DEF[/b] while on the field",
 	"Stats": [48000, 20000, 8000, 12000, 4800, 1200, 1200, 4000, 2800, 7200, 7200, 2800]}
 }
 
