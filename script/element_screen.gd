@@ -4,7 +4,7 @@ extends Control
 
 var element_info = {
 	"SLR": {
-	"Description": "Resistance value against Solar Attacks, Pressue value using Solar Attacks",
+	"Description": "Resistance value against Solar Attacks, Pressure value using Solar Attacks",
 	"Strength": "Nature",
 	"Weakness": "Frost",
 	"Reactions": ["Burn", "Scorch", "Blaze", "Combust", "Spark", "Exhaust", "Melt", "Overheat"]},
