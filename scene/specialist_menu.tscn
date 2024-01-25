@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b64xklwdq3pxa"]
+[gd_scene load_steps=3 format=3 uid="uid://b64xklwdq3pxa"]
+
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_p3f6k"]
+[ext_resource type="Script" path="res://script/specialist_buttons.gd" id="2_y5xso"]
 
 [node name="SpecialistMenu" type="CanvasLayer"]
 
@@ -20,3 +23,540 @@ theme_override_font_sizes/font_size = 90
 text = "CHARACTER CREATION : SPECIALIST"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ElementOutline" type="ColorRect" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 248.0
+offset_right = 1864.0
+offset_bottom = 1032.0
+
+[node name="ElementBackground" type="ColorRect" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 1856.0
+offset_bottom = 1024.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="SpecialistDescription" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 272.0
+offset_right = 1840.0
+offset_bottom = 404.0
+bbcode_enabled = true
+text = "Description : "
+
+[node name="SpecialistWeapon" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 404.0
+offset_right = 1840.0
+offset_bottom = 448.0
+bbcode_enabled = true
+text = "Weapon : "
+
+[node name="Passive1" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 470.0
+offset_right = 1840.0
+offset_bottom = 558.0
+bbcode_enabled = true
+text = "Passive 1 : "
+
+[node name="Passive2" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 558.0
+offset_right = 1840.0
+offset_bottom = 646.0
+bbcode_enabled = true
+text = "Passive 2 : "
+
+[node name="Passive3" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 646.0
+offset_right = 1840.0
+offset_bottom = 734.0
+bbcode_enabled = true
+text = "Passive 3 : "
+
+[node name="Technique1" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 744.0
+offset_right = 1840.0
+offset_bottom = 832.0
+bbcode_enabled = true
+text = "Technique 1 : "
+
+[node name="Technique2" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 832.0
+offset_right = 1840.0
+offset_bottom = 920.0
+bbcode_enabled = true
+text = "Technique 2 : "
+
+[node name="Technique3" type="RichTextLabel" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 920.0
+offset_right = 1840.0
+offset_bottom = 1008.0
+bbcode_enabled = true
+text = "Technique 3 : "
+
+[node name="ContinueButton" type="Button" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 960.0
+offset_right = 273.0
+offset_bottom = 1024.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+text = "CONTINUE"
+flat = true
+alignment = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SpecialistScreen"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 352.0
+offset_bottom = 896.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpecialistScreen/ScrollContainer"]
+layout_mode = 2
+script = ExtResource("2_y5xso")
+
+[node name="Mercenary" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Mercenary"
+flat = true
+alignment = 0
+
+[node name="Cavalier" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Cavalier"
+flat = true
+alignment = 0
+
+[node name="Spartan" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Spartan"
+flat = true
+alignment = 0
+
+[node name="Ranger" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Ranger"
+flat = true
+alignment = 0
+
+[node name="Scout" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Scout"
+flat = true
+alignment = 0
+
+[node name="Pirate" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Pirate
+"
+flat = true
+alignment = 0
+
+[node name="Assassin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Assassin
+"
+flat = true
+alignment = 0
+
+[node name="Nomad" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Nomad
+
+"
+flat = true
+alignment = 0
+
+[node name="Engineer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Engineer
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Hunter" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Hunter
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Archer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Archer
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Paladin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Paladin
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Warden" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Warden
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Ronin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Ronin
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Ninja" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Ninja
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Templar" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Templar
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Rogue" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Rogue
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Samurai" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Samurai
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Valkyrie" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Valkyrie
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Inquisitor" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Inquisitor
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Druid" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Druid
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Necromancer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Necromancer
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Monk" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Monk
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Centurion" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Centurion
+
+
+
+"
+flat = true
+alignment = 0
+
+[node name="Sage" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/hover = ExtResource("1_p3f6k")
+theme_override_styles/pressed = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
+toggle_mode = true
+text = "Sage
+
+
+
+"
+flat = true
+alignment = 0
