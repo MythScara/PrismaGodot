@@ -2,6 +2,8 @@ extends VBoxContainer
 
 var selected_button = null
 
+signal button_pressed(text)
+
 func _ready():
 	for i in range(get_child_count()):
 		var button = get_child(i)
@@ -16,15 +18,7 @@ func _on_Button_pressed(new_button : Button):
 	
 	selected_button = new_button
 	new_button.set_pressed(true)
-	handle_button_press(new_button)
-
-func handle_button_press(button: Button):
-	match button.text:
-		"Mercenary":
-			print("Mercenary button pressed")
-		"Cavalier":
-			print("Cavalier button pressed")
-		# ... add cases for other buttons
+	emit_signal("button_pressed", new_button.text)
 
 
 

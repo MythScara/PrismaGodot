@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b64xklwdq3pxa"]
+[gd_scene load_steps=6 format=3 uid="uid://b64xklwdq3pxa"]
 
+[ext_resource type="Script" path="res://script/specialist_screen.gd" id="1_br61r"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_p3f6k"]
+[ext_resource type="PackedScene" uid="uid://coivfl30ich1h" path="res://scene/confirmation_menu.tscn" id="2_dg2jr"]
+[ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="2_jeatg"]
 [ext_resource type="Script" path="res://script/specialist_buttons.gd" id="2_y5xso"]
 
 [node name="SpecialistMenu" type="CanvasLayer"]
@@ -8,6 +11,8 @@
 [node name="SpecialistScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_br61r")
+continue_screen = ExtResource("2_dg2jr")
 
 [node name="Background" type="ColorRect" parent="SpecialistScreen"]
 layout_mode = 0
@@ -39,77 +44,85 @@ offset_right = 1856.0
 offset_bottom = 1024.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="SpecialistDescription" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
+[node name="InfoBox" type="VBoxContainer" parent="SpecialistScreen"]
+layout_mode = 2
 offset_left = 400.0
 offset_top = 272.0
 offset_right = 1840.0
-offset_bottom = 404.0
+offset_bottom = 1008.0
+theme_override_constants/separation = 36
+
+[node name="SpecialistDescription" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Description : "
+fit_content = true
 
-[node name="SpecialistWeapon" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 404.0
-offset_right = 1840.0
-offset_bottom = 448.0
+[node name="SpecialistWeapon" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Weapon : "
+fit_content = true
 
-[node name="Passive1" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 470.0
-offset_right = 1840.0
-offset_bottom = 558.0
+[node name="Passive1" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Passive 1 : "
+fit_content = true
 
-[node name="Passive2" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 558.0
-offset_right = 1840.0
-offset_bottom = 646.0
+[node name="Passive2" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Passive 2 : "
+fit_content = true
 
-[node name="Passive3" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 646.0
-offset_right = 1840.0
-offset_bottom = 734.0
+[node name="Passive3" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Passive 3 : "
+fit_content = true
 
-[node name="Technique1" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 744.0
-offset_right = 1840.0
-offset_bottom = 832.0
+[node name="Technique1" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
-text = "Technique 1 : "
+text = "Technique 1 : (Duration) {Cooldown}"
+fit_content = true
 
-[node name="Technique2" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 832.0
-offset_right = 1840.0
-offset_bottom = 920.0
+[node name="Technique2" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
-text = "Technique 2 : "
+text = "Technique 2 : (Duration) {Cooldown}"
+fit_content = true
 
-[node name="Technique3" type="RichTextLabel" parent="SpecialistScreen"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 920.0
-offset_right = 1840.0
-offset_bottom = 1008.0
+[node name="Technique3" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
+layout_mode = 2
+theme_override_fonts/bold_font = ExtResource("2_jeatg")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
-text = "Technique 3 : "
+text = "Technique 3 : (Duration) {Cooldown}"
+fit_content = true
 
 [node name="ContinueButton" type="Button" parent="SpecialistScreen"]
 layout_mode = 0
@@ -220,8 +233,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Pirate
-"
+text = "Pirate"
 flat = true
 alignment = 0
 
@@ -235,8 +247,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Assassin
-"
+text = "Assassin"
 flat = true
 alignment = 0
 
@@ -250,9 +261,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Nomad
-
-"
+text = "Nomad"
 flat = true
 alignment = 0
 
@@ -266,10 +275,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Engineer
-
-
-"
+text = "Engineer"
 flat = true
 alignment = 0
 
@@ -283,11 +289,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Hunter
-
-
-
-"
+text = "Hunter"
 flat = true
 alignment = 0
 
@@ -301,11 +303,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Archer
-
-
-
-"
+text = "Archer"
 flat = true
 alignment = 0
 
@@ -319,11 +317,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Paladin
-
-
-
-"
+text = "Paladin"
 flat = true
 alignment = 0
 
@@ -337,11 +331,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Warden
-
-
-
-"
+text = "Warden"
 flat = true
 alignment = 0
 
@@ -355,11 +345,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Ronin
-
-
-
-"
+text = "Ronin"
 flat = true
 alignment = 0
 
@@ -373,11 +359,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Ninja
-
-
-
-"
+text = "Ninja"
 flat = true
 alignment = 0
 
@@ -391,11 +373,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Templar
-
-
-
-"
+text = "Templar"
 flat = true
 alignment = 0
 
@@ -409,11 +387,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Rogue
-
-
-
-"
+text = "Rogue"
 flat = true
 alignment = 0
 
@@ -427,11 +401,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Samurai
-
-
-
-"
+text = "Samurai"
 flat = true
 alignment = 0
 
@@ -445,11 +415,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Valkyrie
-
-
-
-"
+text = "Valkyrie"
 flat = true
 alignment = 0
 
@@ -463,11 +429,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Inquisitor
-
-
-
-"
+text = "Inquisitor"
 flat = true
 alignment = 0
 
@@ -481,11 +443,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Druid
-
-
-
-"
+text = "Druid"
 flat = true
 alignment = 0
 
@@ -499,11 +457,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Necromancer
-
-
-
-"
+text = "Necromancer"
 flat = true
 alignment = 0
 
@@ -517,11 +471,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Monk
-
-
-
-"
+text = "Monk"
 flat = true
 alignment = 0
 
@@ -535,11 +485,7 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Centurion
-
-
-
-"
+text = "Centurion"
 flat = true
 alignment = 0
 
@@ -553,10 +499,8 @@ theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
 theme_override_styles/focus = ExtResource("1_p3f6k")
 toggle_mode = true
-text = "Sage
-
-
-
-"
+text = "Sage"
 flat = true
 alignment = 0
+
+[connection signal="pressed" from="SpecialistScreen/ContinueButton" to="SpecialistScreen" method="_on_continue_button_pressed"]

@@ -4,6 +4,7 @@ var species = null
 var stats = {}
 var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var elements = {}
+var specialist = null
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
