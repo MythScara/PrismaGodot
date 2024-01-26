@@ -189,7 +189,7 @@ func _on_continue_button_pressed():
 		print("No Scene Set")
 
 func _on_add_button_pressed():
-	if point_count > 0 and base_stat[selected_element] < 10000:
+	if selected_button != null and point_count > 0 and base_stat[selected_element] < 10000:
 		point_count -= 1
 		_update_point_label()
 		_update_element_stat(400)
@@ -199,7 +199,7 @@ func _on_add_button_pressed():
 		pass
 
 func _on_minus_button_pressed():
-	if point_count <= 60 and base_stat[selected_element] > 2000:
+	if selected_button != null and point_count <= 60 and base_stat[selected_element] > 2000:
 		point_count += 1
 		_update_point_label()
 		_update_element_stat(-400)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://brayaanbjj2q1"]
 
 [ext_resource type="Script" path="res://script/element_screen.gd" id="1_bawap"]
-[ext_resource type="PackedScene" uid="uid://coivfl30ich1h" path="res://scene/confirmation_menu.tscn" id="2_78g70"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="2_slbkg"]
 [ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="2_syvfx"]
+[ext_resource type="PackedScene" uid="uid://b64xklwdq3pxa" path="res://scene/specialist_menu.tscn" id="2_vlx38"]
 
 [node name="ElementMenu" type="CanvasLayer"]
 
@@ -13,7 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_bawap")
-continue_screen = ExtResource("2_78g70")
+continue_screen = ExtResource("2_vlx38")
 
 [node name="Background" type="ColorRect" parent="ElementScreen"]
 layout_mode = 0
