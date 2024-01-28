@@ -50,78 +50,78 @@ offset_left = 400.0
 offset_top = 272.0
 offset_right = 1840.0
 offset_bottom = 1008.0
-theme_override_constants/separation = 36
+theme_override_constants/separation = 24
 
 [node name="SpecialistDescription" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Description : "
+text = "Description: "
 fit_content = true
 
 [node name="SpecialistWeapon" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Weapon : "
+text = "Weapon: "
 fit_content = true
 
 [node name="Passive1" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Passive 1 : "
+text = "Passive 1: "
 fit_content = true
 
 [node name="Passive2" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Passive 2 : "
+text = "Passive 2: "
 fit_content = true
 
 [node name="Passive3" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Passive 3 : "
+text = "Passive 3: "
 fit_content = true
 
 [node name="Technique1" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Technique 1 : (Duration) {Cooldown}"
+text = "Technique 1: (Duration) {Cooldown}"
 fit_content = true
 
 [node name="Technique2" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Technique 2 : (Duration) {Cooldown}"
+text = "Technique 2: (Duration) {Cooldown}"
 fit_content = true
 
 [node name="Technique3" type="RichTextLabel" parent="SpecialistScreen/InfoBox"]
 layout_mode = 2
 theme_override_fonts/bold_font = ExtResource("2_jeatg")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Technique 3 : (Duration) {Cooldown}"
+text = "Technique 3: (Duration) {Cooldown}"
 fit_content = true
 
 [node name="ContinueButton" type="Button" parent="SpecialistScreen"]
