@@ -5,6 +5,11 @@ var stats = {"HP": 40000, "MP": 40000, "SHD": 8000, "STM": 8000, "ATK": 4000, "D
 var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 var specialist = null
+var immunities = []
+var passives = {}
+var techniques = {}
+
+signal activate_specialist(s_type)
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats

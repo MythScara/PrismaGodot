@@ -321,6 +321,7 @@ offset_bottom = 1080.0
 color = Color(1, 1, 1, 0.0980392)
 
 [node name="WarningOutline" type="ColorRect" parent="ElementScreen/Warning"]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 384.0
 offset_right = 1600.0
@@ -328,12 +329,14 @@ offset_bottom = 648.0
 color = Color(1, 0, 0, 1)
 
 [node name="WarningBox" type="ColorRect" parent="ElementScreen/Warning"]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 392.0
 offset_right = 1592.0
 offset_bottom = 640.0
 
 [node name="Label" type="Label" parent="ElementScreen/Warning"]
+layout_mode = 0
 offset_left = 272.0
 offset_top = 400.0
 offset_right = 1584.0
@@ -344,6 +347,7 @@ text = "YOU STILL HAVE ELEMENTAL AFFINITY POINTS AVAILABLE! CHOOSING CONTINUE WI
 autowrap_mode = 3
 
 [node name="ForfeitContinueButton" type="Button" parent="ElementScreen/Warning"]
+layout_mode = 0
 offset_left = 1264.0
 offset_top = 576.0
 offset_right = 1473.0
@@ -361,6 +365,7 @@ flat = true
 alignment = 0
 
 [node name="CancelButton" type="Button" parent="ElementScreen/Warning"]
+layout_mode = 0
 offset_left = 384.0
 offset_top = 576.0
 offset_right = 548.0

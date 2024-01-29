@@ -11,6 +11,8 @@ extends Control
 @onready var technique2 = $InfoBox/Technique2
 @onready var technique3 = $InfoBox/Technique3
 
+var selected_specialist = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var vbox = get_node("ScrollContainer/VBoxContainer")
@@ -18,7 +20,9 @@ func _ready():
 
 func update_text(text):
 	var specialist = load("res://script/specialists/" + text.to_lower() + ".gd").new()
+	specialist.initialize()
 	var info = specialist.specialist_info
+	selected_specialist = text
 	description.bbcode_text = "Description: " + info["Description"]
 	weapon.bbcode_text = "Weapon: " + info["Weapon"]
 	passive1.bbcode_text = "Passive 1: " + info["Passive 1"].values()[0]
@@ -34,6 +38,8 @@ func _process(delta):
 
 func _on_continue_button_pressed():
 	if continue_screen:
+		PlayerStats.specialist = selected_specialist
+		PlayerStats.emit_signal("activate_specialist", selected_specialist)
 		get_tree().change_scene_to_packed(continue_screen)
 	else:
 		print("No Scene Set")

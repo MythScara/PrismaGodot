@@ -6,6 +6,8 @@ var cur_level = 0
 var cur_experience = 0
 var experience_required = 1000
 
+signal activation_timer(s_name)
+
 var specialist_info = {
 	"Name": "Mercenary",
 	"Description": "Hired militant officer with training in all forms of modern warfare. Loyalty to the highest bidder and an aptitude for survival.",
@@ -32,11 +34,71 @@ var specialist_rewards = {
 	"Level 10": "Specialist Heart Artifact"
 }
 
+func initialize():
+	connect("activation_timer", Callable(self, "_timer_reached"))
+	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func start_timer(seconds, s_name):
+	var timer = Timer.new()
+	timer.set_wait_time(seconds)
+	timer.set_one_shot(true)
+	timer.connect("timeout", Callable(self,"_on_timer_timeout").bind(s_name))
+	add_child(timer)
+	timer.start()
+
+func _on_timer_timeout(s_name):
+	emit_signal("activation_timer", s_name)
+	
+	for child in get_children():
+		if child is Timer and child.is_stopped():
+			child.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func _on_specialist_activated(s_type):
+	if s_type == "Mercenary":
+		active = true
+		_mind_passive(true)
+		_soul_passive(true)
+		_heart_passive(true)
+	else:
+		active = false
+
+func _timer_reached(s_name):
+	pass
+
+func _mind_passive(s_active):
+	if s_active == true:
+		PlayerStats.immunities.append("Blaze")
+		print_debug("Blaze")
+	else:
+		PlayerStats.immunities.erase("Blaze")
+
+func _soul_passive(s_active):
+	if s_active == true:
+		PlayerStats.immunities.append("Corrode")
+		print_debug("Corrode")
+	else:
+		PlayerStats.immunities.erase("Corrode")
+
+func _heart_passive(s_active):
+	if s_active == true:
+		PlayerStats.immunities.append("Siphon")
+		print_debug("Siphon")
+	else:
+		PlayerStats.immunities.erase("Siphon")
+
+func _skill_technique(s_active):
+	pass
+
+func _special_technique(s_active):
+	pass
+
+func _super_technique(s_active):
 	pass
