@@ -13,6 +13,11 @@ var specialist_info = {
 	"Technique 2": {"TN": "Increase [b]INF[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 40},
 	"Technique 3": {"TN": "All [b]Ranged Weapon[/b] hits register as [b]Weakpoint[/b].", "TD": 15, "TC": 90}
 }
+
+var specialist_rewards = {
+	"Level 1": "Legendary Crate",
+	"Level 2": "Mercenary Heart"
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
