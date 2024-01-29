@@ -17,16 +17,16 @@ func _ready():
 	vbox.connect("button_pressed", Callable(self, "update_text"))
 
 func update_text(text):
-	var specialist = load("res://script/specialists/" + text + ".gd").new()
+	var specialist = load("res://script/specialists/" + text.to_lower() + ".gd").new()
 	var info = specialist.specialist_info
 	description.bbcode_text = "Description: " + info["Description"]
 	weapon.bbcode_text = "Weapon: " + info["Weapon"]
-	passive1.bbcode_text = "Passive 1: " + info["Passive 1"]
-	passive2.bbcode_text = "Passive 2: " + info["Passive 2"]
-	passive3.bbcode_text = "Passive 3: " + info["Passive 3"]
-	technique1.bbcode_text = "Technique 1: " + info["Technique 1"]["TN"] + " (" + str(info["Technique 1"]["TD"]) + ")" + " {" + str(info["Technique 1"]["TC"]) + "}"
-	technique2.bbcode_text = "Technique 2: " + info["Technique 2"]["TN"] + " (" + str(info["Technique 2"]["TD"]) + ")" + " {" + str(info["Technique 2"]["TC"]) + "}"
-	technique3.bbcode_text = "Technique 3: " + info["Technique 3"]["TN"] + " (" + str(info["Technique 3"]["TD"]) + ")" + " {" + str(info["Technique 3"]["TC"]) + "}"
+	passive1.bbcode_text = "Passive 1: " + info["Passive 1"].values()[0]
+	passive2.bbcode_text = "Passive 2: " + info["Passive 2"].values()[0]
+	passive3.bbcode_text = "Passive 3: " + info["Passive 3"].values()[0]
+	technique1.bbcode_text = "Technique 1: " + info["Technique 1"].values()[0] + " (" + str(info["Technique 1"]["TD"]) + ")" + " {" + str(info["Technique 1"]["TC"]) + "}"
+	technique2.bbcode_text = "Technique 2: " + info["Technique 2"].values()[0] + " (" + str(info["Technique 2"]["TD"]) + ")" + " {" + str(info["Technique 2"]["TC"]) + "}"
+	technique3.bbcode_text = "Technique 3: " + info["Technique 3"].values()[0] + " (" + str(info["Technique 3"]["TD"]) + ")" + " {" + str(info["Technique 3"]["TC"]) + "}"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

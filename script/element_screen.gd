@@ -68,6 +68,7 @@ var point_count = 60
 @onready var strength = $Strength
 @onready var weakness = $Weakness
 @onready var elementImage = $ElementImage
+@onready var warning = $Warning
 
 var selected_button = null
 var selected_element = null
@@ -184,7 +185,10 @@ func _set_active(new_button: Button):
 func _on_continue_button_pressed():
 	if continue_screen and point_count == 0:
 		PlayerStats.elements = base_stat
+		print_debug(PlayerStats.elements)
 		get_tree().change_scene_to_packed(continue_screen)
+	elif continue_screen and point_count != 0:
+		warning.visible = true
 	else:
 		print("No Scene Set")
 
@@ -193,8 +197,6 @@ func _on_add_button_pressed():
 		point_count -= 1
 		_update_point_label()
 		_update_element_stat(400)
-		if point_count == 0:
-			continue_button.visible = true
 	else:
 		pass
 
@@ -203,7 +205,16 @@ func _on_minus_button_pressed():
 		point_count += 1
 		_update_point_label()
 		_update_element_stat(-400)
-		if point_count != 0:
-			continue_button.visible = false
 	else:
 		pass
+
+func _on_cancel_button_pressed():
+	warning.visible = false
+
+func _on_forfeit_continue_button_pressed():
+	if continue_screen:
+		PlayerStats.elements = base_stat
+		print_debug(PlayerStats.elements)
+		get_tree().change_scene_to_packed(continue_screen)
+	else:
+		print("No Scene Set")
