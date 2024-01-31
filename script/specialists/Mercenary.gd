@@ -69,30 +69,34 @@ func _on_specialist_activated(s_type):
 		_heart_passive(true)
 	else:
 		active = false
+		_mind_passive(false)
+		_soul_passive(false)
+		_heart_passive(false)
 
 func _timer_reached(s_name):
-	pass
+	if s_name == "mind":
+		_mind_passive(false)
+	if s_name == "soul":
+		_soul_passive(false)
+	if s_name == "heart":
+		_heart_passive(false)
+	if s_name == "skill":
+		_skill_technique(false)
+	if s_name == "special":
+		_special_technique(false)
+	if s_name == "super":
+		_super_technique(false)
+	else:
+		pass
 
 func _mind_passive(s_active):
-	if s_active == true:
-		PlayerStats.immunities.append("Blaze")
-		print_debug("Blaze")
-	else:
-		PlayerStats.immunities.erase("Blaze")
+	pass
 
 func _soul_passive(s_active):
-	if s_active == true:
-		PlayerStats.immunities.append("Corrode")
-		print_debug("Corrode")
-	else:
-		PlayerStats.immunities.erase("Corrode")
+	pass
 
 func _heart_passive(s_active):
-	if s_active == true:
-		PlayerStats.immunities.append("Siphon")
-		print_debug("Siphon")
-	else:
-		PlayerStats.immunities.erase("Siphon")
+	pass
 
 func _skill_technique(s_active):
 	pass
