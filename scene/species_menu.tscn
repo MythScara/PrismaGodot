@@ -53,7 +53,7 @@ theme_override_fonts/bold_font = ExtResource("1_ekm6r")
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
-text = "Select a [b]Species[/b] from the list on the left. Each [b]Species[/b] has their own set of bonuses and starting stats which will be listed below. The stats currently listed below are the base values required to max out a stat. When a stat is [color=\"green\"]GREEN[/color], the stat has more than the required amount to be maxed by endgame. When a stat is [color=\"red\"]RED[/color] it will require additional points to be maxed out by endgame. "
+text = "Select a [b]Species[/b] from the list on the left. Each [b]Species[/b] has their own set of bonuses and starting stats which will be listed below. The stats currently listed below are the base values required to max out a stat. When a stat is [color=\"green\"]GREEN[/color], the stat has more than the default amount. When a stat is [color=\"red\"]RED[/color], the stat has less than the default amount. The default amount represents a guranteed max by endgame when assigning [b]Attribute Points[/b]. You can also increase these stats using armor, outfit, rings, and artifacts."
 
 [node name="SpeciesBonus1" type="RichTextLabel" parent="SpeciesScreen"]
 layout_mode = 0

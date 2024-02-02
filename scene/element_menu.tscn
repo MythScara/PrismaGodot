@@ -74,15 +74,17 @@ bbcode_enabled = true
 text = "On this page you can distribute your available [b]Elemental Affinity[/b] points into any of the Elements listed on the left. These points will strengthen your ability while using the same Element. They will also strengthen your resistance against attacks made by the same element. Click on any of the Elements in the list to learn more about them. "
 fit_content = true
 
-[node name="Strength" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
+[node name="Strength" type="RichTextLabel" parent="ElementScreen/ScrollContainer/InfoBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+bbcode_enabled = true
 text = "Strength : "
+fit_content = true
 
-[node name="Weakness" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
+[node name="Weakness" type="RichTextLabel" parent="ElementScreen/ScrollContainer/InfoBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+bbcode_enabled = true
 text = "Weakness : "
+fit_content = true
 
 [node name="Reactions" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
 layout_mode = 2
@@ -311,7 +313,7 @@ custom_minimum_size = Vector2(550, 550)
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(1, 1, 1, 0.0980392)
+color = Color(0, 0, 0, 0.784314)
 
 [node name="WarningOutline" type="ColorRect" parent="ElementScreen/Warning"]
 layout_mode = 0
