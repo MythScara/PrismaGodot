@@ -10,8 +10,6 @@
 [node name="ElementScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("1_bawap")
 continue_screen = ExtResource("2_vlx38")
 
@@ -47,58 +45,53 @@ vertical_alignment = 1
 
 [node name="ElementImage" type="TextureRect" parent="ElementScreen"]
 layout_mode = 0
-offset_left = 1280.0
-offset_top = 512.0
-offset_right = 1472.0
-offset_bottom = 704.0
+offset_left = 1632.0
+offset_top = 832.0
+offset_right = 1824.0
+offset_bottom = 1024.0
 expand_mode = 1
 
-[node name="ElementDescription" type="RichTextLabel" parent="ElementScreen"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ElementScreen"]
 layout_mode = 0
-offset_left = 336.0
+offset_left = 328.0
 offset_top = 264.0
-offset_right = 1520.0
-offset_bottom = 528.0
+offset_right = 1528.0
+offset_bottom = 944.0
+
+[node name="InfoBox" type="VBoxContainer" parent="ElementScreen/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ElementDescription" type="RichTextLabel" parent="ElementScreen/ScrollContainer/InfoBox"]
+clip_contents = false
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/bold_font = ExtResource("2_syvfx")
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "On this page you can distribute your available [b]Elemental Affinity[/b] points into any of the Elements listed on the left. These points will strengthen your ability while using the same Element. They will also strengthen your resistance against attacks made by the same element. Click on any of the Elements in the list to learn more about them. "
+fit_content = true
 
-[node name="Strength" type="Label" parent="ElementScreen"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 576.0
-offset_right = 1520.0
-offset_bottom = 627.0
+[node name="Strength" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Strength : "
 
-[node name="Weakness" type="Label" parent="ElementScreen"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 640.0
-offset_right = 1520.0
-offset_bottom = 688.0
+[node name="Weakness" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Weakness : "
 
-[node name="Reactions" type="Label" parent="ElementScreen"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 704.0
-offset_right = 1520.0
-offset_bottom = 754.0
+[node name="Reactions" type="Label" parent="ElementScreen/ScrollContainer/InfoBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Reactions"
 horizontal_alignment = 1
 
-[node name="ReactionGrid" type="GridContainer" parent="ElementScreen"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 768.0
-offset_right = 1520.0
-offset_bottom = 960.0
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 4
+[node name="ReactionGrid" type="GridContainer" parent="ElementScreen/ScrollContainer/InfoBox"]
+layout_mode = 2
 
 [node name="ElementGrid" type="GridContainer" parent="ElementScreen"]
 layout_mode = 0

@@ -1,7 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bedxih1dwvlec"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bedxih1dwvlec"]
 
 [ext_resource type="FontFile" uid="uid://dn31i8oawcip5" path="res://font/xolonium/Xolonium.tres" id="1_1s6sh"]
+[ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="1_ygv1f"]
+[ext_resource type="FontFile" uid="uid://b385mxjpb2l0b" path="res://font/xolonium/Xolonium-Regular.ttf" id="2_ynpve"]
 
 [resource]
 default_font = ExtResource("1_1s6sh")
 default_font_size = 36
+RichTextLabel/font_sizes/bold_font_size = 36
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/bold_font = ExtResource("1_ygv1f")
+RichTextLabel/fonts/normal_font = ExtResource("2_ynpve")

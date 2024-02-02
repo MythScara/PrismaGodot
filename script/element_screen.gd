@@ -7,42 +7,128 @@ var element_info = {
 	"Description": "Resistance value against Solar Attacks, Pressure value using Solar Attacks",
 	"Strength": "Nature",
 	"Weakness": "Frost",
-	"Reactions": ["Burn", "Scorch", "Blaze", "Combust", "Spark", "Exhaust", "Melt", "Overheat"]},
+	"Reactions": {
+		"Burn" : "Deal [b]1% [/b]of user [b]ATK[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9[/b] seconds", 
+		"Scorch": "Ok",
+		"Blaze": "Ok",
+		"Combust": "Ok", 
+		"Spark" : "Ok", 
+		"Exhaust": "Ok",
+		"Melt" : "Ok", 
+		"Overheat": "Ok"
+		}
+	},
 	"NTR": {
 	"Description": "Resistance value against Nature Attacks, Pressure value using Nature Attacks",
 	"Strength": "Spirit",
 	"Weakness": "Solar",
-	"Reactions": ["Scorch", "Knock", "Siphon", "Poison", "Thunder", "Chill", "Corrode", "Overgrow"]},
+	"Reactions": {
+		"Scorch" : "", 
+		"Knock": "",
+		"Siphon": "",
+		"Poison": "", 
+		"Thunder" : "", 
+		"Chill": "",
+		"Corrode" : "", 
+		"Overgrow": ""
+		}
+	},
 	"SPR": {
 	"Description": "Resistance value against Spirit Attacks, Pressure value using Spirit Attacks",
 	"Strength": "Void",
 	"Weakness": "Nature",
-	"Reactions": ["Blaze", "Siphon", "Blind", "Curse", "Radiate", "Suppress", "Reflect", "Overload"]},
+	"Reactionst": ["Blaze", "Siphon", "Blind", "Curse", "Radiate", "Suppress", "Reflect", "Overload"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 	"VOD": {
 	"Description": "Resistance value against Void Attacks, Pressure value using Void Attacks",
 	"Strength": "Arc",
 	"Weakness": "Spirit",
-	"Reactions": ["Combust", "Poison", "Curse", "Blight", "Null", "Petrify", "Decay", "Overweigh"]},
+	"Reactionst": ["Combust", "Poison", "Curse", "Blight", "Null", "Petrify", "Decay", "Overweigh"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 	"ARC": {
 	"Description": "Resistance value against Arc Attacks, Pressure value using Arc Attacks",
 	"Strength": "Frost",
 	"Weakness": "Void",
-	"Reactions": ["Spark", "Thunder", "Radiate", "Null", "Paralyze", "Ionize", "Silence", "Overcharge"]},
+	"Reactionst": ["Spark", "Thunder", "Radiate", "Null", "Paralyze", "Ionize", "Silence", "Overcharge"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 	"FST": {
 	"Description": "Resistance value against Frost Attacks, Pressure value using Frost Attacks",
 	"Strength": "Solar",
 	"Weakness": "Arc",
-	"Reactions": ["Exhaust", "Chill", "Suppress", "Petrify", "Ionize", "Freeze", "Shatter", "Overflow"]},
+	"Reactionst": ["Exhaust", "Chill", "Suppress", "Petrify", "Ionize", "Freeze", "Shatter", "Overflow"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 	"MTL": {
 	"Description": "Resistance value against Metal Attacks, Pressure value using Metal Attacks",
 	"Strength": "Divine",
 	"Weakness": "Divine",
-	"Reactions": ["Melt", "Corrode", "Reflect", "Decay", "Silence", "Shatter", "Bleed", "Overpower"]},
+	"Reactionst": ["Melt", "Corrode", "Reflect", "Decay", "Silence", "Shatter", "Bleed", "Overpower"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 	"DVN": {
 	"Description": "Resistance value against Divine Attacks, Pressure value using Divine Attacks",
 	"Strength": "Metal",
 	"Weakness": "Metal",
-	"Reactions": ["Overheat", "Overgrow", "Overload", "Overweigh", "Overcharge", "Overflow", "Overpower", "Overwhelm"]},
+	"Reactionst": ["Overheat", "Overgrow", "Overload", "Overweigh", "Overcharge", "Overflow", "Overpower", "Overwhelm"],
+	"Reactions": {
+		"Burn" : "", 
+		"Scorch": "",
+		"Blaze": "",
+		"Combust": "", 
+		"Spark" : "", 
+		"Exhaust": "",
+		"Melt" : "", 
+		"Overheat": ""
+		}
+	},
 }
 
 var values = ["SLR", "NTR", "SPR", "VOD", "ARC", "FST", "MTL", "DVN"]
@@ -54,7 +140,7 @@ var point_count = 60
 
 @onready var elementGrid = $ElementGrid
 @onready var pointLabel = $PointLabel
-@onready var reactionGrid = $ReactionGrid
+@onready var reactionGrid = $ScrollContainer/InfoBox/ReactionGrid
 @onready var solarButton = $SolarButton
 @onready var natureButton = $NatureButton
 @onready var spiritButton = $SpiritButton
@@ -64,9 +150,9 @@ var point_count = 60
 @onready var metalButton = $MetalButton
 @onready var divineButton = $DivineButton
 @onready var continue_button = $ContinueButton
-@onready var description = $ElementDescription
-@onready var strength = $Strength
-@onready var weakness = $Weakness
+@onready var description = $ScrollContainer/InfoBox/ElementDescription
+@onready var strength = $ScrollContainer/InfoBox/Strength
+@onready var weakness = $ScrollContainer/InfoBox/Weakness
 @onready var elementImage = $ElementImage
 @onready var warning = $Warning
 
@@ -132,15 +218,21 @@ func _update_information(key : String):
 	else:
 		print_debug("Failed " + key)
 	
-func _update_reactions_grid(reactions: Array):
+func _update_reactions_grid(reactions: Dictionary):
 	for child in reactionGrid.get_children():
 		child.queue_free()
 	
-	for reaction in reactions:
-		var reaction_label = Label.new()   
-		reaction_label.text = reaction
-		reaction_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL      
-		reaction_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	for reaction in reactions.keys():		
+		var reaction_label = RichTextLabel.new()
+		reaction_label.bbcode_enabled = true
+		
+		var description = reactions[reaction]
+		
+		var reaction_text = reaction + " : " + description
+		reaction_label.bbcode_text = reaction_text
+		reaction_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		reaction_label.custom_minimum_size = Vector2(0,100)
+		
 		reactionGrid.add_child(reaction_label)
 	
 	reactionGrid.queue_sort()  # Align the stat value to the right
