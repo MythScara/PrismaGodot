@@ -28,3 +28,10 @@ func get_bonuses() -> Dictionary:
 
 func get_elements() -> Dictionary:
 	return elements
+
+func add_timer(timer : Timer) -> void:
+	var cur_scene = get_tree().current_scene
+	if cur_scene:
+		cur_scene.add_child(timer)
+	else:
+		print_debug("No scene found")
