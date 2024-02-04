@@ -8,6 +8,12 @@ var specialist = null
 var immunities = []
 var passives = {}
 var techniques = {}
+var ranged_stats = {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+					"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+					"Type": null, "Tier": null, "Element": null}
+var melee_stats = {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+					"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+					"Type": null, "Tier": null, "Element": null}
 
 signal activate_specialist(s_type)
 
