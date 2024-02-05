@@ -22,7 +22,7 @@ func update_text(text):
 	var specialist = load("res://script/specialists/" + text.to_lower() + ".gd").new()
 	specialist.initialize()
 	var info = specialist.specialist_info
-	selected_specialist = text
+	selected_specialist = text.to_lower()
 	description.bbcode_text = "Description: " + info["Description"]
 	weapon.bbcode_text = "Weapon: " + info["Weapon"]
 	passive1.bbcode_text = "Passive 1: " + info["Passive 1"].values()[0]

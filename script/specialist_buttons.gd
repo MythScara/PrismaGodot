@@ -19,7 +19,3 @@ func _on_Button_pressed(new_button : Button):
 	selected_button = new_button
 	new_button.set_pressed(true)
 	emit_signal("button_pressed", new_button.text)
-
-
-
-

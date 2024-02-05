@@ -13,8 +13,6 @@ var skill_ready = true
 var special_ready = true
 var super_ready = true
 
-signal activation_timer(s_name)
-
 var specialist_info = {
 	"Name": "",
 	"Description": "",
@@ -42,7 +40,6 @@ var specialist_rewards = {
 }
 
 func initialize():
-	connect("activation_timer", Callable(self, "_timer_reached"))
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
 
 # Called when the node enters the scene tree for the first time.
@@ -58,7 +55,7 @@ func start_timer(seconds, s_name, cooldown):
 	timer.start()
 
 func _on_timer_timeout(s_name, cooldown):
-	emit_signal("activation_timer", s_name, cooldown)
+	_timer_reached(s_name, cooldown)
 	
 	for child in get_children():
 		if child is Timer and child.is_stopped():
@@ -74,6 +71,7 @@ func _on_specialist_activated(s_type):
 		mind_passive(true)
 		soul_passive(true)
 		heart_passive(true)
+		PlayerStats.set_specialist(specialist_name)
 	elif s_type != specialist_name and active == true:
 		active = false
 		mind_passive(false)
@@ -162,6 +160,7 @@ func special_technique(s_active):
 	if s_active == true and special_ready == true:
 		print_debug("Special Activated")
 		start_timer(specialist_info["Technique 2"]["TD"], "special", false)
+		special_ready = false
 		pass
 	elif s_active == false:
 		print_debug("Special Cooldown")
@@ -174,6 +173,7 @@ func super_technique(s_active):
 	if s_active == true and super_ready == true:
 		print_debug("Super Activated")
 		start_timer(specialist_info["Technique 3"]["TD"], "super", false)
+		super_ready = false
 		pass
 	elif s_active == false:
 		print_debug("Super Cooldown")

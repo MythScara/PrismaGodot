@@ -6,8 +6,8 @@ var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 var specialist = null
 var immunities = []
-var passives = {}
-var techniques = {}
+var passives = {"Mind": null, "Soul": null, "Heart": null}
+var techniques = {"Skill": null, "Special": null, "Super": null}
 var ranged_stats = {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
 					"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 					"Type": null, "Tier": null, "Element": null}
@@ -16,6 +16,13 @@ var melee_stats = {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "
 					"Type": null, "Tier": null, "Element": null}
 
 signal activate_specialist(s_type)
+
+func set_specialist(specialist_name):
+	var specialist_class = load("res://script/specialists/" + specialist_name + ".gd").new()
+	if specialist_class:
+		techniques["Skill"] = specialist_class.skill_technique
+		techniques["Special"] = specialist_class.special_technique
+		techniques["Super"] = specialist_class.super_technique
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
@@ -41,3 +48,15 @@ func add_timer(timer : Timer) -> void:
 		cur_scene.add_child(timer)
 	else:
 		print_debug("No scene found")
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_Q:
+			if techniques["Skill"] != null:
+				techniques["Skill"].call(true)
+		if event.pressed and event.keycode == KEY_E:
+			if techniques["Special"] != null:
+				techniques["Special"].call(true)
+		if event.pressed and event.keycode == KEY_G:
+			if techniques["Super"] != null:
+				techniques["Super"].call(true)
