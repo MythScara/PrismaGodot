@@ -62,7 +62,7 @@ func _on_timer_timeout(s_name, cooldown):
 			child.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_specialist_activated(s_type):
@@ -98,27 +98,27 @@ func _timer_reached(s_name, cooldown):
 			pass
 	elif cooldown == true:
 		if s_name == "mind":
-			print_debug("Mind Ready")
+			print_debug(str(specialist_name) + " Mind Ready")
 			mind_ready = true
 		elif s_name == "soul":
-			print_debug("Soul Ready")
+			print_debug(str(specialist_name) + " Soul Ready")
 			soul_ready = true
 		elif s_name == "heart":
-			print_debug("Heart Ready")
+			print_debug(str(specialist_name) + " Heart Ready")
 			heart_ready = true
 		elif s_name == "skill":
-			print_debug("Skill Ready")
+			print_debug(str(specialist_name) + " Skill Ready")
 			skill_ready = true
 		elif s_name == "special":
-			print_debug("Special Ready")
+			print_debug(str(specialist_name) + " Special Ready")
 			special_ready = true
 		elif s_name == "super":
-			print_debug("Super Ready")
+			print_debug(str(specialist_name) + " Super Ready")
 			super_ready = true
 
 func mind_passive(s_active):
 	if s_active == true:
-		print_debug("Mind Activated")
+		print_debug(str(specialist_name) + " Mind Activated")
 		pass
 	elif s_active == false:
 		pass
@@ -127,7 +127,7 @@ func mind_passive(s_active):
 
 func soul_passive(s_active):
 	if s_active == true:
-		print_debug("Soul Activated")
+		print_debug(str(specialist_name) + " Soul Activated")
 		pass
 	elif s_active == false:
 		pass
@@ -136,7 +136,7 @@ func soul_passive(s_active):
 
 func heart_passive(s_active):
 	if s_active == true:
-		print_debug("Heart Activated")
+		print_debug(str(specialist_name) + " Heart Activated")
 		pass
 	elif s_active == false:
 		pass
@@ -145,12 +145,12 @@ func heart_passive(s_active):
 
 func skill_technique(s_active):
 	if s_active == true and skill_ready == true:
-		print_debug("Skill Activated")
+		print_debug(str(specialist_name) + " Skill Activated")
 		start_timer(specialist_info["Technique 1"]["TD"], "skill", false)
 		skill_ready = false
 		pass
 	elif s_active == false:
-		print_debug("Skill Cooldown")
+		print_debug(str(specialist_name) + " Skill Cooldown")
 		start_timer(specialist_info["Technique 1"]["TC"], "skill", true)
 		pass
 	else:
@@ -158,12 +158,12 @@ func skill_technique(s_active):
 
 func special_technique(s_active):
 	if s_active == true and special_ready == true:
-		print_debug("Special Activated")
+		print_debug(str(specialist_name) + " Special Activated")
 		start_timer(specialist_info["Technique 2"]["TD"], "special", false)
 		special_ready = false
 		pass
 	elif s_active == false:
-		print_debug("Special Cooldown")
+		print_debug(str(specialist_name) + " Special Cooldown")
 		start_timer(specialist_info["Technique 2"]["TC"], "special", true)
 		pass
 	else:
@@ -171,12 +171,12 @@ func special_technique(s_active):
 
 func super_technique(s_active):
 	if s_active == true and super_ready == true:
-		print_debug("Super Activated")
+		print_debug(str(specialist_name) + " Super Activated")
 		start_timer(specialist_info["Technique 3"]["TD"], "super", false)
 		super_ready = false
 		pass
 	elif s_active == false:
-		print_debug("Super Cooldown")
+		print_debug(str(specialist_name) + " Super Cooldown")
 		start_timer(specialist_info["Technique 3"]["TC"], "super", true)
 		pass
 	else:

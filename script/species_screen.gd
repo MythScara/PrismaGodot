@@ -143,9 +143,6 @@ func _set_active(new_button: Button):
 
 func _on_continue_button_pressed():
 	if continue_screen and PlayerStats.species != null:
-		print_debug(PlayerStats.species)
-		print_debug(PlayerStats.stats)
-		print_debug(PlayerStats.bonuses)
 		get_tree().change_scene_to_packed(continue_screen)
 	else:
 		print("No Scene Set")

@@ -8,18 +8,23 @@ var specialist = null
 var immunities = []
 var passives = {"Mind": null, "Soul": null, "Heart": null}
 var techniques = {"Skill": null, "Special": null, "Super": null}
-var ranged_stats = {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-					"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-					"Type": null, "Tier": null, "Element": null}
-var melee_stats = {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-					"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-					"Type": null, "Tier": null, "Element": null}
+var ranged_stats = {
+	"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": null, "Tier": null, "Element": null}
+var melee_stats = {
+	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": null, "Tier": null, "Element": null}
 
 signal activate_specialist(s_type)
 
 func set_specialist(specialist_name):
 	var specialist_class = load("res://script/specialists/" + specialist_name + ".gd").new()
 	if specialist_class:
+		passives["Mind"] = specialist_class.mind_passive
+		passives["Soul"] = specialist_class.soul_passive
+		passives["Heart"] = specialist_class.heart_passive
 		techniques["Skill"] = specialist_class.skill_technique
 		techniques["Special"] = specialist_class.special_technique
 		techniques["Super"] = specialist_class.super_technique
@@ -60,3 +65,14 @@ func _input(event):
 		if event.pressed and event.keycode == KEY_G:
 			if techniques["Super"] != null:
 				techniques["Super"].call(true)
+		if event.pressed and event.keycode == KEY_I:
+			print_debug(species)
+			print_debug(stats)
+			print_debug(bonuses)
+			print_debug(elements)
+			print_debug(specialist)
+			print_debug(immunities)
+			print_debug(passives)
+			print_debug(techniques)
+			print_debug(ranged_stats)
+			print_debug(melee_stats)

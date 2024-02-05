@@ -31,12 +31,6 @@ func update_text(text):
 	technique1.bbcode_text = "Technique 1: " + info["Technique 1"].values()[0] + " (" + str(info["Technique 1"]["TD"]) + ")" + " {" + str(info["Technique 1"]["TC"]) + "}"
 	technique2.bbcode_text = "Technique 2: " + info["Technique 2"].values()[0] + " (" + str(info["Technique 2"]["TD"]) + ")" + " {" + str(info["Technique 2"]["TC"]) + "}"
 	technique3.bbcode_text = "Technique 3: " + info["Technique 3"].values()[0] + " (" + str(info["Technique 3"]["TD"]) + ")" + " {" + str(info["Technique 3"]["TC"]) + "}"
-	PlayerStats.specialist = selected_specialist
-	PlayerStats.emit_signal("activate_specialist", selected_specialist)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func _on_continue_button_pressed():
 	if continue_screen:
