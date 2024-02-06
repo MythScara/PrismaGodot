@@ -30,6 +30,82 @@ func set_specialist(specialist_name):
 		techniques["Special"] = specialist_class.special_technique
 		techniques["Super"] = specialist_class.super_technique
 
+func weapon_stat_change(stat_values, stat_type, stat_mode):
+	if stat_mode == "Add":
+		if stat_type == "Ranged" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in ranged_stats and typeof(stat_values[key]) == TYPE_INT:
+					ranged_stats[key] = clamp(ranged_stats[key] + stat_values[key], 0, 100)
+		if stat_type == "Melee" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in melee_stats and typeof(stat_values[key]) == TYPE_INT:
+					melee_stats[key] = clamp(melee_stats[key] + stat_values[key], 0, 100)
+	elif stat_mode == "Sub":
+		if stat_type == "Ranged" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in ranged_stats and typeof(stat_values[key]) == TYPE_INT:
+					ranged_stats[key] = clamp(ranged_stats[key] - stat_values[key], 0, 100)
+		if stat_type == "Melee" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in melee_stats and typeof(stat_values[key]) == TYPE_INT:
+					melee_stats[key] = clamp(melee_stats[key] - stat_values[key], 0, 100)
+	elif stat_mode == "Mod":
+		if stat_type == "Ranged" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in ranged_stats:
+					ranged_stats[key] = stat_values[key]
+		if stat_type == "Melee" or stat_type == "Both":
+			for key in stat_values.keys():
+				if key in melee_stats:
+					melee_stats[key] = stat_values[key]
+	else:
+		print_debug("Input was Incomplete or Incorrect")
+		return
+
+func element_stat_change(stat_values, stat_mode):
+	if stat_mode == "Add":
+		for key in stat_values.keys():
+			if key in elements and typeof(stat_values[key]) == TYPE_INT:
+				elements[key] = clamp(elements[key] + stat_values[key], 0, 50000)
+	elif stat_mode == "Sub":
+		for key in stat_values.keys():
+			if key in elements and typeof(stat_values[key]) == TYPE_INT:
+				elements[key] = clamp(elements[key] - stat_values[key], 0, 50000)
+	elif stat_mode == "Mod":
+		for key in stat_values.keys():
+			if key in elements and typeof(stat_values[key]) == TYPE_INT:
+				elements[key] = stat_values[key]
+	else:
+		print_debug("Input was Incomplete or Incorrect")
+		return
+
+func player_stat_change(stat_values, stat_mode):
+	if stat_mode == "Add":
+		for key in stat_values.keys():
+			if key in stats and typeof(stat_values[key]) == TYPE_INT:
+				if key == "HP" or key == "MP":
+					stats[key] = clamp(stats[key] + stat_values[key], 0, 500000)
+				elif key == "SHD" or "STM":
+					stats[key] = clamp(stats[key] + stat_values[key], 0, 100000)
+				else:
+					stats[key] = clamp(stats[key] + stat_values[key], 0, 50000)
+	elif stat_mode == "Sub":
+		for key in stat_values.keys():
+			if key in stats and typeof(stat_values[key]) == TYPE_INT:
+				if key == "HP" or key == "MP":
+					stats[key] = clamp(stats[key] - stat_values[key], 0, 500000)
+				elif key == "SHD" or key == "STM":
+					stats[key] = clamp(stats[key] - stat_values[key], 0, 100000)
+				else:
+					stats[key] = clamp(stats[key] - stat_values[key], 0, 50000)
+	elif stat_mode == "Mod":
+		for key in stat_values.keys():
+			if key in stats and typeof(stat_values[key]) == TYPE_INT:
+				stats[key] = stat_values[key]
+	else:
+		print_debug("Input was Incomplete or Incorrect")
+		return
+
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
 
