@@ -6,6 +6,7 @@ var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 var specialist = null
 var immunities = []
+var buffs = []
 var passives = {"Mind": null, "Soul": null, "Heart": null}
 var techniques = {"Skill": null, "Special": null, "Super": null}
 var ranged_stats = {
@@ -20,7 +21,7 @@ var melee_stats = {
 signal activate_specialist(s_type)
 
 func set_specialist(specialist_name):
-	var specialist_class = load("res://script/specialists/" + specialist_name + ".gd").new()
+	var specialist_class = load("res://script/specialists/" + specialist_name.to_lower() + ".gd").new()
 	if specialist_class:
 		passives["Mind"] = specialist_class.mind_passive
 		passives["Soul"] = specialist_class.soul_passive
