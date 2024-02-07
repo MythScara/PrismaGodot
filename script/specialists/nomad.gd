@@ -1,6 +1,6 @@
 extends Node
 
-var specialist_name = "Cavalier"
+var specialist_name = "Nomad"
 var active = false
 var cur_level = 0
 var cur_experience = 0
@@ -14,15 +14,15 @@ var special_ready = true
 var super_ready = true
 
 var specialist_info = {
-	"Name": "Cavalier",
-	"Description": "Quick witted soldier trained to engage in close quarter combat. A flurry of bullets rather than pinpoint accuracy is the name of their game.",
-	"Weapon": "Sub Machine Gun",
-	"Passive 1": {"Mind": "Gain immunity to [b]Suppress[/b]."},
-	"Passive 2": {"Soul": "Increase [b]FR[/b] by [b]10[/b] on [b]Ranged Weapons[/b]."},
-	"Passive 3": {"Heart": "Taking [b]Physical Damage[/b] restores [b]2% Stamina[/b]. Can only occur once every [b]5 [/b]seconds."},
-	"Technique 1": {"Skill": "Increase [b]MOB[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 30},
-	"Technique 2": {"Special": "[b]Stamina[/b] depleted is converted into [b]Overshield[/b].", "TD": 15, "TC": 60},
-	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Momentum[/b].", "TD": "SU", "TC": 60}
+	"Name": "Nomad",
+	"Description": "Traveler of all lands, with the ambition to explore the unknown. Insatiable hunger to be free, free from the shackles of war.",
+	"Weapon": "Machine Pistol",
+	"Passive 1": {"Mind": "When [b]Health[/b] drops below [b]20%[/b], gain [b]3[/b] stacks of [b]Momentum[/b]. Does not stack with itself."},
+	"Passive 2": {"Soul": "Increase [b]FRC[/b] by [b]5 [/b]on all weapons."},
+	"Passive 3": {"Heart": "Taking [b]Magic Damage [/b]restores [b]2% Magic Power[/b]. Can only occur once every [b]5 [/b]seconds."},
+	"Technique 1": {"Skill": "Regenerate [b]2% Stamina [/b]per second.", "TD": 5, "TC": 20},
+	"Technique 2": {"Special": "Next instance of [b]Elemental Damage[/b] is nullified.", "TD": "SU", "TC": 20},
+	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Iceborn[/b].", "TD": "SU", "TC": 60}
 }
 
 var specialist_rewards = {

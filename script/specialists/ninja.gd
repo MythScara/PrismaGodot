@@ -1,6 +1,6 @@
 extends Node
 
-var specialist_name = "Cavalier"
+var specialist_name = "Ninja"
 var active = false
 var cur_level = 0
 var cur_experience = 0
@@ -14,15 +14,15 @@ var special_ready = true
 var super_ready = true
 
 var specialist_info = {
-	"Name": "Cavalier",
-	"Description": "Quick witted soldier trained to engage in close quarter combat. A flurry of bullets rather than pinpoint accuracy is the name of their game.",
-	"Weapon": "Sub Machine Gun",
-	"Passive 1": {"Mind": "Gain immunity to [b]Suppress[/b]."},
-	"Passive 2": {"Soul": "Increase [b]FR[/b] by [b]10[/b] on [b]Ranged Weapons[/b]."},
-	"Passive 3": {"Heart": "Taking [b]Physical Damage[/b] restores [b]2% Stamina[/b]. Can only occur once every [b]5 [/b]seconds."},
-	"Technique 1": {"Skill": "Increase [b]MOB[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 30},
-	"Technique 2": {"Special": "[b]Stamina[/b] depleted is converted into [b]Overshield[/b].", "TD": 15, "TC": 60},
-	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Momentum[/b].", "TD": "SU", "TC": 60}
+	"Name": "Ninja",
+	"Description": "Master of the shadows and trained in all forms of stealth combat. Darkness cometh at night but death be discovered in daylight.",
+	"Weapon": "Dagger",
+	"Passive 1": {"Mind": "Gain immunity to [b]Radiate[/b]."},
+	"Passive 2": {"Soul": "Increase [b]MOB[/b] by [b]10 [/b]on [b]Melee Weapons[/b]."},
+	"Passive 3": {"Heart": "Using a [b]Battle Item [/b]reduces [b]Technique[/b] cooldowns by [b]10%[/b]."},
+	"Technique 1": {"Skill": "Increase [b]ASP[/b] by [b]20 [/b]on [b]Melee Weapons[/b].", "TD": 10, "TC": 30},
+	"Technique 2": {"Special": "Increase [b]CRR[/b] by [b]20 [/b]on [b]Melee Weapons[/b].", "TD": 10, "TC": 40},
+	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Iron Lung[/b].", "TD": "SU", "TC": 60}
 }
 
 var specialist_rewards = {

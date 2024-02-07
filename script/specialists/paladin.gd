@@ -1,6 +1,6 @@
 extends Node
 
-var specialist_name = "Cavalier"
+var specialist_name = "Paladin"
 var active = false
 var cur_level = 0
 var cur_experience = 0
@@ -14,15 +14,15 @@ var special_ready = true
 var super_ready = true
 
 var specialist_info = {
-	"Name": "Cavalier",
-	"Description": "Quick witted soldier trained to engage in close quarter combat. A flurry of bullets rather than pinpoint accuracy is the name of their game.",
-	"Weapon": "Sub Machine Gun",
-	"Passive 1": {"Mind": "Gain immunity to [b]Suppress[/b]."},
-	"Passive 2": {"Soul": "Increase [b]FR[/b] by [b]10[/b] on [b]Ranged Weapons[/b]."},
-	"Passive 3": {"Heart": "Taking [b]Physical Damage[/b] restores [b]2% Stamina[/b]. Can only occur once every [b]5 [/b]seconds."},
-	"Technique 1": {"Skill": "Increase [b]MOB[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 30},
-	"Technique 2": {"Special": "[b]Stamina[/b] depleted is converted into [b]Overshield[/b].", "TD": 15, "TC": 60},
-	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Momentum[/b].", "TD": "SU", "TC": 60}
+	"Name": "Paladin",
+	"Description": "Honored knight bound by the laws of loyalty, pride, and chivalry. Strength is the result of an immovable will.",
+	"Weapon": "Long Sword",
+	"Passive 1": {"Mind": "Gain immunity to [b]Thunder[/b]."},
+	"Passive 2": {"Soul": "Increase [b]HND[/b] by [b]10 [/b]on [b]Melee Weapons[/b]."},
+	"Passive 3": {"Heart": "Taking [b]Elemental Damage [/b]restores [b]2% Magic Power[/b]. Can only occur once every [b]5 [/b]seconds."},
+	"Technique 1": {"Skill": "Increase [b]HND[/b] by [b]20 [/b]on [b]Melee Weapons[/b].", "TD": 10, "TC": 30},
+	"Technique 2": {"Special": "Increase [b]INF[/b] by [b]20 [/b]on [b]Melee Weapons[/b].", "TD": 10, "TC": 40},
+	"Technique 3": {"Super": "[b]Melee Weapons[/b] can attack continuously without recharging.", "TD": 15, "TC": 90}
 }
 
 var specialist_rewards = {

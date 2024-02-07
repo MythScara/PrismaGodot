@@ -1,6 +1,6 @@
 extends Node
 
-var specialist_name = "Cavalier"
+var specialist_name = "Spartan"
 var active = false
 var cur_level = 0
 var cur_experience = 0
@@ -14,15 +14,15 @@ var special_ready = true
 var super_ready = true
 
 var specialist_info = {
-	"Name": "Cavalier",
-	"Description": "Quick witted soldier trained to engage in close quarter combat. A flurry of bullets rather than pinpoint accuracy is the name of their game.",
-	"Weapon": "Sub Machine Gun",
-	"Passive 1": {"Mind": "Gain immunity to [b]Suppress[/b]."},
-	"Passive 2": {"Soul": "Increase [b]FR[/b] by [b]10[/b] on [b]Ranged Weapons[/b]."},
-	"Passive 3": {"Heart": "Taking [b]Physical Damage[/b] restores [b]2% Stamina[/b]. Can only occur once every [b]5 [/b]seconds."},
-	"Technique 1": {"Skill": "Increase [b]MOB[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 30},
-	"Technique 2": {"Special": "[b]Stamina[/b] depleted is converted into [b]Overshield[/b].", "TD": 15, "TC": 60},
-	"Technique 3": {"Super": "Gain [b]3[/b] stacks of [b]Momentum[/b].", "TD": "SU", "TC": 60}
+	"Name": "Spartan",
+	"Description": "Battle hardened soldier with a desire to destroy. Execute every order, leave no survivors, rinse and repeat.",
+	"Weapon": "Light Machine Gun",
+	"Passive 1": {"Mind": "Dealing [b]Physical Damage[/b] grants [b]1[/b] stack of [b]Bulwark[/b]. Does not stack with itself."},
+	"Passive 2": {"Soul": "Increase [b]MAG[/b] by [b]10[/b] on [b]Ranged Weapons[/b]."},
+	"Passive 3": {"Heart": "Using a [b]Summon[/b] instantly reloads [b]Ranged Weapons[/b] and starts [b]Shield Recovery[/b]."},
+	"Technique 1": {"Skill": "Increase [b]FR[/b] by [b]20[/b] on [b]Ranged Weapons[/b].", "TD": 10, "TC": 30},
+	"Technique 2": {"Special": "[b]Overshield[/b] depleted is converted into [b]Magic Power[/b].", "TD": 15, "TC": 60},
+	"Technique 3": {"Super": "[b]Ranged Weapons [/b]can shoot continuously without reloading.", "TD": 15, "TC": 90}
 }
 
 var specialist_rewards = {
