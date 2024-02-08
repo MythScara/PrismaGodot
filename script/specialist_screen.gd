@@ -22,8 +22,7 @@ func update_text(text):
 	if text == selected_specialist:
 		return
 	
-	var specialist = load("res://script/specialists/" + text.to_lower() + ".gd").new()
-	specialist.initialize()
+	var specialist = PlayerStats.load_specialist(text)
 	var info = specialist.specialist_info
 	selected_specialist = text
 	description.bbcode_text = "Description: " + info["Description"]

@@ -18,10 +18,17 @@ var melee_stats = {
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": null, "Tier": null, "Element": null}
 
+var specialist_cache = {}
+
 signal activate_specialist(s_type)
 
 func set_specialist(specialist_name):
-	var specialist_class = load("res://script/specialists/" + specialist_name.to_lower() + ".gd").new()
+	var specialist_class
+	if not specialist_cache.has(specialist_name):
+		specialist_class = load("res://script/specialists/" + specialist_name.to_lower() + ".gd").new()
+	else:
+		specialist_class = specialist_cache[specialist_name]
+
 	if specialist_class:
 		passives["Mind"] = specialist_class.mind_passive
 		passives["Soul"] = specialist_class.soul_passive
@@ -130,6 +137,13 @@ func add_timer(timer : Timer) -> void:
 		cur_scene.add_child(timer)
 	else:
 		print_debug("No scene found")
+
+func load_specialist(text : String):
+	if not specialist_cache.has(text):
+		var specialist_script = load("res://script/specialists/" + text.to_lower() + ".gd").new()
+		specialist_script.initialize()
+		specialist_cache[text] = specialist_script
+	return specialist_cache[text]
 
 func _input(event):
 	if event is InputEventKey:
