@@ -6,8 +6,9 @@ var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 var specialist = null
 var immunities = []
-var buffs = []
-var passives = {"Mind": null, "Soul": null, "Heart": null}
+var buffs = {}
+var afflictions = {}
+var passives = {}
 var techniques = {"Skill": null, "Special": null, "Super": null}
 var ranged_stats = {
 	"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
@@ -23,19 +24,48 @@ var specialist_cache = {}
 signal activate_specialist(s_type)
 
 func set_specialist(specialist_name):
-	var specialist_class
-	if not specialist_cache.has(specialist_name):
-		specialist_class = load("res://script/specialists/" + specialist_name.to_lower() + ".gd").new()
-	else:
-		specialist_class = specialist_cache[specialist_name]
-
+	var specialist_class = load_specialist(specialist_name)
+	
 	if specialist_class:
-		passives["Mind"] = specialist_class.mind_passive
-		passives["Soul"] = specialist_class.soul_passive
-		passives["Heart"] = specialist_class.heart_passive
-		techniques["Skill"] = specialist_class.skill_technique
-		techniques["Special"] = specialist_class.special_technique
-		techniques["Super"] = specialist_class.super_technique
+		change_passive(specialist_name, "mind_passive", "Add")
+		change_passive(specialist_name, "soul_passive", "Add")
+		change_passive(specialist_name, "heart_passive", "Add")
+		change_technique(specialist_name, "skill_technique")
+		change_technique(specialist_name, "special_technique")
+		change_technique(specialist_name, "super_technique")
+
+func change_technique(specialist_name, technique_type):
+	var specialist_class  = load_specialist(specialist_name)
+	var technique_method = specialist_class.get(technique_type)
+	
+	if technique_method:
+		if technique_type == "skill_technique":
+			techniques["Skill"] = technique_method
+		if technique_type == "special_technique":
+			techniques["Special"] = technique_method
+		if technique_type == "super_technique":
+			techniques["Super"] = technique_method
+	else:
+		print_debug("Invalid Technique: " + technique_type)
+
+func change_passive(specialist_name, passive_type, modification):
+	var identifier = specialist_name + "_" + passive_type
+	
+	var specialist_class = load_specialist(specialist_name) if identifier in passives or modification == "Add" else null
+	
+	if modification == "Add":
+		if identifier not in passives and specialist_class:
+			var passive_method = specialist_class.get(passive_type)
+			passives[identifier] = passive_method
+		else:
+			print_debug("Passive Exists: " + identifier)
+	elif modification == "Sub":
+		if identifier in passives:
+			passives.erase(identifier)
+		else:
+			print_debug("Passive Not Found: " + identifier)
+	else:
+		print_debug("Invalid Modification: " + modification)
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_mode == "Add":
