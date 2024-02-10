@@ -68,53 +68,53 @@ func _process(_delta):
 func _on_specialist_activated(s_type):
 	if s_type == specialist_name and active == false:
 		active = true
-		mind_passive(true)
-		soul_passive(true)
-		heart_passive(true)
 		PlayerStats.set_specialist(specialist_name)
 	elif s_type != specialist_name and active == true:
 		active = false
-		mind_passive(false)
-		soul_passive(false)
-		heart_passive(false)
 	else:
 		pass
 
 func _timer_reached(s_name, cooldown):
 	if cooldown == false:
-		if s_name == "mind":
-			mind_passive(false)
-		elif s_name == "soul":
-			soul_passive(false)
-		elif s_name == "heart":
-			heart_passive(false)
-		elif s_name == "skill":
-			skill_technique(false)
-		elif s_name == "special":
-			special_technique(false)
-		elif s_name == "super":
-			super_technique(false)
-		else:
-			pass
+		match s_name:
+			"mind":
+				mind_passive(false)
+			"soul":
+				soul_passive(false)
+			"heart":
+				heart_passive(false)
+			"skill":
+				skill_technique(false)
+			"special":
+				special_technique(false)
+			"super":
+				super_technique(false)
+			_:
+				print_debug("Invalid Method")
+				return
 	elif cooldown == true:
-		if s_name == "mind":
-			print_debug(specialist_info["Name"] + " Mind Ready")
-			mind_ready = true
-		elif s_name == "soul":
-			print_debug(specialist_info["Name"] + " Soul Ready")
-			soul_ready = true
-		elif s_name == "heart":
-			print_debug(specialist_info["Name"] + " Heart Ready")
-			heart_ready = true
-		elif s_name == "skill":
-			print_debug(specialist_info["Name"] + " Skill Ready")
-			skill_ready = true
-		elif s_name == "special":
-			print_debug(specialist_info["Name"] + " Special Ready")
-			special_ready = true
-		elif s_name == "super":
-			print_debug(specialist_info["Name"] + " Super Ready")
-			super_ready = true
+		match s_name:
+			"mind":
+				print_debug(specialist_info["Name"] + " Mind Ready")
+				mind_ready = true
+			"soul":
+				print_debug(specialist_info["Name"] + " Soul Ready")
+				soul_ready = true
+			"heart":
+				print_debug(specialist_info["Name"] + " Heart Ready")
+				heart_ready = true
+			"skill":
+				print_debug(specialist_info["Name"] + " Skill Ready")
+				skill_ready = true
+			"special":
+				print_debug(specialist_info["Name"] + " Special Ready")
+				special_ready = true
+			"super":
+				print_debug(specialist_info["Name"] + " Super Ready")
+				super_ready = true
+			_:
+				print_debug("Invalid Method")
+				return
 
 func mind_passive(s_active):
 	if s_active == true:

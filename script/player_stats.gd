@@ -57,91 +57,71 @@ func change_passive(specialist_name, passive_type, modification):
 		if identifier not in passives and specialist_class:
 			var passive_method = specialist_class.get(passive_type)
 			passives[identifier] = passive_method
+			passive_method.call(true)
 		else:
 			print_debug("Passive Exists: " + identifier)
 	elif modification == "Sub":
 		if identifier in passives:
+			var passive_method = passives[identifier]
+			passive_method.call(false)
 			passives.erase(identifier)
 		else:
 			print_debug("Passive Not Found: " + identifier)
 	else:
 		print_debug("Invalid Modification: " + modification)
 
+func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String):
+	for key in stat_values.keys():
+		var value_type = typeof(stat_values[key])
+		
+		var valid = false
+		match stat_mode:
+			"Add", "Sub", "Mod":
+				valid = (value_type == TYPE_INT)
+			"Mul":
+				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT)
+	
+		if key in target and valid:
+			match stat_mode:
+				"Add":
+					target[key] = clamp(target[key] + stat_values[key], 0, target.get("max_value", 100))
+				"Sub":
+					target[key] = clamp(target[key] - stat_values[key], 0, target.get("max_value", 100))
+				"Mul":
+					target[key] = clamp(target[key] * stat_values[key], 0, target.get("max_value", 100))
+				"Mod":
+					target[key] = stat_values[key]
+				_:
+					print_debug("Invalid Operation")
+					return
+		else:
+			print_debug("Invalid Operation")
+			return
+
 func weapon_stat_change(stat_values, stat_type, stat_mode):
-	if stat_mode == "Add":
-		if stat_type == "Ranged" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in ranged_stats and typeof(stat_values[key]) == TYPE_INT:
-					ranged_stats[key] = clamp(ranged_stats[key] + stat_values[key], 0, 100)
-		if stat_type == "Melee" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in melee_stats and typeof(stat_values[key]) == TYPE_INT:
-					melee_stats[key] = clamp(melee_stats[key] + stat_values[key], 0, 100)
-	elif stat_mode == "Sub":
-		if stat_type == "Ranged" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in ranged_stats and typeof(stat_values[key]) == TYPE_INT:
-					ranged_stats[key] = clamp(ranged_stats[key] - stat_values[key], 0, 100)
-		if stat_type == "Melee" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in melee_stats and typeof(stat_values[key]) == TYPE_INT:
-					melee_stats[key] = clamp(melee_stats[key] - stat_values[key], 0, 100)
-	elif stat_mode == "Mod":
-		if stat_type == "Ranged" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in ranged_stats:
-					ranged_stats[key] = stat_values[key]
-		if stat_type == "Melee" or stat_type == "Both":
-			for key in stat_values.keys():
-				if key in melee_stats:
-					melee_stats[key] = stat_values[key]
+	if stat_type == "Ranged" or stat_type == "Both":
+		ranged_stats["max_value"] = 100
+		stat_change(ranged_stats, stat_values, stat_mode)
+	if stat_type == "Melee" or stat_type == "Both":
+		melee_stats["max_value"] = 100
+		stat_change(melee_stats, stat_values, stat_mode)
 	else:
-		print_debug("Input was Incomplete or Incorrect")
+		print_debug("Invalid Stat Type")
 		return
 
 func element_stat_change(stat_values, stat_mode):
-	if stat_mode == "Add":
-		for key in stat_values.keys():
-			if key in elements and typeof(stat_values[key]) == TYPE_INT:
-				elements[key] = clamp(elements[key] + stat_values[key], 0, 50000)
-	elif stat_mode == "Sub":
-		for key in stat_values.keys():
-			if key in elements and typeof(stat_values[key]) == TYPE_INT:
-				elements[key] = clamp(elements[key] - stat_values[key], 0, 50000)
-	elif stat_mode == "Mod":
-		for key in stat_values.keys():
-			if key in elements and typeof(stat_values[key]) == TYPE_INT:
-				elements[key] = stat_values[key]
-	else:
-		print_debug("Input was Incomplete or Incorrect")
-		return
+	elements["max_value"] = 50000
+	stat_change(elements, stat_values, stat_mode)
 
 func player_stat_change(stat_values, stat_mode):
-	if stat_mode == "Add":
-		for key in stat_values.keys():
-			if key in stats and typeof(stat_values[key]) == TYPE_INT:
-				if key == "HP" or key == "MP":
-					stats[key] = clamp(stats[key] + stat_values[key], 0, 500000)
-				elif key == "SHD" or "STM":
-					stats[key] = clamp(stats[key] + stat_values[key], 0, 100000)
-				else:
-					stats[key] = clamp(stats[key] + stat_values[key], 0, 50000)
-	elif stat_mode == "Sub":
-		for key in stat_values.keys():
-			if key in stats and typeof(stat_values[key]) == TYPE_INT:
-				if key == "HP" or key == "MP":
-					stats[key] = clamp(stats[key] - stat_values[key], 0, 500000)
-				elif key == "SHD" or key == "STM":
-					stats[key] = clamp(stats[key] - stat_values[key], 0, 100000)
-				else:
-					stats[key] = clamp(stats[key] - stat_values[key], 0, 50000)
-	elif stat_mode == "Mod":
-		for key in stat_values.keys():
-			if key in stats and typeof(stat_values[key]) == TYPE_INT:
-				stats[key] = stat_values[key]
-	else:
-		print_debug("Input was Incomplete or Incorrect")
-		return
+	for key in stat_values.keys():
+		if key in ["HP", "MP"]:
+			stats["max_value"] = 500000
+		elif key in ["SHD", "STM"]:
+			stats["max_value"] = 100000
+		else:
+			stats["max_value"] = 50000
+		stat_change(stats, {key: stat_values[key]}, stat_mode)
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
