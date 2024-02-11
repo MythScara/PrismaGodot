@@ -71,6 +71,9 @@ func _on_specialist_activated(s_type):
 		PlayerStats.set_specialist(specialist_name)
 	elif s_type != specialist_name and active == true:
 		active = false
+		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
+		PlayerStats.change_passive(specialist_name, "soul_passive", "Sub")
+		PlayerStats.change_passive(specialist_name, "heart_passive", "Sub")
 	else:
 		pass
 
@@ -116,14 +119,20 @@ func _timer_reached(s_name, cooldown):
 				print_debug("Invalid Method")
 				return
 
-func mind_passive(s_active):
-	if s_active == true:
-		print_debug(specialist_info["Name"] + " Mind Activated")
-		pass
-	elif s_active == false:
-		pass
-	else:
-		pass
+func mind_passive(state):
+	match state:
+		"Ready":
+			print_debug(specialist_info["Name"] + " Mind Ready")
+			mind_ready = true
+		"Active":
+			if mind_ready == true:
+				pass
+		"Cooldown":
+			if mind_ready == false:
+				pass
+		"Unready":
+			mind_ready = null
+			pass
 
 func soul_passive(s_active):
 	if s_active == true:

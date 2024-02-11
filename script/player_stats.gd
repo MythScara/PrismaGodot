@@ -7,7 +7,7 @@ var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST
 var specialist = null
 var immunities = []
 var buffs = {}
-var afflictions = {}
+var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
 var passives = {}
 var techniques = {"Skill": null, "Special": null, "Super": null}
 var ranged_stats = {
@@ -20,6 +20,7 @@ var melee_stats = {
 	"Type": null, "Tier": null, "Element": null}
 
 var specialist_cache = {}
+var timer_cache = {}
 
 signal activate_specialist(s_type)
 
@@ -33,6 +34,29 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "skill_technique")
 		change_technique(specialist_name, "special_technique")
 		change_technique(specialist_name, "super_technique")
+
+func start_timer(specialist_name, s_name, duration, s_type):
+	var timer_id = str(specialist_name) + "_" + s_name
+	var timer = Timer.new()
+	timer.name = timer_id
+	timer.set_wait_time(duration)
+	timer.set_one_shot(true)
+	timer.connect("timeout", Callable(self, "_on_timer_timeout").bind(timer_id))
+	add_child(timer)
+	timer.start()
+	
+	timer_cache[timer_id] = {"Specialist": specialist_name, "Method": s_name, "Argument": s_type}
+
+func _on_timer_timeout(timer_id):
+	var info = timer_cache[timer_id]
+	if info:
+		var specialist = specialist_cache[info["Specialist"]]
+		if specialist:
+			specialist.call(info["Method"], info["Argument"])
+			timer_cache.erase(timer_id)
+			var timer = get_node(timer_id)
+			if timer:
+				timer.queue_free()
 
 func change_technique(specialist_name, technique_type):
 	var specialist_class  = load_specialist(specialist_name)
@@ -173,6 +197,8 @@ func _input(event):
 			print_debug(elements)
 			print_debug(specialist)
 			print_debug(immunities)
+			print_debug(buffs)
+			print_debug(afflictions)
 			print_debug(passives)
 			print_debug(techniques)
 			print_debug(ranged_stats)
