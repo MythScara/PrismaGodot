@@ -23,6 +23,7 @@ var specialist_cache = {}
 var timer_cache = {}
 
 signal activate_specialist(s_type)
+signal player_event(event)
 
 func set_specialist(specialist_name):
 	var specialist_class = load_specialist(specialist_name)
@@ -36,7 +37,7 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "super_technique")
 
 func start_timer(specialist_name, s_name, duration, s_type):
-	var timer_id = str(specialist_name) + "_" + s_name
+	var timer_id = str(specialist_name) + "_" + s_name + "_" + s_type
 	var timer = Timer.new()
 	timer.name = timer_id
 	timer.set_wait_time(duration)
@@ -50,9 +51,9 @@ func start_timer(specialist_name, s_name, duration, s_type):
 func _on_timer_timeout(timer_id):
 	var info = timer_cache[timer_id]
 	if info:
-		var specialist = specialist_cache[info["Specialist"]]
-		if specialist:
-			specialist.call(info["Method"], info["Argument"])
+		var specialist_id = specialist_cache[info["Specialist"]]
+		if specialist_id:
+			specialist_id.call(info["Method"], info["Argument"])
 			timer_cache.erase(timer_id)
 			var timer = get_node(timer_id)
 			if timer:
@@ -65,10 +66,13 @@ func change_technique(specialist_name, technique_type):
 	if technique_method:
 		if technique_type == "skill_technique":
 			techniques["Skill"] = technique_method
+			technique_method.call("Ready")
 		if technique_type == "special_technique":
 			techniques["Special"] = technique_method
+			technique_method.call("Ready")
 		if technique_type == "super_technique":
 			techniques["Super"] = technique_method
+			technique_method.call("Ready")
 	else:
 		print_debug("Invalid Technique: " + technique_type)
 
@@ -81,13 +85,13 @@ func change_passive(specialist_name, passive_type, modification):
 		if identifier not in passives and specialist_class:
 			var passive_method = specialist_class.get(passive_type)
 			passives[identifier] = passive_method
-			passive_method.call(true)
+			passive_method.call("Ready")
 		else:
 			print_debug("Passive Exists: " + identifier)
 	elif modification == "Sub":
 		if identifier in passives:
 			var passive_method = passives[identifier]
-			passive_method.call(false)
+			passive_method.call("Unready")
 			passives.erase(identifier)
 		else:
 			print_debug("Passive Not Found: " + identifier)
@@ -183,13 +187,13 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_Q:
 			if techniques["Skill"] != null:
-				techniques["Skill"].call(true)
+				techniques["Skill"].call("Active")
 		if event.pressed and event.keycode == KEY_E:
 			if techniques["Special"] != null:
-				techniques["Special"].call(true)
+				techniques["Special"].call("Active")
 		if event.pressed and event.keycode == KEY_G:
 			if techniques["Super"] != null:
-				techniques["Super"].call(true)
+				techniques["Super"].call("Active")
 		if event.pressed and event.keycode == KEY_I:
 			print_debug(species)
 			print_debug(stats)
