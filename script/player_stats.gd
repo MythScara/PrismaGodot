@@ -130,7 +130,7 @@ func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
 		ranged_stats["max_value"] = 100
 		stat_change(ranged_stats, stat_values, stat_mode)
-	if stat_type == "Melee" or stat_type == "Both":
+	elif stat_type == "Melee" or stat_type == "Both":
 		melee_stats["max_value"] = 100
 		stat_change(melee_stats, stat_values, stat_mode)
 	else:

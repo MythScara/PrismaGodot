@@ -13,6 +13,10 @@ var skill_ready = null
 var special_ready = null
 var super_ready = null
 
+var mind_signal = ""
+var soul_signal = ""
+var heart_signal = ""
+
 var specialist_info = {
 	"Name": "",
 	"Description": "",
@@ -63,45 +67,20 @@ func _on_specialist_activated(s_type):
 		pass
 
 func event_handler(event):
-	match event:
-		"Technique Used":
-			pass
-		"Battle Magic Cast":
-			pass
-		"Support Magic Cast":
-			pass
-		"Battle Item Used":
-			pass
-		"Support Item Used":
-			pass
-		"Physical Damage Taken":
-			pass
-		"Magic Damage Taken":
-			pass
-		"Elemental Damage Taken":
-			pass
-		"Fatal Damage Taken":
-			pass
-		"Summon Used":
-			pass
-		"Health Warning":
-			pass
-		"Health Critical":
-			pass
-		"Physical Damage Dealt":
-			pass
-		"Magic Damage Dealt":
-			pass
-		"Elemental Damage Dealt":
-			pass
-		"Fatal Damage Dealt":
-			pass
+	if event == mind_signal:
+		mind_passive("Active")
+	if event == soul_signal:
+		soul_passive("Active")
+	if event == heart_signal:
+		heart_passive("Active")
 
 func mind_passive(state):
 	match state:
 		"Ready":
 			print_debug(specialist_name + " Mind Ready")
 			mind_ready = true
+			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and mind_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if mind_ready == true:
 				mind_ready = false
@@ -110,6 +89,8 @@ func mind_passive(state):
 			if mind_ready == false:
 				PlayerStats.start_timer(specialist_name, "mind_passive", 5, "Ready")
 		"Unready":
+			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
+				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			mind_ready = null
 
 func soul_passive(state):
@@ -117,6 +98,8 @@ func soul_passive(state):
 		"Ready":
 			print_debug(specialist_name + " Soul Ready")
 			soul_ready = true
+			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and soul_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if soul_ready == true:
 				mind_ready = false
@@ -125,6 +108,8 @@ func soul_passive(state):
 			if soul_ready == false:
 				PlayerStats.start_timer(specialist_name, "soul_passive", 5, "Ready")
 		"Unready":
+			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
+				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			soul_ready = null
 
 func heart_passive(state):
@@ -132,6 +117,8 @@ func heart_passive(state):
 		"Ready":
 			print_debug(specialist_name + " Heart Ready")
 			heart_ready = true
+			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and heart_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if heart_ready == true:
 				heart_ready = false
@@ -140,6 +127,8 @@ func heart_passive(state):
 			if heart_ready == false:
 				PlayerStats.start_timer(specialist_name, "heart_passive", 5, "Ready")
 		"Unready":
+			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
+				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			heart_ready = null
 
 func skill_technique(state):
