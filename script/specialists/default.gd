@@ -66,6 +66,38 @@ func _on_specialist_activated(s_type):
 	else:
 		pass
 
+func exp_handler(value):
+	if cur_level != 10 and active == true:
+		cur_experience += value
+		if cur_experience >= experience_required:
+			cur_level += 1
+			experience_required += 1000
+			cur_experience = 0
+			specialist_unlock(cur_level)
+
+func specialist_unlock(level):
+	match level:
+		1:
+			pass
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
+		5:
+			pass
+		6:
+			pass
+		7:
+			pass
+		8:
+			pass
+		9:
+			pass
+		10:
+			pass
+
 func event_handler(event):
 	if event == mind_signal:
 		mind_passive("Active")
