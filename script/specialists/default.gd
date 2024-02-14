@@ -74,12 +74,16 @@ func event_handler(event):
 	if event == heart_signal:
 		heart_passive("Active")
 
+func connection_terminate():
+	if mind_ready == null and soul_ready == null and heart_ready == null:
+		if PlayerStats.is_connected("player_event", Callable(self, "event_handler")):
+			PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
+
 func mind_passive(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Mind Ready")
 			mind_ready = true
-			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and mind_signal != "":
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and mind_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if mind_ready == true:
@@ -89,16 +93,14 @@ func mind_passive(state):
 			if mind_ready == false:
 				PlayerStats.start_timer(specialist_name, "mind_passive", 5, "Ready")
 		"Unready":
-			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
-				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			mind_ready = null
+			connection_terminate()
 
 func soul_passive(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Soul Ready")
 			soul_ready = true
-			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and soul_signal != "":
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if soul_ready == true:
@@ -108,16 +110,14 @@ func soul_passive(state):
 			if soul_ready == false:
 				PlayerStats.start_timer(specialist_name, "soul_passive", 5, "Ready")
 		"Unready":
-			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
-				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			soul_ready = null
+			connection_terminate()
 
 func heart_passive(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Heart Ready")
 			heart_ready = true
-			if not PlayerStats.connect("player_event", Callable(self, "event_handler")) and heart_signal != "":
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and heart_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 		"Active":
 			if heart_ready == true:
@@ -127,15 +127,17 @@ func heart_passive(state):
 			if heart_ready == false:
 				PlayerStats.start_timer(specialist_name, "heart_passive", 5, "Ready")
 		"Unready":
-			if PlayerStats.connect("player_event", Callable(self, "event_handler")):
-				PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
 			heart_ready = null
+			connection_terminate()
 
 func skill_technique(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Skill Ready")
-			skill_ready = true
+			if skill_ready == null:
+				skill_ready = false
+				skill_technique("Cooldown")
+			else:
+				skill_ready = true
 		"Active":
 			if skill_ready == true:
 				skill_ready = false
@@ -145,19 +147,21 @@ func skill_technique(state):
 					skill_technique("Cooldown")
 				PlayerStats.emit_signal("player_event", "Technique Used")
 		"Cooldown":
-			if skill_ready == false:
-				if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")
-				else:
-					skill_technique("Ready")
+			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")
+			else:
+				skill_technique("Ready")
 		"Unready":
 			skill_ready = null
 
 func special_technique(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Special Ready")
-			special_ready = true
+			if special_ready == null:
+				special_ready = false
+				special_technique("Cooldown")
+			else:
+				special_ready = true
 		"Active":
 			if special_ready == true:
 				special_ready = false
@@ -167,19 +171,21 @@ func special_technique(state):
 					special_technique("Cooldown")
 				PlayerStats.emit_signal("player_event", "Technique Used")
 		"Cooldown":
-			if special_ready == false:
-				if typeof(specialist_info["Technique 2"]["TC"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TC"], "Ready")
-				else:
-					special_technique("Ready")
+			if typeof(specialist_info["Technique 2"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TC"], "Ready")
+			else:
+				special_technique("Ready")
 		"Unready":
 			special_ready = null
 
 func super_technique(state):
 	match state:
 		"Ready":
-			print_debug(specialist_name + " Super Ready")
-			super_ready = true
+			if super_ready == null:
+				super_ready = false
+				super_technique("Cooldown")
+			else:
+				super_ready = true
 		"Active":
 			if super_ready == true:
 				super_ready = false
@@ -189,10 +195,9 @@ func super_technique(state):
 					super_technique("Cooldown")
 				PlayerStats.emit_signal("player_event", "Technique Used")
 		"Cooldown":
-			if super_ready == false:
-				if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TC"], "Ready")
-				else:
-					super_technique("Ready")
+			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TC"], "Ready")
+			else:
+				super_technique("Ready")
 		"Unready":
 			super_ready = null
