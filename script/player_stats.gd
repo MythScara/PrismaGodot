@@ -183,6 +183,29 @@ func load_specialist(text : String):
 		specialist_cache[text] = specialist_script
 	return specialist_cache[text]
 
+func get_save_data() -> Dictionary:
+	return {
+		"species": species,
+		"stats": stats,
+		"bonuses": bonuses,
+		"elements": elements,
+		"specialist": specialist,
+		"immunities": immunities,
+		"buffs": buffs,
+		"afflictions": afflictions,
+		"passives": passives,
+		"techniques": techniques,
+		"ranged_stats": ranged_stats,
+		"melee_stats": melee_stats,
+		"specialist_cache": specialist_cache,
+		"timer_cache": timer_cache
+	}
+
+func set_data(data: Dictionary) -> void:
+	for key in data.keys():
+		if key in self:
+			self[key] = data[key]
+
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_Q:

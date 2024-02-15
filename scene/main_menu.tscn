@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgy03wp6jxryu"]
+[gd_scene load_steps=5 format=3 uid="uid://dgy03wp6jxryu"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_gcnt1"]
 [ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/species_menu.tscn" id="2_0lpom"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_0ujv6"]
+[ext_resource type="PackedScene" uid="uid://coivfl30ich1h" path="res://scene/confirmation_menu.tscn" id="3_ixh5k"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -12,6 +13,7 @@ anchors_preset = 0
 script = ExtResource("1_gcnt1")
 start_scene = ExtResource("2_0lpom")
 settings_scene = ExtResource("2_0lpom")
+continue_scene = ExtResource("3_ixh5k")
 
 [node name="Background" type="ColorRect" parent="MenuScreen"]
 layout_mode = 0
@@ -44,12 +46,44 @@ theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "START GAME"
 flat = true
 
+[node name="ContinueGameButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 513.0
+offset_right = 1152.0
+offset_bottom = 577.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
+text = "CONTINUE"
+flat = true
+
+[node name="DeleteGameButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 512.0
+offset_right = 1856.0
+offset_bottom = 576.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
+text = "DELETE SAVE"
+flat = true
+
 [node name="SettingsButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
 offset_left = 768.0
-offset_top = 512.0
+offset_top = 577.0
 offset_right = 1152.0
-offset_bottom = 576.0
+offset_bottom = 641.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -63,9 +97,9 @@ flat = true
 [node name="ExitGameButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
 offset_left = 768.0
-offset_top = 576.0
+offset_top = 641.0
 offset_right = 1152.0
-offset_bottom = 640.0
+offset_bottom = 705.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -77,5 +111,7 @@ text = "EXIT GAME"
 flat = true
 
 [connection signal="pressed" from="MenuScreen/StartGameButton" to="MenuScreen" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MenuScreen/ContinueGameButton" to="MenuScreen" method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="MenuScreen/DeleteGameButton" to="MenuScreen" method="_on_delete_save_data_pressed"]
 [connection signal="pressed" from="MenuScreen/SettingsButton" to="MenuScreen" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MenuScreen/ExitGameButton" to="MenuScreen" method="_on_exit_game_button_pressed"]

@@ -2,18 +2,43 @@ extends Control
 
 @export var start_scene : PackedScene
 @export var settings_scene : PackedScene
+@export var continue_scene : PackedScene
+
+func _ready():
+	$ContinueGameButton.visible = false
+	checkfile()
 
 func _on_start_game_button_pressed():
 	if start_scene:
 		get_tree().change_scene_to_packed(start_scene)
 	else:
-		print("No Scene Set")
+		print_debug("No Scene Set")
 
 func _on_settings_button_pressed():
 	if settings_scene:
 		get_tree().change_scene_to_packed(settings_scene)
 	else:
-		print("No Scene Set")
+		print_debug("No Scene Set")
 
 func _on_exit_game_button_pressed():
 	get_tree().quit()
+
+func checkfile():
+	if GameManager.save_exists():
+		$ContinueGameButton.visible = true
+		$DeleteGameButton.visible = true
+	else:
+		$ContinueGameButton.visible = false
+		$DeleteGameButton.visible = false
+
+func _on_continue_game_button_pressed():
+	if continue_scene:
+		GameManager.load_game()
+		get_tree().change_scene_to_packed(continue_scene)
+	else:
+		print_debug("No Scene Set")
+
+
+func _on_delete_save_data_pressed():
+	GameManager.delete_save()
+	checkfile()

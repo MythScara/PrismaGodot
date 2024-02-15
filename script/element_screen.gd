@@ -300,7 +300,6 @@ func _on_cancel_button_pressed():
 func _on_forfeit_continue_button_pressed():
 	if continue_screen:
 		PlayerStats.elements = base_stat
-		print_debug(PlayerStats.elements)
 		get_tree().change_scene_to_packed(continue_screen)
 	else:
 		print("No Scene Set")

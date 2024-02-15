@@ -32,3 +32,52 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
+	if equip_inventory.has(category):
+		equip_inventory[category][item_name] = item_values
+	elif extra_inventory.has(category):
+		if extra_inventory[category].has(item_name):
+			if extra_inventory[category][item_name]["Amount"] == 100:
+				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
+				return
+				
+			extra_inventory[category][item_name]["Amount"] += item_values["Amount"]
+			
+			if extra_inventory[category][item_name]["Amount"] > 100:
+				extra_inventory[category][item_name]["Amount"] = 100
+				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
+		else:
+			if item_values["Amount"] > 100:
+				item_values["Amount"] = 100
+				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
+			extra_inventory[category][item_name] = item_values
+	else:
+		print_debug("Invalid Item Category")
+
+func remove_from_inventory(category: String, item_name: String, item_values: Dictionary = {}) -> void:
+	if equip_inventory.has(category):
+		equip_inventory[category].erase(item_name)
+	elif extra_inventory.has(category):
+		if item_values != {}:
+			if item_values["Amount"] < extra_inventory[category][item_name]["Amount"]:
+				extra_inventory[category][item_name]["Amount"] -= item_values["Amount"]
+			elif item_values["Amount"] == extra_inventory[category][item_name]["Amount"]:
+				extra_inventory[category].erase(item_name)
+			else:
+				print_debug("Value Exceeds Available Inventory: Transaction Cancelled")
+		else:
+			extra_inventory[category].erase(item_name)
+	else:
+		print_debug("Invalid Item Category")
+
+func get_save_data() -> Dictionary:
+	return {
+		"extra_inventory": extra_inventory,
+		"equip_inventory": equip_inventory
+	}
+
+func set_data(data: Dictionary) -> void:
+	for key in data.keys():
+		if key in self:
+			self[key] = data[key]
