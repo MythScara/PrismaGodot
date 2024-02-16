@@ -271,7 +271,6 @@ func _set_active(new_button: Button):
 func _on_continue_button_pressed():
 	if continue_screen and point_count == 0:
 		PlayerStats.elements = base_stat
-		print_debug(PlayerStats.elements)
 		get_tree().change_scene_to_packed(continue_screen)
 	elif continue_screen and point_count != 0:
 		warning.visible = true

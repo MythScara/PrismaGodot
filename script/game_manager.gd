@@ -5,7 +5,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func save_game() -> void:
@@ -17,7 +17,7 @@ func save_game() -> void:
 	var save_path = "user://save_game.json"
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	if save_file != null:
-		var save_data_string = JSON.stringify(save_data, "\t", false, true)
+		var save_data_string = JSON.stringify(save_data, "\n", false, true)
 		save_file.store_string(save_data_string)
 		save_file.close()
 		print_debug("Game Saved")
@@ -49,6 +49,6 @@ func save_exists() -> bool:
 
 func delete_save():
 	var save_path = "user://save_game.json"
-	var dir = DirAccess.open(save_path)
-	if dir:
+	var dir = DirAccess.open("user://")
+	if dir.file_exists(save_path):
 		DirAccess.remove_absolute(save_path)

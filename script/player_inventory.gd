@@ -30,7 +30,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
