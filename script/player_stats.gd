@@ -18,6 +18,7 @@ var melee_stats = {
 	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": null, "Tier": null, "Element": null}
+var specialist_levels = {}
 
 var specialist_cache = {}
 var timer_cache = {}
@@ -183,6 +184,9 @@ func load_specialist(text : String):
 		specialist_cache[text] = specialist_script
 	return specialist_cache[text]
 
+func update_specialist(s_name, s_level, s_exp, s_expr):
+	specialist_levels[s_name] = [s_level, s_exp, s_expr]
+
 func get_save_data() -> Dictionary:
 	return {
 		"species": species,
@@ -198,7 +202,8 @@ func get_save_data() -> Dictionary:
 		"ranged_stats": ranged_stats,
 		"melee_stats": melee_stats,
 		"specialist_cache": specialist_cache,
-		"timer_cache": timer_cache
+		"timer_cache": timer_cache,
+		"specialist_levels": specialist_levels
 	}
 
 func set_data(data: Dictionary) -> void:
@@ -218,15 +223,17 @@ func _input(event):
 			if techniques["Super"] != null:
 				techniques["Super"].call("Active")
 		if event.pressed and event.keycode == KEY_I:
-			print_debug(species)
-			print_debug(stats)
-			print_debug(bonuses)
-			print_debug(elements)
-			print_debug(specialist)
-			print_debug(immunities)
-			print_debug(buffs)
-			print_debug(afflictions)
-			print_debug(passives)
-			print_debug(techniques)
-			print_debug(ranged_stats)
-			print_debug(melee_stats)
+			#print_debug(species)
+			#print_debug(stats)
+			#print_debug(bonuses)
+			#print_debug(elements)
+			#print_debug(specialist)
+			#print_debug(immunities)
+			#print_debug(buffs)
+			#print_debug(afflictions)
+			#print_debug(passives)
+			#print_debug(techniques)
+			#print_debug(ranged_stats)
+			#print_debug(melee_stats)
+			#print_debug(specialist_levels)
+			pass

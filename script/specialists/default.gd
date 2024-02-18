@@ -45,6 +45,7 @@ var specialist_rewards = {
 
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
+	PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,6 +59,12 @@ func _on_specialist_activated(s_type):
 	if s_type == specialist_name and active == false:
 		active = true
 		PlayerStats.set_specialist(specialist_name)
+		if PlayerStats.specialist_levels.has(specialist_name):
+			cur_level = PlayerStats.specialist_levels[specialist_name][0]
+			cur_experience = PlayerStats.specialist_levels[specialist_name][1]
+			experience_required = PlayerStats.specialist_levels[specialist_name][2]
+		else:
+			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 	elif s_type != specialist_name and active == true:
 		active = false
 		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
@@ -74,6 +81,7 @@ func exp_handler(value):
 			experience_required += 1000
 			cur_experience = 0
 			specialist_unlock(cur_level)
+		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 func specialist_unlock(level):
 	match level:
