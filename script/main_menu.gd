@@ -5,7 +5,8 @@ extends Control
 @export var continue_scene : PackedScene
 
 func _ready():
-	$ContinueGameButton.visible = false
+	$ContinueGameButton.disabled = true
+	$DeleteGameButton.disabled = true
 	checkfile()
 
 func _on_start_game_button_pressed():
@@ -25,11 +26,11 @@ func _on_exit_game_button_pressed():
 
 func checkfile():
 	if GameManager.save_exists():
-		$ContinueGameButton.visible = true
-		$DeleteGameButton.visible = true
+		$ContinueGameButton.disabled = false
+		$DeleteGameButton.disabled = false
 	else:
-		$ContinueGameButton.visible = false
-		$DeleteGameButton.visible = false
+		$ContinueGameButton.disabled = true
+		$DeleteGameButton.disabled = true
 
 func _on_continue_game_button_pressed():
 	if continue_scene:

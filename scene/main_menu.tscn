@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgy03wp6jxryu"]
+[gd_scene load_steps=12 format=3 uid="uid://dgy03wp6jxryu"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_gcnt1"]
 [ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/species_menu.tscn" id="2_0lpom"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_0ujv6"]
 [ext_resource type="PackedScene" uid="uid://coivfl30ich1h" path="res://scene/confirmation_menu.tscn" id="3_ixh5k"]
+[ext_resource type="Texture2D" uid="uid://dh686mvt1qy3s" path="res://asset/splash_backgrounds/main_menu_background_4.jpg" id="4_j7a65"]
+[ext_resource type="Texture2D" uid="uid://xd1fiy4k57j6" path="res://asset/emblems/human_emblem.png" id="5_qgdp6"]
+[ext_resource type="Texture2D" uid="uid://b05hemycpclv3" path="res://asset/emblems/meka_emblem.png" id="6_2wig2"]
+[ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="6_88h2v"]
+[ext_resource type="Texture2D" uid="uid://bs5vl0evrrq3g" path="res://asset/emblems/sylph_emblem.png" id="7_njraa"]
+[ext_resource type="Texture2D" uid="uid://bsfhe3o8iui2e" path="res://asset/emblems/daemon_emblem.png" id="8_20omf"]
+[ext_resource type="Texture2D" uid="uid://5ltow8ugnb7m" path="res://asset/emblems/kaiju_emblem.png" id="9_d4awd"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -15,16 +22,59 @@ start_scene = ExtResource("2_0lpom")
 settings_scene = ExtResource("2_0lpom")
 continue_scene = ExtResource("3_ixh5k")
 
-[node name="Background" type="ColorRect" parent="MenuScreen"]
+[node name="Background" type="TextureRect" parent="MenuScreen"]
+clip_contents = true
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+texture = ExtResource("4_j7a65")
+expand_mode = 1
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="MenuPanel" type="ColorRect" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 1400.0
+offset_right = 1800.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="Emblems" type="Node2D" parent="MenuScreen"]
+position = Vector2(1600, 192)
+
+[node name="HumanEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+position = Vector2(0, -96)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_qgdp6")
+
+[node name="MekaEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+position = Vector2(96, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_2wig2")
+
+[node name="SylphEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+position = Vector2(64, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_njraa")
+
+[node name="DaemonEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+position = Vector2(-64, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_20omf")
+
+[node name="KaijuEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+position = Vector2(-96, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_d4awd")
 
 [node name="Title" type="Label" parent="MenuScreen"]
 layout_mode = 0
-offset_right = 1920.0
+offset_right = 1408.0
 offset_bottom = 256.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
 theme_override_font_sizes/font_size = 150
 text = "PRISMATICA"
 horizontal_alignment = 1
@@ -32,10 +82,10 @@ vertical_alignment = 1
 
 [node name="StartGameButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 448.0
-offset_right = 1152.0
-offset_bottom = 512.0
+offset_left = 1400.0
+offset_top = 344.0
+offset_right = 1800.0
+offset_bottom = 444.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -44,14 +94,17 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "START GAME"
+icon = ExtResource("6_88h2v")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="ContinueGameButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 513.0
-offset_right = 1152.0
-offset_bottom = 577.0
+offset_left = 1400.0
+offset_top = 432.0
+offset_right = 1800.0
+offset_bottom = 532.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -60,14 +113,17 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "CONTINUE"
+icon = ExtResource("6_88h2v")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="DeleteGameButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
-offset_left = 1472.0
-offset_top = 512.0
-offset_right = 1856.0
-offset_bottom = 576.0
+offset_left = 1400.0
+offset_top = 696.0
+offset_right = 1800.0
+offset_bottom = 796.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -76,14 +132,17 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "DELETE SAVE"
+icon = ExtResource("6_88h2v")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="SettingsButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 577.0
-offset_right = 1152.0
-offset_bottom = 641.0
+offset_left = 1400.0
+offset_top = 520.0
+offset_right = 1800.0
+offset_bottom = 620.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -92,14 +151,17 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "SETTINGS"
+icon = ExtResource("6_88h2v")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="ExitGameButton" type="Button" parent="MenuScreen"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 641.0
-offset_right = 1152.0
-offset_bottom = 705.0
+offset_left = 1400.0
+offset_top = 608.0
+offset_right = 1800.0
+offset_bottom = 708.0
 theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
@@ -108,7 +170,19 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "EXIT GAME"
+icon = ExtResource("6_88h2v")
 flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Version" type="Label" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 1024.0
+offset_right = 1800.0
+offset_bottom = 1068.0
+text = "Version 1.000.3"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="MenuScreen/StartGameButton" to="MenuScreen" method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MenuScreen/ContinueGameButton" to="MenuScreen" method="_on_continue_game_button_pressed"]
