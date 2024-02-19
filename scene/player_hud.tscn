@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dowfwfcy1hbhc"]
+
+[ext_resource type="Script" path="res://script/player_hud.gd" id="1_cmw4d"]
+
+[node name="PlayerHUD" type="Node"]
+script = ExtResource("1_cmw4d")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
