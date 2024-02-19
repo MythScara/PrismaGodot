@@ -3,6 +3,7 @@ extends Control
 @export var start_scene : PackedScene
 @export var settings_scene : PackedScene
 @export var continue_scene : PackedScene
+@export var credits_scene : PackedScene
 
 func _ready():
 	$ContinueGameButton.disabled = true
@@ -43,3 +44,10 @@ func _on_continue_game_button_pressed():
 func _on_delete_save_data_pressed():
 	GameManager.delete_save()
 	checkfile()
+
+
+func _on_credits_button_pressed():
+	if credits_scene:
+		get_tree().change_scene_to_packed(credits_scene)
+	else:
+		print_debug("No Scene Set")

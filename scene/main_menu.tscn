@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgy03wp6jxryu"]
+[gd_scene load_steps=14 format=3 uid="uid://dgy03wp6jxryu"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_gcnt1"]
 [ext_resource type="PackedScene" uid="uid://b7foap0nhr7n0" path="res://scene/species_menu.tscn" id="2_0lpom"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bs5vl0evrrq3g" path="res://asset/emblems/sylph_emblem.png" id="7_njraa"]
 [ext_resource type="Texture2D" uid="uid://bsfhe3o8iui2e" path="res://asset/emblems/daemon_emblem.png" id="8_20omf"]
 [ext_resource type="Texture2D" uid="uid://5ltow8ugnb7m" path="res://asset/emblems/kaiju_emblem.png" id="9_d4awd"]
+[ext_resource type="Texture2D" uid="uid://cnxq15fqyfb3k" path="res://asset/emblems/celestial_emblem.png" id="10_ejc2l"]
+[ext_resource type="Texture2D" uid="uid://c0jnbdtee2xqx" path="res://asset/emblems/monarch_emblem.png" id="11_kh1vp"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -19,7 +21,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gcnt1")
 start_scene = ExtResource("2_0lpom")
-settings_scene = ExtResource("2_0lpom")
 continue_scene = ExtResource("3_ixh5k")
 
 [node name="Background" type="TextureRect" parent="MenuScreen"]
@@ -41,7 +42,7 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Emblems" type="Node2D" parent="MenuScreen"]
-position = Vector2(1600, 192)
+position = Vector2(1600, 152)
 
 [node name="HumanEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
 position = Vector2(0, -96)
@@ -54,12 +55,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_2wig2")
 
 [node name="SylphEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
-position = Vector2(64, 65)
+position = Vector2(96, 64)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_njraa")
 
 [node name="DaemonEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
-position = Vector2(-64, 65)
+position = Vector2(-96, 64)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_20omf")
 
@@ -67,6 +68,32 @@ texture = ExtResource("8_20omf")
 position = Vector2(-96, -32)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_d4awd")
+
+[node name="CelestialEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+clip_children = 2
+position = Vector2(0, 136)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_ejc2l")
+
+[node name="Glitched" type="ColorRect" parent="MenuScreen/Emblems/CelestialEmblem"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(1, 0, 0, 0.784314)
+
+[node name="MonarchEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
+clip_children = 2
+position = Vector2(0, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_kh1vp")
+
+[node name="Glitched" type="ColorRect" parent="MenuScreen/Emblems/MonarchEmblem"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(1, 0, 0, 0.784314)
 
 [node name="Title" type="Label" parent="MenuScreen"]
 layout_mode = 0
@@ -94,6 +121,25 @@ theme_override_styles/hover = ExtResource("3_0ujv6")
 theme_override_styles/pressed = ExtResource("3_0ujv6")
 theme_override_styles/focus = ExtResource("3_0ujv6")
 text = "START GAME"
+icon = ExtResource("6_88h2v")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="CreditsButton" type="Button" parent="MenuScreen"]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 784.0
+offset_right = 1800.0
+offset_bottom = 884.0
+theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_0ujv6")
+theme_override_styles/hover = ExtResource("3_0ujv6")
+theme_override_styles/pressed = ExtResource("3_0ujv6")
+theme_override_styles/focus = ExtResource("3_0ujv6")
+text = "CREDITS"
 icon = ExtResource("6_88h2v")
 flat = true
 icon_alignment = 1
@@ -185,6 +231,7 @@ text = "Version 1.000.3"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MenuScreen/StartGameButton" to="MenuScreen" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MenuScreen/CreditsButton" to="MenuScreen" method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuScreen/ContinueGameButton" to="MenuScreen" method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuScreen/DeleteGameButton" to="MenuScreen" method="_on_delete_save_data_pressed"]
 [connection signal="pressed" from="MenuScreen/SettingsButton" to="MenuScreen" method="_on_settings_button_pressed"]

@@ -1,13 +1,23 @@
 shader_type canvas_item;
 
-uniform vec2 screen_size; // Add this line
+uniform vec2 viewport_size; // Size of the viewport
 
 void fragment() {
-    float radius = 0.75;
-    float softness = 0.45;
-    vec2 center = vec2(0.5, 0.5);
-    vec2 pos = FRAGCOORD.xy / screen_size; // Use the uniform here
-    float dist = distance(pos, center);
-    float vignette = smoothstep(radius, radius - softness, dist);
-    COLOR.rgb *= mix(1.0, 0.0, vignette);
+    // Calculate the center of the viewport
+    vec2 center = viewport_size / 2.0;
+    
+    // Convert fragment coordinates to viewport coordinates
+    vec2 frag_coord = FRAGCOORD.xy;
+    
+    // Calculate the distance from the fragment to the center of the viewport
+    float dist = distance(frag_coord, center);
+    
+    // Calculate the radius of the vignette effect
+    float radius = length(viewport_size) / 2.0;
+    
+    // Calculate the vignette intensity
+    float vignette = smoothstep(radius, radius * 0.7, dist);
+    
+    // Apply the vignette effect
+    COLOR.rgb *= vignette;
 }

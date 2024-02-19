@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlwb2p6h82ama"]
+
+[ext_resource type="Shader" path="res://resource/vignette.gdshader" id="1_m43gs"]
+
+[resource]
+shader = ExtResource("1_m43gs")
+shader_parameter/rect_size = Vector2(960, 540)
+shader_parameter/rect_position = Vector2(250, 100)
