@@ -53,6 +53,7 @@ offset_left = 328.0
 offset_top = 248.0
 offset_right = 1528.0
 offset_bottom = 936.0
+horizontal_scroll_mode = 0
 
 [node name="InfoBox" type="VBoxContainer" parent="ElementScreen/ScrollContainer"]
 layout_mode = 2
