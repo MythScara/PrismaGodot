@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7foap0nhr7n0"]
+[gd_scene load_steps=9 format=3 uid="uid://b7foap0nhr7n0"]
 
 [ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="1_ekm6r"]
 [ext_resource type="Script" path="res://script/species_screen.gd" id="1_l2mel"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_07m8k"]
 [ext_resource type="Texture2D" uid="uid://b1hken8ex51bd" path="res://asset/splash_backgrounds/main_menu_background.png" id="3_podyo"]
 [ext_resource type="Texture2D" uid="uid://o8jxufx0n72p" path="res://asset/panels/minimal_wide_panel.png" id="4_hveuy"]
+[ext_resource type="Texture2D" uid="uid://xd1fiy4k57j6" path="res://asset/emblems/human_emblem.png" id="5_1q4cf"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="7_q4ee2"]
 
 [node name="SpeciesMenu" type="CanvasLayer"]
@@ -25,6 +26,11 @@ texture = ExtResource("3_podyo")
 position = Vector2(1088, 544)
 scale = Vector2(2.74776, 2.24299)
 texture = ExtResource("4_hveuy")
+
+[node name="EmblemSprite" type="Sprite2D" parent="SpeciesScreen"]
+visible = false
+position = Vector2(160, 192)
+texture = ExtResource("5_1q4cf")
 
 [node name="Title" type="Label" parent="SpeciesScreen"]
 layout_mode = 0

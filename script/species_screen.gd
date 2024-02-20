@@ -49,6 +49,7 @@ var base_stat = [40000, 40000, 8000, 8000, 4000, 4000, 4000, 4000, 4000, 4000, 4
 @onready var sylph_button = $SylphButton
 @onready var kaiju_button = $KaijuButton
 @onready var continue_button = $ContinueButton
+@onready var sprite = $EmblemSprite
 var selected_button = null
 
 func _ready():
@@ -81,8 +82,12 @@ func _update_information(key: String):
 	bonusOne.bbcode_text = species["Bonus1"].values()[0]
 	bonusTwo.bbcode_text = species["Bonus2"].values()[0]
 	bonusThree.bbcode_text = species["Bonus3"].values()[0]
+	sprite.texture = load("res://asset/emblems/" + key.to_lower() + "_emblem.png")
 	# Update stats in the grid
 	_update_stats_grid(species["Stats"])
+	
+	if sprite.visible == false:
+		sprite.visible = true
 	
 	var stats_dict = {}
 	for i in range(species["Stats"].size()):
