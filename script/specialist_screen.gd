@@ -10,6 +10,7 @@ extends Control
 @onready var technique1 = $InfoBox/Technique1
 @onready var technique2 = $InfoBox/Technique2
 @onready var technique3 = $InfoBox/Technique3
+@onready var sprite = $EmblemSprite
 
 var selected_specialist = null
 
@@ -22,6 +23,9 @@ func update_text(text):
 	if text == selected_specialist:
 		return
 	
+	if sprite.visible == false:
+		sprite.visible = true
+	
 	var specialist = PlayerStats.load_specialist(text)
 	var info = specialist.specialist_info
 	selected_specialist = text
@@ -33,6 +37,7 @@ func update_text(text):
 	technique1.bbcode_text = "Technique 1: " + info["Technique 1"].values()[0] + " (" + str(info["Technique 1"]["TD"]) + ")" + " {" + str(info["Technique 1"]["TC"]) + "}"
 	technique2.bbcode_text = "Technique 2: " + info["Technique 2"].values()[0] + " (" + str(info["Technique 2"]["TD"]) + ")" + " {" + str(info["Technique 2"]["TC"]) + "}"
 	technique3.bbcode_text = "Technique 3: " + info["Technique 3"].values()[0] + " (" + str(info["Technique 3"]["TD"]) + ")" + " {" + str(info["Technique 3"]["TC"]) + "}"
+	sprite.texture = load("res://asset/specialist_emblems/" + text.to_lower() + "_emblem.png")
 
 func _on_continue_button_pressed():
 	if continue_screen:

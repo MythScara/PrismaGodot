@@ -80,7 +80,7 @@ offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
-color = Color(1, 0, 0, 0.784314)
+color = Color(0.588235, 0, 1, 0.784314)
 
 [node name="MonarchEmblem" type="Sprite2D" parent="MenuScreen/Emblems"]
 clip_children = 2
@@ -93,7 +93,7 @@ offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
-color = Color(1, 0, 0, 0.784314)
+color = Color(0.588235, 0, 1, 0.784314)
 
 [node name="Title" type="Label" parent="MenuScreen"]
 layout_mode = 0

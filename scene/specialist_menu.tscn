@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b64xklwdq3pxa"]
+[gd_scene load_steps=10 format=3 uid="uid://b64xklwdq3pxa"]
 
 [ext_resource type="Script" path="res://script/specialist_screen.gd" id="1_br61r"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_p3f6k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://script/specialist_buttons.gd" id="2_y5xso"]
 [ext_resource type="Texture2D" uid="uid://b1hken8ex51bd" path="res://asset/splash_backgrounds/main_menu_background.png" id="3_57aa5"]
 [ext_resource type="Texture2D" uid="uid://o8jxufx0n72p" path="res://asset/panels/minimal_wide_panel.png" id="4_yorat"]
+[ext_resource type="Texture2D" uid="uid://bkkuagstnvujc" path="res://asset/specialist_emblems/mercenary_emblem.png" id="5_q5vfj"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="7_uldyy"]
 
 [node name="SpecialistMenu" type="CanvasLayer"]
@@ -26,6 +27,19 @@ texture = ExtResource("3_57aa5")
 position = Vector2(1088, 544)
 scale = Vector2(2.74776, 2.24299)
 texture = ExtResource("4_yorat")
+
+[node name="EmblemSprite" type="Sprite2D" parent="SpecialistScreen"]
+visible = false
+clip_children = 2
+position = Vector2(160, 192)
+texture = ExtResource("5_q5vfj")
+
+[node name="ColorRect" type="ColorRect" parent="SpecialistScreen/EmblemSprite"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(1, 0, 0, 1)
 
 [node name="Title" type="Label" parent="SpecialistScreen"]
 layout_mode = 0
