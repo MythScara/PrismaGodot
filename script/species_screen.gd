@@ -132,8 +132,8 @@ func _update_stats_grid(stats: Array):
 		statGrid.add_child(hbox)
 
 func _set_active(new_button: Button):
-	if continue_button.visible == false:
-		continue_button.visible = true
+	if continue_button.disabled == true:
+		continue_button.disabled = false
 	
 	if selected_button != null and selected_button != new_button:
 		selected_button.set_pressed(false)
