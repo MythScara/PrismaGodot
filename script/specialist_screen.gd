@@ -11,6 +11,7 @@ extends Control
 @onready var technique2 = $InfoBox/Technique2
 @onready var technique3 = $InfoBox/Technique3
 @onready var sprite = $EmblemSprite
+@onready var species_sprite = $SpeciesSprite
 
 var selected_specialist = null
 
@@ -18,6 +19,10 @@ var selected_specialist = null
 func _ready():
 	var vbox = get_node("ScrollContainer/VBoxContainer")
 	vbox.connect("button_pressed", Callable(self, "update_text"))
+	if PlayerStats.species != null:
+		species_sprite.texture = load("res://asset/emblems/" + PlayerStats.species.to_lower() + "_emblem.png")
+	else:
+		species_sprite.texture = load("res://asset/emblems/human_emblem.png")
 
 func update_text(text):
 	if text == selected_specialist:
