@@ -20,6 +20,8 @@ extends Node
 @onready var melee_weapon = $GameInterface/MeleeWeapon/Weapon
 @onready var ammo = $GameInterface/RangedWeapon/Ammo
 @onready var charge = $GameInterface/MeleeWeapon/Charge
+@onready var ranged_active = $GameInterface/RangedWeapon/ActiveMode
+@onready var melee_active = $GameInterface/MeleeWeapon/ActiveMode
 
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
@@ -72,12 +74,12 @@ func initial_setup():
 	self.visible = true
 
 func swap_active():
-	if $GameInterface/RangedWeapon/ActiveMode.visible == true:
-		$GameInterface/RangedWeapon/ActiveMode.visible = false
-		$GameInterface/MeleeWeapon/ActiveMode.visible = true
+	if ranged_active.visible == true:
+		ranged_active.visible = false
+		melee_active.visible = true
 	else:
-		$GameInterface/RangedWeapon/ActiveMode.visible = true
-		$GameInterface/MeleeWeapon/ActiveMode.visible = false
+		melee_active.visible = false
+		ranged_active.visible = true
 
 func update_values(stat):
 	match stat:
