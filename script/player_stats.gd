@@ -3,6 +3,8 @@ extends Node
 var species = null
 var specialist = null
 
+var player_level = [0, 0, 1000]
+
 var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var stats = {"HP": 40000, "MP": 40000, "SHD": 8000, "STM": 8000, "ATK": 4000, "DEF": 4000, "MGA": 4000, "MGD": 4000, "SHR": 4000, "STR": 4000, "AG": 4000, "CAP": 4000}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
@@ -17,11 +19,11 @@ var techniques = {"Skill": null, "Special": null, "Super": null}
 var ranged_stats = {
 	"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": null, "Tier": null, "Element": null}
+	"Type": "Assault Rifle", "Tier": null, "Element": null}
 var melee_stats = {
 	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": null, "Tier": null, "Element": null}
+	"Type": "Long Sword", "Tier": null, "Element": null}
 	
 var specialist_levels = {}
 var specialist_cache = {}
@@ -29,6 +31,7 @@ var timer_cache = {}
 
 signal activate_specialist(s_type)
 signal player_event(event)
+signal stat_update(stat)
 
 func set_specialist(specialist_name):
 	var specialist_class = load_specialist(specialist_name)
@@ -150,11 +153,21 @@ func player_stat_change(stat_values, stat_mode):
 	for key in stat_values.keys():
 		if key in ["HP", "MP"]:
 			stats["max_value"] = 500000
+			emit_signal("stat_update", key)
 		elif key in ["SHD", "STM"]:
 			stats["max_value"] = 100000
+			emit_signal("stat_update", key)
 		else:
 			stats["max_value"] = 50000
 		stat_change(stats, {key: stat_values[key]}, stat_mode)
+
+func exp_handler(value):
+	if player_level[0] != 100:
+		player_level[1] += value
+		if player_level[1] >= player_level[2]:
+			player_level[0] += 1
+			player_level[2] += 1000
+			player_level[1] = 0
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
@@ -226,6 +239,8 @@ func _input(event):
 		if event.pressed and event.keycode == KEY_G:
 			if techniques["Super"] != null:
 				techniques["Super"].call("Active")
+		if event.pressed and event.keycode == KEY_C:
+			PlayerInterface.swap_active()
 		if event.pressed and event.keycode == KEY_I:
 			print_debug(species)
 			print_debug(stats)
