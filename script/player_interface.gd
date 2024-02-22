@@ -4,9 +4,13 @@ extends Node
 @onready var magic_bar = $GameInterface/MagicBar
 @onready var stamina_bar = $GameInterface/StaminaBar
 @onready var overshield_bar = $GameInterface/OvershieldBar
-@onready var experience_bar = $GameInterface/ColorRect/ExperienceBar
+@onready var experience_bar = $GameInterface/Experience/ExperienceBar
 @onready var species_icon = $GameInterface/Emblem/Species
 @onready var specialist_icon = $GameInterface/Emblem/Specialist
+@onready var health_text = $GameInterface/HealthText
+@onready var magic_text = $GameInterface/MagicText
+@onready var stamina_text = $GameInterface/StaminaText
+@onready var overshield_text = $GameInterface/OvershieldText
 
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
@@ -35,6 +39,10 @@ func initial_setup():
 	stamina_bar.value = PlayerStats.stats["STM"]
 	overshield_bar.value = PlayerStats.stats["SHD"]
 	experience_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
+	health_text.text = str(PlayerStats.stats["HP"])
+	magic_text.text = str(PlayerStats.stats["MP"])
+	stamina_text.text = str(PlayerStats.stats["STM"])
+	overshield_text.text = str(PlayerStats.stats["SHD"])
 
 func update_values():
 	pass

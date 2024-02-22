@@ -34,7 +34,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="ColorRect" type="ColorRect" parent="GameInterface"]
+[node name="Experience" type="ColorRect" parent="GameInterface"]
 clip_children = 1
 layout_mode = 0
 offset_left = 576.0
@@ -42,7 +42,7 @@ offset_top = 1051.0
 offset_right = 1344.0
 offset_bottom = 1080.0
 
-[node name="ExperienceBar" type="TextureProgressBar" parent="GameInterface/ColorRect"]
+[node name="ExperienceBar" type="TextureProgressBar" parent="GameInterface/Experience"]
 layout_mode = 0
 offset_top = -3.0
 offset_right = 323.0
@@ -82,6 +82,17 @@ texture_under = ExtResource("6_lybeq")
 texture_progress = ExtResource("7_5vlye")
 texture_progress_offset = Vector2(5, 5)
 
+[node name="HealthText" type="Label" parent="GameInterface"]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 986.0
+offset_right = 1313.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OvershieldIcon" type="Sprite2D" parent="GameInterface"]
 position = Vector2(592, 1000)
 scale = Vector2(0.6, 0.6)
@@ -97,6 +108,17 @@ texture_under = ExtResource("8_smqut")
 texture_progress = ExtResource("9_d3ltp")
 texture_progress_offset = Vector2(5, 5)
 
+[node name="OvershieldText" type="Label" parent="GameInterface"]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 986.0
+offset_right = 927.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MagicIcon" type="Sprite2D" parent="GameInterface"]
 position = Vector2(1328, 1032)
 scale = Vector2(0.8, 0.8)
@@ -111,6 +133,17 @@ offset_bottom = 1050.0
 texture_under = ExtResource("10_ad7hu")
 texture_progress = ExtResource("11_7ov1n")
 texture_progress_offset = Vector2(5, 5)
+
+[node name="MagicText" type="Label" parent="GameInterface"]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 1018.0
+offset_right = 1313.0
+offset_bottom = 1048.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StaminaIcon" type="Sprite2D" parent="GameInterface"]
 position = Vector2(592, 1032)
@@ -128,7 +161,19 @@ texture_under = ExtResource("12_vcab1")
 texture_progress = ExtResource("13_sxpfb")
 texture_progress_offset = Vector2(5, 5)
 
+[node name="StaminaText" type="Label" parent="GameInterface"]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 1018.0
+offset_right = 927.0
+offset_bottom = 1048.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MenuInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -139,5 +184,3 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.784314)
-
-[node name="PlayerInterface" type="Node" parent="."]
