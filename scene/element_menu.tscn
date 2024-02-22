@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brayaanbjj2q1"]
+[gd_scene load_steps=11 format=3 uid="uid://brayaanbjj2q1"]
 
 [ext_resource type="Script" path="res://script/element_screen.gd" id="1_bawap"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="2_slbkg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="7_1k3x2"]
 [ext_resource type="Texture2D" uid="uid://bs13p45bohhnw" path="res://asset/button_icons/add_button.png" id="8_d7si3"]
 [ext_resource type="Texture2D" uid="uid://biy5ncrywh8m1" path="res://asset/button_icons/sub_button.png" id="9_4whwl"]
+[ext_resource type="Texture2D" uid="uid://sbsil81gtk57" path="res://asset/panels/standard_message_panel.png" id="10_5engg"]
 
 [node name="ElementMenu" type="CanvasLayer"]
 
@@ -334,40 +335,41 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.784314)
 
-[node name="WarningOutline" type="ColorRect" parent="ElementScreen/Warning"]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 384.0
-offset_right = 1600.0
-offset_bottom = 648.0
-color = Color(1, 0, 0, 1)
+[node name="StandardMessagePanel" type="Sprite2D" parent="ElementScreen/Warning"]
+position = Vector2(928, 536)
+scale = Vector2(2, 2)
+texture = ExtResource("10_5engg")
 
-[node name="WarningBox" type="ColorRect" parent="ElementScreen/Warning"]
+[node name="MessageLabel" type="Label" parent="ElementScreen/Warning"]
 layout_mode = 0
-offset_left = 264.0
-offset_top = 392.0
-offset_right = 1592.0
+offset_left = 512.0
+offset_top = 344.0
+offset_right = 1344.0
+offset_bottom = 416.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "WARNING!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="ElementScreen/Warning"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 424.0
+offset_right = 1360.0
 offset_bottom = 640.0
-
-[node name="Label" type="Label" parent="ElementScreen/Warning"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 400.0
-offset_right = 1584.0
-offset_bottom = 576.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "YOU STILL HAVE ELEMENTAL AFFINITY POINTS AVAILABLE! CHOOSING CONTINUE WILL FORFEIT THE REMAINING POINTS AND BEGIN THE GAME WITHOUT THEM. ARE YOU SURE YOU WISH TO PROCEED?"
+text = "YOU STILL HAVE ELEMENTAL AFFINITY POINTS AVAILABLE! CHOOSING CONTINUE WILL FORFEIT THE REMAINING POINTS AND BEGIN THE GAME WITHOUT THEM. 
+
+ARE YOU SURE YOU WISH TO PROCEED?"
 autowrap_mode = 3
 
 [node name="ForfeitContinueButton" type="Button" parent="ElementScreen/Warning"]
 layout_mode = 0
-offset_left = 1264.0
-offset_top = 576.0
-offset_right = 1473.0
-offset_bottom = 640.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+offset_left = 1112.0
+offset_top = 648.0
+offset_right = 1321.0
+offset_bottom = 712.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
@@ -380,12 +382,11 @@ alignment = 0
 
 [node name="CancelButton" type="Button" parent="ElementScreen/Warning"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 576.0
-offset_right = 548.0
-offset_bottom = 640.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
+offset_left = 560.0
+offset_top = 648.0
+offset_right = 724.0
+offset_bottom = 712.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")

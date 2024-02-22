@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://dowfwfcy1hbhc"]
+
+[ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
+[ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
+[ext_resource type="Texture2D" uid="uid://qcgvl8qw0eio" path="res://asset/hud_icons/experience_alternate_icon.png" id="3_m4m2c"]
+[ext_resource type="Texture2D" uid="uid://wi4lw5a3i57x" path="res://asset/progress_bars/experience_bar_full.png" id="4_d4tbm"]
+[ext_resource type="Texture2D" uid="uid://bsys6cq1c4elk" path="res://asset/hud_icons/emblem_hero_icon.png" id="4_r2qqr"]
+[ext_resource type="Texture2D" uid="uid://xd1fiy4k57j6" path="res://asset/emblems/human_emblem.png" id="6_0hq2a"]
+[ext_resource type="Texture2D" uid="uid://dd633w5mpq1ml" path="res://asset/progress_bars/health_bar_empty.png" id="6_lybeq"]
+[ext_resource type="Texture2D" uid="uid://dqkh7frb4hnb7" path="res://asset/hud_icons/health_icon.png" id="6_spy8f"]
+[ext_resource type="Texture2D" uid="uid://b242elr63dyjs" path="res://asset/progress_bars/health_bar_full.png" id="7_5vlye"]
+[ext_resource type="Texture2D" uid="uid://bkkuagstnvujc" path="res://asset/specialist_emblems/mercenary_emblem.png" id="7_v37bc"]
+[ext_resource type="Texture2D" uid="uid://cdta3x2tj3qj2" path="res://asset/progress_bars/overshield_bar_empty.png" id="8_smqut"]
+[ext_resource type="Texture2D" uid="uid://mf1uw5c1thag" path="res://asset/progress_bars/overshield_bar_full.png" id="9_d3ltp"]
+[ext_resource type="Texture2D" uid="uid://du23brfkmc47b" path="res://asset/hud_icons/overshield_icon.png" id="9_gsp15"]
+[ext_resource type="Texture2D" uid="uid://c7sv0114inoeb" path="res://asset/progress_bars/magic_bar_empty.png" id="10_ad7hu"]
+[ext_resource type="Texture2D" uid="uid://csdfcqnvdiinp" path="res://asset/progress_bars/magic_bar_full.png" id="11_7ov1n"]
+[ext_resource type="Texture2D" uid="uid://tgpky0fxo1xw" path="res://asset/progress_bars/stamina_bar_empty.png" id="12_vcab1"]
+[ext_resource type="Texture2D" uid="uid://bhh40vrv80dfg" path="res://asset/hud_icons/magic_icon.png" id="12_xcy8h"]
+[ext_resource type="Texture2D" uid="uid://8f7cn6dd4cof" path="res://asset/progress_bars/stamina_bar_full.png" id="13_sxpfb"]
+[ext_resource type="Texture2D" uid="uid://c574ldfbl62pf" path="res://asset/hud_icons/stamina_alternate_icon.png" id="15_k0pcb"]
+
+[node name="PlayerInterface" type="CanvasLayer"]
+script = ExtResource("1_65u7r")
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_1xymm")
+
+[node name="GameInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="GameInterface"]
+clip_children = 1
+layout_mode = 0
+offset_left = 576.0
+offset_top = 1051.0
+offset_right = 1344.0
+offset_bottom = 1080.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="GameInterface/ColorRect"]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 323.0
+offset_bottom = 31.0
+fill_mode = 6
+texture_under = ExtResource("3_m4m2c")
+texture_progress = ExtResource("4_d4tbm")
+texture_progress_offset = Vector2(10, 14)
+
+[node name="Emblem" type="Sprite2D" parent="GameInterface"]
+position = Vector2(960, 1016)
+scale = Vector2(0.195122, 0.195122)
+texture = ExtResource("4_r2qqr")
+
+[node name="Species" type="Sprite2D" parent="GameInterface/Emblem"]
+position = Vector2(-0.000144958, -0.000205994)
+scale = Vector2(1.56034, 1.56034)
+texture = ExtResource("6_0hq2a")
+
+[node name="Specialist" type="Sprite2D" parent="GameInterface/Emblem"]
+position = Vector2(-0.000152588, -0.000411987)
+scale = Vector2(1.56035, 1.56035)
+texture = ExtResource("7_v37bc")
+
+[node name="HealthIcon" type="Sprite2D" parent="GameInterface"]
+position = Vector2(1328, 1000)
+scale = Vector2(0.799999, 0.799999)
+texture = ExtResource("6_spy8f")
+
+[node name="HealthBar" type="TextureProgressBar" parent="GameInterface"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 984.0
+offset_right = 1315.0
+offset_bottom = 1018.0
+texture_under = ExtResource("6_lybeq")
+texture_progress = ExtResource("7_5vlye")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="OvershieldIcon" type="Sprite2D" parent="GameInterface"]
+position = Vector2(592, 1000)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_gsp15")
+
+[node name="OvershieldBar" type="TextureProgressBar" parent="GameInterface"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 984.0
+offset_right = 928.0
+offset_bottom = 1018.0
+texture_under = ExtResource("8_smqut")
+texture_progress = ExtResource("9_d3ltp")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="MagicIcon" type="Sprite2D" parent="GameInterface"]
+position = Vector2(1328, 1032)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_xcy8h")
+
+[node name="MagicBar" type="TextureProgressBar" parent="GameInterface"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 1016.0
+offset_right = 1315.0
+offset_bottom = 1050.0
+texture_under = ExtResource("10_ad7hu")
+texture_progress = ExtResource("11_7ov1n")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="StaminaIcon" type="Sprite2D" parent="GameInterface"]
+position = Vector2(592, 1032)
+scale = Vector2(0.342857, 0.342857)
+texture = ExtResource("15_k0pcb")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="GameInterface"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 1016.0
+offset_right = 928.0
+offset_bottom = 1050.0
+fill_mode = 1
+texture_under = ExtResource("12_vcab1")
+texture_progress = ExtResource("13_sxpfb")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="MenuInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="MenuInterface"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="PlayerInterface" type="Node" parent="."]

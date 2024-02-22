@@ -71,6 +71,14 @@ func remove_from_inventory(category: String, item_name: String, item_values: Dic
 	else:
 		print_debug("Invalid Item Category")
 
+func get_inventory(category: String):
+	if equip_inventory.has(category):
+		for key in equip_inventory[category].keys():
+			print_debug(key)
+	elif extra_inventory.has(category):
+		for key in extra_inventory[category].keys():
+			print_debug(key)
+
 func get_save_data() -> Dictionary:
 	return {
 		"extra_inventory": extra_inventory,
