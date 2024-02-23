@@ -2,29 +2,41 @@ extends Node
 
 @onready var health_bar = $GameInterface/Health/HealthBar
 @onready var health_text = $GameInterface/Health/HealthText
+
 @onready var overshield_bar = $GameInterface/Overshield/OvershieldBar
 @onready var overshield_text = $GameInterface/Overshield/OvershieldText
+
 @onready var magic_bar = $GameInterface/Magic/MagicBar
 @onready var magic_text = $GameInterface/Magic/MagicText
+
 @onready var stamina_bar = $GameInterface/Stamina/StaminaBar
 @onready var stamina_text = $GameInterface/Stamina/StaminaText
+
 @onready var experience_bar = $GameInterface/Experience/ExperienceBar
 @onready var specialist_bar = $GameInterface/Experience/SpecialistBar
+
 @onready var species_icon = $GameInterface/Experience/SpecialistBar/Species
 @onready var specialist_icon = $GameInterface/Experience/SpecialistBar/Specialist
+
 @onready var player_level = $GameInterface/Experience/PlayerBar/Level
 @onready var specialist_rank = $GameInterface/Experience/PlayerBar/Rank
+
 @onready var rank_point = $GameInterface/Experience/PlayerBar/RankPoint
 @onready var level_point = $GameInterface/Experience/PlayerBar/LevelPoint
+
 @onready var ranged_weapon = $GameInterface/RangedWeapon/Weapon
 @onready var melee_weapon = $GameInterface/MeleeWeapon/Weapon
+
 @onready var ammo = $GameInterface/RangedWeapon/Ammo
 @onready var charge = $GameInterface/MeleeWeapon/Charge
+
 @onready var ranged_active = $GameInterface/RangedWeapon/ActiveMode
 @onready var melee_active = $GameInterface/MeleeWeapon/ActiveMode
 
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
+
+var weapon_stats
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -73,13 +85,29 @@ func initial_setup():
 	# Ensure the UI is visible.
 	self.visible = true
 
-func swap_active():
-	if ranged_active.visible == true:
-		ranged_active.visible = false
-		melee_active.visible = true
-	else:
-		melee_active.visible = false
-		ranged_active.visible = true
+func swap_active(state):
+	match state:
+		"Ranged":
+			melee_active.visible = false
+			ranged_active.visible = true
+			weapon_stats = PlayerStats.ranged_stats
+		"Melee":
+			ranged_active.visible = false
+			melee_active.visible = true
+			weapon_stats = PlayerStats.melee_stats
+		"Swap":
+			if ranged_active == true:
+				ranged_active.visible = false
+				melee_active.visible = true
+				weapon_stats = PlayerStats.melee_stats
+			else:
+				melee_active.visible = false
+				ranged_active.visible = true
+				weapon_stats = PlayerStats.ranged_stats
+		"None":
+			melee_active.visible = false
+			ranged_active.visible = false
+			weapon_stats = null
 
 func update_values(stat):
 	match stat:

@@ -220,7 +220,8 @@ func get_save_data() -> Dictionary:
 		"melee_stats": melee_stats,
 		"specialist_cache": specialist_cache,
 		"timer_cache": timer_cache,
-		"specialist_levels": specialist_levels
+		"specialist_levels": specialist_levels,
+		"player_levels": player_level
 	}
 
 func set_data(data: Dictionary) -> void:
@@ -240,7 +241,7 @@ func _input(event):
 			if techniques["Super"] != null:
 				techniques["Super"].call("Active")
 		if event.pressed and event.keycode == KEY_C:
-			PlayerInterface.swap_active()
+			PlayerInterface.swap_active("Swap")
 		if event.pressed and event.keycode == KEY_I:
 			print_debug(species)
 			print_debug(stats)
