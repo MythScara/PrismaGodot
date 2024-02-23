@@ -96,7 +96,7 @@ func swap_active(state):
 			melee_active.visible = true
 			weapon_stats = PlayerStats.melee_stats
 		"Swap":
-			if ranged_active == true:
+			if ranged_active.visible == true:
 				ranged_active.visible = false
 				melee_active.visible = true
 				weapon_stats = PlayerStats.melee_stats

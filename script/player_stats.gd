@@ -242,6 +242,12 @@ func _input(event):
 				techniques["Super"].call("Active")
 		if event.pressed and event.keycode == KEY_C:
 			PlayerInterface.swap_active("Swap")
+		if event.pressed and event.keycode == KEY_V:
+			PlayerInterface.swap_active("None")
+		if event.pressed and event.keycode == KEY_1:
+			PlayerInterface.swap_active("Ranged")
+		if event.pressed and event.keycode == KEY_2:
+			PlayerInterface.swap_active("Melee")
 		if event.pressed and event.keycode == KEY_I:
 			print_debug(species)
 			print_debug(stats)
