@@ -84,6 +84,8 @@ func initial_setup():
 
 	# Ensure the UI is visible.
 	self.visible = true
+	ammo.text = "100"
+	charge.text = "100"
 
 func swap_active(state):
 	match state:
@@ -108,6 +110,26 @@ func swap_active(state):
 			melee_active.visible = false
 			ranged_active.visible = false
 			weapon_stats = null
+
+func attack_action():
+	if ranged_active.visible == true:
+		var cur = int(ammo.text)
+		if cur > 0:
+			cur -= 1
+			ammo.text = str(cur)
+	elif melee_active.visible == true:
+		var cur = int(charge.text)
+		if cur > 0:
+			cur -= 1
+			charge.text = str(cur)
+	else:
+		print_debug("No Weapon Equipped")
+
+func reload():
+	if ranged_active.visible == true:
+		ammo.text = str(PlayerStats.ranged_stats["MAG"])
+	elif melee_active.visible == true:
+		charge.text = str(PlayerStats.melee_stats["CHG"])
 
 func update_values(stat):
 	match stat:

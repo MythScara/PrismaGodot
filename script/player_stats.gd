@@ -248,6 +248,8 @@ func _input(event):
 			PlayerInterface.swap_active("Ranged")
 		if event.pressed and event.keycode == KEY_2:
 			PlayerInterface.swap_active("Melee")
+		if event.pressed and event.keycode == KEY_SPACE:
+			PlayerInterface.attack_action()
 		if event.pressed and event.keycode == KEY_I:
 			print_debug(species)
 			print_debug(stats)
