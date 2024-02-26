@@ -24,7 +24,9 @@ var melee_stats = {
 	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": "Long Sword", "Tier": null, "Element": null}
-	
+
+var excluded = ["Type", "Tier", "Element", "Max Value"]
+
 var specialist_levels = {}
 var specialist_cache = {}
 var timer_cache = {}
@@ -35,7 +37,10 @@ signal stat_update(stat)
 
 var attacking = false
 var cooldown_time = 0.0
-var attack_cooldown = 0.08
+var attack_cooldown = 0.04
+
+func _ready():
+	RandomNumberGenerator.new().randomize()
 
 func set_specialist(specialist_name):
 	var specialist_class = load_specialist(specialist_name)
@@ -47,6 +52,21 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "skill_technique")
 		change_technique(specialist_name, "special_technique")
 		change_technique(specialist_name, "super_technique")
+
+func randomize_weapon(type):
+	match type:
+		"Ranged":
+			weapon_randomizer(ranged_stats)
+		"Melee":
+			weapon_randomizer(melee_stats)
+		"Both":
+			weapon_randomizer(ranged_stats)
+			weapon_randomizer(melee_stats)
+
+func weapon_randomizer(stat_value):
+	for key in stat_value.keys():
+		if key not in excluded:
+			stat_value[key] = randi() % 100 + 1
 
 func start_timer(specialist_name, s_name, duration, s_type):
 	var timer_id = str(specialist_name) + "_" + s_name + "_" + s_type
@@ -124,11 +144,11 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 		if key in target and valid:
 			match stat_mode:
 				"Add":
-					target[key] = clamp(target[key] + stat_values[key], 0, target.get("max_value", 100))
+					target[key] = clamp(target[key] + stat_values[key], 0, target.get("Max Value", 100))
 				"Sub":
-					target[key] = clamp(target[key] - stat_values[key], 0, target.get("max_value", 100))
+					target[key] = clamp(target[key] - stat_values[key], 0, target.get("Max Value", 100))
 				"Mul":
-					target[key] = clamp(target[key] * stat_values[key], 0, target.get("max_value", 100))
+					target[key] = clamp(target[key] * stat_values[key], 0, target.get("Max Value", 100))
 				"Mod":
 					target[key] = stat_values[key]
 				_:
@@ -140,29 +160,29 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
-		ranged_stats["max_value"] = 100
+		ranged_stats["Max Value"] = 100
 		stat_change(ranged_stats, stat_values, stat_mode)
 	elif stat_type == "Melee" or stat_type == "Both":
-		melee_stats["max_value"] = 100
+		melee_stats["Max Value"] = 100
 		stat_change(melee_stats, stat_values, stat_mode)
 	else:
 		print_debug("Invalid Stat Type")
 		return
 
 func element_stat_change(stat_values, stat_mode):
-	elements["max_value"] = 50000
+	elements["Max Value"] = 50000
 	stat_change(elements, stat_values, stat_mode)
 
 func player_stat_change(stat_values, stat_mode):
 	for key in stat_values.keys():
 		if key in ["HP", "MP"]:
-			stats["max_value"] = 500000
+			stats["Max Value"] = 500000
 			emit_signal("stat_update", key)
 		elif key in ["SHD", "STM"]:
-			stats["max_value"] = 100000
+			stats["Max Value"] = 100000
 			emit_signal("stat_update", key)
 		else:
-			stats["max_value"] = 50000
+			stats["Max Value"] = 50000
 		stat_change(stats, {key: stat_values[key]}, stat_mode)
 
 func exp_handler(value):
@@ -251,16 +271,14 @@ func _input(event):
 		if event.is_action_released("Technique 3"):
 			if techniques["Super"] != null:
 				techniques["Super"].call("Active")
-		if event.is_action_pressed("Swap Weapon"):
+		if event.is_action_released("Swap Weapon"):
 			PlayerInterface.swap_active("Swap")
-		if event.is_action_pressed("Unequip Weapon"):
+		if event.is_action_released("Unequip Weapon"):
 			PlayerInterface.swap_active("None")
-		if event.is_action_pressed("Ranged Weapon"):
+		if event.is_action_released("Ranged Weapon"):
 			PlayerInterface.swap_active("Ranged")
-		if event.is_action_pressed("Melee Weapon"):
+		if event.is_action_released("Melee Weapon"):
 			PlayerInterface.swap_active("Melee")
-		if event.is_action_pressed("Attack"):
-			PlayerInterface.attack_action()
 		if event.is_action_pressed("Reload"):
 			PlayerInterface.reload()
 		if event.is_action_pressed("Information"):

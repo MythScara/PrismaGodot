@@ -261,6 +261,14 @@ offset_top = 1023.0
 offset_right = 1905.0
 offset_bottom = 1065.0
 
+[node name="AmmoRect" type="ColorRect" parent="GameInterface/RangedWeapon/ActiveMode"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 41.0
+color = Color(0, 1, 0, 1)
+
 [node name="Background" type="TextureRect" parent="GameInterface/RangedWeapon"]
 layout_mode = 0
 offset_left = 1664.0
@@ -303,6 +311,14 @@ offset_left = 1663.0
 offset_top = 975.0
 offset_right = 1905.0
 offset_bottom = 1017.0
+
+[node name="ChargeRect" type="ColorRect" parent="GameInterface/MeleeWeapon/ActiveMode"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 41.0
+color = Color(0, 1, 0, 1)
 
 [node name="Background" type="TextureRect" parent="GameInterface/MeleeWeapon"]
 layout_mode = 0

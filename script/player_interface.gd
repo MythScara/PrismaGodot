@@ -33,6 +33,9 @@ extends Node
 @onready var ranged_active = $GameInterface/RangedWeapon/ActiveMode
 @onready var melee_active = $GameInterface/MeleeWeapon/ActiveMode
 
+@onready var ranged_meter = $GameInterface/RangedWeapon/ActiveMode/AmmoRect
+@onready var melee_meter = $GameInterface/MeleeWeapon/ActiveMode/ChargeRect
+
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
 
@@ -85,10 +88,11 @@ func initial_setup():
 
 	# Ensure the UI is visible.
 	self.visible = true
-	ammo.text = "100" #remove after testing
-	charge.text = "100" #remove after testing
 
 func swap_active(state):
+	if reloading:
+		return
+	
 	match state:
 		"Ranged":
 			melee_active.visible = false
@@ -114,17 +118,29 @@ func swap_active(state):
 
 func attack_action():
 	if ranged_active.visible == true:
+		if reloading:
+			return
+			
 		var cur = int(ammo.text)
+		var amount
 		if cur > 0:
 			cur -= 1
 			ammo.text = str(cur)
+			amount = float(cur) / PlayerStats.ranged_stats["MAG"]
+			ranged_meter.color = meter_update(amount)
 		else:
 			reload()
 	elif melee_active.visible == true:
+		if reloading:
+			return
+			
 		var cur = int(charge.text)
+		var amount
 		if cur > 0:
 			cur -= 1
 			charge.text = str(cur)
+			amount = float(cur) / PlayerStats.melee_stats["CHG"]
+			melee_meter.color = meter_update(amount)
 		else:
 			reload()
 	else:
@@ -137,15 +153,22 @@ func reload(time: float = 2.0):
 	reloading = true
 	
 	if ranged_active.visible == true:
+		ranged_active.color = Color(1, 0, 0, 1)
 		await get_tree().create_timer(time).timeout
 		ammo.text = str(PlayerStats.ranged_stats["MAG"])
-		ammo.text = "100" #remove after testing
+		ranged_active.color = Color(1, 1, 1, 1)
+		ranged_meter.color = Color(0, 1, 0, 1)
 	elif melee_active.visible == true:
+		melee_active.color = Color(1, 0, 0, 1)
 		await get_tree().create_timer(time).timeout
 		charge.text = str(PlayerStats.melee_stats["CHG"])
-		charge.text = "100" #remove after testing
+		melee_active.color = Color(1, 1, 1, 1)
+		melee_meter.color = Color(0, 1, 0, 1)
 		
 	reloading = false
+
+func meter_update(amount):
+	return Color(1 - amount, amount, 0 ,1)
 
 func update_values(stat):
 	match stat:
