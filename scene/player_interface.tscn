@@ -38,6 +38,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 1
 
 [node name="Health" type="Control" parent="GameInterface"]
 anchors_preset = 0
@@ -345,8 +346,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 
 [node name="Background" type="ColorRect" parent="MenuInterface"]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0

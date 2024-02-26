@@ -229,28 +229,34 @@ func set_data(data: Dictionary) -> void:
 		if key in self:
 			self[key] = data[key]
 
+func _unhandled_input(event):
+	if event.is_action_pressed("Attack"):
+		PlayerInterface.attack_action()
+
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_Q:
+		if event.is_action_released("Technique 1"):
 			if techniques["Skill"] != null:
 				techniques["Skill"].call("Active")
-		if event.pressed and event.keycode == KEY_E:
+		if event.is_action_released("Technique 2"):
 			if techniques["Special"] != null:
 				techniques["Special"].call("Active")
-		if event.pressed and event.keycode == KEY_G:
+		if event.is_action_released("Technique 3"):
 			if techniques["Super"] != null:
 				techniques["Super"].call("Active")
-		if event.pressed and event.keycode == KEY_C:
+		if event.is_action_pressed("Swap Weapon"):
 			PlayerInterface.swap_active("Swap")
-		if event.pressed and event.keycode == KEY_V:
+		if event.is_action_pressed("Unequip Weapon"):
 			PlayerInterface.swap_active("None")
-		if event.pressed and event.keycode == KEY_1:
+		if event.is_action_pressed("Ranged Weapon"):
 			PlayerInterface.swap_active("Ranged")
-		if event.pressed and event.keycode == KEY_2:
+		if event.is_action_pressed("Melee Weapon"):
 			PlayerInterface.swap_active("Melee")
-		if event.pressed and event.keycode == KEY_SPACE:
+		if event.is_action_pressed("Attack"):
 			PlayerInterface.attack_action()
-		if event.pressed and event.keycode == KEY_I:
+		if event.is_action_pressed("Reload"):
+			PlayerInterface.reload()
+		if event.is_action_pressed("Information"):
 			print_debug(species)
 			print_debug(stats)
 			print_debug(bonuses)
