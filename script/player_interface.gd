@@ -37,6 +37,7 @@ extends Node
 @onready var menu_ui = $MenuInterface
 
 var weapon_stats
+var reloading = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -129,13 +130,22 @@ func attack_action():
 	else:
 		print_debug("No Weapon Equipped")
 
-func reload():
+func reload(time: float = 2.0):
+	if reloading:
+		return
+	
+	reloading = true
+	
 	if ranged_active.visible == true:
+		await get_tree().create_timer(time).timeout
 		ammo.text = str(PlayerStats.ranged_stats["MAG"])
 		ammo.text = "100" #remove after testing
 	elif melee_active.visible == true:
+		await get_tree().create_timer(time).timeout
 		charge.text = str(PlayerStats.melee_stats["CHG"])
 		charge.text = "100" #remove after testing
+		
+	reloading = false
 
 func update_values(stat):
 	match stat:

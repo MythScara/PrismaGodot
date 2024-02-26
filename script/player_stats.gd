@@ -33,6 +33,10 @@ signal activate_specialist(s_type)
 signal player_event(event)
 signal stat_update(stat)
 
+var attacking = false
+var cooldown_time = 0.0
+var attack_cooldown = 0.08
+
 func set_specialist(specialist_name):
 	var specialist_class = load_specialist(specialist_name)
 	
@@ -230,8 +234,11 @@ func set_data(data: Dictionary) -> void:
 			self[key] = data[key]
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Attack"):
-		PlayerInterface.attack_action()
+	if event.is_action("Attack"):
+		attacking = event.is_pressed()
+		if attacking and cooldown_time >= attack_cooldown:
+			PlayerInterface.attack_action()
+			cooldown_time = 0.0
 
 func _input(event):
 	if event is InputEventKey:
@@ -271,3 +278,11 @@ func _input(event):
 			print_debug(melee_stats)
 			print_debug(specialist_levels)
 			pass
+
+func _process(delta):
+	if attacking == true and cooldown_time >= attack_cooldown:
+		PlayerInterface.attack_action()
+		cooldown_time = 0.0
+	elif cooldown_time < attack_cooldown:
+		cooldown_time += delta
+	
