@@ -86,7 +86,7 @@ func initial_setup():
 	ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
 	ammo.text = str(PlayerStats.ranged_stats["MAG"])
 	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
-	charge.text = str(PlayerStats.melee_stats["CHG"])
+	charge.text = str(PlayerStats.melee_stats["STE"])
 
 	# Ensure the UI is visible.
 	self.visible = true
@@ -141,7 +141,7 @@ func attack_action():
 		if cur > 0:
 			cur -= 1
 			charge.text = str(cur)
-			amount = float(cur) / PlayerStats.melee_stats["CHG"]
+			amount = float(cur) / PlayerStats.melee_stats["STE"]
 			melee_meter.color = meter_update(amount)
 		else:
 			reload()
@@ -163,7 +163,7 @@ func reload(time: float = 2.0):
 	elif melee_active.visible == true:
 		melee_active.color = Color(1, 0, 0, 1)
 		await get_tree().create_timer(time).timeout
-		charge.text = str(PlayerStats.melee_stats["CHG"])
+		charge.text = str(PlayerStats.melee_stats["STE"])
 		melee_active.color = Color(1, 1, 1, 1)
 		melee_meter.color = Color(0, 1, 0, 1)
 		

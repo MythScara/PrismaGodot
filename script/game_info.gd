@@ -192,109 +192,109 @@ var ranged_info = {
 }
 
 var melee_info = {
-	"Long Sword": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Long Sword": {"POW": 4.80, "RCH": 1.20, "MOB": 0.85, "HND": 0.85, "BLK": 0.30, "CHG": 1.25, "ASP": 60.00, "STE": 15.00, "DUR": 15.00, "WCP": 150.00,
+	"CRR": 15.00, "CRD": 4.80, "INF": 1.00, "SLS": 15.00, "PRC": 15.00, "FRC": 1.00},
 	
-	"Great Sword": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Great Sword": {"POW": 7.20, "RCH": 1.50, "MOB": 0.75, "HND": 0.75, "BLK": 0.35, "CHG": 1.50, "ASP": 40.00, "STE": 12.00, "DUR": 12.00, "WCP": 225.00,
+	"CRR": 12.00, "CRD": 7.20, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
 	
-	"Katana": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Katana": {"POW": 3.20, "RCH": 1.00, "MOB": 0.95, "HND": 0.95, "BLK": 0.25, "CHG": 1.00, "ASP": 90.00, "STE": 18.00, "DUR": 19.00, "WCP": 100.00,
+	"CRR": 18.00, "CRD": 3.20, "INF": 1.00, "SLS": 18.00, "PRC": 18.00, "FRC": 1.00},
 	
-	"Dagger": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Dagger": {"POW": 2.40, "RCH": 0.80, "MOB": 1.00, "HND": 1.00, "BLK": 0.05, "CHG": 0.75, "ASP": 120.00, "STE": 18.00, "DUR": 18.00, "WCP": 50.00,
+	"CRR": 18.00, "CRD": 2.40, "INF": 1.00, "SLS": 18.00, "PRC": 18.00, "FRC": 1.00},
 	
-	"Staff": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Staff": {"POW": 4.80, "RCH": 1.50, "MOB": 0.90, "HND": 0.90, "BLK": 0.10, "CHG": 1.00, "ASP": 60.00, "STE": 12.00, "DUR": 12.00, "WCP": 125.00,
+	"CRR": 4.80, "CRD": 1.00, "INF": 12.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
 	
-	"Mace": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Mace": {"POW": 4.80, "RCH": 1.00, "MOB": 0.80, "HND": 0.80, "BLK": 0.20, "CHG": 1.25, "ASP": 60.00, "STE": 15.00, "DUR": 15.00, "WCP": 100.00,
+	"CRR": 15.00, "CRD": 4.80, "INF": 1.00, "SLS": 15.00, "PRC": 15.00, "FRC": 1.00},
 	
-	"Halberd": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Halberd": {"POW": 5.75, "RCH": 1.50, "MOB": 0.75, "HND": 0.75, "BLK": 0.30, "CHG": 1.20, "ASP": 50.00, "STE": 12.00, "DUR": 12.00, "WCP": 200.00,
+	"CRR": 12.00, "CRD": 5.75, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
 	
-	"Warhammer": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Warhammer": {"POW": 9.60, "RCH": 1.20, "MOB": 0.75, "HND": 0.75, "BLK": 0.30, "CHG": 1.50, "ASP": 30.00, "STE": 9.00, "DUR": 9.00, "WCP": 200.00,
+	"CRR": 9.00, "CRD": 9.60, "INF": 1.00, "SLS": 9.00, "PRC": 9.00, "FRC": 1.00},
 	
-	"Battle Axe": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Battle Axe": {"POW": 7.20, "RCH": 1.50, "MOB": 0.70, "HND": 0.70, "BLK": 0.35, "CHG": 1.50, "ASP": 40.00, "STE": 12.00, "DUR": 12.00, "WCP": 225.00,
+	"CRR": 12.00, "CRD": 7.20, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
 	
-	"Polearm": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Polearm": {"POW": 3.20, "RCH": 2.00, "MOB": 0.95, "HND": 0.95, "BLK": 0.10, "CHG": 1.50, "ASP": 90.00, "STE": 27.00, "DUR": 27.00, "WCP": 75.00,
+	"CRR": 27.00, "CRD": 3.20, "INF": 1.00, "SLS": 27.00, "PRC": 27.00, "FRC": 1.00},
 	
-	"Scythe": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Scythe": {"POW": 3.80, "RCH": 1.50, "MOB": 0.85, "HND": 0.85, "BLK": 0.15, "CHG": 1.20, "ASP": 75.00, "STE": 18.00, "DUR": 18.00, "WCP": 125.00,
+	"CRR": 18.00, "CRD": 3.80, "INF": 1.00, "SLS": 18.00, "PRC": 18.00, "FRC": 1.00},
 	
-	"Gauntlet": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Gauntlet": {"POW": 2.40, "RCH": 0.80, "MOB": 1.00, "HND": 1.00, "BLK": 0.20, "CHG": 1.00, "ASP": 120.00, "STE": 24.00, "DUR": 24.00, "WCP": 50.00,
+	"CRR": 24.00, "CRD": 2.40, "INF": 1.00, "SLS": 24.00, "PRC": 24.00, "FRC": 1.00},
 	
-	"Shield": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Shield": {"POW": 14.40, "RCH": 0.50, "MOB": 0.60, "HND": 0.60, "BLK": 0.50, "CHG": 2.25, "ASP": 20.00, "STE": 9.00, "DUR": 9.00, "WCP": 250.00,
+	"CRR": 9.00, "CRD": 14.40, "INF": 1.00, "SLS": 9.00, "PRC": 9.00, "FRC": 1.00},
 	
-	"Spear": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+	"Spear": {"POW": 3.80, "RCH": 2.00, "MOB": 0.90, "HND": 0.90, "BLK": 0.10, "CHG": 1.00, "ASP": 75.00, "STE": 15.00, "DUR": 15.00, "WCP": 75.00,
+	"CRR": 15.00, "CRD": 3.80, "INF": 1.00, "SLS": 15.00, "PRC": 15.00, "FRC": 1.00}
 }
 
 var ranged_tier = {
-	"Iron": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Iron": {"DMG": 1.00, "RNG": 1.00, "MOB": 0.70, "HND": 0.50, "AC": 0.82, "RLD": 1.00, "FR": 1.00, "MAG": 1.00, "DUR": 3.00, "WCP": 2.00,
+	"CRR": 20.50, "CRD": 1.00, "INF": 0.55, "SLS": 0.50, "PRC": 0.50, "FRC": 0.55},
 	
-	"Copper": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Copper": {"DMG": 1.20, "RNG": 1.05, "MOB": 0.72, "HND": 0.52, "AC": 0.84, "RLD": 0.98, "FR": 1.02, "MAG": 1.05, "DUR": 4.00, "WCP": 4.00,
+	"CRR": 21.00, "CRD": 1.05, "INF": 0.60, "SLS": 1.00, "PRC": 1.00, "FRC": 0.60},
 	
-	"Bronze": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Bronze": {"DMG": 1.40, "RNG": 1.10, "MOB": 0.74, "HND": 0.54, "AC": 0.86, "RLD": 0.96, "FR": 1.04, "MAG": 1.10, "DUR": 5.00, "WCP": 6.00,
+	"CRR": 21.50, "CRD": 1.10, "INF": 0.65, "SLS": 1.50, "PRC": 1.50, "FRC": 0.65},
 	
-	"Silver": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Silver": {"DMG": 1.60, "RNG": 1.15, "MOB": 0.76, "HND": 0.56, "AC": 0.88, "RLD": 0.94, "FR": 1.06, "MAG": 1.15, "DUR": 6.00, "WCP": 8.00,
+	"CRR": 22.00, "CRD": 1.15, "INF": 0.70, "SLS": 2.00, "PRC": 2.00, "FRC": 0.70},
 	
-	"Gold": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Gold": {"DMG": 1.80, "RNG": 1.20, "MOB": 0.78, "HND": 0.58, "AC": 0.90, "RLD": 0.92, "FR": 1.08, "MAG": 1.20, "DUR": 7.00, "WCP": 10.00,
+	"CRR": 22.50, "CRD": 1.20, "INF": 0.75, "SLS": 2.50, "PRC": 2.50, "FRC": 0.75},
 	
-	"Platinum": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Platinum": {"DMG": 2.00, "RNG": 1.25, "MOB": 0.80, "HND": 0.60, "AC": 0.92, "RLD": 0.90, "FR": 1.10, "MAG": 1.25, "DUR": 8.00, "WCP": 12.00,
+	"CRR": 23.00, "CRD": 1.25, "INF": 0.80, "SLS": 3.00, "PRC": 3.00, "FRC": 0.80},
 	
-	"Diamond": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Diamond": {"DMG": 2.25, "RNG": 1.30, "MOB": 0.82, "HND": 0.62, "AC": 0.94, "RLD": 0.88, "FR": 1.12, "MAG": 1.30, "DUR": 9.00, "WCP": 14.00,
+	"CRR": 23.50, "CRD": 1.30, "INF": 0.85, "SLS": 3.50, "PRC": 3.50, "FRC": 0.85},
 	
-	"Obsidian": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Obsidian": {"DMG": 2.50, "RNG": 1.40, "MOB": 0.84, "HND": 0.64, "AC": 0.96, "RLD": 0.86, "FR": 1.14, "MAG": 1.40, "DUR": 10.00, "WCP": 16.00,
+	"CRR": 24.00, "CRD": 1.35, "INF": 0.90, "SLS": 4.00, "PRC": 4.00, "FRC": 0.90},
 	
-	"Mithril": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Mithril": {"DMG": 2.75, "RNG": 1.50, "MOB": 0.86, "HND": 0.66, "AC": 0.98, "RLD": 0.84, "FR": 1.16, "MAG": 1.50, "DUR": 11.00, "WCP": 18.00,
+	"CRR": 24.50, "CRD": 1.40, "INF": 0.95, "SLS": 4.50, "PRC": 4.50, "FRC": 0.95},
 	
-	"Adamantine": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+	"Adamantine": {"DMG": 3.00, "RNG": 1.60, "MOB": 0.88, "HND": 0.66, "AC": 1.00, "RLD": 0.82, "FR": 1.18, "MAG": 1.60, "DUR": 12.00, "WCP": 20.00,
+	"CRR": 25.00, "CRD": 1.45, "INF": 1.00, "SLS": 5.00, "PRC": 5.00, "FRC": 1.00}
 }
 
 var melee_tier = {
-	"Iron": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Iron": {"POW": 1.00, "RCH": 1.00, "MOB": 0.70, "HND": 0.50, "BLK": 0.82, "CHG": 1.00, "ASP": 1.00, "STE": 1.00, "DUR": 3.00, "WCP": 2.00,
+	"CRR": 20.50, "CRD": 1.00, "INF": 0.55, "SLS": 0.50, "PRC": 0.50, "FRC": 0.55},
 	
-	"Copper": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Copper": {"POW": 1.20, "RCH": 1.05, "MOB": 0.72, "HND": 0.52, "BLK": 0.84, "CHG": 0.98, "ASP": 1.02, "STE": 1.05, "DUR": 4.00, "WCP": 4.00,
+	"CRR": 21.00, "CRD": 1.05, "INF": 0.60, "SLS": 1.00, "PRC": 1.00, "FRC": 0.60},
 	
-	"Bronze": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Bronze": {"POW": 1.40, "RCH": 1.10, "MOB": 0.74, "HND": 0.54, "BLK": 0.86, "CHG": 0.96, "ASP": 1.04, "STE": 1.10, "DUR": 5.00, "WCP": 6.00,
+	"CRR": 21.50, "CRD": 1.10, "INF": 0.65, "SLS": 1.50, "PRC": 1.50, "FRC": 0.65},
 	
-	"Silver": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Silver": {"POW": 1.60, "RCH": 1.15, "MOB": 0.76, "HND": 0.56, "BLK": 0.88, "CHG": 0.94, "ASP": 1.06, "STE": 1.15, "DUR": 6.00, "WCP": 8.00,
+	"CRR": 22.00, "CRD": 1.15, "INF": 0.70, "SLS": 2.00, "PRC": 2.00, "FRC": 0.70},
 	
-	"Gold": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Gold": {"POW": 1.80, "RCH": 1.20, "MOB": 0.78, "HND": 0.58, "BLK": 0.90, "CHG": 0.92, "ASP": 1.08, "STE": 1.20, "DUR": 7.00, "WCP": 10.00,
+	"CRR": 22.50, "CRD": 1.20, "INF": 0.75, "SLS": 2.50, "PRC": 2.50, "FRC": 0.75},
 	
-	"Platinum": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Platinum": {"POW": 2.00, "RCH": 1.25, "MOB": 0.80, "HND": 0.60, "BLK": 0.92, "CHG": 0.90, "ASP": 1.10, "STE": 1.25, "DUR": 8.00, "WCP": 12.00,
+	"CRR": 23.00, "CRD": 1.25, "INF": 0.80, "SLS": 3.00, "PRC": 3.00, "FRC": 0.80},
 	
-	"Diamond": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Diamond": {"POW": 2.25, "RCH": 1.30, "MOB": 0.82, "HND": 0.62, "BLK": 0.94, "CHG": 0.88, "ASP": 1.12, "STE": 1.30, "DUR": 9.00, "WCP": 14.00,
+	"CRR": 23.50, "CRD": 1.30, "INF": 0.85, "SLS": 3.50, "PRC": 3.50, "FRC": 0.85},
 	
-	"Obsidian": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Obsidian": {"POW": 2.50, "RCH": 1.40, "MOB": 0.84, "HND": 0.64, "BLK": 0.96, "CHG": 0.86, "ASP": 1.14, "STE": 1.40, "DUR": 10.00, "WCP": 16.00,
+	"CRR": 24.00, "CRD": 1.35, "INF": 0.90, "SLS": 4.00, "PRC": 4.00, "FRC": 0.90},
 	
-	"Mithril": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	"Mithril": {"POW": 2.75, "RCH": 1.50, "MOB": 0.86, "HND": 0.66, "BLK": 0.98, "CHG": 0.84, "ASP": 1.16, "STE": 1.50, "DUR": 11.00, "WCP": 18.00,
+	"CRR": 24.50, "CRD": 1.40, "INF": 0.95, "SLS": 4.50, "PRC": 4.50, "FRC": 0.95},
 	
-	"Adamantine": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+	"Adamantine": {"POW": 3.00, "RCH": 1.60, "MOB": 0.88, "HND": 0.66, "BLK": 1.00, "CHG": 0.82, "ASP": 1.18, "STE": 1.60, "DUR": 12.00, "WCP": 20.00,
+	"CRR": 25.00, "CRD": 1.45, "INF": 1.00, "SLS": 5.00, "PRC": 5.00, "FRC": 1.00}
 }

@@ -19,13 +19,13 @@ var passives = {}
 var techniques = {"Skill": null, "Special": null, "Super": null}
 
 var ranged_stats = {
-	"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "Assault Rifle", "Tier": null, "Element": null}
+	"Type": "Assault Rifle", "Tier": null, "Element": null, "Max Value": 100}
 var melee_stats = {
-	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "Long Sword", "Tier": null, "Element": null}
+	"Type": "Long Sword", "Tier": null, "Element": null, "Max Value": 100}
 
 var excluded = ["Type", "Tier", "Element", "Max Value"]
 
@@ -68,9 +68,24 @@ func randomize_weapon(type):
 			weapon_randomizer(melee_stats)
 
 func weapon_randomizer(stat_value):
+	var max_points = 0
+	var tier_list = ["Iron", "Copper", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Obsidian", "Mithril", "Adamantine"]
+	
 	for key in stat_value.keys():
 		if key not in excluded:
-			stat_value[key] = randi() % 100 + 1
+			stat_value[key] += randi() % 100 + 1
+			max_points += stat_value[key]
+	
+	var tier_index = int((max_points - 600) / 100.0)
+	
+	var tier = "Iron"
+	
+	if tier_index >= 0 and tier_index < tier_list.size():
+		tier = tier_list[tier_index]
+	elif tier_index >= tier_list.size():
+		tier = tier_list[-1]
+	
+	stat_value["Tier"] = tier
 
 func start_timer(specialist_name, s_name, duration, s_type):
 	var timer_id = str(specialist_name) + "_" + s_name + "_" + s_type
@@ -172,10 +187,8 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
-		ranged_stats["Max Value"] = 100
 		stat_change(ranged_stats, stat_values, stat_mode)
 	elif stat_type == "Melee" or stat_type == "Both":
-		melee_stats["Max Value"] = 100
 		stat_change(melee_stats, stat_values, stat_mode)
 	else:
 		print_debug("Invalid Stat Type")
@@ -308,13 +321,9 @@ func _input(event):
 			#print_debug(afflictions)
 			#print_debug(passives)
 			#print_debug(techniques)
-			#print_debug(ranged_stats)
-			#print_debug(melee_stats)
+			print_debug(ranged_stats)
+			print_debug(melee_stats)
 			#print_debug(specialist_levels)
-			exp_handler(1000)
-			print_debug(specialist_cache)
-			print_debug(player_level)
-			print_debug(specialist_levels)
 			pass
 
 func _process(delta):
