@@ -47,6 +47,8 @@ func _ready():
 	self.visible = false
 	menu_ui.visible = false
 	PlayerStats.connect("stat_update", Callable(self, "update_values"))
+	PlayerStats.connect("exp_update", Callable(self, "update_exp"))
+	PlayerStats.connect("spec_update", Callable(self, "update_spec"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -169,6 +171,17 @@ func reload(time: float = 2.0):
 
 func meter_update(amount):
 	return Color(1 - amount, amount, 0 ,1)
+
+func update_exp():
+	experience_bar.max_value = PlayerStats.player_level[2]
+	experience_bar.value = PlayerStats.player_level[1]
+	player_level.text = "Level " + str(PlayerStats.player_level[0])
+
+func update_spec():
+	if PlayerStats.specialist != null:
+		specialist_bar.max_value = PlayerStats.specialist_levels[PlayerStats.specialist][2]
+		specialist_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
+		specialist_rank.text = PlayerStats.specialist.to_lower() + " Rank " + str(PlayerStats.specialist_levels[PlayerStats.specialist][0])
 
 func update_values(stat):
 	match stat:

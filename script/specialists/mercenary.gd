@@ -191,6 +191,7 @@ func skill_technique(state):
 				else:
 					skill_technique("Cooldown")
 				PlayerStats.emit_signal("player_event", "Technique Used")
+				print_debug("Activated")
 		"Cooldown":
 			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
 				PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")

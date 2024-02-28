@@ -21,6 +21,7 @@ PlayerStats="*res://scene/player_stats.tscn"
 PlayerInventory="*res://scene/player_inventory.tscn"
 GameManager="*res://scene/game_manager.tscn"
 PlayerInterface="*res://scene/player_interface.tscn"
+GameInfo="*res://scene/game_info.tscn"
 
 [display]
 

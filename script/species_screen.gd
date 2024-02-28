@@ -2,39 +2,6 @@ extends Control
 
 @export var continue_screen : PackedScene
 
-var species_data = {
-	"Human": {
-	"Description": "Humans are an immigrant race forced to evacuate their home planet Earth after it was destroyed by famine, pollution, and war. They sought refuge on Prismadiane and soon became the planets most abundant work force. Humans are dedicated and hardworking, they control most of the markets on Prismadiane giving them access to the planets best gear at exceptional prices.",
-	"Bonus1": {"General Discount": "- Prisma cost for [b]General Vendor[/b] purchases is decreased by [b]10%[/b]"},
-	"Bonus2": {"Summon Cooldown": "- [b]Summons[/b] cooldown reduced by [b]20%[/b]"},
-	"Bonus3": {"Lucky Caches": "- Prisma gained from [b]Loot Caches[/b] increased by [b]5%[/b]"},
-	"Stats": [20000, 48000, 9600, 8000, 2800, 6000, 4000, 2800, 4000, 4000, 2800, 6000]},
-	"Meka": {
-	"Description": "The Meka are cybernetic machines created by the Celestials who once ruled over planet Prismadiane. Their sole purpose was to aid the Celestials in battle but after being abandoned by their creators, they began to advance the weaponry in preparation for their masters’ return. The Meka are highly intelligent and are skilled craftsmen, with incredible efficiency they waste no time in the workshop or on the battlefield.",
-	"Bonus1": {"Repair Discount": "- [b]Repair[/b] cost decreased by [b]20%[/b]"},
-	"Bonus2": {"Forge Success": "- [b]Forge[/b] success rate increased by [b]5%[/b] and cost decreased by [b]10%[/b]"},
-	"Bonus3": {"Transport Discount": "- [b]Transport[/b] cost decreased by [b]50%[/b]"},
-	"Stats": [40000, 20000, 14400, 5600, 4000, 7200, 2800, 6000, 4800, 1200, 1200, 4800]},
-	"Daemon": {
-	"Description": "When the Demons of the underworld rose up and cast darkness upon the planet, they began to possess and absorb the civilians. As time passed, generation after generation began to develop resistance against the Demons; eventually these civilians mutated into the Demon hybrid known as Daemons. Daemons are persistent and resilient, never allowing themselves to be broken down. Their strengthened immune systems allow them to run headfirst into battle with overwhelming confidence.",
-	"Bonus1": {"Corpse Siphon": "- [b]Magic Power[/b] gained from defeated enemies increased by [b]10%[/b]"},
-	"Bonus2": {"Magic Library": "- [b]Magic Scrolls[/b] offer [b]1[/b] additional choice"},
-	"Bonus3": {"Magical Summon": "- [b]Summons[/b] gain [b]20% MGA[/b] and [b]10% MGD[/b] while on the field"},
-	"Stats": [28000, 72000, 2400, 9600, 7200, 4000, 6000, 2800, 2000, 1200, 4800, 4000]},
-	"Sylph": {
-	"Description": "Sylphs are distant descendants of the Celestials, and the true natives of Prismadiane. Natural power rushes through their veins and the purest magic flows in their blood. The Sylphs are known for their close bond to the planet and their flawless control over their summons. Although their power is far weaker than their ancestors’, once awakened the Sylphs can effortlessly vanquish foes with extraordinary prowess.",
-	"Bonus1": {"Summon Discount": "- [b]Summons[/b] require [b]50%[/b] less [b]Summon Tokens[/b]"},
-	"Bonus2": {"Healthy Summon": "- [b]Summons[/b] gain [b]20% HP[/b] and [b]10% MP[/b] while on the field"},
-	"Bonus3": {"Planet Siphon": "- [b]Magic Power[/b] gained from planetary resources increased by [b]10%[/b]"},
-	"Stats": [60000, 40000, 1200, 2800, 1200, 2000, 4800, 6000, 6000, 7200, 4000, 2800]},
-	"Kaiju": {
-	"Description": "The Kaiju are primal creatures who have evolved to the degree where they can no longer be considered simply animals. With heightened senses, Kaiju rely heavily on their instincts and are extremely prideful. The Kaiju are the planet’s most resourceful scavengers with an unmatched knowledge of their surroundings.",
-	"Bonus1": {"Higher Bounties": "- Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]"},
-	"Bonus2": {"Lucky Corpses": "- Prisma reward from defeating enemies increased by [b]5%[/b]"},
-	"Bonus3": {"Powerful Summon": "- [b]Summons[/b] gain [b]20% ATK[/b] and [b]20% DEF[/b] while on the field"},
-	"Stats": [48000, 20000, 8000, 12000, 4800, 1200, 1200, 4000, 2800, 7200, 7200, 2800]}
-}
-
 var values = ["HP", "MP", "SHD", "STM", "ATK", "DEF", "MGA", "MGD", "SHR", "STR", "AG", "CAP"]
 var base_stat = [40000, 40000, 8000, 8000, 4000, 4000, 4000, 4000, 4000, 4000, 4000, 4000]
 
@@ -76,7 +43,7 @@ func _on_kaiju_button_pressed():
 	_update_information("Kaiju")
 
 func _update_information(key: String):
-	var species = species_data[key]
+	var species = GameInfo.species_info[key]
 	# Update description and bonuses
 	description.bbcode_text = species["Description"]  
 	bonusOne.bbcode_text = species["Bonus1"].values()[0]

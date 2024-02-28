@@ -4,6 +4,8 @@ var species = null
 var specialist = null
 
 var player_level = [0, 0, 1000]
+var stat_points = [0, 0]
+var element_points = [0, 0]
 
 var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var stats = {"HP": 40000, "MP": 40000, "SHD": 8000, "STM": 8000, "ATK": 4000, "DEF": 4000, "MGA": 4000, "MGD": 4000, "SHR": 4000, "STR": 4000, "AG": 4000, "CAP": 4000}
@@ -34,6 +36,8 @@ var timer_cache = {}
 signal activate_specialist(s_type)
 signal player_event(event)
 signal stat_update(stat)
+signal exp_update(value)
+signal spec_update(s_name)
 
 var attacking = false
 var cooldown_time = 0.0
@@ -90,6 +94,14 @@ func _on_timer_timeout(timer_id):
 			var timer = get_node(timer_id)
 			if timer:
 				timer.queue_free()
+
+func specialist_experience(value):
+	var specialist_class = load_specialist(specialist)
+	
+	if specialist_class and specialist_class.has_method("exp_handler"):
+		specialist_class.call("exp_handler", value)
+	else:
+		print_debug("Failed To Add Experience: " + specialist)
 
 func change_technique(specialist_name, technique_type):
 	var specialist_class  = load_specialist(specialist_name)
@@ -186,12 +198,16 @@ func player_stat_change(stat_values, stat_mode):
 		stat_change(stats, {key: stat_values[key]}, stat_mode)
 
 func exp_handler(value):
+	specialist_experience(value)
 	if player_level[0] != 100:
 		player_level[1] += value
 		if player_level[1] >= player_level[2]:
 			player_level[0] += 1
+			stat_points[0] += 1
+			player_level[1] -= player_level[2]
 			player_level[2] += 1000
-			player_level[1] = 0
+			exp_handler(player_level[1])
+	emit_signal("exp_update")
 
 func set_stats(new_stats : Dictionary):
 	stats = new_stats
@@ -227,6 +243,7 @@ func load_specialist(text : String):
 
 func update_specialist(s_name, s_level, s_exp, s_expr):
 	specialist_levels[s_name] = [s_level, s_exp, s_expr]
+	emit_signal("spec_update")
 
 func get_save_data() -> Dictionary:
 	return {
@@ -242,7 +259,6 @@ func get_save_data() -> Dictionary:
 		"techniques": techniques,
 		"ranged_stats": ranged_stats,
 		"melee_stats": melee_stats,
-		"specialist_cache": specialist_cache,
 		"timer_cache": timer_cache,
 		"specialist_levels": specialist_levels,
 		"player_levels": player_level
@@ -282,18 +298,22 @@ func _input(event):
 		if event.is_action_pressed("Reload"):
 			PlayerInterface.reload()
 		if event.is_action_pressed("Information"):
-			print_debug(species)
-			print_debug(stats)
-			print_debug(bonuses)
-			print_debug(elements)
-			print_debug(specialist)
-			print_debug(immunities)
-			print_debug(buffs)
-			print_debug(afflictions)
-			print_debug(passives)
-			print_debug(techniques)
-			print_debug(ranged_stats)
-			print_debug(melee_stats)
+			#print_debug(species)
+			#print_debug(stats)
+			#print_debug(bonuses)
+			#print_debug(elements)
+			#print_debug(specialist)
+			#print_debug(immunities)
+			#print_debug(buffs)
+			#print_debug(afflictions)
+			#print_debug(passives)
+			#print_debug(techniques)
+			#print_debug(ranged_stats)
+			#print_debug(melee_stats)
+			#print_debug(specialist_levels)
+			exp_handler(1000)
+			print_debug(specialist_cache)
+			print_debug(player_level)
 			print_debug(specialist_levels)
 			pass
 
