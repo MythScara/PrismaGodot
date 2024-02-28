@@ -3,33 +3,33 @@ extends Node
 var species_info = {
 	"Human": {
 	"Description": "Humans are an immigrant race forced to evacuate their home planet Earth after it was destroyed by famine, pollution, and war. They sought refuge on Prismadiane and soon became the planets most abundant work force. Humans are dedicated and hardworking, they control most of the markets on Prismadiane giving them access to the planets best gear at exceptional prices.",
-	"Bonus1": {"General Discount": "- Prisma cost for [b]General Vendor[/b] purchases is decreased by [b]10%[/b]"},
-	"Bonus2": {"Summon Cooldown": "- [b]Summons[/b] cooldown reduced by [b]20%[/b]"},
-	"Bonus3": {"Lucky Caches": "- Prisma gained from [b]Loot Caches[/b] increased by [b]5%[/b]"},
+	"Bonus1": {"General Discount": "Prisma cost for [b]General Vendor[/b] purchases is decreased by [b]10%[/b]"},
+	"Bonus2": {"Summon Cooldown": "[b]Summons[/b] cooldown reduced by [b]20%[/b]"},
+	"Bonus3": {"Lucky Caches": "Prisma gained from [b]Loot Caches[/b] increased by [b]5%[/b]"},
 	"Stats": [20000, 48000, 9600, 8000, 2800, 6000, 4000, 2800, 4000, 4000, 2800, 6000]},
 	"Meka": {
 	"Description": "The Meka are cybernetic machines created by the Celestials who once ruled over planet Prismadiane. Their sole purpose was to aid the Celestials in battle but after being abandoned by their creators, they began to advance the weaponry in preparation for their masters’ return. The Meka are highly intelligent and are skilled craftsmen, with incredible efficiency they waste no time in the workshop or on the battlefield.",
-	"Bonus1": {"Repair Discount": "- [b]Repair[/b] cost decreased by [b]20%[/b]"},
-	"Bonus2": {"Forge Success": "- [b]Forge[/b] success rate increased by [b]5%[/b] and cost decreased by [b]10%[/b]"},
-	"Bonus3": {"Transport Discount": "- [b]Transport[/b] cost decreased by [b]50%[/b]"},
+	"Bonus1": {"Repair Discount": "[b]Repair[/b] cost decreased by [b]20%[/b]"},
+	"Bonus2": {"Forge Success": "[b]Forge[/b] success rate increased by [b]5%[/b] and cost decreased by [b]10%[/b]"},
+	"Bonus3": {"Transport Discount": "[b]Transport[/b] cost decreased by [b]50%[/b]"},
 	"Stats": [40000, 20000, 14400, 5600, 4000, 7200, 2800, 6000, 4800, 1200, 1200, 4800]},
 	"Daemon": {
 	"Description": "When the Demons of the underworld rose up and cast darkness upon the planet, they began to possess and absorb the civilians. As time passed, generation after generation began to develop resistance against the Demons; eventually these civilians mutated into the Demon hybrid known as Daemons. Daemons are persistent and resilient, never allowing themselves to be broken down. Their strengthened immune systems allow them to run headfirst into battle with overwhelming confidence.",
-	"Bonus1": {"Corpse Siphon": "- [b]Magic Power[/b] gained from defeated enemies increased by [b]10%[/b]"},
-	"Bonus2": {"Magic Library": "- [b]Magic Scrolls[/b] offer [b]1[/b] additional choice"},
-	"Bonus3": {"Magical Summon": "- [b]Summons[/b] gain [b]20% MGA[/b] and [b]10% MGD[/b] while on the field"},
+	"Bonus1": {"Corpse Siphon": "[b]Magic Power[/b] gained from defeated enemies increased by [b]10%[/b]"},
+	"Bonus2": {"Magic Library": "[b]Magic Scrolls[/b] offer [b]1[/b] additional choice"},
+	"Bonus3": {"Magical Summon": "[b]Summons[/b] gain [b]20% MGA[/b] and [b]10% MGD[/b] while on the field"},
 	"Stats": [28000, 72000, 2400, 9600, 7200, 4000, 6000, 2800, 2000, 1200, 4800, 4000]},
 	"Sylph": {
 	"Description": "Sylphs are distant descendants of the Celestials, and the true natives of Prismadiane. Natural power rushes through their veins and the purest magic flows in their blood. The Sylphs are known for their close bond to the planet and their flawless control over their summons. Although their power is far weaker than their ancestors’, once awakened the Sylphs can effortlessly vanquish foes with extraordinary prowess.",
-	"Bonus1": {"Summon Discount": "- [b]Summons[/b] require [b]50%[/b] less [b]Summon Tokens[/b]"},
-	"Bonus2": {"Healthy Summon": "- [b]Summons[/b] gain [b]20% HP[/b] and [b]10% MP[/b] while on the field"},
-	"Bonus3": {"Planet Siphon": "- [b]Magic Power[/b] gained from planetary resources increased by [b]10%[/b]"},
+	"Bonus1": {"Summon Discount": "[b]Summons[/b] require [b]50%[/b] less [b]Summon Tokens[/b]"},
+	"Bonus2": {"Healthy Summon": "[b]Summons[/b] gain [b]20% HP[/b] and [b]10% MP[/b] while on the field"},
+	"Bonus3": {"Planet Siphon": "[b]Magic Power[/b] gained from planetary resources increased by [b]10%[/b]"},
 	"Stats": [60000, 40000, 1200, 2800, 1200, 2000, 4800, 6000, 6000, 7200, 4000, 2800]},
 	"Kaiju": {
 	"Description": "The Kaiju are primal creatures who have evolved to the degree where they can no longer be considered simply animals. With heightened senses, Kaiju rely heavily on their instincts and are extremely prideful. The Kaiju are the planet’s most resourceful scavengers with an unmatched knowledge of their surroundings.",
-	"Bonus1": {"Higher Bounties": "- Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]"},
-	"Bonus2": {"Lucky Corpses": "- Prisma reward from defeating enemies increased by [b]5%[/b]"},
-	"Bonus3": {"Powerful Summon": "- [b]Summons[/b] gain [b]20% ATK[/b] and [b]20% DEF[/b] while on the field"},
+	"Bonus1": {"Higher Bounties": "Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]"},
+	"Bonus2": {"Lucky Corpses": "Prisma reward from defeating enemies increased by [b]5%[/b]"},
+	"Bonus3": {"Powerful Summon": "[b]Summons[/b] gain [b]20% ATK[/b] and [b]20% DEF[/b] while on the field"},
 	"Stats": [48000, 20000, 8000, 12000, 4800, 1200, 1200, 4000, 2800, 7200, 7200, 2800]}
 }
 
@@ -156,3 +156,145 @@ var element_info = {
 	},
 }
 
+var ranged_info = {
+	"Assault Rifle": {"DMG": 1.50, "RNG": 45.00, "MOB": 0.90, "HND": 0.90, "AC": 45.00, "RLD": 1.25, "FR": 120.00, "MAG": 10.00, "DUR": 10.00, "WCP": 100.00,
+	"CRR": 10.00, "CRD": 1.50, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
+	
+	"Sub Machine Gun": {"DMG": 1.00, "RNG": 25.00, "MOB": 0.95, "HND": 0.95, "AC": 25.00, "RLD": 1.00, "FR": 180.00, "MAG": 12.00, "DUR": 12.00, "WCP": 75.00,
+	"CRR": 12.00, "CRD": 1.00, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
+	
+	"Light Machine Gun": {"DMG": 1.20, "RNG": 40.00, "MOB": 0.70, "HND": 0.70, "AC": 40.00, "RLD": 3.00, "FR": 150.00, "MAG": 30.00, "DUR": 30.00, "WCP": 200.00,
+	"CRR": 30.00, "CRD": 1.20, "INF": 1.00, "SLS": 30.00, "PRC": 30.00, "FRC": 1.00},
+	
+	"Marksman Rifle": {"DMG": 2.00, "RNG": 60.00, "MOB": 0.90, "HND": 0.90, "AC": 60.00, "RLD": 1.50, "FR": 90.00, "MAG": 9.00, "DUR": 9.00, "WCP": 100.00,
+	"CRR": 9.00, "CRD": 2.00, "INF": 1.00, "SLS": 9.00, "PRC": 9.00, "FRC": 1.00},
+	
+	"Sniper Rifle": {"DMG": 15.00, "RNG": 100.00, "MOB": 0.80, "HND": 0.80, "AC": 100.00, "RLD": 1.50, "FR": 12.00, "MAG": 1.00, "DUR": 1.00, "WCP": 150.00,
+	"CRR": 1.00, "CRD": 15.00, "INF": 1.00, "SLS": 1.00, "PRC": 1.00, "FRC": 1.00},
+	
+	"Shotgun": {"DMG": 6.00, "RNG": 10.00, "MOB": 0.85, "HND": 0.85, "AC": 10.0, "RLD": 2.00, "FR": 30.00, "MAG": 4.00, "DUR": 4.00, "WCP": 125.00,
+	"CRR": 4.00, "CRD": 6.00, "INF": 1.00, "SLS": 4.00, "PRC": 4.00, "FRC": 1.00},
+	
+	"Handgun": {"DMG": 1.50, "RNG": 30.00, "MOB": 1.00, "HND": 1.00, "AC": 30.00, "RLD": 0.75, "FR": 120.00, "MAG": 6.00, "DUR": 6.00, "WCP": 50.00,
+	"CRR": 6.00, "CRD": 1.50, "INF": 1.00, "SLS": 6.00, "PRC": 6.00, "FRC": 1.00},
+	
+	"Machine Pistol": {"DMG": 0.75, "RNG": 15.00, "MOB": 1.00, "HND": 1.00, "AC": 15.00, "RLD": 0.75, "FR": 240.00, "MAG": 12.00, "DUR": 12.00, "WCP": 50.00,
+	"CRR": 12.00, "CRD": 0.75, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
+	
+	"Launcher": {"DMG": 30.00, "RNG": 100.00, "MOB": 0.60, "HND": 0.60, "AC": 100.00, "RLD": 2.50, "FR": 6.00, "MAG": 1.00, "DUR": 1.00, "WCP": 250.00,
+	"CRR": 1.00, "CRD": 30.00, "INF": 1.00, "SLS": 1.00, "PRC": 1.00, "FRC": 1.00},
+	
+	"Crossbow": {"DMG": 3.00, "RNG": 35.00, "MOB": 0.80, "HND": 0.80, "AC": 35.00, "RLD": 2.00, "FR": 60.00, "MAG": 8.00, "DUR": 8.00, "WCP": 150.00,
+	"CRR": 8.00, "CRD": 3.00, "INF": 1.00, "SLS": 8.00, "PRC": 8.00, "FRC": 1.00},
+	
+	"Longbow": {"DMG": 9.00, "RNG": 70.00, "MOB": 0.85, "HND": 0.85, "AC": 70.00, "RLD": 0.75, "FR": 20.00, "MAG": 1.00, "DUR": 1.00, "WCP": 125.00,
+	"CRR": 1.00, "CRD": 9.00, "INF": 1.00, "SLS": 1.00, "PRC": 1.00, "FRC": 1.00}
+}
+
+var melee_info = {
+	"Long Sword": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Great Sword": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Katana": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Dagger": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Staff": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Mace": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Halberd": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Warhammer": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Battle Axe": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Polearm": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Scythe": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Gauntlet": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Shield": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Spear": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+}
+
+var ranged_tier = {
+	"Iron": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Copper": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Bronze": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Silver": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Gold": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Platinum": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Diamond": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Obsidian": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Mithril": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Adamantine": {"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+}
+
+var melee_tier = {
+	"Iron": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Copper": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Bronze": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Silver": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Gold": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Platinum": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Diamond": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Obsidian": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Mithril": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0},
+	
+	"Adamantine": {"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0}
+}
