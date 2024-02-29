@@ -44,7 +44,6 @@ var specialist_rewards = {
 }
 
 func initialize():
-	print_debug("Init")
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
 	PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 

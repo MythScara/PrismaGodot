@@ -158,7 +158,7 @@ var element_info = {
 
 var ranged_info = {
 	"Assault Rifle": {"DMG": 1.50, "RNG": 45.00, "MOB": 0.90, "HND": 0.90, "AC": 45.00, "RLD": 1.25, "FR": 120.00, "MAG": 10.00, "DUR": 10.00, "WCP": 100.00,
-	"CRR": 10.00, "CRD": 1.50, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
+	"CRR": 10.00, "CRD": 1.50, "INF": 1.00, "SLS": 10.00, "PRC": 10.00, "FRC": 1.00},
 	
 	"Sub Machine Gun": {"DMG": 1.00, "RNG": 25.00, "MOB": 0.95, "HND": 0.95, "AC": 25.00, "RLD": 1.00, "FR": 180.00, "MAG": 12.00, "DUR": 12.00, "WCP": 75.00,
 	"CRR": 12.00, "CRD": 1.00, "INF": 1.00, "SLS": 12.00, "PRC": 12.00, "FRC": 1.00},
@@ -263,7 +263,7 @@ var ranged_tier = {
 	"Mithril": {"DMG": 2.75, "RNG": 1.50, "MOB": 0.86, "HND": 0.66, "AC": 0.98, "RLD": 0.84, "FR": 1.16, "MAG": 1.50, "DUR": 11.00, "WCP": 18.00,
 	"CRR": 24.50, "CRD": 1.40, "INF": 0.95, "SLS": 4.50, "PRC": 4.50, "FRC": 0.95},
 	
-	"Adamantine": {"DMG": 3.00, "RNG": 1.60, "MOB": 0.88, "HND": 0.66, "AC": 1.00, "RLD": 0.82, "FR": 1.18, "MAG": 1.60, "DUR": 12.00, "WCP": 20.00,
+	"Adamantine": {"DMG": 3.00, "RNG": 1.60, "MOB": 0.88, "HND": 0.68, "AC": 1.00, "RLD": 0.82, "FR": 1.18, "MAG": 1.60, "DUR": 12.00, "WCP": 20.00,
 	"CRR": 25.00, "CRD": 1.45, "INF": 1.00, "SLS": 5.00, "PRC": 5.00, "FRC": 1.00}
 }
 
@@ -295,6 +295,6 @@ var melee_tier = {
 	"Mithril": {"POW": 2.75, "RCH": 1.50, "MOB": 0.86, "HND": 0.66, "BLK": 0.98, "CHG": 0.84, "ASP": 1.16, "STE": 1.50, "DUR": 11.00, "WCP": 18.00,
 	"CRR": 24.50, "CRD": 1.40, "INF": 0.95, "SLS": 4.50, "PRC": 4.50, "FRC": 0.95},
 	
-	"Adamantine": {"POW": 3.00, "RCH": 1.60, "MOB": 0.88, "HND": 0.66, "BLK": 1.00, "CHG": 0.82, "ASP": 1.18, "STE": 1.60, "DUR": 12.00, "WCP": 20.00,
+	"Adamantine": {"POW": 3.00, "RCH": 1.60, "MOB": 0.88, "HND": 0.68, "BLK": 1.00, "CHG": 0.82, "ASP": 1.18, "STE": 1.60, "DUR": 12.00, "WCP": 20.00,
 	"CRR": 25.00, "CRD": 1.45, "INF": 1.00, "SLS": 5.00, "PRC": 5.00, "FRC": 1.00}
 }

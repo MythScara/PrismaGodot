@@ -27,6 +27,9 @@ var melee_stats = {
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": "Long Sword", "Tier": null, "Element": null, "Max Value": 100}
 
+var ranged_values = {}
+var melee_values = {}
+
 var excluded = ["Type", "Tier", "Element", "Max Value"]
 
 var specialist_levels = {}
@@ -57,26 +60,96 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "special_technique")
 		change_technique(specialist_name, "super_technique")
 
+func calculate_values(stat_value, stat_type):
+	var tier
+	var type
+	var value
+	
+	if stat_type == "Ranged":
+		tier = GameInfo.ranged_tier[stat_value["Tier"]]
+		type = GameInfo.ranged_info[stat_value["Type"]]
+		value = ranged_values
+	elif stat_type == "Melee":
+		tier = GameInfo.melee_tier[stat_value["Tier"]]
+		type = GameInfo.melee_info[stat_value["Type"]]
+		value = melee_values
+	
+	for key in stat_value.keys():
+		if key not in excluded:
+			match key:
+				"DMG":
+					value[key] = round((sqrt(stat_value[key])*tier[key])*type[key]*sqrt(stats["ATK"]))
+				"POW":
+					value[key] = round((sqrt(stat_value[key])*tier[key])*type[key]*sqrt(stats["ATK"]))
+				"RNG":
+					value[key] = adjustment(type[key]+((stat_value[key]*tier[key]/100.0)*type[key]))
+				"RCH":
+					value[key] = adjustment(type[key]+((stat_value[key]*tier[key]/100.0)*type[key]))
+				"MOB":
+					value[key] = adjustment(((50.0+(sqrt(stat_value[key])*tier[key])*5.0)/100.0)*type[key]*(3+stats["AG"]/10000.0))
+				"HND":
+					value[key] = adjustment(((20.0+(sqrt(stat_value[key])*tier[key])*3.0)/100.0)*type[key]*(3+stats["AG"]/10000.0))
+				"AC":
+					value[key] = adjustment(value["RNG"]*((20.0+((stat_value[key]*tier[key])/1.25))/100.0))
+				"BLK":
+					value[key] = adjustment(type[key]*(20.0+((stat_value[key]*tier[key])/1.25)*2.0))
+				"RLD":
+					value[key] = adjustment(((3+sqrt(sqrt(101.0-stat_value[key])))*tier[key])*(type[key]/(3+stats["AG"]/10000.0)))
+				"CHG":
+					value[key] = adjustment(((3+sqrt(sqrt(101.0-stat_value[key])))*tier[key])*(type[key]/(3+stats["AG"]/10000.0)))
+				"FR":
+					value[key] = adjustment(1/((type[key]*(sqrt(sqrt(stat_value[key]))*tier[key]))/60.0))
+				"ASP":
+					value[key] = adjustment(1/((type[key]*(sqrt(sqrt(sqrt(stat_value[key])))*tier[key]))/60.0))
+				"MAG":
+					value[key] = round((1+((stat_value[key]/33.33)*tier[key]))*type[key])
+				"STE":
+					value[key] = round((1+((stat_value[key]/33.33)*tier[key]))*type[key])
+				"DUR":
+					value[key] = round(type[key]*(sqrt(stat_value[key])*tier[key]*30.0))
+				"WCP":
+					value[key] = round(type[key]*((11.0-sqrt(stat_value[key]))*tier[key]))
+				"CRR":
+					value[key] = adjustment((tier[key]+(stat_value[key]*0.25))*(1.0/type[key]))
+				"CRD":
+					if stat_type == "Ranged":
+						value[key] = round((2.0*tier[key]+(stat_value[key]/100.0))*value["DMG"])
+					elif stat_type == "Melee":
+						value[key] = round((2.0*tier[key]+(stat_value[key]/100.0))*value["POW"])
+				"INF":
+					value[key] = adjustment(stat_value[key]*tier[key])
+				"SLS":
+					value[key] = adjustment((tier[key]+(stat_value[key]*0.95))*(1.0/type[key]))
+				"PRC":
+					value[key] = adjustment((tier[key]+(stat_value[key]*0.95))*(1.0/type[key]))
+				"FRC":
+					value[key] = int(ceil(stat_value[key]*tier[key]/20.0))
+
+func adjustment(value: float, decimal: int = 2):
+	var mult = pow(10.0, decimal)
+	return round(value * mult) / mult
+
 func randomize_weapon(type):
 	match type:
 		"Ranged":
-			weapon_randomizer(ranged_stats)
+			weapon_randomizer(ranged_stats, "Ranged")
 		"Melee":
-			weapon_randomizer(melee_stats)
+			weapon_randomizer(melee_stats, "Melee")
 		"Both":
-			weapon_randomizer(ranged_stats)
-			weapon_randomizer(melee_stats)
+			weapon_randomizer(ranged_stats, "Ranged")
+			weapon_randomizer(melee_stats, "Melee")
 
-func weapon_randomizer(stat_value):
+func weapon_randomizer(stat_value, stat_type):
 	var max_points = 0
 	var tier_list = ["Iron", "Copper", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Obsidian", "Mithril", "Adamantine"]
 	
 	for key in stat_value.keys():
 		if key not in excluded:
-			stat_value[key] += randi() % 100 + 1
+			#stat_value[key] = min(stat_value[key] + randi() % 100, 100)
+			stat_value[key] = 100
 			max_points += stat_value[key]
 	
-	var tier_index = int((max_points - 600) / 100.0)
+	var tier_index = int(ceil((max_points - 600) / 100.0))
 	
 	var tier = "Iron"
 	
@@ -86,6 +159,8 @@ func weapon_randomizer(stat_value):
 		tier = tier_list[-1]
 	
 	stat_value["Tier"] = tier
+	
+	calculate_values(stat_value, stat_type)
 
 func start_timer(specialist_name, s_name, duration, s_type):
 	var timer_id = str(specialist_name) + "_" + s_name + "_" + s_type
@@ -322,7 +397,9 @@ func _input(event):
 			#print_debug(passives)
 			#print_debug(techniques)
 			print_debug(ranged_stats)
+			print_debug(ranged_values)
 			print_debug(melee_stats)
+			print_debug(melee_values)
 			#print_debug(specialist_levels)
 			pass
 
