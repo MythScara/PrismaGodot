@@ -40,6 +40,7 @@ extends Node
 @onready var menu_ui = $MenuInterface
 
 var weapon_stats
+var damage = 0
 var reloading = false
 
 # Called when the node enters the scene tree for the first time.
@@ -84,9 +85,9 @@ func initial_setup():
 	species_icon.texture = load("res://asset/emblems/" + PlayerStats.species.to_lower() + "_emblem.png")
 	specialist_icon.texture = load("res://asset/specialist_emblems/" + PlayerStats.specialist.to_lower() + "_emblem.png")
 	ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
-	ammo.text = str(PlayerStats.ranged_stats["MAG"])
+	ammo.text = str(PlayerStats.ranged_values["MAG"])
 	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
-	charge.text = str(PlayerStats.melee_stats["STE"])
+	charge.text = str(PlayerStats.melee_values["STE"])
 
 	# Ensure the UI is visible.
 	self.visible = true
@@ -100,19 +101,23 @@ func swap_active(state):
 			melee_active.visible = false
 			ranged_active.visible = true
 			weapon_stats = PlayerStats.ranged_stats
+			PlayerStats.attack_cooldown = PlayerStats.ranged_values["FR"]
 		"Melee":
 			ranged_active.visible = false
 			melee_active.visible = true
 			weapon_stats = PlayerStats.melee_stats
+			PlayerStats.attack_cooldown = PlayerStats.melee_values["ASP"]
 		"Swap":
 			if ranged_active.visible == true:
 				ranged_active.visible = false
 				melee_active.visible = true
 				weapon_stats = PlayerStats.melee_stats
+				PlayerStats.attack_cooldown = PlayerStats.melee_values["ASP"]
 			else:
 				melee_active.visible = false
 				ranged_active.visible = true
 				weapon_stats = PlayerStats.ranged_stats
+				PlayerStats.attack_cooldown = PlayerStats.ranged_values["FR"]
 		"None":
 			melee_active.visible = false
 			ranged_active.visible = false
@@ -128,8 +133,9 @@ func attack_action():
 		if cur > 0:
 			cur -= 1
 			ammo.text = str(cur)
-			amount = float(cur) / PlayerStats.ranged_stats["MAG"]
+			amount = float(cur) / PlayerStats.ranged_values["MAG"]
 			ranged_meter.color = meter_update(amount)
+			damage += PlayerStats.ranged_values["DMG"]
 		else:
 			reload()
 	elif melee_active.visible == true:
@@ -141,33 +147,40 @@ func attack_action():
 		if cur > 0:
 			cur -= 1
 			charge.text = str(cur)
-			amount = float(cur) / PlayerStats.melee_stats["STE"]
+			amount = float(cur) / PlayerStats.melee_values["STE"]
 			melee_meter.color = meter_update(amount)
+			damage += PlayerStats.melee_values["POW"]
 		else:
 			reload()
 	else:
 		print_debug("No Weapon Equipped")
 
-func reload(time: float = 2.0):
+func reload():
+	
+	var time_r = PlayerStats.ranged_values["RLD"]
+	var time_m = PlayerStats.melee_values["CHG"]
+	
 	if reloading:
 		return
 	
 	reloading = true
+	print_debug(damage)
 	
 	if ranged_active.visible == true:
 		ranged_active.color = Color(1, 0, 0, 1)
-		await get_tree().create_timer(time).timeout
-		ammo.text = str(PlayerStats.ranged_stats["MAG"])
+		await get_tree().create_timer(time_r).timeout
+		ammo.text = str(PlayerStats.ranged_values["MAG"])
 		ranged_active.color = Color(1, 1, 1, 1)
 		ranged_meter.color = Color(0, 1, 0, 1)
 	elif melee_active.visible == true:
 		melee_active.color = Color(1, 0, 0, 1)
-		await get_tree().create_timer(time).timeout
-		charge.text = str(PlayerStats.melee_stats["STE"])
+		await get_tree().create_timer(time_m).timeout
+		charge.text = str(PlayerStats.melee_values["STE"])
 		melee_active.color = Color(1, 1, 1, 1)
 		melee_meter.color = Color(0, 1, 0, 1)
 		
 	reloading = false
+	damage = 0
 
 func meter_update(amount):
 	return Color(1 - amount, amount, 0 ,1)

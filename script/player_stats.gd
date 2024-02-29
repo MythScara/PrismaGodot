@@ -145,8 +145,7 @@ func weapon_randomizer(stat_value, stat_type):
 	
 	for key in stat_value.keys():
 		if key not in excluded:
-			#stat_value[key] = min(stat_value[key] + randi() % 100, 100)
-			stat_value[key] = 100
+			stat_value[key] = min(stat_value[key] + randi() % 100, 100)
 			max_points += stat_value[key]
 	
 	var tier_index = int(ceil((max_points - 600) / 100.0))
@@ -349,7 +348,9 @@ func get_save_data() -> Dictionary:
 		"melee_stats": melee_stats,
 		"timer_cache": timer_cache,
 		"specialist_levels": specialist_levels,
-		"player_levels": player_level
+		"player_levels": player_level,
+		"ranged_values": ranged_values,
+		"melee_values": melee_values
 	}
 
 func set_data(data: Dictionary) -> void:
