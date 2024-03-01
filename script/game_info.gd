@@ -298,3 +298,8 @@ var melee_tier = {
 	"Adamantine": {"POW": 3.00, "RCH": 1.60, "MOB": 0.88, "HND": 0.68, "BLK": 1.00, "CHG": 0.82, "ASP": 1.18, "STE": 1.60, "DUR": 12.00, "WCP": 20.00,
 	"CRR": 25.00, "CRD": 1.45, "INF": 1.00, "SLS": 5.00, "PRC": 5.00, "FRC": 1.00}
 }
+
+var specialist_list = [
+	"Mercenary", "Cavalier", "Spartan", "Ranger", "Scout", "Pirate", "Assassin", "Nomad", "Engineer", "Hunter", "Archer", "Paladin",
+	"Warden", "Ronin", "Ninja", "Templar", "Rogue", "Samurai", "Valkyrie", "Inquisitor", "Druid", "Monk", "Centurion", "Sage"
+	]

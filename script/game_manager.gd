@@ -36,6 +36,9 @@ func load_game() -> void:
 			PlayerStats.set_data(save_data["player_stats"])
 			PlayerInventory.set_data(save_data["player_inventory"])
 			
+			for key in GameInfo.specialist_list:
+				PlayerStats.load_specialist(key)
+			
 			print_debug("Game Loaded")
 		else:
 			print_debug("Game Load Failed")

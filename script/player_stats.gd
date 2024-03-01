@@ -48,6 +48,8 @@ var attack_cooldown = 0.04
 
 func _ready():
 	RandomNumberGenerator.new().randomize()
+	for key in GameInfo.specialist_list:
+		load_specialist(key)
 
 func set_specialist(specialist_name):
 	var specialist_class = load_specialist(specialist_name)
