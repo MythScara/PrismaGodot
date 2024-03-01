@@ -61,6 +61,8 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "skill_technique")
 		change_technique(specialist_name, "special_technique")
 		change_technique(specialist_name, "super_technique")
+	
+	PlayerInterface.specialist_icon = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
 
 func calculate_values(stat_value, stat_type):
 	var tier
