@@ -36,6 +36,8 @@ var specialist_levels = {}
 var specialist_cache = {}
 var timer_cache = {}
 
+var player_active = false
+
 signal activate_specialist(s_type)
 signal player_event(event)
 signal stat_update(stat)
@@ -62,7 +64,7 @@ func set_specialist(specialist_name):
 		change_technique(specialist_name, "special_technique")
 		change_technique(specialist_name, "super_technique")
 	
-	PlayerInterface.specialist_icon = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
+	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
 
 func calculate_values(stat_value, stat_type):
 	var tier
@@ -294,7 +296,8 @@ func exp_handler(value):
 		player_level[1] += value
 		if player_level[1] >= player_level[2]:
 			player_level[0] += 1
-			stat_points[0] += 1
+			stat_points[0] += 7
+			element_points[0] += 3
 			player_level[1] -= player_level[2]
 			player_level[2] += 1000
 			exp_handler(player_level[1])
@@ -363,7 +366,7 @@ func set_data(data: Dictionary) -> void:
 			self[key] = data[key]
 
 func _unhandled_input(event):
-	if event.is_action("Attack"):
+	if event.is_action("Attack") and player_active == true:
 		attacking = event.is_pressed()
 		if attacking and cooldown_time >= attack_cooldown:
 			PlayerInterface.attack_action()
@@ -406,6 +409,8 @@ func _input(event):
 			print_debug(melee_stats)
 			print_debug(melee_values)
 			#print_debug(specialist_levels)
+		if event.is_action_pressed("Cheat Menu"):
+			exp_handler(400)
 			pass
 
 func _process(delta):

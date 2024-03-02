@@ -78,9 +78,12 @@ func exp_handler(value):
 		cur_experience += value
 		if cur_experience >= experience_required:
 			cur_level += 1
+			PlayerStats.stat_points[0] += 2
+			PlayerStats.element_points[0] += 2
+			cur_experience -= experience_required
 			experience_required += 1000
-			cur_experience = 0
 			specialist_unlock(cur_level)
+			exp_handler(cur_experience)
 		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 func specialist_unlock(level):

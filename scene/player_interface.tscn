@@ -1,13 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=24 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
 [ext_resource type="Texture2D" uid="uid://bsys6cq1c4elk" path="res://asset/hud_icons/emblem_hero_icon.png" id="4_r2qqr"]
-[ext_resource type="Texture2D" uid="uid://xd1fiy4k57j6" path="res://asset/emblems/human_emblem.png" id="6_0hq2a"]
 [ext_resource type="Texture2D" uid="uid://dd633w5mpq1ml" path="res://asset/progress_bars/health_bar_empty.png" id="6_lybeq"]
 [ext_resource type="Texture2D" uid="uid://dqkh7frb4hnb7" path="res://asset/hud_icons/health_icon.png" id="6_spy8f"]
 [ext_resource type="Texture2D" uid="uid://b242elr63dyjs" path="res://asset/progress_bars/health_bar_full.png" id="7_5vlye"]
-[ext_resource type="Texture2D" uid="uid://bkkuagstnvujc" path="res://asset/specialist_emblems/mercenary_emblem.png" id="7_v37bc"]
 [ext_resource type="Texture2D" uid="uid://cdta3x2tj3qj2" path="res://asset/progress_bars/overshield_bar_empty.png" id="8_smqut"]
 [ext_resource type="Texture2D" uid="uid://mf1uw5c1thag" path="res://asset/progress_bars/overshield_bar_full.png" id="9_d3ltp"]
 [ext_resource type="Texture2D" uid="uid://du23brfkmc47b" path="res://asset/hud_icons/overshield_icon.png" id="9_gsp15"]
@@ -20,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c6qumy4ffbhg7" path="res://asset/hud_icons/emblem_hero_alternate_icon.png" id="17_2vjxx"]
 [ext_resource type="Texture2D" uid="uid://fdt0lhcsfd40" path="res://asset/panels/preview_dual_panel.png" id="20_s7eyj"]
 [ext_resource type="Texture2D" uid="uid://co0q45fjjau07" path="res://asset/progress_bars/level_bar_empty.png" id="21_2ild3"]
+[ext_resource type="Texture2D" uid="uid://dm3c2cs16rmpu" path="res://asset/hud_icons/experience_small_icon.png" id="21_066vv"]
 [ext_resource type="Texture2D" uid="uid://b20umuda1sx50" path="res://asset/hud_icons/stamina_icon.png" id="21_hb3yy"]
 [ext_resource type="Texture2D" uid="uid://bhdfmrmo6atst" path="res://asset/progress_bars/level_bar_full.png" id="22_3x4rg"]
 [ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/weapon_icons/light machine gun.png" id="23_fgvnr"]
@@ -201,19 +200,17 @@ offset_right = 345.0
 offset_bottom = 1329.0
 scale = Vector2(0.2, 0.2)
 rounded = true
-fill_mode = 3
+fill_mode = 4
 texture_under = ExtResource("17_2vjxx")
 texture_progress = ExtResource("4_r2qqr")
 
 [node name="Species" type="Sprite2D" parent="GameInterface/Experience/SpecialistBar"]
 position = Vector2(165.362, 165.862)
 scale = Vector2(1.56034, 1.56034)
-texture = ExtResource("6_0hq2a")
 
 [node name="Specialist" type="Sprite2D" parent="GameInterface/Experience/SpecialistBar"]
 position = Vector2(165.362, 165.862)
-scale = Vector2(1.56035, 1.56035)
-texture = ExtResource("7_v37bc")
+scale = Vector2(1.56034, 1.56034)
 
 [node name="PlayerBar" type="Sprite2D" parent="GameInterface/Experience"]
 position = Vector2(136, 984)
@@ -239,15 +236,15 @@ uppercase = true
 
 [node name="RankPoint" type="Sprite2D" parent="GameInterface/Experience/PlayerBar"]
 visible = false
-position = Vector2(110.642, 0)
-scale = Vector2(1.10222, 1.01613)
+position = Vector2(100.473, 0)
+scale = Vector2(1.07597, 1.01613)
 texture = ExtResource("21_hb3yy")
 
 [node name="LevelPoint" type="Sprite2D" parent="GameInterface/Experience/PlayerBar"]
 visible = false
-position = Vector2(370.975, 0)
-scale = Vector2(1.10222, 1.01613)
-texture = ExtResource("21_hb3yy")
+position = Vector2(364.467, 7.70092e-05)
+scale = Vector2(1.7133, 1.57948)
+texture = ExtResource("21_066vv")
 
 [node name="RangedWeapon" type="Control" parent="GameInterface"]
 anchors_preset = 0

@@ -10,6 +10,7 @@ func _on_start_adventure_button_pressed():
 		PlayerStats.randomize_weapon("Both")
 	PlayerInterface.initial_setup()
 	GameManager.save_game()
+	PlayerStats.player_active = true
 	get_tree().change_scene_to_file("res://scene/test_level_scene.tscn")
 
 func _on_return_button_pressed():

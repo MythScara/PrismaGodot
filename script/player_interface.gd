@@ -189,12 +189,28 @@ func update_exp():
 	experience_bar.max_value = PlayerStats.player_level[2]
 	experience_bar.value = PlayerStats.player_level[1]
 	player_level.text = "Level " + str(PlayerStats.player_level[0])
+	if PlayerStats.stat_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = false
+	if PlayerStats.element_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = false
 
 func update_spec():
 	if PlayerStats.specialist != null:
 		specialist_bar.max_value = PlayerStats.specialist_levels[PlayerStats.specialist][2]
 		specialist_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
 		specialist_rank.text = PlayerStats.specialist.to_lower() + " Rank " + str(PlayerStats.specialist_levels[PlayerStats.specialist][0])
+	if PlayerStats.stat_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = false
+	if PlayerStats.element_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = false
 
 func update_values(stat):
 	match stat:
