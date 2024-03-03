@@ -23,6 +23,17 @@ script = ExtResource("1_gcnt1")
 start_scene = ExtResource("2_0lpom")
 continue_scene = ExtResource("3_ixh5k")
 
+[node name="BackgroundExtra" type="TextureRect" parent="MenuScreen"]
+clip_contents = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_j7a65")
+expand_mode = 1
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
 [node name="Background" type="TextureRect" parent="MenuScreen"]
 clip_contents = true
 layout_mode = 0
