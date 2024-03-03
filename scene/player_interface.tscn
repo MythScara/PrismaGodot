@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=28 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
-[ext_resource type="Texture2D" uid="uid://bsys6cq1c4elk" path="res://asset/hud_icons/emblem_hero_icon.png" id="4_r2qqr"]
 [ext_resource type="Texture2D" uid="uid://dd633w5mpq1ml" path="res://asset/progress_bars/health_bar_empty.png" id="6_lybeq"]
 [ext_resource type="Texture2D" uid="uid://dqkh7frb4hnb7" path="res://asset/hud_icons/health_icon.png" id="6_spy8f"]
 [ext_resource type="Texture2D" uid="uid://b242elr63dyjs" path="res://asset/progress_bars/health_bar_full.png" id="7_5vlye"]
@@ -16,13 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://8f7cn6dd4cof" path="res://asset/progress_bars/stamina_bar_full.png" id="13_sxpfb"]
 [ext_resource type="Texture2D" uid="uid://c574ldfbl62pf" path="res://asset/hud_icons/stamina_alternate_icon.png" id="15_k0pcb"]
 [ext_resource type="Texture2D" uid="uid://c6qumy4ffbhg7" path="res://asset/hud_icons/emblem_hero_alternate_icon.png" id="17_2vjxx"]
+[ext_resource type="Texture2D" uid="uid://bbrcswjc4sotc" path="res://asset/hud_icons/emblem_icon.png" id="17_ca3in"]
 [ext_resource type="Texture2D" uid="uid://fdt0lhcsfd40" path="res://asset/panels/preview_dual_panel.png" id="20_s7eyj"]
 [ext_resource type="Texture2D" uid="uid://co0q45fjjau07" path="res://asset/progress_bars/level_bar_empty.png" id="21_2ild3"]
 [ext_resource type="Texture2D" uid="uid://dm3c2cs16rmpu" path="res://asset/hud_icons/experience_small_icon.png" id="21_066vv"]
 [ext_resource type="Texture2D" uid="uid://b20umuda1sx50" path="res://asset/hud_icons/stamina_icon.png" id="21_hb3yy"]
 [ext_resource type="Texture2D" uid="uid://bhdfmrmo6atst" path="res://asset/progress_bars/level_bar_full.png" id="22_3x4rg"]
+[ext_resource type="Texture2D" uid="uid://b042pygd31oh1" path="res://asset/hud_icons/technique_background.png" id="23_3puvr"]
 [ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/weapon_icons/light machine gun.png" id="23_fgvnr"]
+[ext_resource type="Texture2D" uid="uid://bgw3p7esfblfu" path="res://asset/technique_icons/01.png" id="23_hbheb"]
 [ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/weapon_icons/long sword.png" id="23_rjvss"]
+[ext_resource type="Texture2D" uid="uid://cagxhyj6virc7" path="res://asset/technique_icons/07.png" id="25_qgark"]
+[ext_resource type="Texture2D" uid="uid://drf2qc47frs18" path="res://asset/technique_icons/10.png" id="26_q8q0b"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
@@ -41,8 +45,6 @@ mouse_filter = 1
 
 [node name="Health" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="HealthIcon" type="Sprite2D" parent="GameInterface/Health"]
 position = Vector2(251, 1009)
@@ -75,8 +77,6 @@ vertical_alignment = 1
 
 [node name="Overshield" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="OvershieldIcon" type="Sprite2D" parent="GameInterface/Overshield"]
 position = Vector2(251, 1025)
@@ -109,8 +109,6 @@ vertical_alignment = 1
 
 [node name="Magic" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="MagicIcon" type="Sprite2D" parent="GameInterface/Magic"]
 position = Vector2(251, 1041)
@@ -143,8 +141,6 @@ vertical_alignment = 1
 
 [node name="Stamina" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="StaminaIcon" type="Sprite2D" parent="GameInterface/Stamina"]
 position = Vector2(250.875, 1057)
@@ -178,8 +174,6 @@ vertical_alignment = 1
 
 [node name="Experience" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="GameInterface/Experience"]
 layout_mode = 0
@@ -194,15 +188,16 @@ texture_progress = ExtResource("22_3x4rg")
 
 [node name="SpecialistBar" type="TextureProgressBar" parent="GameInterface/Experience"]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 17.0
 offset_top = 1001.0
-offset_right = 345.0
-offset_bottom = 1329.0
-scale = Vector2(0.2, 0.2)
+offset_right = 373.0
+offset_bottom = 1359.0
+scale = Vector2(0.18, 0.18)
 rounded = true
 fill_mode = 4
-texture_under = ExtResource("17_2vjxx")
-texture_progress = ExtResource("4_r2qqr")
+texture_under = ExtResource("17_ca3in")
+texture_progress = ExtResource("17_ca3in")
+tint_under = Color(1, 1, 1, 0.568627)
 
 [node name="Species" type="Sprite2D" parent="GameInterface/Experience/SpecialistBar"]
 position = Vector2(165.362, 165.862)
@@ -248,8 +243,6 @@ texture = ExtResource("21_066vv")
 
 [node name="RangedWeapon" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="ActiveMode" type="ColorRect" parent="GameInterface/RangedWeapon"]
 layout_mode = 0
@@ -296,10 +289,18 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="GameInterface/RangedWeapon"]
+layout_mode = 0
+offset_left = 1624.0
+offset_top = 1022.0
+offset_right = 1664.0
+offset_bottom = 1066.0
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MeleeWeapon" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="ActiveMode" type="ColorRect" parent="GameInterface/MeleeWeapon"]
 visible = false
@@ -348,17 +349,124 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="GameInterface/MeleeWeapon"]
+layout_mode = 0
+offset_left = 1624.0
+offset_top = 974.0
+offset_right = 1664.0
+offset_bottom = 1018.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Techniques" type="Control" parent="GameInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+
+[node name="TechniqueBackground" type="Sprite2D" parent="GameInterface/Techniques"]
+position = Vector2(880, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_3puvr")
+
+[node name="TechniqueBackground2" type="Sprite2D" parent="GameInterface/Techniques"]
+position = Vector2(960, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_3puvr")
+
+[node name="TechniqueBackground3" type="Sprite2D" parent="GameInterface/Techniques"]
+position = Vector2(1040, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_3puvr")
+
+[node name="SkillProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 992.0
+offset_right = 976.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("23_hbheb")
+texture_progress = ExtResource("23_hbheb")
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SkillProgress"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("17_2vjxx")
+
+[node name="Label" type="Label" parent="GameInterface/Techniques/SkillProgress"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpecialProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 992.0
+offset_right = 1056.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("25_qgark")
+texture_progress = ExtResource("25_qgark")
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SpecialProgress"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("17_2vjxx")
+
+[node name="Label" type="Label" parent="GameInterface/Techniques/SpecialProgress"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SuperProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 992.0
+offset_right = 1136.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("26_q8q0b")
+texture_progress = ExtResource("26_q8q0b")
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SuperProgress"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("17_2vjxx")
+
+[node name="Label" type="Label" parent="GameInterface/Techniques/SuperProgress"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 1
 
 [node name="Background" type="ColorRect" parent="MenuInterface"]
