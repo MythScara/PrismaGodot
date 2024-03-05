@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=31 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/weapon_icons/long sword.png" id="23_rjvss"]
 [ext_resource type="Texture2D" uid="uid://cagxhyj6virc7" path="res://asset/technique_icons/07.png" id="25_qgark"]
 [ext_resource type="Texture2D" uid="uid://drf2qc47frs18" path="res://asset/technique_icons/10.png" id="26_q8q0b"]
+[ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
+[ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
+[ext_resource type="Texture2D" uid="uid://dm4wx5wbqyciu" path="res://asset/button_icons/settings_button.png" id="30_033lc"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
@@ -470,8 +473,133 @@ offset_bottom = 1080.0
 mouse_filter = 1
 
 [node name="Background" type="ColorRect" parent="MenuInterface"]
-visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.784314)
+
+[node name="PauseMenu" type="Control" parent="MenuInterface"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="MenuInterface/PauseMenu"]
+position = Vector2(960, 544)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("28_dsyi6")
+
+[node name="Button" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 110.0
+offset_right = 439.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "INVENTORY"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 110.0
+offset_right = 603.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "QUESTS"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 110.0
+offset_right = 767.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "STATS"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 758.0
+offset_top = 110.0
+offset_right = 931.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "CRAFTING"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button5" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 922.0
+offset_top = 110.0
+offset_right = 1095.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "SPELLS"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button6" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 110.0
+offset_right = 1259.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "EQUIPMENT"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button7" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 110.0
+offset_right = 1423.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "INTEL"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button8" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1414.0
+offset_top = 110.0
+offset_right = 1587.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "PLAYER"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button9" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1581.0
+offset_top = 113.0
+offset_right = 1651.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 20
+icon = ExtResource("30_033lc")
+flat = true
+icon_alignment = 1
+expand_icon = true

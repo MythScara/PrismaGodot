@@ -412,6 +412,8 @@ func _input(event):
 		if event.is_action_pressed("Cheat Menu"):
 			exp_handler(400)
 			pass
+		if event.is_action_pressed("Pause Menu"):
+			PlayerInterface.menu_ui.visible = !PlayerInterface.menu_ui.visible
 
 func _process(delta):
 	if attacking == true and cooldown_time >= attack_cooldown:
