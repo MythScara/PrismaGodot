@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=32 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cagxhyj6virc7" path="res://asset/technique_icons/07.png" id="25_qgark"]
 [ext_resource type="Texture2D" uid="uid://drf2qc47frs18" path="res://asset/technique_icons/10.png" id="26_q8q0b"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
 [ext_resource type="Texture2D" uid="uid://dm4wx5wbqyciu" path="res://asset/button_icons/settings_button.png" id="30_033lc"]
 
@@ -35,6 +36,7 @@
 script = ExtResource("1_65u7r")
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_1xymm")
@@ -465,7 +467,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -488,111 +489,167 @@ position = Vector2(960, 544)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("28_dsyi6")
 
-[node name="Button" type="Button" parent="MenuInterface/PauseMenu"]
+[node name="InventoryButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 266.0
-offset_top = 110.0
-offset_right = 439.0
-offset_bottom = 169.0
+offset_left = 270.0
+offset_top = 115.0
+offset_right = 435.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
 text = "INVENTORY"
 icon = ExtResource("29_sdhsr")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button2" type="Button" parent="MenuInterface/PauseMenu"]
+[node name="QuestsButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 430.0
-offset_top = 110.0
-offset_right = 603.0
-offset_bottom = 169.0
+offset_left = 434.0
+offset_top = 115.0
+offset_right = 599.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
 text = "QUESTS"
 icon = ExtResource("29_sdhsr")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button3" type="Button" parent="MenuInterface/PauseMenu"]
+[node name="PlayerButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 594.0
-offset_top = 110.0
-offset_right = 767.0
-offset_bottom = 169.0
+offset_left = 598.0
+offset_top = 115.0
+offset_right = 763.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "STATS"
-icon = ExtResource("29_sdhsr")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button4" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 758.0
-offset_top = 110.0
-offset_right = 931.0
-offset_bottom = 169.0
-theme_override_font_sizes/font_size = 20
-text = "CRAFTING"
-icon = ExtResource("29_sdhsr")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button5" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 922.0
-offset_top = 110.0
-offset_right = 1095.0
-offset_bottom = 169.0
-theme_override_font_sizes/font_size = 20
-text = "SPELLS"
-icon = ExtResource("29_sdhsr")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button6" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 1086.0
-offset_top = 110.0
-offset_right = 1259.0
-offset_bottom = 169.0
-theme_override_font_sizes/font_size = 20
-text = "EQUIPMENT"
-icon = ExtResource("29_sdhsr")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button7" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 1250.0
-offset_top = 110.0
-offset_right = 1423.0
-offset_bottom = 169.0
-theme_override_font_sizes/font_size = 20
-text = "INTEL"
-icon = ExtResource("29_sdhsr")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button8" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 1414.0
-offset_top = 110.0
-offset_right = 1587.0
-offset_bottom = 169.0
-theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
 text = "PLAYER"
 icon = ExtResource("29_sdhsr")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button9" type="Button" parent="MenuInterface/PauseMenu"]
+[node name="IntelButton" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 115.0
+offset_right = 927.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
+text = "INTEL"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SpellsButton" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 115.0
+offset_right = 1091.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
+text = "SPELLS"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MapButton" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 115.0
+offset_right = 1255.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
+text = "MAP"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EquipmentButton" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1254.0
+offset_top = 115.0
+offset_right = 1419.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
+text = "EQUIPMENT"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ReputationButton" type="Button" parent="MenuInterface/PauseMenu"]
+layout_mode = 0
+offset_left = 1418.0
+offset_top = 115.0
+offset_right = 1583.0
+offset_bottom = 164.0
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("29_m6f54")
+theme_override_styles/hover = ExtResource("29_m6f54")
+theme_override_styles/pressed = ExtResource("29_m6f54")
+theme_override_styles/focus = ExtResource("29_m6f54")
+toggle_mode = true
+text = "REPUTATION"
+icon = ExtResource("29_sdhsr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
 offset_left = 1581.0
 offset_top = 113.0
