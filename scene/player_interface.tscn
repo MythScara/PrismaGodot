@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=31 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
-[ext_resource type="Texture2D" uid="uid://dm4wx5wbqyciu" path="res://asset/button_icons/settings_button.png" id="30_033lc"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
@@ -481,8 +480,6 @@ color = Color(0, 0, 0, 0.784314)
 
 [node name="PauseMenu" type="Control" parent="MenuInterface"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Background" type="Sprite2D" parent="MenuInterface/PauseMenu"]
 position = Vector2(960, 544)
@@ -491,10 +488,10 @@ texture = ExtResource("28_dsyi6")
 
 [node name="InventoryButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 270.0
-offset_top = 115.0
-offset_right = 435.0
-offset_bottom = 164.0
+offset_left = 269.0
+offset_top = 110.0
+offset_right = 439.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -511,10 +508,10 @@ expand_icon = true
 
 [node name="QuestsButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 434.0
-offset_top = 115.0
-offset_right = 599.0
-offset_bottom = 164.0
+offset_left = 442.0
+offset_top = 110.0
+offset_right = 612.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -531,10 +528,10 @@ expand_icon = true
 
 [node name="PlayerButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 598.0
-offset_top = 115.0
-offset_right = 763.0
-offset_bottom = 164.0
+offset_left = 615.0
+offset_top = 110.0
+offset_right = 785.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -551,10 +548,10 @@ expand_icon = true
 
 [node name="IntelButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 762.0
-offset_top = 115.0
-offset_right = 927.0
-offset_bottom = 164.0
+offset_left = 788.0
+offset_top = 110.0
+offset_right = 958.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -571,10 +568,10 @@ expand_icon = true
 
 [node name="SpellsButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 926.0
-offset_top = 115.0
-offset_right = 1091.0
-offset_bottom = 164.0
+offset_left = 961.0
+offset_top = 110.0
+offset_right = 1131.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -591,10 +588,10 @@ expand_icon = true
 
 [node name="MapButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 1090.0
-offset_top = 115.0
-offset_right = 1255.0
-offset_bottom = 164.0
+offset_left = 1134.0
+offset_top = 110.0
+offset_right = 1304.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -611,10 +608,10 @@ expand_icon = true
 
 [node name="EquipmentButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 1254.0
-offset_top = 115.0
-offset_right = 1419.0
-offset_bottom = 164.0
+offset_left = 1307.0
+offset_top = 110.0
+offset_right = 1477.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -629,12 +626,12 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ReputationButton" type="Button" parent="MenuInterface/PauseMenu"]
+[node name="SettingsButton" type="Button" parent="MenuInterface/PauseMenu"]
 layout_mode = 0
-offset_left = 1418.0
-offset_top = 115.0
-offset_right = 1583.0
-offset_bottom = 164.0
+offset_left = 1480.0
+offset_top = 110.0
+offset_right = 1650.0
+offset_bottom = 168.0
 theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -643,20 +640,15 @@ theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
 theme_override_styles/focus = ExtResource("29_m6f54")
 toggle_mode = true
-text = "REPUTATION"
+text = "SETTINGS"
 icon = ExtResource("29_sdhsr")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="SettingsButton" type="Button" parent="MenuInterface/PauseMenu"]
-layout_mode = 0
-offset_left = 1581.0
-offset_top = 113.0
+[node name="InventoryScreen" type="Control" parent="MenuInterface"]
+anchors_preset = 0
+offset_left = 268.0
+offset_top = 168.0
 offset_right = 1651.0
-offset_bottom = 161.0
-theme_override_font_sizes/font_size = 20
-icon = ExtResource("30_033lc")
-flat = true
-icon_alignment = 1
-expand_icon = true
+offset_bottom = 977.0
