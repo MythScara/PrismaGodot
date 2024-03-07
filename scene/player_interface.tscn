@@ -192,10 +192,10 @@ texture_progress = ExtResource("22_3x4rg")
 
 [node name="SpecialistBar" type="TextureProgressBar" parent="GameInterface/Experience"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 1001.0
-offset_right = 373.0
-offset_bottom = 1359.0
+offset_left = 16.0
+offset_top = 1000.0
+offset_right = 372.0
+offset_bottom = 1358.0
 scale = Vector2(0.18, 0.18)
 rounded = true
 fill_mode = 4
@@ -204,11 +204,11 @@ texture_progress = ExtResource("17_ca3in")
 tint_under = Color(1, 1, 1, 0.568627)
 
 [node name="Species" type="Sprite2D" parent="GameInterface/Experience/SpecialistBar"]
-position = Vector2(165.362, 165.862)
+position = Vector2(177.778, 177.778)
 scale = Vector2(1.56034, 1.56034)
 
 [node name="Specialist" type="Sprite2D" parent="GameInterface/Experience/SpecialistBar"]
-position = Vector2(165.362, 165.862)
+position = Vector2(177.778, 177.778)
 scale = Vector2(1.56034, 1.56034)
 
 [node name="PlayerBar" type="Sprite2D" parent="GameInterface/Experience"]
@@ -466,6 +466,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
