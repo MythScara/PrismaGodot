@@ -394,21 +394,8 @@ func _input(event):
 		if event.is_action_pressed("Reload"):
 			PlayerInterface.reload()
 		if event.is_action_pressed("Information"):
-			#print_debug(species)
-			#print_debug(stats)
-			#print_debug(bonuses)
-			#print_debug(elements)
-			#print_debug(specialist)
-			#print_debug(immunities)
-			#print_debug(buffs)
-			#print_debug(afflictions)
-			#print_debug(passives)
-			#print_debug(techniques)
-			print_debug(ranged_stats)
-			print_debug(ranged_values)
-			print_debug(melee_stats)
-			print_debug(melee_values)
-			#print_debug(specialist_levels)
+			print(get_save_data())
+			print(PlayerInventory.get_save_data())
 		if event.is_action_pressed("Cheat Menu"):
 			exp_handler(400)
 		if event.is_action_pressed("Pause Menu"):

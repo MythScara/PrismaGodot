@@ -295,10 +295,11 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="GameInterface/RangedWeapon"]
 layout_mode = 0
-offset_left = 1624.0
-offset_top = 1022.0
+offset_left = 1640.0
+offset_top = 1024.0
 offset_right = 1664.0
-offset_bottom = 1066.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 20
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -355,10 +356,11 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="GameInterface/MeleeWeapon"]
 layout_mode = 0
-offset_left = 1624.0
-offset_top = 974.0
+offset_left = 1640.0
+offset_top = 976.0
 offset_right = 1664.0
-offset_bottom = 1018.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -466,7 +468,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
