@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=33 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -30,12 +30,13 @@
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
+[ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
+[ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_1xymm")
@@ -474,12 +475,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 1
 
-[node name="Background" type="ColorRect" parent="MenuInterface"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.784314)
-
 [node name="PauseMenu" type="Control" parent="MenuInterface"]
 anchors_preset = 0
 
@@ -654,3 +649,538 @@ offset_left = 268.0
 offset_top = 168.0
 offset_right = 1651.0
 offset_bottom = 977.0
+
+[node name="PlayerField" type="ColorRect" parent="MenuInterface/InventoryScreen"]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 8.0
+offset_right = 884.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+
+[node name="StatField" type="ColorRect" parent="MenuInterface/InventoryScreen"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 400.0
+offset_right = 484.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+
+[node name="OffensiveMagic" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="OffensiveMagicTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 8.0
+offset_right = 1300.0
+offset_bottom = 80.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveMagicRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 44.0
+offset_right = 1372.0
+offset_bottom = 116.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 44.0
+offset_right = 1228.0
+offset_bottom = 116.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 80.0
+offset_right = 1300.0
+offset_bottom = 152.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportMagic" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="SupportMagicTop" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 160.0
+offset_right = 1300.0
+offset_bottom = 232.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportMagicRight" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 196.0
+offset_right = 1372.0
+offset_bottom = 268.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 196.0
+offset_right = 1228.0
+offset_bottom = 268.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 232.0
+offset_right = 1300.0
+offset_bottom = 304.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveItem" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="OffensiveItemTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 312.0
+offset_right = 1300.0
+offset_bottom = 384.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveItemRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 348.0
+offset_right = 1372.0
+offset_bottom = 420.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveItemLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 348.0
+offset_right = 1228.0
+offset_bottom = 420.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OffensiveItemBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 384.0
+offset_right = 1300.0
+offset_bottom = 456.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportItem" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="SupportItemTop" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 464.0
+offset_right = 1300.0
+offset_bottom = 536.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportItemRight" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 500.0
+offset_right = 1372.0
+offset_bottom = 572.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportItemLeft" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 500.0
+offset_right = 1228.0
+offset_bottom = 572.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SupportItemBottom" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 536.0
+offset_right = 1300.0
+offset_bottom = 608.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rings" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="Ring1" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 608.0
+offset_right = 988.0
+offset_bottom = 704.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring2" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 608.0
+offset_right = 1084.0
+offset_bottom = 704.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring3" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1084.0
+offset_top = 608.0
+offset_right = 1180.0
+offset_bottom = 704.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring4" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 608.0
+offset_right = 1276.0
+offset_bottom = 704.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring5" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1276.0
+offset_top = 608.0
+offset_right = 1372.0
+offset_bottom = 704.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring6" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 704.0
+offset_right = 988.0
+offset_bottom = 800.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring7" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 704.0
+offset_right = 1084.0
+offset_bottom = 800.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring8" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1084.0
+offset_top = 704.0
+offset_right = 1180.0
+offset_bottom = 800.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring9" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 704.0
+offset_right = 1276.0
+offset_bottom = 800.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Ring10" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
+layout_mode = 0
+offset_left = 1276.0
+offset_top = 704.0
+offset_right = 1372.0
+offset_bottom = 800.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Armor" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="ChestArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 120.0
+offset_right = 1020.0
+offset_bottom = 248.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="PadArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 240.0
+offset_right = 1020.0
+offset_bottom = 368.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BeltArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 360.0
+offset_right = 1020.0
+offset_bottom = 488.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BodyArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 480.0
+offset_right = 1020.0
+offset_bottom = 608.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Artifact" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="Artifact1" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 240.0
+offset_right = 1148.0
+offset_bottom = 368.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Artifact2" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 360.0
+offset_right = 1148.0
+offset_bottom = 488.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Artifact3" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 480.0
+offset_right = 1148.0
+offset_bottom = 608.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ExtraEquip" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="SoulStone" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 240.0
+offset_right = 484.0
+offset_bottom = 392.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="RangedWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 240.0
+offset_right = 164.0
+offset_bottom = 392.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MeleeWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 240.0
+offset_right = 324.0
+offset_bottom = 392.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Outfit" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 120.0
+offset_right = 1148.0
+offset_bottom = 248.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Summon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 8.0
+offset_right = 484.0
+offset_bottom = 120.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Vehicle" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 124.0
+offset_right = 484.0
+offset_bottom = 236.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Skill" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 372.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 20
+text = "TECHNIQUE 1"
+icon = ExtResource("32_dy6rh")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Special" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 84.0
+offset_right = 372.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 20
+text = "TECHNIQUE 2"
+icon = ExtResource("32_dy6rh")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Super" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 160.0
+offset_right = 372.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 20
+text = "TECHNIQUE 3"
+icon = ExtResource("32_dy6rh")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Specialist" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 2.0
+offset_right = 1148.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 20
+text = "SPECIALIST"
+icon = ExtResource("32_dy6rh")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Faction" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 56.0
+offset_right = 1148.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 20
+text = "FACTION
+"
+icon = ExtResource("32_dy6rh")
+flat = true
+icon_alignment = 1
+expand_icon = true
