@@ -475,6 +475,12 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 1
 
+[node name="DarkField" type="ColorRect" parent="MenuInterface"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.686275)
+
 [node name="PauseMenu" type="Control" parent="MenuInterface"]
 anchors_preset = 0
 
@@ -680,6 +686,15 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicTop"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="OffensiveMagicRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
 layout_mode = 0
 offset_left = 1300.0
@@ -690,6 +705,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicRight"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="OffensiveMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
 layout_mode = 0
@@ -702,6 +725,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicLeft"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="OffensiveMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
 layout_mode = 0
 offset_left = 1228.0
@@ -712,6 +743,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicBottom"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SupportMagic" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -727,6 +766,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicTop"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="SupportMagicRight" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
 layout_mode = 0
 offset_left = 1300.0
@@ -737,6 +784,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicRight"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SupportMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
 layout_mode = 0
@@ -749,6 +804,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicLeft"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="SupportMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
 layout_mode = 0
 offset_left = 1228.0
@@ -759,6 +822,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicBottom"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="OffensiveItem" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -774,6 +845,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemTop"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="OffensiveItemRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
 layout_mode = 0
 offset_left = 1300.0
@@ -784,6 +863,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemRight"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="OffensiveItemLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
 layout_mode = 0
@@ -796,6 +883,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemLeft"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="OffensiveItemBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
 layout_mode = 0
 offset_left = 1228.0
@@ -806,6 +901,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemBottom"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SupportItem" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -821,6 +924,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemTop"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="SupportItemRight" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
 layout_mode = 0
 offset_left = 1300.0
@@ -831,6 +942,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemRight"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SupportItemLeft" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
 layout_mode = 0
@@ -843,6 +962,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemLeft"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="SupportItemBottom" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
 layout_mode = 0
 offset_left = 1228.0
@@ -853,6 +980,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemBottom"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 66.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Rings" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -868,6 +1003,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Ring2" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
 offset_left = 988.0
@@ -878,6 +1021,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring2"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Ring3" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
@@ -890,6 +1041,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring3"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Ring4" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
 offset_left = 1180.0
@@ -900,6 +1059,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring4"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Ring5" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
@@ -912,6 +1079,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring5"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Ring6" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
 offset_left = 892.0
@@ -922,6 +1097,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring6"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Ring7" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
@@ -934,6 +1117,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring7"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Ring8" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
 offset_left = 1084.0
@@ -944,6 +1135,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring8"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Ring9" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
@@ -956,6 +1155,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring9"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Ring10" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
 offset_left = 1276.0
@@ -966,6 +1173,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring10"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 90.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Armor" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -981,6 +1196,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/ChestArmor"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="PadArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
 offset_left = 892.0
@@ -991,6 +1214,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/PadArmor"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="BeltArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
@@ -1003,6 +1234,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BeltArmor"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="BodyArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
 offset_left = 892.0
@@ -1013,6 +1252,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BodyArmor"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Artifact" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
@@ -1028,6 +1275,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact1"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Artifact2" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
 offset_left = 1020.0
@@ -1038,6 +1293,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact2"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Artifact3" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
@@ -1050,19 +1313,16 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact3"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="ExtraEquip" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-
-[node name="SoulStone" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
-layout_mode = 0
-offset_left = 332.0
-offset_top = 240.0
-offset_right = 484.0
-offset_bottom = 392.0
-icon = ExtResource("31_lo64m")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="RangedWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
@@ -1075,6 +1335,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/RangedWeapon"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 145.0
+offset_bottom = 144.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="MeleeWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
 offset_left = 172.0
@@ -1085,6 +1353,33 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/MeleeWeapon"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 145.0
+offset_bottom = 144.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SoulStone" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 240.0
+offset_right = 484.0
+offset_bottom = 392.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/SoulStone"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 145.0
+offset_bottom = 144.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Outfit" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
@@ -1097,6 +1392,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Outfit"]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Summon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
 offset_left = 372.0
@@ -1108,6 +1411,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Summon"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 106.0
+offset_bottom = 106.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Vehicle" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
 offset_left = 372.0
@@ -1118,6 +1429,14 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Vehicle"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 106.0
+offset_bottom = 106.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Skill" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
