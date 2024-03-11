@@ -25,6 +25,27 @@ var equip_inventory = {
 	"Vehicle": {}
 }
 
+var current_inventory = {
+	"Ranged Weapon": {},
+	"Melee Weapon": {},
+	"Summon": {},
+	"Outfit": {},
+	"Ring": {},
+	"Artifact": {},
+	"Soul Stone": {},
+	"Chest Armor": {},
+	"Pad Armor": {},
+	"Belt Armor": {},
+	"Body Armor": {},
+	"Battle Item": {},
+	"Support Item": {},
+	"Battle Magic": {},
+	"Support Magic": {},
+	"Techniques": {},
+	"Specialist": {},
+	"Vehicle": {}
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -36,6 +57,8 @@ func _process(_delta):
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
+		if current_inventory[category] == {}:
+			current_inventory[category][item_name] = item_values
 	elif extra_inventory.has(category):
 		if extra_inventory[category].has(item_name):
 			if extra_inventory[category][item_name]["Amount"] == 100:
@@ -82,7 +105,8 @@ func get_inventory(category: String):
 func get_save_data() -> Dictionary:
 	return {
 		"extra_inventory": extra_inventory,
-		"equip_inventory": equip_inventory
+		"equip_inventory": equip_inventory,
+		"current_inventory": current_inventory
 	}
 
 func set_data(data: Dictionary) -> void:
