@@ -6,12 +6,16 @@ var cur_level = 0
 var cur_experience = 0
 var experience_required = 1000
 
-var mind_ready = true
-var soul_ready = true
-var heart_ready = true
-var skill_ready = true
-var special_ready = true
-var super_ready = true
+var mind_ready = null
+var soul_ready = null
+var heart_ready = null
+var skill_ready = null
+var special_ready = null
+var super_ready = null
+
+var mind_signal = ""
+var soul_signal = ""
+var heart_signal = ""
 
 var specialist_info = {
 	"Name": "Paladin",

@@ -86,7 +86,7 @@ func exp_handler(value):
 func specialist_unlock(level):
 	match level:
 		1:
-			pass
+			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 105, "Value": 700})
 		2:
 			pass
 		3:

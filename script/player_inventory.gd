@@ -2,6 +2,7 @@ extends Node
 
 var extra_inventory = {
 	"Consumable": {},
+	"Crafting Resource": {},
 	"Quest Item": {}
 }
 var equip_inventory = {
@@ -57,21 +58,27 @@ func _process(_delta):
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
-		if current_inventory[category] == {}:
+		if current_inventory[category].keys().size() < GameInfo.slot_size[category]:
 			current_inventory[category][item_name] = item_values
 	elif extra_inventory.has(category):
 		if extra_inventory[category].has(item_name):
 			if extra_inventory[category][item_name]["Amount"] == 100:
 				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
+				var prisma = item_values["Amount"] * item_values["Value"]
+				PlayerStats.currency["Prisma"] += prisma
 				return
 				
 			extra_inventory[category][item_name]["Amount"] += item_values["Amount"]
 			
 			if extra_inventory[category][item_name]["Amount"] > 100:
+				var prisma = (item_values["Amount"] - 100) * item_values["Value"]
+				PlayerStats.currency["Prisma"] += prisma
 				extra_inventory[category][item_name]["Amount"] = 100
 				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
 		else:
 			if item_values["Amount"] > 100:
+				var prisma = (item_values["Amount"] - 100) * item_values["Value"]
+				PlayerStats.currency["Prisma"] += prisma
 				item_values["Amount"] = 100
 				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
 			extra_inventory[category][item_name] = item_values

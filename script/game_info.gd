@@ -303,3 +303,24 @@ var specialist_list = [
 	"Mercenary", "Cavalier", "Spartan", "Ranger", "Scout", "Pirate", "Assassin", "Nomad", "Engineer", "Hunter", "Archer", "Paladin",
 	"Warden", "Ronin", "Ninja", "Templar", "Rogue", "Samurai", "Valkyrie", "Inquisitor", "Druid", "Monk", "Centurion", "Sage"
 	]
+
+var slot_size = {
+	"Ranged Weapon": 1,
+	"Melee Weapon": 1,
+	"Summon": 1,
+	"Outfit": 1,
+	"Ring": 10,
+	"Artifact": 3,
+	"Soul Stone": 1,
+	"Chest Armor": 1,
+	"Pad Armor": 1,
+	"Belt Armor": 1,
+	"Body Armor": 1,
+	"Battle Item": 4,
+	"Support Item": 4,
+	"Battle Magic": 4,
+	"Support Magic": 4,
+	"Techniques": 3,
+	"Specialist": 1,
+	"Vehicle": 1
+}

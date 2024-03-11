@@ -18,6 +18,8 @@ var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": 
 var passives = {}
 var techniques = {"Skill": null, "Special": null, "Super": null}
 
+var currency = {"Prisma": 0}
+
 var ranged_stats = {
 	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
@@ -351,6 +353,7 @@ func get_save_data() -> Dictionary:
 		"afflictions": afflictions,
 		"passives": passives,
 		"techniques": techniques,
+		"currency": currency,
 		"ranged_stats": ranged_stats,
 		"melee_stats": melee_stats,
 		"timer_cache": timer_cache,
