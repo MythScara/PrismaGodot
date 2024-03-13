@@ -45,7 +45,6 @@ var specialist_rewards = {
 
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
-	PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,6 +64,7 @@ func _on_specialist_activated(s_type):
 			experience_required = PlayerStats.specialist_levels[specialist_name][2]
 		else:
 			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
+			specialist_unlock(0)
 	elif s_type != specialist_name and active == true:
 		active = false
 		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
@@ -85,26 +85,28 @@ func exp_handler(value):
 
 func specialist_unlock(level):
 	match level:
+		0:
+			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		1:
-			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 105, "Value": 700})
+			PlayerInventory.add_to_inventory("Outfit", "", {})
 		2:
-			pass
+			PlayerInventory.add_to_inventory("Weapon", "", {})
 		3:
-			pass
+			PlayerInventory.add_to_inventory("Belt Armor", "", {})
 		4:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		5:
-			pass
+			PlayerInventory.add_to_inventory("Pad Armor", "", {})
 		6:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		7:
-			pass
+			PlayerInventory.add_to_inventory("Chest Armor", "", {})
 		8:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		9:
-			pass
+			PlayerInventory.add_to_inventory("Body Armor", "", {})
 		10:
-			pass
+			PlayerInventory.add_to_inventory("Artifact", "", {})
 
 func event_handler(event):
 	if event == mind_signal:
