@@ -91,23 +91,25 @@ func specialist_unlock(level):
 		1:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		2:
-			pass
+			PlayerInventory.add_to_inventory("Outfit", "", {})
 		3:
-			pass
+			PlayerInventory.add_to_inventory("Weapon", "", {})
 		4:
-			pass
+			PlayerInventory.add_to_inventory("Belt Armor", "", {})
 		5:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		6:
-			pass
+			PlayerInventory.add_to_inventory("Pad Armor", "", {})
 		7:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		8:
-			pass
+			PlayerInventory.add_to_inventory("Chest Armor", "", {})
 		9:
-			pass
+			PlayerInventory.add_to_inventory("Techniques", "", {})
 		10:
-			pass
+			PlayerInventory.add_to_inventory("Body Armor", "", {})
+		11:
+			PlayerInventory.add_to_inventory("Artifact", "", {})
 
 func event_handler(event):
 	if event == mind_signal:
