@@ -206,12 +206,18 @@ func change_technique(specialist_name, technique_type):
 	
 	if technique_method:
 		if technique_type == "skill_technique":
+			if techniques["Skill"] != null:
+				techniques["Skill"].call("Unready")
 			techniques["Skill"] = technique_method
 			technique_method.call("Ready")
 		if technique_type == "special_technique":
+			if techniques["Special"] != null:
+				techniques["Special"].call("Unready")
 			techniques["Special"] = technique_method
 			technique_method.call("Ready")
 		if technique_type == "super_technique":
+			if techniques["Super"] != null:
+				techniques["Super"].call("Unready")
 			techniques["Super"] = technique_method
 			technique_method.call("Ready")
 	else:
