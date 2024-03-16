@@ -201,7 +201,7 @@ func specialist_experience(value):
 		print_debug("Failed To Add Experience: " + specialist)
 
 func change_technique(specialist_name, technique_type):
-	var specialist_class  = load_specialist(specialist_name)
+	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
 	
 	if technique_method:

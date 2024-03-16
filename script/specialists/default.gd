@@ -43,6 +43,16 @@ var specialist_rewards = {
 	"Level 10": "Specialist Heart Artifact"
 }
 
+var weapon_stats_r = {
+	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Max Value": 100}
+
+var weapon_stats_m = {
+	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Max Value": 100}
+
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
 	specialist_unlock(0)
@@ -90,25 +100,25 @@ func specialist_unlock(level):
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", "", {})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0})
 		2:
-			PlayerInventory.add_to_inventory("Weapon", "", {})
+			PlayerInventory.add_to_inventory("Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:
-			PlayerInventory.add_to_inventory("Belt Armor", "", {})
+			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0})
 		4:
 			PlayerInventory.add_to_inventory("Techniques", "", {})
 		5:
-			PlayerInventory.add_to_inventory("Pad Armor", "", {})
+			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pad", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0})
 		6:
 			PlayerInventory.add_to_inventory("Techniques", "", {})
 		7:
-			PlayerInventory.add_to_inventory("Chest Armor", "", {})
+			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0})
 		8:
 			PlayerInventory.add_to_inventory("Techniques", "", {})
 		9:
-			PlayerInventory.add_to_inventory("Body Armor", "", {})
+			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0})
 		10:
-			PlayerInventory.add_to_inventory("Artifact", "", {})
+			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0})
 
 func event_handler(event):
 	if event == mind_signal:
