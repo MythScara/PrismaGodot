@@ -11,10 +11,18 @@ var all_stats
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	stat_update()
+	PlayerStats.connect("pause_game", Callable(self, "stat_update"))
 
 func stat_update():
+	stats = PlayerStats.stats
+	elements = PlayerStats.elements
 	all_stats = stats.duplicate()
 	all_stats.merge(elements)
+	
+	for child in stat_c.get_children():
+		child.queue_free()
+	for child in value_c.get_children():
+		child.queue_free()
 	
 	for key in all_stats.keys():
 		var label_key = Label.new()

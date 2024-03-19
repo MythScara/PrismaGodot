@@ -46,6 +46,7 @@ signal player_event(event)
 signal stat_update(stat)
 signal exp_update(value)
 signal spec_update(s_name)
+signal pause_game
 
 var attacking = false
 var cooldown_time = 0.0
@@ -410,6 +411,8 @@ func _input(event):
 			exp_handler(400)
 		if event.is_action_pressed("Pause Menu"):
 			PlayerInterface.menu_ui.visible = !PlayerInterface.menu_ui.visible
+			player_active = !player_active
+			emit_signal("pause_game")
 
 func _process(delta):
 	if attacking == true and cooldown_time >= attack_cooldown:

@@ -11,8 +11,12 @@ var afflictions = PlayerStats.afflictions
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_stats(stat_c, value_c)
+	PlayerStats.connect("pause_game", Callable(self, "update_stats").bind(stat_c, value_c))
 
 func update_stats(vbox1, vbox2):
+	immunities = PlayerStats.immunities
+	buffs = PlayerStats.buffs
+	afflictions = PlayerStats.afflictions
 	for child in vbox1.get_children():
 		child.queue_free()
 	for child in vbox2.get_children():
