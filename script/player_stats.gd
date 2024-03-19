@@ -11,9 +11,10 @@ var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var stats = {"HP": 40000, "MP": 40000, "SHD": 8000, "STM": 8000, "ATK": 4000, "DEF": 4000, "MGA": 4000, "MGD": 4000, "SHR": 4000, "STR": 4000, "AG": 4000, "CAP": 4000}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 
-var immunities = []
-var buffs = {}
-var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
+var immunities = ["Burn", "Freeze"]
+var buffs = ["Hydrate"]
+var afflictions = ["Grounded"]
+#var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
 
 var passives = {}
 var techniques = {"Skill": null, "Special": null, "Super": null}
@@ -206,18 +207,18 @@ func change_technique(specialist_name, technique_type):
 	
 	if technique_method:
 		if technique_type == "skill_technique":
-			if techniques["Skill"] != null:
-				techniques["Skill"].call("Unready")
+			#if techniques["Skill"] != null:
+				#techniques["Skill"].call("Unready")
 			techniques["Skill"] = technique_method
 			technique_method.call("Ready")
 		if technique_type == "special_technique":
-			if techniques["Special"] != null:
-				techniques["Special"].call("Unready")
+			#if techniques["Special"] != null:
+				#techniques["Special"].call("Unready")
 			techniques["Special"] = technique_method
 			technique_method.call("Ready")
 		if technique_type == "super_technique":
-			if techniques["Super"] != null:
-				techniques["Super"].call("Unready")
+			#if techniques["Super"] != null:
+				#techniques["Super"].call("Unready")
 			techniques["Super"] = technique_method
 			technique_method.call("Ready")
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=35 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" path="res://script/stat_field.gd" id="31_ebap6"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
+[ext_resource type="Script" path="res://script/extra_field.gd" id="32_wvwnw"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
@@ -669,26 +670,69 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 12.0
 offset_top = 400.0
-offset_right = 484.0
+offset_right = 244.0
 offset_bottom = 800.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("31_ebap6")
 
+[node name="Label" type="Label" parent="MenuInterface/InventoryScreen/StatField"]
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 20
+text = "PLAYER STATS"
+horizontal_alignment = 1
+
 [node name="MainStats" type="ScrollContainer" parent="MenuInterface/InventoryScreen/StatField"]
 layout_mode = 0
+offset_left = 4.0
+offset_top = 32.0
 offset_right = 232.0
 offset_bottom = 400.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/StatField/MainStats"]
+[node name="SplitContainer" type="HSplitContainer" parent="MenuInterface/InventoryScreen/StatField/MainStats"]
+layout_mode = 2
+theme_override_constants/separation = 90
+collapsed = true
+
+[node name="StatContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/StatField/MainStats/SplitContainer"]
 layout_mode = 2
 
-[node name="SecondaryStats" type="ScrollContainer" parent="MenuInterface/InventoryScreen/StatField"]
+[node name="ValueContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/StatField/MainStats/SplitContainer"]
+layout_mode = 2
+
+[node name="ExtraField" type="ColorRect" parent="MenuInterface/InventoryScreen"]
 layout_mode = 0
-offset_left = 240.0
-offset_right = 472.0
+offset_left = 252.0
+offset_top = 400.0
+offset_right = 484.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("32_wvwnw")
+
+[node name="Label" type="Label" parent="MenuInterface/InventoryScreen/ExtraField"]
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 20
+text = "EXTRA STATS"
+horizontal_alignment = 1
+
+[node name="MainStats" type="ScrollContainer" parent="MenuInterface/InventoryScreen/ExtraField"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 232.0
 offset_bottom = 400.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/StatField/SecondaryStats"]
+[node name="SplitContainer" type="HSplitContainer" parent="MenuInterface/InventoryScreen/ExtraField/MainStats"]
+layout_mode = 2
+collapsed = true
+
+[node name="StatContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/ExtraField/MainStats/SplitContainer"]
+layout_mode = 2
+
+[node name="ValueContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/ExtraField/MainStats/SplitContainer"]
 layout_mode = 2
 
 [node name="OffensiveMagic" type="Control" parent="MenuInterface/InventoryScreen"]
