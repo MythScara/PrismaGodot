@@ -196,8 +196,6 @@ func weapon_randomizer(stat_value, stat_type):
 	stat_value["Type"] = type
 	stat_value["Element"] = elem
 	
-	print(max_points)
-	
 	calculate_values(stat_value, stat_type)
 
 func start_timer(specialist_name, s_name, duration, s_type):

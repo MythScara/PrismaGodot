@@ -43,27 +43,22 @@ var specialist_rewards = {
 	"Level 10": "Specialist Heart Artifact"
 }
 
+var weapon_stats_r = {
+	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+
+var weapon_stats_m = {
+	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
-
+	specialist_unlock(0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
-func start_timer(seconds, s_name, cooldown):
-	var timer = Timer.new()
-	timer.set_wait_time(seconds)
-	timer.set_one_shot(true)
-	timer.connect("timeout", Callable(self,"_on_timer_timeout").bind(s_name, cooldown))
-	PlayerStats.add_timer(timer)
-	timer.start()
-
-func _on_timer_timeout(s_name, cooldown):
-	_timer_reached(s_name, cooldown)
-	
-	for child in get_children():
-		if child is Timer and child.is_stopped():
-			child.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -72,125 +67,191 @@ func _process(_delta):
 func _on_specialist_activated(s_type):
 	if s_type == specialist_name and active == false:
 		active = true
-		mind_passive(true)
-		soul_passive(true)
-		heart_passive(true)
 		PlayerStats.set_specialist(specialist_name)
+		if PlayerStats.specialist_levels.has(specialist_name):
+			cur_level = PlayerStats.specialist_levels[specialist_name][0]
+			cur_experience = PlayerStats.specialist_levels[specialist_name][1]
+			experience_required = PlayerStats.specialist_levels[specialist_name][2]
+		else:
+			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 	elif s_type != specialist_name and active == true:
 		active = false
-		mind_passive(false)
-		soul_passive(false)
-		heart_passive(false)
+		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
+		PlayerStats.change_passive(specialist_name, "soul_passive", "Sub")
+		PlayerStats.change_passive(specialist_name, "heart_passive", "Sub")
 	else:
 		pass
 
-func _timer_reached(s_name, cooldown):
-	if cooldown == false:
-		if s_name == "mind":
-			mind_passive(false)
-		elif s_name == "soul":
-			soul_passive(false)
-		elif s_name == "heart":
-			heart_passive(false)
-		elif s_name == "skill":
-			skill_technique(false)
-		elif s_name == "special":
-			special_technique(false)
-		elif s_name == "super":
-			super_technique(false)
-		else:
-			pass
-	elif cooldown == true:
-		if s_name == "mind":
-			print_debug(specialist_info["Name"] + " Mind Ready")
+func exp_handler(value):
+	if cur_level != 10 and active == true:
+		cur_experience += value
+		if cur_experience >= experience_required:
+			cur_level += 1
+			PlayerStats.stat_points[0] += 2
+			PlayerStats.element_points[0] += 2
+			cur_experience -= experience_required
+			experience_required += 1000
+			specialist_unlock(cur_level)
+			exp_handler(cur_experience)
+		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
+
+func specialist_unlock(level):
+	match level:
+		0:
+			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
+		1:
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+		2:
+			PlayerInventory.add_to_inventory("Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
+		3:
+			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+		4:
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
+		5:
+			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+		6:
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
+		7:
+			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+		8:
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
+		9:
+			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+		10:
+			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+
+func event_handler(event):
+	if event == mind_signal:
+		mind_passive("Active")
+	if event == soul_signal:
+		soul_passive("Active")
+	if event == heart_signal:
+		heart_passive("Active")
+
+func connection_terminate():
+	if mind_ready == null and soul_ready == null and heart_ready == null:
+		if PlayerStats.is_connected("player_event", Callable(self, "event_handler")):
+			PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
+
+func mind_passive(state):
+	match state:
+		"Ready":
 			mind_ready = true
-		elif s_name == "soul":
-			print_debug(specialist_info["Name"] + " Soul Ready")
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and mind_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
+		"Active":
+			if mind_ready == true:
+				mind_ready = false
+				mind_passive("Cooldown")
+		"Cooldown":
+			if mind_ready == false:
+				PlayerStats.start_timer(specialist_name, "mind_passive", 5, "Ready")
+		"Unready":
+			mind_ready = null
+			connection_terminate()
+
+func soul_passive(state):
+	match state:
+		"Ready":
 			soul_ready = true
-		elif s_name == "heart":
-			print_debug(specialist_info["Name"] + " Heart Ready")
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
+		"Active":
+			if soul_ready == true:
+				mind_ready = false
+				mind_passive("Cooldown")
+		"Cooldown":
+			if soul_ready == false:
+				PlayerStats.start_timer(specialist_name, "soul_passive", 5, "Ready")
+		"Unready":
+			soul_ready = null
+			connection_terminate()
+
+func heart_passive(state):
+	match state:
+		"Ready":
 			heart_ready = true
-		elif s_name == "skill":
-			print_debug(specialist_info["Name"] + " Skill Ready")
-			skill_ready = true
-		elif s_name == "special":
-			print_debug(specialist_info["Name"] + " Special Ready")
-			special_ready = true
-		elif s_name == "super":
-			print_debug(specialist_info["Name"] + " Super Ready")
-			super_ready = true
+			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and heart_signal != "":
+				PlayerStats.connect("player_event", Callable(self, "event_handler"))
+		"Active":
+			if heart_ready == true:
+				heart_ready = false
+				heart_passive("Cooldown")
+		"Cooldown":
+			if heart_ready == false:
+				PlayerStats.start_timer(specialist_name, "heart_passive", 5, "Ready")
+		"Unready":
+			heart_ready = null
+			connection_terminate()
 
-func mind_passive(s_active):
-	if s_active == true:
-		print_debug(specialist_info["Name"] + " Mind Activated")
-		pass
-	elif s_active == false:
-		pass
-	else:
-		pass
+func skill_technique(state):
+	match state:
+		"Ready":
+			if skill_ready == null:
+				skill_ready = false
+				skill_technique("Cooldown")
+			else:
+				skill_ready = true
+		"Active":
+			if skill_ready == true:
+				skill_ready = false
+				if typeof(specialist_info["Technique 1"]["TD"]) == TYPE_INT:
+					PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TD"], "Cooldown")
+				else:
+					skill_technique("Cooldown")
+				PlayerStats.emit_signal("player_event", "Technique Used")
+		"Cooldown":
+			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")
+			else:
+				skill_technique("Ready")
+		"Unready":
+			skill_ready = null
 
-func soul_passive(s_active):
-	if s_active == true:
-		print_debug(specialist_info["Name"] + " Soul Activated")
-		pass
-	elif s_active == false:
-		pass
-	else:
-		pass
+func special_technique(state):
+	match state:
+		"Ready":
+			if special_ready == null:
+				special_ready = false
+				special_technique("Cooldown")
+			else:
+				special_ready = true
+		"Active":
+			if special_ready == true:
+				special_ready = false
+				if typeof(specialist_info["Technique 2"]["TD"]) == TYPE_INT:
+					PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TD"], "Cooldown")
+				else:
+					special_technique("Cooldown")
+				PlayerStats.emit_signal("player_event", "Technique Used")
+		"Cooldown":
+			if typeof(specialist_info["Technique 2"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TC"], "Ready")
+			else:
+				special_technique("Ready")
+		"Unready":
+			special_ready = null
 
-func heart_passive(s_active):
-	if s_active == true:
-		print_debug(specialist_info["Name"] + " Heart Activated")
-		pass
-	elif s_active == false:
-		pass
-	else:
-		pass
-
-func skill_technique(s_active):
-	if s_active == true and skill_ready == true:
-		print_debug(specialist_info["Name"] + " Skill Activated")
-		if typeof(specialist_info["Technique 1"]["TD"]) == TYPE_INT:
-			start_timer(specialist_info["Technique 1"]["TD"], "skill", false)
-		else:
-			skill_technique(false)
-		skill_ready = false
-		pass
-	elif s_active == false:
-		print_debug(specialist_info["Name"] + " Skill Cooldown")
-		start_timer(specialist_info["Technique 1"]["TC"], "skill", true)
-		pass
-	else:
-		pass
-
-func special_technique(s_active):
-	if s_active == true and special_ready == true:
-		print_debug(specialist_info["Name"] + " Special Activated")
-		if typeof(specialist_info["Technique 2"]["TD"]) == TYPE_INT:
-			start_timer(specialist_info["Technique 2"]["TD"], "special", false)
-		else:
-			special_technique(false)
-		special_ready = false
-		pass
-	elif s_active == false:
-		print_debug(specialist_info["Name"] + " Special Cooldown")
-		start_timer(specialist_info["Technique 2"]["TC"], "special", true)
-		pass
-	else:
-		pass
-
-func super_technique(s_active):
-	if s_active == true and super_ready == true:
-		print_debug(specialist_info["Name"] + " Super Activated")
-		if typeof(specialist_info["Technique 3"]["TD"]) == TYPE_INT:
-			start_timer(specialist_info["Technique 3"]["TD"], "super", false)
-		else:
-			super_technique(false)
-		super_ready = false
-		pass
-	elif s_active == false:
-		print_debug(specialist_info["Name"] + " Super Cooldown")
-		start_timer(specialist_info["Technique 3"]["TC"], "super", true)
-		pass
-	else:
-		pass
+func super_technique(state):
+	match state:
+		"Ready":
+			if super_ready == null:
+				super_ready = false
+				super_technique("Cooldown")
+			else:
+				super_ready = true
+		"Active":
+			if super_ready == true:
+				super_ready = false
+				if typeof(specialist_info["Technique 1"]["TD"]) == TYPE_INT:
+					PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TD"], "Cooldown")
+				else:
+					super_technique("Cooldown")
+				PlayerStats.emit_signal("player_event", "Technique Used")
+		"Cooldown":
+			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
+				PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TC"], "Ready")
+			else:
+				super_technique("Ready")
+		"Unready":
+			super_ready = null

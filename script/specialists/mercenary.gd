@@ -43,9 +43,19 @@ var specialist_rewards = {
 	"Level 10": "Specialist Heart Artifact"
 }
 
+var weapon_stats_r = {
+	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+
+var weapon_stats_m = {
+	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
+	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
-
+	specialist_unlock(0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -64,7 +74,6 @@ func _on_specialist_activated(s_type):
 			experience_required = PlayerStats.specialist_levels[specialist_name][2]
 		else:
 			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
-			specialist_unlock(0)
 	elif s_type != specialist_name and active == true:
 		active = false
 		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
@@ -78,9 +87,12 @@ func exp_handler(value):
 		cur_experience += value
 		if cur_experience >= experience_required:
 			cur_level += 1
+			PlayerStats.stat_points[0] += 2
+			PlayerStats.element_points[0] += 2
+			cur_experience -= experience_required
 			experience_required += 1000
-			cur_experience = 0
 			specialist_unlock(cur_level)
+			exp_handler(cur_experience)
 		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 func specialist_unlock(level):
@@ -88,25 +100,25 @@ func specialist_unlock(level):
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", "", {})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 		2:
-			PlayerInventory.add_to_inventory("Weapon", "", {})
+			PlayerInventory.add_to_inventory("Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:
-			PlayerInventory.add_to_inventory("Belt Armor", "", {})
+			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		4:
-			PlayerInventory.add_to_inventory("Techniques", "", {})
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
 		5:
-			PlayerInventory.add_to_inventory("Pad Armor", "", {})
+			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		6:
-			PlayerInventory.add_to_inventory("Techniques", "", {})
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
 		7:
-			PlayerInventory.add_to_inventory("Chest Armor", "", {})
+			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		8:
-			PlayerInventory.add_to_inventory("Techniques", "", {})
+			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
 		9:
-			PlayerInventory.add_to_inventory("Body Armor", "", {})
+			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		10:
-			PlayerInventory.add_to_inventory("Artifact", "", {})
+			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 
 func event_handler(event):
 	if event == mind_signal:
@@ -127,7 +139,6 @@ func mind_passive(state):
 			mind_ready = true
 			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and mind_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
-			PlayerStats.immunities.append("Blaze")
 		"Active":
 			if mind_ready == true:
 				mind_ready = false
@@ -138,7 +149,6 @@ func mind_passive(state):
 		"Unready":
 			mind_ready = null
 			connection_terminate()
-			PlayerStats.immunities.erase("Blaze")
 
 func soul_passive(state):
 	match state:
@@ -146,7 +156,6 @@ func soul_passive(state):
 			soul_ready = true
 			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
-			PlayerStats.weapon_stat_change({"DMG": 5}, "Ranged", "Add")
 		"Active":
 			if soul_ready == true:
 				mind_ready = false
@@ -157,7 +166,6 @@ func soul_passive(state):
 		"Unready":
 			soul_ready = null
 			connection_terminate()
-			PlayerStats.weapon_stat_change({"DMG": 5}, "Ranged", "Sub")
 
 func heart_passive(state):
 	match state:
@@ -168,7 +176,6 @@ func heart_passive(state):
 		"Active":
 			if heart_ready == true:
 				heart_ready = false
-				print_debug("Overshield Restored")
 				heart_passive("Cooldown")
 		"Cooldown":
 			if heart_ready == false:
@@ -193,7 +200,6 @@ func skill_technique(state):
 				else:
 					skill_technique("Cooldown")
 				PlayerStats.emit_signal("player_event", "Technique Used")
-				print_debug("Activated")
 		"Cooldown":
 			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
 				PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")

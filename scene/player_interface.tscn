@@ -654,7 +654,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
-visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
