@@ -11,9 +11,9 @@ var bonuses = {"Bonus 1": "", "Bonus 2": "", "Bonus 3": ""}
 var stats = {"HP": 40000, "MP": 40000, "SHD": 8000, "STM": 8000, "ATK": 4000, "DEF": 4000, "MGA": 4000, "MGD": 4000, "SHR": 4000, "STR": 4000, "AG": 4000, "CAP": 4000}
 var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST": 2000,"MTL": 2000,"DVN": 2000}
 
-var immunities = ["Burn", "Freeze"]
-var buffs = ["Hydrate"]
-var afflictions = ["Grounded"]
+var immunities = []
+var buffs = []
+var afflictions = []
 #var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
 
 var passives = {}
@@ -24,16 +24,16 @@ var currency = {"Prisma": 0}
 var ranged_stats = {
 	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "Assault Rifle", "Tier": null, "Element": null, "Max Value": 100}
+	"Type": "Assault Rifle", "Tier": null, "Element": null, "Quality": null, "Max Value": 100}
 var melee_stats = {
 	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "Long Sword", "Tier": null, "Element": null, "Max Value": 100}
+	"Type": "Long Sword", "Tier": null, "Element": null, "Quality": null, "Max Value": 100}
 
 var ranged_values = {}
 var melee_values = {}
 
-var excluded = ["Type", "Tier", "Element", "Max Value"]
+var excluded = ["Type", "Tier", "Element", "Quality", "Max Value"]
 
 var specialist_levels = {}
 var specialist_cache = {}
@@ -152,22 +152,51 @@ func randomize_weapon(type):
 func weapon_randomizer(stat_value, stat_type):
 	var max_points = 0
 	var tier_list = ["Iron", "Copper", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Obsidian", "Mithril", "Adamantine"]
+	var type_list = ["Assault Rifle", "Sub Machine Gun", "Light Machine Gun", "Machine Pistol", "Sniper Rifle", "Marksman Rifle", "Handgun", "Launcher", "Longbow", "Crossbow", "Shotgun",
+	"Long Sword", "Great Sword", "Katana", "Mace", "Gauntlet", "Battle Axe", "Warhammer", "Scythe", "Staff", "Spear", "Polearm", "Shield", "Dagger", "Halberd"]
+	var element_list = ["Solar", "Nature", "Spirit", "Void", "Arc", "Frost", "Metal", "Divine", "None"]
 	
 	for key in stat_value.keys():
 		if key not in excluded:
 			stat_value[key] = min(stat_value[key] + randi() % 100, 100)
 			max_points += stat_value[key]
 	
-	var tier_index = int(ceil((max_points - 600) / 100.0))
+	var tier_index = int(ceil((max_points - 700) / 100.0))
 	
 	var tier = "Iron"
+	var type = "Unknown"
+	var elem = "None"
+	var quality = 0
 	
 	if tier_index >= 0 and tier_index < tier_list.size():
 		tier = tier_list[tier_index]
 	elif tier_index >= tier_list.size():
 		tier = tier_list[-1]
 	
+	if stat_type == "Ranged":
+		var type_index = randi() % 12
+		type = type_list[type_index]
+	elif stat_type == "Melee":
+		var type_index = randi() % 14 + 12
+		type = type_list[type_index]
+	
+	if max_points >= 1000:
+		var elem_index = randi() % 10
+		elem = element_list[elem_index]
+	
+	if max_points >= 600:
+		quality = max_points % 100
+		if quality == 0:
+			quality = 100
+	else:
+		quality = 0
+	
 	stat_value["Tier"] = tier
+	stat_value["Quality"] = quality
+	stat_value["Type"] = type
+	stat_value["Element"] = elem
+	
+	print(max_points)
 	
 	calculate_values(stat_value, stat_type)
 
