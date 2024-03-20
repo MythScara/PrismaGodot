@@ -55,7 +55,6 @@ var weapon_stats_m = {
 
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
-	specialist_unlock(0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -73,6 +72,7 @@ func _on_specialist_activated(s_type):
 			cur_experience = PlayerStats.specialist_levels[specialist_name][1]
 			experience_required = PlayerStats.specialist_levels[specialist_name][2]
 		else:
+			specialist_unlock(0)
 			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 	elif s_type != specialist_name and active == true:
 		active = false

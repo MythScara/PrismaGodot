@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=37 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
 [ext_resource type="Script" path="res://script/extra_field.gd" id="32_wvwnw"]
+[ext_resource type="Script" path="res://script/inventory/weapons.gd" id="35_vsuv3"]
 
 [node name="PlayerInterface" type="CanvasLayer"]
 script = ExtResource("1_65u7r")
@@ -1355,6 +1356,26 @@ offset_bottom = 120.0
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Outfit" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 120.0
+offset_right = 1148.0
+offset_bottom = 248.0
+icon = ExtResource("31_lo64m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/Outfit"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 120.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Artifact" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
 
@@ -1418,10 +1439,11 @@ offset_bottom = 120.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ExtraEquip" type="Control" parent="MenuInterface/InventoryScreen"]
+[node name="Weapons" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
+script = ExtResource("35_vsuv3")
 
-[node name="RangedWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="RangedWeapon" type="Button" parent="MenuInterface/InventoryScreen/Weapons"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 240.0
@@ -1432,7 +1454,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/RangedWeapon"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/RangedWeapon"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1441,7 +1463,7 @@ offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MeleeWeapon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="MeleeWeapon" type="Button" parent="MenuInterface/InventoryScreen/Weapons"]
 layout_mode = 0
 offset_left = 172.0
 offset_top = 240.0
@@ -1452,7 +1474,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/MeleeWeapon"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/MeleeWeapon"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1461,7 +1483,7 @@ offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SoulStone" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="SoulStone" type="Button" parent="MenuInterface/InventoryScreen/Weapons"]
 layout_mode = 0
 offset_left = 332.0
 offset_top = 240.0
@@ -1472,7 +1494,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/SoulStone"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/SoulStone"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -1481,27 +1503,7 @@ offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Outfit" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
-layout_mode = 0
-offset_left = 1020.0
-offset_top = 120.0
-offset_right = 1148.0
-offset_bottom = 248.0
-icon = ExtResource("31_lo64m")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Outfit"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Summon" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="Summon" type="Button" parent="MenuInterface/InventoryScreen/Weapons"]
 layout_mode = 0
 offset_left = 372.0
 offset_top = 8.0
@@ -1512,7 +1514,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Summon"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Summon"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
@@ -1521,7 +1523,7 @@ offset_bottom = 106.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Vehicle" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="Vehicle" type="Button" parent="MenuInterface/InventoryScreen/Weapons"]
 layout_mode = 0
 offset_left = 372.0
 offset_top = 124.0
@@ -1532,7 +1534,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/ExtraEquip/Vehicle"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Vehicle"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
@@ -1541,7 +1543,10 @@ offset_bottom = 106.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Skill" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="Techniques" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+
+[node name="Skill" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 8.0
@@ -1554,7 +1559,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Special" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="Special" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 84.0
@@ -1567,7 +1572,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Super" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
+[node name="Super" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 160.0
@@ -1579,6 +1584,11 @@ icon = ExtResource("32_dy6rh")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="ExtraEquip" type="Control" parent="MenuInterface/InventoryScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Specialist" type="Button" parent="MenuInterface/InventoryScreen/ExtraEquip"]
 layout_mode = 0
