@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=36 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cagxhyj6virc7" path="res://asset/technique_icons/07.png" id="25_qgark"]
 [ext_resource type="Texture2D" uid="uid://drf2qc47frs18" path="res://asset/technique_icons/10.png" id="26_q8q0b"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
+[ext_resource type="Script" path="res://script/menu_interface.gd" id="28_sw8ie"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
 [ext_resource type="Script" path="res://script/stat_field.gd" id="31_ebap6"]
@@ -476,6 +477,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 1
+script = ExtResource("28_sw8ie")
 
 [node name="DarkField" type="ColorRect" parent="MenuInterface"]
 layout_mode = 0
@@ -652,6 +654,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
+visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
@@ -1604,3 +1607,12 @@ icon = ExtResource("32_dy6rh")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="MenuInterface/PauseMenu/InventoryButton" to="MenuInterface" method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/QuestsButton" to="MenuInterface" method="_on_quests_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/PlayerButton" to="MenuInterface" method="_on_player_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/IntelButton" to="MenuInterface" method="_on_intel_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/SpellsButton" to="MenuInterface" method="_on_spells_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/MapButton" to="MenuInterface" method="_on_map_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/EquipmentButton" to="MenuInterface" method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="MenuInterface/PauseMenu/SettingsButton" to="MenuInterface" method="_on_settings_button_pressed"]

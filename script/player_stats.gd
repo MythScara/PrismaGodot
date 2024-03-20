@@ -174,10 +174,10 @@ func weapon_randomizer(stat_value, stat_type):
 		tier = tier_list[-1]
 	
 	if stat_type == "Ranged":
-		var type_index = randi() % 12
+		var type_index = randi() % 11
 		type = type_list[type_index]
 	elif stat_type == "Melee":
-		var type_index = randi() % 14 + 12
+		var type_index = randi() % 13 + 12
 		type = type_list[type_index]
 	
 	if max_points >= 1000:

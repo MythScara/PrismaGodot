@@ -153,7 +153,7 @@ func attack_action():
 		else:
 			reload()
 	else:
-		print_debug("No Weapon Equipped")
+		pass
 
 func reload():
 	
