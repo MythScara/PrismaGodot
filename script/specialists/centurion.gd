@@ -15,7 +15,7 @@ var super_ready = null
 
 var mind_signal = ""
 var soul_signal = ""
-var heart_signal = ""
+var heart_signal = "Magic Damage Taken"
 
 var specialist_info = {
 	"Name": "Centurion",

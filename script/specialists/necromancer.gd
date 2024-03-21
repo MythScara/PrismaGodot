@@ -13,9 +13,9 @@ var skill_ready = null
 var special_ready = null
 var super_ready = null
 
-var mind_signal = ""
+var mind_signal = "Magic Damage Dealt"
 var soul_signal = ""
-var heart_signal = ""
+var heart_signal = "Battle Magic Cast"
 
 var specialist_info = {
 	"Name": "Necromancer",

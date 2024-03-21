@@ -13,9 +13,9 @@ var skill_ready = null
 var special_ready = null
 var super_ready = null
 
-var mind_signal = ""
+var mind_signal = "Health Below 50%"
 var soul_signal = ""
-var heart_signal = ""
+var heart_signal = "Support Item Used"
 
 var specialist_info = {
 	"Name": "Archer",

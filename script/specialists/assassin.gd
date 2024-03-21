@@ -15,7 +15,7 @@ var super_ready = null
 
 var mind_signal = ""
 var soul_signal = ""
-var heart_signal = ""
+var heart_signal = "Battle Item Used"
 
 var specialist_info = {
 	"Name": "Assassin",

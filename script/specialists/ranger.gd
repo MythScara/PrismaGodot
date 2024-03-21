@@ -13,9 +13,9 @@ var skill_ready = null
 var special_ready = null
 var super_ready = null
 
-var mind_signal = ""
+var mind_signal = "Enemy Killed"
 var soul_signal = ""
-var heart_signal = ""
+var heart_signal = "Technique Used"
 
 var specialist_info = {
 	"Name": "Ranger",
