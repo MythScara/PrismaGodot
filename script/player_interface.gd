@@ -163,6 +163,10 @@ func reload():
 	if reloading:
 		return
 	
+	if magic_bar.value < 1:
+		print("Insufficient Magic")
+		return
+	
 	reloading = true
 	print_debug(damage)
 	
@@ -170,12 +174,16 @@ func reload():
 		ranged_active.color = Color(1, 0, 0, 1)
 		await get_tree().create_timer(time_r).timeout
 		ammo.text = str(PlayerStats.ranged_values["MAG"])
+		var cost = -int(ammo.text)*100
+		change_stat("MP", cost)
 		ranged_active.color = Color(1, 1, 1, 1)
 		ranged_meter.color = Color(0, 1, 0, 1)
 	elif melee_active.visible == true:
 		melee_active.color = Color(1, 0, 0, 1)
 		await get_tree().create_timer(time_m).timeout
 		charge.text = str(PlayerStats.melee_values["STE"])
+		var cost = -int(charge.text)*100
+		change_stat("MP", cost)
 		melee_active.color = Color(1, 1, 1, 1)
 		melee_meter.color = Color(0, 1, 0, 1)
 		
@@ -222,3 +230,18 @@ func update_values(stat):
 			overshield_bar.max_value = PlayerStats.stats["SHD"]
 		"STM":
 			stamina_bar.max_value = PlayerStats.stats["STM"]
+
+func change_stat(stat, value):
+	match stat:
+		"HP":
+			health_bar.value += value
+			health_text.text = str(health_bar.value)
+		"MP":
+			magic_bar.value += value
+			magic_text.text = str(magic_bar.value)
+		"SHD":
+			overshield_bar.value += value
+			overshield_text.text = str(overshield_bar.value)
+		"STM":
+			stamina_bar.value += value
+			stamina_text.text = str(stamina_bar.value)
