@@ -253,7 +253,7 @@ func change_technique(specialist_name, technique_type):
 		print_debug("Invalid Technique: " + technique_type)
 
 func change_passive(specialist_name, passive_type, modification):
-	var identifier = specialist_name + "_" + passive_type
+	var identifier = specialist_name + " " + passive_type
 	
 	var specialist_class = load_specialist(specialist_name) if identifier in passives or modification == "Add" else null
 	
@@ -271,8 +271,21 @@ func change_passive(specialist_name, passive_type, modification):
 			passives.erase(identifier)
 		else:
 			print_debug("Passive Not Found: " + identifier)
+	elif modification == "Reset":
+		if identifier in passives and specialist_class:
+			var passive_method = specialist_class.get(passive_type)
+			passives[identifier] = passive_method
+			passive_method.call("Unready")
+			passive_method.call("Ready")
 	else:
 		print_debug("Invalid Modification: " + modification)
+
+func activate_passives():
+	for identifier in passives.keys():
+		var parts = identifier.split(" ")
+		var specialist_name = parts[0]
+		var passive_type = parts[1]
+		change_passive(specialist_name, passive_type, "Reset")
 
 func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String):
 	for key in stat_values.keys():
@@ -415,6 +428,7 @@ func _input(event):
 		if event.is_action_released("Technique 1"):
 			if techniques["Skill"] != null:
 				techniques["Skill"].call("Active")
+				passives["Hunter mind_passive"].call("Active")
 		if event.is_action_released("Technique 2"):
 			if techniques["Special"] != null:
 				techniques["Special"].call("Active")
