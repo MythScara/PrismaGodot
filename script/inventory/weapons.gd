@@ -20,6 +20,3 @@ func image_set(type):
 			ranged_weapon.texture = load("res://asset/weapon_icons/assault rifle.png")
 		"Melee Weapon":
 			melee_weapon.texture = load("res://asset/weapon_icons/long sword.png")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
