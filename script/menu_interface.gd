@@ -10,6 +10,7 @@ extends Control
 @onready var settingsButton = $PauseMenu/SettingsButton
 
 @onready var inventoryScreen = $InventoryScreen
+@onready var settingsScreen = $SettingsScreen
 
 var selected_button = null
 var selected_screen = null
@@ -54,4 +55,4 @@ func _on_equipment_button_pressed():
 	set_active(equipmentButton, null)
 
 func _on_settings_button_pressed():
-	set_active(settingsButton, null)
+	set_active(settingsButton, settingsScreen)

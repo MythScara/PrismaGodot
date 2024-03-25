@@ -95,6 +95,13 @@ func initial_setup():
 	# Ensure the UI is visible.
 	self.visible = true
 
+func clear_selection():
+	if selection_field.get_child_count() > 0:
+		for child in selection_field.get_children():
+			child.queue_free()
+		for child in information_field.get_children():
+			child.queue_free()
+
 func swap_active(state):
 	if reloading:
 		return

@@ -406,7 +406,7 @@ func get_save_data() -> Dictionary:
 		"melee_stats": melee_stats,
 		"timer_cache": timer_cache,
 		"specialist_levels": specialist_levels,
-		"player_levels": player_level,
+		"player_level": player_level,
 		"ranged_values": ranged_values,
 		"melee_values": melee_values
 	}

@@ -56,6 +56,7 @@ func _process(_delta):
 	pass
 
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
+	print("Added")
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
 		if current_inventory[category].keys().size() < GameInfo.slot_size[category]:
@@ -84,6 +85,8 @@ func add_to_inventory(category: String, item_name: String, item_values: Dictiona
 			extra_inventory[category][item_name] = item_values
 	else:
 		print_debug("Invalid Item Category")
+	
+	get_inventory(category)
 
 func remove_from_inventory(category: String, item_name: String, item_values: Dictionary = {}) -> void:
 	if equip_inventory.has(category):
