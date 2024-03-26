@@ -27,24 +27,24 @@ var equip_inventory = {
 }
 
 var current_inventory = {
-	"Ranged Weapon": {},
-	"Melee Weapon": {},
-	"Summon": {},
-	"Outfit": {},
-	"Ring": {},
-	"Artifact": {},
-	"Soul Stone": {},
-	"Chest Armor": {},
-	"Pad Armor": {},
-	"Belt Armor": {},
-	"Body Armor": {},
-	"Battle Item": {},
-	"Support Item": {},
-	"Battle Magic": {},
-	"Support Magic": {},
-	"Techniques": {},
-	"Specialist": {},
-	"Vehicle": {}
+	"Ranged Weapon": [],
+	"Melee Weapon": [],
+	"Summon": [],
+	"Outfit": [],
+	"Ring": [],
+	"Artifact": [],
+	"Soul Stone": [],
+	"Chest Armor": [],
+	"Pad Armor": [],
+	"Belt Armor": [],
+	"Body Armor": [],
+	"Battle Item": [],
+	"Support Item": [],
+	"Battle Magic": [],
+	"Support Magic": [],
+	"Techniques": [],
+	"Specialist": [],
+	"Vehicle": []
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -59,8 +59,8 @@ func add_to_inventory(category: String, item_name: String, item_values: Dictiona
 	print("Added")
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
-		if current_inventory[category].keys().size() < GameInfo.slot_size[category]:
-			current_inventory[category][item_name] = item_values
+		if current_inventory[category].size() < GameInfo.slot_size[category]:
+			current_inventory[category].append({item_name: item_values})
 	elif extra_inventory.has(category):
 		if extra_inventory[category].has(item_name):
 			if extra_inventory[category][item_name]["Amount"] == 100:
@@ -103,6 +103,23 @@ func remove_from_inventory(category: String, item_name: String, item_values: Dic
 			extra_inventory[category].erase(item_name)
 	else:
 		print_debug("Invalid Item Category")
+
+func equip_to_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
+	if current_inventory.has(category):
+		if slot != null:
+			current_inventory[category][slot] = {item_name: item_values}
+		else:
+			if current_inventory[category].size() < GameInfo.slot_size[category]:
+				current_inventory[category].append({item_name: item_values})
+
+func unequip_from_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
+	if current_inventory.has(category):
+		if slot != null:
+			current_inventory[category].remove(slot)
+		else:
+			current_inventory[category].remove(0)
+	else:
+		print("Invalide Item Category")
 
 func get_inventory(category: String):
 	if equip_inventory.has(category):

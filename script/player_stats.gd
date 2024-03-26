@@ -64,9 +64,9 @@ func set_specialist(specialist_name):
 		change_passive(specialist_name, "mind_passive", "Add")
 		change_passive(specialist_name, "soul_passive", "Add")
 		change_passive(specialist_name, "heart_passive", "Add")
-		change_technique(specialist_name, "skill_technique")
-		change_technique(specialist_name, "special_technique")
-		change_technique(specialist_name, "super_technique")
+		change_technique(specialist_name, "skill_technique", "Skill")
+		change_technique(specialist_name, "special_technique", "Special")
+		change_technique(specialist_name, "super_technique", "Super")
 	
 	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
 
@@ -229,24 +229,18 @@ func specialist_experience(value):
 	else:
 		print_debug("Failed To Add Experience: " + specialist)
 
-func change_technique(specialist_name, technique_type):
+func change_technique(specialist_name, technique_type, slot):
 	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
 	
 	if technique_method:
-		if technique_type == "skill_technique":
-			#if techniques["Skill"] != null:
-				#techniques["Skill"].call("Unready")
+		if slot == "Skill":
 			techniques["Skill"] = technique_method
 			technique_method.call("Ready")
-		if technique_type == "special_technique":
-			#if techniques["Special"] != null:
-				#techniques["Special"].call("Unready")
+		if slot == "Special":
 			techniques["Special"] = technique_method
 			technique_method.call("Ready")
-		if technique_type == "super_technique":
-			#if techniques["Super"] != null:
-				#techniques["Super"].call("Unready")
+		if slot == "Super":
 			techniques["Super"] = technique_method
 			technique_method.call("Ready")
 	else:

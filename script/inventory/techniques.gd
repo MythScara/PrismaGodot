@@ -8,13 +8,13 @@ func replace_technique(button, t_name, technique, method):
 	match button:
 		"Skill":
 			skill_button.text = t_name
-			PlayerStats.change_technique(technique, method)
+			PlayerStats.change_technique(technique, method, button)
 		"Special":
 			special_button.text = t_name
-			PlayerStats.change_technique(technique, method)
+			PlayerStats.change_technique(technique, method, button)
 		"Super":
 			super_button.text = t_name
-			PlayerStats.change_technique(technique, method)
+			PlayerStats.change_technique(technique, method, button)
 
 func display_technique(button):
 	PlayerInterface.clear_selection()
