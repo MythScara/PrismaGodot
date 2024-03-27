@@ -8,7 +8,6 @@ func _on_start_adventure_button_pressed():
 	if PlayerStats.ranged_stats["Tier"] == null:
 		PlayerStats.randomize_weapon("Both")
 	PlayerInterface.initial_setup()
-	PlayerStats.activate_passives()
 	GameManager.save_game()
 	PlayerStats.player_active = true
 	PlayerInterface.swap_active("None")

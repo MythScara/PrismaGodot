@@ -27,24 +27,24 @@ var equip_inventory = {
 }
 
 var current_inventory = {
-	"Ranged Weapon": [],
-	"Melee Weapon": [],
-	"Summon": [],
-	"Outfit": [],
-	"Ring": [],
-	"Artifact": [],
-	"Soul Stone": [],
-	"Chest Armor": [],
-	"Pad Armor": [],
-	"Belt Armor": [],
-	"Body Armor": [],
-	"Battle Item": [],
-	"Support Item": [],
-	"Battle Magic": [],
-	"Support Magic": [],
-	"Techniques": [],
-	"Specialist": [],
-	"Vehicle": []
+	"Ranged Weapon": [null],
+	"Melee Weapon": [null],
+	"Summon": [null],
+	"Outfit": [null],
+	"Ring": [null, null, null, null, null, null, null, null, null, null],
+	"Artifact": [null, null, null],
+	"Soul Stone": [null],
+	"Chest Armor": [null],
+	"Pad Armor": [null],
+	"Belt Armor": [null],
+	"Body Armor": [null],
+	"Battle Item": [null, null, null, null],
+	"Support Item": [null, null, null, null],
+	"Battle Magic": [null, null, null, null],
+	"Support Magic": [null, null, null, null],
+	"Techniques": [null, null, null],
+	"Specialist": [null],
+	"Vehicle": [null]
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -59,8 +59,9 @@ func add_to_inventory(category: String, item_name: String, item_values: Dictiona
 	print("Added")
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
-		if current_inventory[category].size() < GameInfo.slot_size[category]:
-			current_inventory[category].append({item_name: item_values})
+		var empty = current_inventory[category].find(null)
+		if empty != -1:
+			current_inventory[category][empty] = {item_name: item_values}
 	elif extra_inventory.has(category):
 		if extra_inventory[category].has(item_name):
 			if extra_inventory[category][item_name]["Amount"] == 100:
@@ -109,8 +110,9 @@ func equip_to_inventory(category: String, item_name: String, item_values: Dictio
 		if slot != null:
 			current_inventory[category][slot] = {item_name: item_values}
 		else:
-			if current_inventory[category].size() < GameInfo.slot_size[category]:
-				current_inventory[category].append({item_name: item_values})
+			var empty = current_inventory[category].find(null)
+			if empty != -1:
+				current_inventory[category][empty] = {item_name: item_values}
 
 func unequip_from_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
 	if current_inventory.has(category):
@@ -119,7 +121,7 @@ func unequip_from_inventory(category: String, item_name: String, item_values: Di
 		else:
 			current_inventory[category].remove(0)
 	else:
-		print("Invalide Item Category")
+		print("Invalid Item Category")
 
 func get_inventory(category: String):
 	if equip_inventory.has(category):

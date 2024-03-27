@@ -17,7 +17,7 @@ var afflictions = []
 #var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
 
 var passives = {}
-var techniques = {"Skill": null, "Special": null, "Super": null}
+var techniques = [null, null, null]
 
 var currency = {"Prisma": 0}
 
@@ -58,15 +58,20 @@ func _ready():
 		load_specialist(key)
 
 func set_specialist(specialist_name):
-	var specialist_class = load_specialist(specialist_name)
+	if specialist_name != specialist:
+		var specialist_class = load_specialist(specialist_name)
+		
+		if specialist_class:
+			change_passive(specialist_name, "mind_passive", "Add")
+			change_passive(specialist_name, "soul_passive", "Add")
+			change_passive(specialist_name, "heart_passive", "Add")
+			change_technique(specialist_name, "skill_technique", "Skill")
+			change_technique(specialist_name, "special_technique", "Special")
+			change_technique(specialist_name, "super_technique", "Super")
 	
-	if specialist_class:
-		change_passive(specialist_name, "mind_passive", "Add")
-		change_passive(specialist_name, "soul_passive", "Add")
-		change_passive(specialist_name, "heart_passive", "Add")
-		change_technique(specialist_name, "skill_technique", "Skill")
-		change_technique(specialist_name, "special_technique", "Special")
-		change_technique(specialist_name, "super_technique", "Super")
+	else:
+		activate_passives()
+		activate_techniques()
 	
 	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
 
@@ -230,21 +235,37 @@ func specialist_experience(value):
 		print_debug("Failed To Add Experience: " + specialist)
 
 func change_technique(specialist_name, technique_type, slot):
+	var timer_check = specialist_name + "_" + technique_type
+	
+	for key in timer_cache.keys():
+		if timer_check in key:
+			print("Technique on Cooldown: Cannot currently be Swapped")
+			return false
+	
+	var identifier = specialist_name + " " + slot
+	
 	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
 	
 	if technique_method:
 		if slot == "Skill":
-			techniques["Skill"] = technique_method
+			techniques[0] = [identifier, technique_method]
+			technique_method.call("Unready")
 			technique_method.call("Ready")
+			return true
 		if slot == "Special":
-			techniques["Special"] = technique_method
+			techniques[1] = [identifier, technique_method]
+			technique_method.call("Unready")
 			technique_method.call("Ready")
+			return true
 		if slot == "Super":
-			techniques["Super"] = technique_method
+			techniques[2] = [identifier, technique_method]
+			technique_method.call("Unready")
 			technique_method.call("Ready")
+			return true
 	else:
 		print_debug("Invalid Technique: " + technique_type)
+		return false
 
 func change_passive(specialist_name, passive_type, modification):
 	var identifier = specialist_name + " " + passive_type
@@ -274,6 +295,16 @@ func change_passive(specialist_name, passive_type, modification):
 	else:
 		print_debug("Invalid Modification: " + modification)
 
+func activate_techniques():
+	timer_cache.clear()
+	for identifier in techniques:
+		if identifier != null:
+			var parts = identifier[0].split(" ")
+			var specialist_name = parts[0]
+			var technique_type = identifier[1]
+			var slot = parts[1]
+			change_technique(specialist_name, technique_type, slot)
+		
 func activate_passives():
 	for identifier in passives.keys():
 		var parts = identifier.split(" ")
@@ -420,15 +451,17 @@ func _unhandled_input(event):
 func _input(event):
 	if event is InputEventKey:
 		if event.is_action_released("Technique 1"):
-			if techniques["Skill"] != null:
-				techniques["Skill"].call("Active")
-				passives["Hunter mind_passive"].call("Active")
+			if techniques[0] != null:
+				var technique = techniques[0][1]
+				technique.call("Active")
 		if event.is_action_released("Technique 2"):
-			if techniques["Special"] != null:
-				techniques["Special"].call("Active")
+			if techniques[1] != null:
+				var technique = techniques[1][1]
+				technique.call("Active")
 		if event.is_action_released("Technique 3"):
-			if techniques["Super"] != null:
-				techniques["Super"].call("Active")
+			if techniques[2] != null:
+				var technique = techniques[2][1]
+				technique.call("Active")
 		if event.is_action_released("Swap Weapon"):
 			PlayerInterface.swap_active("Swap")
 		if event.is_action_released("Unequip Weapon"):
