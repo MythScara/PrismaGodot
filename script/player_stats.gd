@@ -62,6 +62,7 @@ func set_specialist(specialist_name):
 		var specialist_class = load_specialist(specialist_name)
 		
 		if specialist_class:
+			specialist = specialist_name
 			change_passive(specialist_name, "mind_passive", "Add")
 			change_passive(specialist_name, "soul_passive", "Add")
 			change_passive(specialist_name, "heart_passive", "Add")
@@ -234,6 +235,12 @@ func specialist_experience(value):
 	else:
 		print_debug("Failed To Add Experience: " + specialist)
 
+func check_technique(identifier):
+	for technique in techniques:
+		if technique and technique[0] == identifier:
+			return true
+	return false
+
 func change_technique(specialist_name, technique_type, slot):
 	var timer_check = specialist_name + "_" + technique_type
 	
@@ -244,25 +251,24 @@ func change_technique(specialist_name, technique_type, slot):
 	
 	var identifier = specialist_name + " " + slot
 	
+	if check_technique(identifier):
+		print("Technique Already Equipped")
+		return false
+	
 	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
 	
 	if technique_method:
-		if slot == "Skill":
-			techniques[0] = [identifier, technique_method]
-			technique_method.call("Unready")
-			technique_method.call("Ready")
-			return true
-		if slot == "Special":
-			techniques[1] = [identifier, technique_method]
-			technique_method.call("Unready")
-			technique_method.call("Ready")
-			return true
-		if slot == "Super":
-			techniques[2] = [identifier, technique_method]
-			technique_method.call("Unready")
-			technique_method.call("Ready")
-			return true
+		match slot:
+			"Skill":
+				techniques[0] = [identifier, technique_method]
+			"Special":
+				techniques[1] = [identifier, technique_method]
+			"Super":
+				techniques[2] = [identifier, technique_method]
+		technique_method.call("Unready")
+		technique_method.call("Ready")
+		return true
 	else:
 		print_debug("Invalid Technique: " + technique_type)
 		return false

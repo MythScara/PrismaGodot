@@ -46,7 +46,6 @@ func update_text(text):
 
 func _on_continue_button_pressed():
 	if continue_screen:
-		PlayerStats.specialist = selected_specialist
 		PlayerStats.emit_signal("activate_specialist", selected_specialist)
 		get_tree().change_scene_to_packed(continue_screen)
 	else:

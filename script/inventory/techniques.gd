@@ -4,6 +4,26 @@ extends Control
 @onready var special_button = $Special
 @onready var super_button = $Super
 
+func _ready():
+	PlayerStats.connect("pause_game", Callable(self, "update_techniques"))
+	update_techniques()
+
+func update_techniques():
+	var index = 0
+	for tech in PlayerInventory.current_inventory["Techniques"]:
+		var text = "Technique Available"
+		if tech != null:
+			for skill in tech.keys():
+				text = skill
+		match index:
+			0:
+				skill_button.text = text
+			1:
+				special_button.text = text
+			2:
+				super_button.text = text
+		index += 1
+
 func replace_technique(button, t_name, t_key, technique, method):
 	if PlayerStats.change_technique(technique, method, button):
 		match button:
@@ -19,6 +39,7 @@ func replace_technique(button, t_name, t_key, technique, method):
 		PlayerInterface.clear_selection()
 	else:
 		print("Technique Change Failed")
+		PlayerInterface.clear_selection()
 
 func display_technique(button):
 	PlayerInterface.clear_selection()

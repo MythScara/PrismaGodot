@@ -657,6 +657,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
+visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
@@ -1830,7 +1831,6 @@ theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
 theme_override_styles/focus = ExtResource("29_m6f54")
-toggle_mode = true
 text = "EXIT GAME"
 icon = ExtResource("29_sdhsr")
 flat = true
@@ -1850,7 +1850,6 @@ theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
 theme_override_styles/focus = ExtResource("29_m6f54")
-toggle_mode = true
 text = "SAVE GAME"
 icon = ExtResource("29_sdhsr")
 flat = true

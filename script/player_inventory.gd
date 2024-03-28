@@ -114,7 +114,7 @@ func equip_to_inventory(category: String, item_name: String, item_values: Dictio
 			if empty != -1:
 				current_inventory[category][empty] = {item_name: item_values}
 
-func unequip_from_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
+func unequip_from_inventory(category: String, slot = null) -> void:
 	if current_inventory.has(category):
 		if slot != null:
 			current_inventory[category].remove(slot)

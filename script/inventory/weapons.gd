@@ -8,11 +8,12 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	image_set("Ranged Weapon")
+	image_set("Melee Weapon")
 
 func image_set(type):
-	if type != null and PlayerInventory.current_inventory[type].keys().size() > 0:
-		var image = PlayerInventory.current_inventory[type].keys()[0]
+	if type != null and PlayerInventory.current_inventory[type][0] != null:
+		var image = PlayerInventory.current_inventory[type][0]
 		print(image)
 	
 	match type:
