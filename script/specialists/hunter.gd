@@ -96,6 +96,7 @@ func exp_handler(value):
 		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 func specialist_unlock(level):
+	level = int(level)
 	match level:
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
@@ -119,6 +120,8 @@ func specialist_unlock(level):
 			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		10:
 			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+		_:
+			print("No Match Found!")
 
 func event_handler(event):
 	if event == mind_signal:

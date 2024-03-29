@@ -103,7 +103,7 @@ func specialist_unlock(level):
 		1:
 			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 		2:
-			PlayerInventory.add_to_inventory("Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
+			PlayerInventory.add_to_inventory("Ranged Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:
 			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		4:

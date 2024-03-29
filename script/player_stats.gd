@@ -202,6 +202,7 @@ func weapon_randomizer(stat_value, stat_type):
 	stat_value["Type"] = type
 	stat_value["Element"] = elem
 	
+	PlayerInventory.add_to_inventory(stat_type + " Weapon", "Random " + type, stat_value)
 	calculate_values(stat_value, stat_type)
 
 func start_timer(specialist_name, s_name, duration, s_type):
