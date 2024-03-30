@@ -21,10 +21,31 @@ func image_set(type):
 				ranged_weapon.texture = load("res://asset/weapon_icons/" + image.to_lower() + ".png")
 			"Melee Weapon":
 				melee_weapon.texture = load("res://asset/weapon_icons/" + image.to_lower() + ".png")
+			"Vehicle":
+				vehicle.texture = load("res://asset/vehicle/" + image.to_lower() + ".png")
+			"Summon":
+				summon.texture = load("res://asset/summon/" + image.to_lower() + ".png")
+			"Soul Stone":
+				soul_stone.texture = load("res://asset/soul_stone/" + image.to_lower() + ".png")
 
 func update_values():
 	image_set("Ranged Weapon")
 	image_set("Melee Weapon")
+	image_set("Soul Stone")
+	image_set("Summon")
+	image_set("Vehicle")
 
 func _on_ranged_weapon_pressed():
 	pass
+
+func _on_melee_weapon_pressed():
+	pass # Replace with function body.
+
+func _on_soul_stone_pressed():
+	pass # Replace with function body.
+
+func _on_summon_pressed():
+	pass # Replace with function body.
+
+func _on_vehicle_pressed():
+	pass # Replace with function body.
