@@ -657,7 +657,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
-visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
@@ -1797,19 +1796,29 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="SelectionField" type="VBoxContainer" parent="MenuInterface/InventoryScreen"]
+[node name="SelectionScroll" type="ScrollContainer" parent="MenuInterface/InventoryScreen"]
 layout_mode = 0
 offset_left = 492.0
 offset_top = 8.0
 offset_right = 884.0
-offset_bottom = 408.0
+offset_bottom = 392.0
+horizontal_scroll_mode = 0
 
-[node name="InformationField" type="VBoxContainer" parent="MenuInterface/InventoryScreen"]
+[node name="SelectionField" type="VBoxContainer" parent="MenuInterface/InventoryScreen/SelectionScroll"]
+custom_minimum_size = Vector2(392, 384)
+layout_mode = 2
+
+[node name="InfoScroll" type="ScrollContainer" parent="MenuInterface/InventoryScreen"]
 layout_mode = 0
 offset_left = 492.0
-offset_top = 408.0
+offset_top = 400.0
 offset_right = 884.0
 offset_bottom = 800.0
+horizontal_scroll_mode = 0
+
+[node name="InformationField" type="VBoxContainer" parent="MenuInterface/InventoryScreen/InfoScroll"]
+custom_minimum_size = Vector2(392, 400)
+layout_mode = 2
 
 [node name="SettingsScreen" type="Control" parent="MenuInterface"]
 visible = false

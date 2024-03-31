@@ -28,6 +28,20 @@ func image_set(type):
 			"Soul Stone":
 				soul_stone.texture = load("res://asset/soul_stone/" + image.to_lower() + ".png")
 
+func replace_field(type, text, values):
+	pass
+
+func display_field(button):
+	PlayerInterface.clear_selection()
+	for key in PlayerInventory.equip_inventory[button].keys():
+		var option = Button.new()
+		var input = PlayerInventory.equip_inventory[button]
+		option.text = key
+		option.add_theme_font_size_override("font_size", 20)
+		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		option.connect("pressed", Callable(self, "replace_field").bind(button, key, input[key]))
+		PlayerInterface.selection_field.add_child(option)
+
 func update_values():
 	image_set("Ranged Weapon")
 	image_set("Melee Weapon")
@@ -36,16 +50,16 @@ func update_values():
 	image_set("Vehicle")
 
 func _on_ranged_weapon_pressed():
-	pass
+	display_field("Ranged Weapon")
 
 func _on_melee_weapon_pressed():
-	pass # Replace with function body.
+	display_field("Melee Weapon")
 
 func _on_soul_stone_pressed():
-	pass # Replace with function body.
+	display_field("Soul Stone")
 
 func _on_summon_pressed():
-	pass # Replace with function body.
+	display_field("Summon")
 
 func _on_vehicle_pressed():
-	pass # Replace with function body.
+	display_field("Vehicle")

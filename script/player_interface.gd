@@ -39,8 +39,8 @@ extends Node
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
 
-@onready var selection_field = $MenuInterface/InventoryScreen/SelectionField
-@onready var information_field = $MenuInterface/InventoryScreen/InformationField
+@onready var selection_field = $MenuInterface/InventoryScreen/SelectionScroll/SelectionField
+@onready var information_field = $MenuInterface/InventoryScreen/InfoScroll/InformationField
 
 var weapon_stats
 var damage = 0

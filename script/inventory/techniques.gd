@@ -47,6 +47,8 @@ func display_technique(button):
 		var option = Button.new()
 		var input = PlayerInventory.equip_inventory["Techniques"]
 		option.text = key
+		option.add_theme_font_size_override("font_size", 20)
+		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		option.connect("pressed", Callable(self, "replace_technique").bind(button, key, input[key], input[key]["Name"], input[key]["Technique"]))
 		PlayerInterface.selection_field.add_child(option)
 
