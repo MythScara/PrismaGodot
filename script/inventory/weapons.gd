@@ -29,14 +29,23 @@ func image_set(type):
 				soul_stone.texture = load("res://asset/soul_stone/" + image.to_lower() + ".png")
 
 func replace_field(type, text, values):
+	var original = PlayerInventory.current_inventory[type][0].keys()[0]
+	var cur_values = PlayerInventory.current_inventory[type][0][original]
+	
 	if PlayerInventory.current_inventory[type][0].keys()[0] != text:
+		match type:
+			"Ranged Weapon":
+				PlayerStats.weapon_stat_change(cur_values, "Ranged", "Sub")
+			"Melee Weapon":
+				PlayerStats.weapon_stat_change(cur_values, "Melee", "Sub")
+		
 		PlayerInventory.current_inventory[type][0] = {text: values}
 		image_set(type)
 		match type:
 			"Ranged Weapon":
-				PlayerStats.weapon_stat_change(values, "Ranged", "Mod")
+				PlayerStats.weapon_stat_change(values, "Ranged", "Add")
 			"Melee Weapon":
-				PlayerStats.weapon_stat_change(values, "Melee", "Mod")
+				PlayerStats.weapon_stat_change(values, "Melee", "Add")
 			
 	else:
 		print("This Item is Already Equipped")

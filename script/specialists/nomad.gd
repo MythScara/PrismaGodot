@@ -159,6 +159,7 @@ func soul_passive(state):
 			soul_ready = true
 			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
+			PlayerStats.weapon_stat_change({"FRC": 5}, "Both", "Add")
 		"Active":
 			if soul_ready == true:
 				mind_ready = false
@@ -168,6 +169,8 @@ func soul_passive(state):
 				PlayerStats.start_timer(specialist_name, "soul_passive", 5, "Ready")
 		"Unready":
 			soul_ready = null
+			PlayerStats.weapon_stat_change({"FRC": 5}, "Both", "Sub")
+			print(PlayerStats.ranged_stats)
 			connection_terminate()
 
 func heart_passive(state):

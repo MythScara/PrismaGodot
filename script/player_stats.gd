@@ -324,16 +324,21 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 		var value_type = typeof(stat_values[key])
 		
 		var valid = false
-		match stat_mode:
+		
+		var mode = stat_mode
+		if key in excluded:
+			mode = "Mod"
+		
+		match mode:
 			"Add", "Sub":
-				valid = (value_type == TYPE_INT)
+				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT)
 			"Mul":
 				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT)
 			"Mod":
-				valid = true
+				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT or value_type == TYPE_STRING or value_type == TYPE_NIL)
 	
 		if key in target and valid:
-			match stat_mode:
+			match mode:
 				"Add":
 					target[key] = clamp(target[key] + stat_values[key], 0, target.get("Max Value", 100))
 				"Sub":
@@ -348,23 +353,23 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 		else:
 			print_debug("Invalid Operation: " + key)
 			return
-	
-	activate_passives()
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
 		await stat_change(ranged_stats, stat_values, stat_mode)
-		calculate_values(stat_values, stat_type)
+		calculate_values(ranged_stats, "Ranged")
 	elif stat_type == "Melee" or stat_type == "Both":
 		await stat_change(melee_stats, stat_values, stat_mode)
-		calculate_values(stat_values, stat_type)
+		calculate_values(melee_stats, "Melee")
 	else:
 		print_debug("Invalid Stat Type")
 		return
 
 func element_stat_change(stat_values, stat_mode):
 	elements["Max Value"] = 50000
-	stat_change(elements, stat_values, stat_mode)
+	await stat_change(elements, stat_values, stat_mode)
+	calculate_values(ranged_stats, "Ranged")
+	calculate_values(melee_stats, "Melee")
 
 func player_stat_change(stat_values, stat_mode):
 	for key in stat_values.keys():
@@ -376,7 +381,9 @@ func player_stat_change(stat_values, stat_mode):
 			emit_signal("stat_update", key)
 		else:
 			stats["Max Value"] = 50000
-		stat_change(stats, {key: stat_values[key]}, stat_mode)
+		await stat_change(stats, {key: stat_values[key]}, stat_mode)
+		calculate_values(ranged_stats, "Ranged")
+		calculate_values(melee_stats, "Melee")
 
 func exp_handler(value):
 	specialist_experience(value)
