@@ -325,10 +325,12 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 		
 		var valid = false
 		match stat_mode:
-			"Add", "Sub", "Mod":
+			"Add", "Sub":
 				valid = (value_type == TYPE_INT)
 			"Mul":
 				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT)
+			"Mod":
+				valid = true
 	
 		if key in target and valid:
 			match stat_mode:
@@ -344,14 +346,18 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 					print_debug("Invalid Operation")
 					return
 		else:
-			print_debug("Invalid Operation")
+			print_debug("Invalid Operation: " + key)
 			return
+	
+	activate_passives()
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
-		stat_change(ranged_stats, stat_values, stat_mode)
+		await stat_change(ranged_stats, stat_values, stat_mode)
+		calculate_values(stat_values, stat_type)
 	elif stat_type == "Melee" or stat_type == "Both":
-		stat_change(melee_stats, stat_values, stat_mode)
+		await stat_change(melee_stats, stat_values, stat_mode)
+		calculate_values(stat_values, stat_type)
 	else:
 		print_debug("Invalid Stat Type")
 		return

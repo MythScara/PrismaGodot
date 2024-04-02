@@ -51,7 +51,7 @@ var weapon_stats_r = {
 var weapon_stats_m = {
 	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+	"Type": "Shield", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
 
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
@@ -103,7 +103,7 @@ func specialist_unlock(level):
 		1:
 			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 		2:
-			PlayerInventory.add_to_inventory("Melee Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
+			PlayerInventory.add_to_inventory("Melee Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_m)
 		3:
 			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
 		4:
