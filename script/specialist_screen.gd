@@ -46,7 +46,15 @@ func update_text(text):
 
 func _on_continue_button_pressed():
 	if continue_screen:
-		PlayerStats.specialist = selected_specialist
+		if PlayerStats.ranged_stats["Tier"] == null:
+			await PlayerStats.randomize_weapon("Both")
+			PlayerStats.emit_signal("activate_specialist", selected_specialist)
+		else:
+			PlayerStats.emit_signal("activate_specialist", selected_specialist)
+		PlayerInterface.initial_setup()
+		GameManager.save_game()
+		PlayerStats.player_active = true
+		PlayerInterface.swap_active("None")
 		get_tree().change_scene_to_packed(continue_screen)
 	else:
 		print("No Scene Set")

@@ -60,7 +60,7 @@ func _ready():
 func set_specialist(specialist_name):
 	if specialist_name != specialist:
 		var specialist_class = load_specialist(specialist_name)
-		
+		print("Specialist Activated")
 		if specialist_class:
 			specialist = specialist_name
 			change_passive(specialist_name, "mind_passive", "Add")
@@ -164,7 +164,8 @@ func weapon_randomizer(stat_value, stat_type):
 	
 	for key in stat_value.keys():
 		if key not in excluded:
-			stat_value[key] = min(stat_value[key] + randi() % 100, 100)
+			#stat_value[key] = min(stat_value[key] + randi() % 100, 100)
+			stat_value[key] = 10
 			max_points += stat_value[key]
 	
 	var tier_index = int(ceil((max_points - 700) / 100.0))

@@ -241,6 +241,16 @@ func update_values(stat):
 		"STM":
 			stamina_bar.max_value = PlayerStats.stats["STM"]
 
+func update_weapons(type):
+	if type == "Ranged":
+		ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
+		ammo.text = str(PlayerStats.ranged_values["MAG"])
+	elif type == "Melee":
+		melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
+		charge.text = str(PlayerStats.melee_values["STE"])
+	else:
+		print("Invalid Type")
+
 func change_stat(stat, value):
 	match stat:
 		"HP":
