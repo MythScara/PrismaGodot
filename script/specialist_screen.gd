@@ -47,9 +47,8 @@ func update_text(text):
 func _on_continue_button_pressed():
 	if continue_screen:
 		if PlayerStats.ranged_stats["Tier"] == null:
-			await PlayerStats.randomize_weapon("Both")
-			PlayerStats.emit_signal("activate_specialist", selected_specialist)
-		else:
+			await PlayerStats.randomize_weapon("Ranged")
+			await PlayerStats.randomize_weapon("Melee")
 			PlayerStats.emit_signal("activate_specialist", selected_specialist)
 		PlayerInterface.initial_setup()
 		GameManager.save_game()

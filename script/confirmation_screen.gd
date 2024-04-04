@@ -5,9 +5,8 @@ func _ready():
 
 func _on_start_adventure_button_pressed():
 	if PlayerStats.ranged_stats["Tier"] == null:
-		await PlayerStats.randomize_weapon("Both")
-		PlayerStats.emit_signal("activate_specialist", PlayerStats.specialist)
-	else:
+		await PlayerStats.randomize_weapon("Ranged")
+		await PlayerStats.randomize_weapon("Melee")
 		PlayerStats.emit_signal("activate_specialist", PlayerStats.specialist)
 	PlayerInterface.initial_setup()
 	GameManager.save_game()

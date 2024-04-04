@@ -161,12 +161,13 @@ func weapon_randomizer(stat_value, stat_type):
 	var type_list = ["Assault Rifle", "Sub Machine Gun", "Light Machine Gun", "Machine Pistol", "Sniper Rifle", "Marksman Rifle", "Handgun", "Launcher", "Longbow", "Crossbow", "Shotgun",
 	"Long Sword", "Great Sword", "Katana", "Mace", "Gauntlet", "Battle Axe", "Warhammer", "Scythe", "Staff", "Spear", "Polearm", "Shield", "Dagger", "Halberd"]
 	var element_list = ["Solar", "Nature", "Spirit", "Void", "Arc", "Frost", "Metal", "Divine", "None"]
+	var temp_list = {}
 	
 	for key in stat_value.keys():
 		if key not in excluded:
-			#stat_value[key] = min(stat_value[key] + randi() % 100, 100)
-			stat_value[key] = 10
-			max_points += stat_value[key]
+			temp_list[key] = min(stat_value[key] + randi() % 100, 100)
+			temp_list[key] = 10
+			max_points += temp_list[key]
 	
 	var tier_index = int(ceil((max_points - 700) / 100.0))
 	
@@ -198,13 +199,13 @@ func weapon_randomizer(stat_value, stat_type):
 	else:
 		quality = 0
 	
-	stat_value["Tier"] = tier
-	stat_value["Quality"] = quality
-	stat_value["Type"] = type
-	stat_value["Element"] = elem
+	temp_list["Tier"] = tier
+	temp_list["Quality"] = quality
+	temp_list["Type"] = type
+	temp_list["Element"] = elem
 	
-	PlayerInventory.add_to_inventory(stat_type + " Weapon", "Random " + type, stat_value)
-	calculate_values(stat_value, stat_type)
+	PlayerInventory.add_to_inventory(stat_type + " Weapon", "Random " + type, temp_list)
+	weapon_stat_change(temp_list, stat_type, "Add")
 
 func start_timer(specialist_name, s_name, duration, s_type):
 	var timer_id = str(specialist_name) + "_" + s_name + "_" + s_type
@@ -359,11 +360,11 @@ func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
 		await stat_change(ranged_stats, stat_values, stat_mode)
 		calculate_values(ranged_stats, "Ranged")
-	elif stat_type == "Melee" or stat_type == "Both":
+	if stat_type == "Melee" or stat_type == "Both":
 		await stat_change(melee_stats, stat_values, stat_mode)
 		calculate_values(melee_stats, "Melee")
-	else:
-		print_debug("Invalid Stat Type")
+	if stat_type != "Ranged" and stat_type != "Melee" and stat_type != "Both":
+		print_debug("Invalid Stat Type: " + stat_type)
 		return
 
 func element_stat_change(stat_values, stat_mode):
@@ -377,7 +378,7 @@ func player_stat_change(stat_values, stat_mode):
 		if key in ["HP", "MP"]:
 			stats["Max Value"] = 500000
 			emit_signal("stat_update", key)
-		elif key in ["SHD", "STM"]:
+		if key in ["SHD", "STM"]:
 			stats["Max Value"] = 100000
 			emit_signal("stat_update", key)
 		else:
