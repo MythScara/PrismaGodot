@@ -22,11 +22,11 @@ var techniques = [null, null, null]
 var currency = {"Prisma": 0}
 
 var ranged_stats = {
-	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
+	"DMG": 0, "RNG": 0, "MOB": 0, "HND": 0, "AC": 0, "RLD": 0, "FR": 0, "MAG": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": "Assault Rifle", "Tier": null, "Element": null, "Quality": null, "Max Value": 100}
 var melee_stats = {
-	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
+	"POW": 0, "RCH": 0, "MOB": 0, "HND": 0, "BLK": 0, "CHG": 0, "ASP": 0, "STE": 0, "DUR": 0, "WCP": 0,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
 	"Type": "Long Sword", "Tier": null, "Element": null, "Quality": null, "Max Value": 100}
 
@@ -165,8 +165,7 @@ func weapon_randomizer(stat_value, stat_type):
 	
 	for key in stat_value.keys():
 		if key not in excluded:
-			temp_list[key] = min(stat_value[key] + randi() % 100, 100)
-			temp_list[key] = 10
+			temp_list[key] = min(1 + randi() % 100, 100)
 			max_points += temp_list[key]
 	
 	var tier_index = int(ceil((max_points - 700) / 100.0))

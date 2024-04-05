@@ -46,9 +46,11 @@ func replace_field(type, text, values):
 				PlayerStats.weapon_stat_change(values, "Ranged", "Add")
 			"Melee Weapon":
 				PlayerStats.weapon_stat_change(values, "Melee", "Add")
-			
+		
+		PlayerInterface.clear_selection()
 	else:
 		print("This Item is Already Equipped")
+		PlayerInterface.clear_selection()
 
 func display_field(button):
 	PlayerInterface.clear_selection()
