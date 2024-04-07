@@ -38,6 +38,13 @@ func replace_field(type, text, values):
 				PlayerStats.weapon_stat_change(cur_values, "Ranged", "Sub")
 			"Melee Weapon":
 				PlayerStats.weapon_stat_change(cur_values, "Melee", "Sub")
+			"Soul Stone":
+				PlayerStats.player_stat_change(cur_values, "Sub")
+				PlayerStats.element_stat_change(cur_values, "Sub")
+			"Vehicle":
+				pass
+			"Summon":
+				pass
 		
 		PlayerInventory.current_inventory[type][0] = {text: values}
 		image_set(type)
@@ -46,6 +53,12 @@ func replace_field(type, text, values):
 				PlayerStats.weapon_stat_change(values, "Ranged", "Add")
 			"Melee Weapon":
 				PlayerStats.weapon_stat_change(values, "Melee", "Add")
+			"Soul Stone":
+				pass
+			"Vehicle":
+				pass
+			"Summon":
+				pass
 		
 		PlayerInterface.clear_selection()
 	else:
