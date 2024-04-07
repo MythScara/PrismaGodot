@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://rhx0brxv4mr7"]
+
+[ext_resource type="Script" path="res://script/object/ranged_info.gd" id="1_ou3mw"]
+[ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/weapon_icons/assault rifle.png" id="1_xlk7b"]
+
+[node name="RangedInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ou3mw")
+
+[node name="Outline" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 392.0
+offset_bottom = 400.0
+color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[node name="InnerBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 388.0
+offset_bottom = 396.0
+color = Color(0, 0, 0, 1)
+
+[node name="VDivide" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 178.0
+offset_right = 388.0
+offset_bottom = 182.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="HDivide" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 40.0
+offset_right = 146.0
+offset_bottom = 178.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 392.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 20
+text = "DEFAULT RANGED WEAPON"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WeaponType" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 44.0
+offset_right = 384.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "assault rifle"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="WeaponTier" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 70.0
+offset_right = 384.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 20
+text = "adamantine"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="ElementType" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 96.0
+offset_right = 384.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 20
+text = "solar"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="FiringType" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 122.0
+offset_right = 384.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 20
+text = "fully-automatic"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="QualityValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 148.0
+offset_right = 384.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 20
+text = "quality : 100"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="WeaponImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 142.0
+offset_bottom = 178.0
+texture = ExtResource("1_xlk7b")
+expand_mode = 1
+stretch_mode = 5

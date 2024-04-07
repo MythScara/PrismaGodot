@@ -6,6 +6,9 @@ extends Control
 @onready var summon = $Summon/Image
 @onready var vehicle = $Vehicle/Image
 
+var RangedInfo = preload("res://object/ranged_info.tscn")
+var current_ranged_info = RangedInfo.instantiate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.connect("pause_game", Callable(self, "update_values"))
@@ -75,6 +78,12 @@ func display_field(button):
 		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		option.connect("pressed", Callable(self, "replace_field").bind(button, key, input[key]))
 		PlayerInterface.selection_field.add_child(option)
+		
+	if current_ranged_info != null:
+		current_ranged_info.queue_free()
+		
+	current_ranged_info = RangedInfo.instantiate()
+	PlayerInterface.information_field.add_child(current_ranged_info)
 
 func update_values():
 	image_set("Ranged Weapon")
