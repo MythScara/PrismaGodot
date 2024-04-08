@@ -50,6 +50,8 @@ func _on_continue_button_pressed():
 			await PlayerStats.randomize_weapon("Ranged")
 			await PlayerStats.randomize_weapon("Melee")
 			PlayerStats.emit_signal("activate_specialist", selected_specialist)
+		else:
+			PlayerStats.emit_signal("activate_specialist", selected_specialist)
 		PlayerInterface.initial_setup()
 		GameManager.save_game()
 		PlayerStats.player_active = true

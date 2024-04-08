@@ -9,4 +9,10 @@ extends Control
 @onready var firing_label = $FiringType
 
 func _ready():
-	name_label.text = "Default Weapon Label"
+	name_label.text = ""
+	type_label.text = ""
+	tier_label.text = ""
+	type_image.texture = null
+	element_label.text = ""
+	quality_label.text = ""
+	firing_label.text = ""

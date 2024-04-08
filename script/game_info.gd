@@ -324,3 +324,59 @@ var slot_size = {
 	"Specialist": 1,
 	"Vehicle": 1
 }
+
+func firing_type(item):
+	var attack_type = ""
+	match item:
+		"Assault Rifle": 
+			attack_type = "Fully-Automatic"
+		"Sub Machine Gun": 
+			attack_type = "Fully-Automatic"
+		"Light Machine Gun": 
+			attack_type = "Fully-Automatic"
+		"Marksman Rifle":
+			attack_type = "Semi-Automatic"
+		"Sniper Rifle": 
+			attack_type = "Bolt-Action"
+		"Shotgun": 
+			attack_type = "Pump-Action"
+		"Handgun": 
+			attack_type = "Semi-Automatic"
+		"Machine Pistol": 
+			attack_type = "Fully-Automatic"
+		"Launcher": 
+			attack_type = "Single-Shot"
+		"Crossbow": 
+			attack_type = "Semi-Automatic"
+		"Longbow": 
+			attack_type = "Bolt-Action"
+		"Long Sword": 
+			attack_type = "Standard Attack"
+		"Great Sword": 
+			attack_type = "Heavy Attack"
+		"Katana": 
+			attack_type = "Light Attack"
+		"Dagger": 
+			attack_type = "Light Attack"
+		"Staff": 
+			attack_type = "Standard Attack"
+		"Mace": 
+			attack_type = "Standard Attack"
+		"Halberd": 
+			attack_type = "Heavy Attack"
+		"Warhammer": 
+			attack_type = "Heavy Attack"
+		"Battle Axe": 
+			attack_type = "Heavy Attack"
+		"Polearm": 
+			attack_type = "Light Attack"
+		"Scythe": 
+			attack_type = "Standard Attack"
+		"Gauntlet": 
+			attack_type = "Light Attack"
+		"Shield": 
+			attack_type = "Heavy Attack"
+		"Spear": 
+			attack_type = "Light Attack"
+	
+	return attack_type

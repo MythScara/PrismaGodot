@@ -8,6 +8,8 @@ func _on_start_adventure_button_pressed():
 		await PlayerStats.randomize_weapon("Ranged")
 		await PlayerStats.randomize_weapon("Melee")
 		PlayerStats.emit_signal("activate_specialist", PlayerStats.specialist)
+	else:
+		PlayerStats.emit_signal("activate_specialist", PlayerStats.specialist)
 	PlayerInterface.initial_setup()
 	GameManager.save_game()
 	PlayerStats.player_active = true
