@@ -19,7 +19,7 @@ layout_mode = 0
 offset_left = 4.0
 offset_top = 40.0
 offset_right = 388.0
-offset_bottom = 396.0
+offset_bottom = 400.0
 color = Color(0, 0, 0, 1)
 
 [node name="VDivide" type="ColorRect" parent="."]
@@ -117,3 +117,13 @@ offset_bottom = 178.0
 texture = ExtResource("1_xlk7b")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 182.0
+offset_right = 388.0
+offset_bottom = 400.0
+
+[node name="StatBar" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2

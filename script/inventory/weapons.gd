@@ -96,6 +96,13 @@ func display_info(button):
 			current_info.get_node("ElementType").text = PlayerInventory.current_inventory["Ranged Weapon"][0][item]["Element"]
 			current_info.get_node("WeaponImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
 			current_info.get_node("FiringType").text = GameInfo.firing_type(item_type)
+			for key in PlayerInventory.current_inventory["Ranged Weapon"][0][item].keys():
+				if key not in PlayerStats.excluded:
+					var key_text = Label.new()
+					key_text.text = key + " : " + str(PlayerInventory.current_inventory["Ranged Weapon"][0][item][key])
+					key_text.add_theme_font_size_override("font_size", 20)
+					key_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					current_info.get_node("Scroll/StatBar").add_child(key_text)
 
 func update_values():
 	image_set("Ranged Weapon")
