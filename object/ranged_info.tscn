@@ -120,10 +120,12 @@ stretch_mode = 5
 
 [node name="Scroll" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 8.0
 offset_top = 182.0
 offset_right = 388.0
 offset_bottom = 400.0
+horizontal_scroll_mode = 0
 
 [node name="StatBar" type="VBoxContainer" parent="Scroll"]
+custom_minimum_size = Vector2(364, 0)
 layout_mode = 2

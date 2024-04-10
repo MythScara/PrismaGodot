@@ -84,25 +84,34 @@ func display_info(button):
 		current_info.queue_free()
 		
 	match button:
-		"Ranged Weapon":
+		"Ranged Weapon", "Melee Weapon":
 			current_info = RangedInfo.instantiate()
 			PlayerInterface.information_field.add_child(current_info)
-			var item = PlayerInventory.current_inventory["Ranged Weapon"][0].keys()[0]
+			var item = PlayerInventory.current_inventory[button][0].keys()[0]
 			current_info.get_node("Name").text = item
-			var item_type = PlayerInventory.current_inventory["Ranged Weapon"][0][item]["Type"]
+			var item_type = PlayerInventory.current_inventory[button][0][item]["Type"]
 			current_info.get_node("WeaponType").text = item_type
-			current_info.get_node("WeaponTier").text = PlayerInventory.current_inventory["Ranged Weapon"][0][item]["Tier"]
-			current_info.get_node("QualityValue").text = "Quality : " + str(PlayerInventory.current_inventory["Ranged Weapon"][0][item]["Quality"])
-			current_info.get_node("ElementType").text = PlayerInventory.current_inventory["Ranged Weapon"][0][item]["Element"]
+			current_info.get_node("WeaponTier").text = PlayerInventory.current_inventory[button][0][item]["Tier"]
+			current_info.get_node("QualityValue").text = "Quality : " + str(PlayerInventory.current_inventory[button][0][item]["Quality"])
+			current_info.get_node("ElementType").text = PlayerInventory.current_inventory[button][0][item]["Element"]
 			current_info.get_node("WeaponImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
 			current_info.get_node("FiringType").text = GameInfo.firing_type(item_type)
-			for key in PlayerInventory.current_inventory["Ranged Weapon"][0][item].keys():
+			for key in PlayerInventory.current_inventory[button][0][item].keys():
 				if key not in PlayerStats.excluded:
+					var hbox = HBoxContainer.new()
+					current_info.get_node("Scroll/StatBar").add_child(hbox)
 					var key_text = Label.new()
-					key_text.text = key + " : " + str(PlayerInventory.current_inventory["Ranged Weapon"][0][item][key])
+					key_text.text = key
+					key_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 					key_text.add_theme_font_size_override("font_size", 20)
-					key_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-					current_info.get_node("Scroll/StatBar").add_child(key_text)
+					hbox.add_child(key_text)
+					
+					var key_value = Label.new()
+					key_value.text = str(PlayerInventory.current_inventory[button][0][item][key])
+					key_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+					key_value.add_theme_font_size_override("font_size", 20)
+					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					hbox.add_child(key_value)
 
 func update_values():
 	image_set("Ranged Weapon")
@@ -117,6 +126,7 @@ func _on_ranged_weapon_pressed():
 
 func _on_melee_weapon_pressed():
 	display_field("Melee Weapon")
+	display_info("Melee Weapon")
 
 func _on_soul_stone_pressed():
 	display_field("Soul Stone")
