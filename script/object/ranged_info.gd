@@ -7,6 +7,7 @@ extends Control
 @onready var element_label = $ElementType
 @onready var quality_label = $QualityValue
 @onready var firing_label = $FiringType
+@onready var equip = $EquipButton
 
 func _ready():
 	name_label.text = ""

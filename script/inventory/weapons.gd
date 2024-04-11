@@ -9,6 +9,9 @@ extends Control
 var RangedInfo = preload("res://object/ranged_info.tscn")
 var current_info = null
 
+var buttonstyle = preload("res://object/standardbutton.tscn")
+var selected_button = null
+signal button_pressed(text)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerStats.connect("pause_game", Callable(self, "update_values"))
@@ -31,7 +34,17 @@ func image_set(type):
 			"Soul Stone":
 				soul_stone.texture = load("res://asset/soul_stone/" + image.to_lower() + ".png")
 
+func _on_Button_pressed(new_button : Button):
+	# Find the pressed button
+	if selected_button != null and selected_button != new_button:
+		selected_button.set_pressed(false)
+	
+	selected_button = new_button
+	new_button.set_pressed(true)
+	emit_signal("button_pressed", new_button.text)
+
 func replace_field(type, text, values):
+	
 	var original = PlayerInventory.current_inventory[type][0].keys()[0]
 	var cur_values = PlayerInventory.current_inventory[type][0][original]
 	
@@ -71,32 +84,40 @@ func replace_field(type, text, values):
 func display_field(button):
 	PlayerInterface.clear_selection()
 	for key in PlayerInventory.equip_inventory[button].keys():
-		var option = Button.new()
+		var option = buttonstyle.instantiate()
 		var input = PlayerInventory.equip_inventory[button]
 		option.text = key
 		option.add_theme_font_size_override("font_size", 20)
 		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		option.connect("pressed", Callable(self, "replace_field").bind(button, key, input[key]))
+		option.connect("pressed", Callable(self, "display_info").bind(button, key, input[key]))
+		option.pressed.connect(_on_Button_pressed.bind(option))
 		PlayerInterface.selection_field.add_child(option)
+		
+		if key == PlayerInventory.current_inventory[button][0].keys()[0]:
+			_on_Button_pressed(option)
 
-func display_info(button):
+func display_info(button, key_name = null, input = null):
 	if current_info != null:
 		current_info.queue_free()
 		
+	if key_name == null:
+		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
+		input = PlayerInventory.current_inventory[button][0][key_name]
+	
 	match button:
 		"Ranged Weapon", "Melee Weapon":
 			current_info = RangedInfo.instantiate()
 			PlayerInterface.information_field.add_child(current_info)
-			var item = PlayerInventory.current_inventory[button][0].keys()[0]
-			current_info.get_node("Name").text = item
-			var item_type = PlayerInventory.current_inventory[button][0][item]["Type"]
+			current_info.get_node("Name").text = key_name
+			var item_type = input["Type"]
 			current_info.get_node("WeaponType").text = item_type
-			current_info.get_node("WeaponTier").text = PlayerInventory.current_inventory[button][0][item]["Tier"]
-			current_info.get_node("QualityValue").text = "Quality : " + str(PlayerInventory.current_inventory[button][0][item]["Quality"])
-			current_info.get_node("ElementType").text = PlayerInventory.current_inventory[button][0][item]["Element"]
+			current_info.get_node("WeaponTier").text = input["Tier"]
+			current_info.get_node("QualityValue").text = "Quality : " + str(input["Quality"])
+			current_info.get_node("ElementType").text = input["Element"]
 			current_info.get_node("WeaponImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
 			current_info.get_node("FiringType").text = GameInfo.firing_type(item_type)
-			for key in PlayerInventory.current_inventory[button][0][item].keys():
+			current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
+			for key in input.keys():
 				if key not in PlayerStats.excluded:
 					var hbox = HBoxContainer.new()
 					current_info.get_node("Scroll/StatBar").add_child(hbox)
@@ -107,7 +128,7 @@ func display_info(button):
 					hbox.add_child(key_text)
 					
 					var key_value = Label.new()
-					key_value.text = str(PlayerInventory.current_inventory[button][0][item][key])
+					key_value.text = str(input[key])
 					key_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 					key_value.add_theme_font_size_override("font_size", 20)
 					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -130,9 +151,12 @@ func _on_melee_weapon_pressed():
 
 func _on_soul_stone_pressed():
 	display_field("Soul Stone")
+	display_info("Soul Stone")
 
 func _on_summon_pressed():
 	display_field("Summon")
+	display_info("Summon")
 
 func _on_vehicle_pressed():
 	display_field("Vehicle")
+	display_info("Vehicle")
