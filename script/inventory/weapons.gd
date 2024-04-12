@@ -117,6 +117,7 @@ func display_info(button, key_name = null, input = null):
 			current_info.get_node("WeaponImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
 			current_info.get_node("FiringType").text = GameInfo.firing_type(item_type)
 			current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
+			current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
 			for key in input.keys():
 				if key not in PlayerStats.excluded:
 					var hbox = HBoxContainer.new()

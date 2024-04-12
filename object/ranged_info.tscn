@@ -20,7 +20,7 @@ layout_mode = 0
 offset_left = 4.0
 offset_top = 40.0
 offset_right = 388.0
-offset_bottom = 400.0
+offset_bottom = 376.0
 color = Color(0, 0, 0, 1)
 
 [node name="VDivide" type="ColorRect" parent="."]
@@ -124,7 +124,7 @@ layout_mode = 0
 offset_left = 8.0
 offset_top = 182.0
 offset_right = 388.0
-offset_bottom = 400.0
+offset_bottom = 376.0
 horizontal_scroll_mode = 0
 
 [node name="StatBar" type="VBoxContainer" parent="Scroll"]
@@ -133,10 +133,14 @@ layout_mode = 2
 
 [node name="EquipButton" type="Button" parent="."]
 layout_mode = 0
+offset_top = 375.0
 offset_right = 392.0
-offset_bottom = 40.0
+offset_bottom = 400.0
+theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_efcd4")
 theme_override_styles/hover = ExtResource("3_efcd4")
 theme_override_styles/pressed = ExtResource("3_efcd4")
 theme_override_styles/focus = ExtResource("3_efcd4")
-flat = true
+text = "EQUIP"
