@@ -67,8 +67,10 @@ func replace_field(type, text, values):
 		match type:
 			"Ranged Weapon":
 				PlayerStats.weapon_stat_change(values, "Ranged", "Add")
+				PlayerInterface.update_weapons("Ranged")
 			"Melee Weapon":
 				PlayerStats.weapon_stat_change(values, "Melee", "Add")
+				PlayerInterface.update_weapons("Melee")
 			"Soul Stone":
 				pass
 			"Vehicle":
