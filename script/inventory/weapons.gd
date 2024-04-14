@@ -101,10 +101,14 @@ func display_field(button):
 func display_info(button, key_name = null, input = null):
 	if current_info != null:
 		current_info.queue_free()
-		
+	
+	var compare_tag = PlayerInventory.current_inventory[button][0].keys()[0]
+	var compare_info = PlayerInventory.current_inventory[button][0][compare_tag]
+	
 	if key_name == null:
 		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
 		input = PlayerInventory.current_inventory[button][0][key_name]
+		
 	
 	match button:
 		"Ranged Weapon", "Melee Weapon":
@@ -132,6 +136,12 @@ func display_info(button, key_name = null, input = null):
 					
 					var key_value = Label.new()
 					key_value.text = str(input[key])
+					
+					if input[key] > compare_info[key]:
+						key_value.add_theme_color_override("font_color", Color(0, 1, 0))
+					elif input[key] < compare_info[key]:
+						key_value.add_theme_color_override("font_color", Color(1, 0, 0))
+						
 					key_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 					key_value.add_theme_font_size_override("font_size", 20)
 					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
