@@ -72,7 +72,8 @@ func replace_field(type, text, values):
 				PlayerStats.weapon_stat_change(values, "Melee", "Add")
 				PlayerInterface.update_weapons("Melee")
 			"Soul Stone":
-				pass
+				PlayerStats.player_stat_change(values, "Add")
+				PlayerStats.element_stat_change(values, "Add")
 			"Vehicle":
 				pass
 			"Summon":
@@ -146,6 +147,8 @@ func display_info(button, key_name = null, input = null):
 					key_value.add_theme_font_size_override("font_size", 20)
 					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 					hbox.add_child(key_value)
+		"Soul Stone":
+			pass
 
 func update_values():
 	image_set("Ranged Weapon")
