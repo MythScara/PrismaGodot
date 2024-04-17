@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://rhx0brxv4mr7"]
 
-[ext_resource type="Script" path="res://script/object/ranged_info.gd" id="1_ou3mw"]
-[ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/weapon_icons/assault rifle.png" id="1_xlk7b"]
-[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_efcd4"]
+[ext_resource type="Script" path="res://script/object/item_info.gd" id="1_thh4v"]
+[ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/weapon_icons/assault rifle.png" id="2_frawn"]
+[ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_kwjjm"]
 
-[node name="RangedInfo" type="Control"]
+[node name="ItemInfo" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ou3mw")
+script = ExtResource("1_thh4v")
 
 [node name="Outline" type="ColorRect" parent="."]
 layout_mode = 0
@@ -49,7 +49,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="WeaponType" type="Label" parent="."]
+[node name="ItemType" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 44.0
@@ -61,7 +61,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="WeaponTier" type="Label" parent="."]
+[node name="ItemTier" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 70.0
@@ -73,7 +73,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="ElementType" type="Label" parent="."]
+[node name="ItemElement" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 96.0
@@ -85,7 +85,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="FiringType" type="Label" parent="."]
+[node name="ItemExtra" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 122.0
@@ -97,7 +97,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="QualityValue" type="Label" parent="."]
+[node name="ItemQuality" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
 offset_top = 148.0
@@ -109,13 +109,13 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 
-[node name="WeaponImage" type="TextureRect" parent="."]
+[node name="ItemImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 40.0
 offset_right = 142.0
 offset_bottom = 178.0
-texture = ExtResource("1_xlk7b")
+texture = ExtResource("2_frawn")
 expand_mode = 1
 stretch_mode = 5
 
@@ -139,8 +139,8 @@ offset_bottom = 400.0
 theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("3_efcd4")
-theme_override_styles/hover = ExtResource("3_efcd4")
-theme_override_styles/pressed = ExtResource("3_efcd4")
-theme_override_styles/focus = ExtResource("3_efcd4")
+theme_override_styles/normal = ExtResource("3_kwjjm")
+theme_override_styles/hover = ExtResource("3_kwjjm")
+theme_override_styles/pressed = ExtResource("3_kwjjm")
+theme_override_styles/focus = ExtResource("3_kwjjm")
 text = "EQUIP"

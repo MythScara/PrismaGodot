@@ -6,7 +6,7 @@ extends Control
 @onready var summon = $Summon/Image
 @onready var vehicle = $Vehicle/Image
 
-var RangedInfo = preload("res://object/ranged_info.tscn")
+var ItemInfo = preload("res://object/item_info.tscn")
 var current_info = null
 
 var buttonstyle = preload("res://object/standardbutton.tscn")
@@ -100,11 +100,17 @@ func display_field(button):
 			_on_Button_pressed(option)
 
 func display_info(button, key_name = null, input = null):
+	var compare_tag
+	var compare_info
+	
 	if current_info != null:
 		current_info.queue_free()
 	
-	var compare_tag = PlayerInventory.current_inventory[button][0].keys()[0]
-	var compare_info = PlayerInventory.current_inventory[button][0][compare_tag]
+	if PlayerInventory.current_inventory[button][0] != null:
+		compare_tag = PlayerInventory.current_inventory[button][0].keys()[0]
+		compare_info = PlayerInventory.current_inventory[button][0][compare_tag]
+	else:
+		return
 	
 	if key_name == null:
 		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
@@ -113,16 +119,16 @@ func display_info(button, key_name = null, input = null):
 	
 	match button:
 		"Ranged Weapon", "Melee Weapon":
-			current_info = RangedInfo.instantiate()
+			current_info = ItemInfo.instantiate()
 			PlayerInterface.information_field.add_child(current_info)
 			current_info.get_node("Name").text = key_name
 			var item_type = input["Type"]
-			current_info.get_node("WeaponType").text = item_type
-			current_info.get_node("WeaponTier").text = input["Tier"]
-			current_info.get_node("QualityValue").text = "Quality : " + str(input["Quality"])
-			current_info.get_node("ElementType").text = input["Element"]
-			current_info.get_node("WeaponImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
-			current_info.get_node("FiringType").text = GameInfo.firing_type(item_type)
+			current_info.get_node("ItemType").text = item_type
+			current_info.get_node("ItemTier").text = input["Tier"]
+			current_info.get_node("ItemQuality").text = "Quality : " + str(input["Quality"])
+			current_info.get_node("ItemElement").text = input["Element"]
+			current_info.get_node("ItemImage").texture = load("res://asset/weapon_icons/" + item_type.to_lower() + ".png")
+			current_info.get_node("ItemExtra").text = GameInfo.firing_type(item_type)
 			current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
 			current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
 			for key in input.keys():

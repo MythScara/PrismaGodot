@@ -1,12 +1,12 @@
 extends Control
 
 @onready var name_label = $Name
-@onready var type_label = $WeaponType
-@onready var tier_label = $WeaponTier
-@onready var type_image = $WeaponImage
-@onready var element_label = $ElementType
-@onready var quality_label = $QualityValue
-@onready var firing_label = $FiringType
+@onready var type_label = $ItemType
+@onready var tier_label = $ItemTier
+@onready var type_image = $ItemImage
+@onready var element_label = $ItemElement
+@onready var quality_label = $ItemQuality
+@onready var firing_label = $ItemExtra
 @onready var equip = $EquipButton
 
 func _ready():
