@@ -144,6 +144,7 @@ func display_info(button, key_name = null, input = null):
 					var key_value = Label.new()
 					key_value.text = str(input[key])
 					
+					#if compare_info[key]:
 					if input[key] > compare_info[key]:
 						key_value.add_theme_color_override("font_color", Color(0, 1, 0))
 					elif input[key] < compare_info[key]:
@@ -154,7 +155,41 @@ func display_info(button, key_name = null, input = null):
 					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 					hbox.add_child(key_value)
 		"Soul Stone":
-			pass
+			current_info = ItemInfo.instantiate()
+			PlayerInterface.information_field.add_child(current_info)
+			current_info.get_node("Name").text = key_name
+			var item_type = input["Type"]
+			current_info.get_node("ItemType").text = item_type
+			current_info.get_node("ItemTier").text = input["Tier"]
+			current_info.get_node("ItemQuality").text = "Quality : " + str(input["Quality"])
+			current_info.get_node("ItemElement").text = input["Element"]
+			current_info.get_node("ItemImage").texture = load("res://asset/soul_stone/" + key_name.to_lower() + ".png")
+			current_info.get_node("ItemExtra").text = "Energy : " + str(input["Energy"])
+			current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
+			current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
+			for key in input.keys():
+				if key not in PlayerStats.excluded:
+					var hbox = HBoxContainer.new()
+					current_info.get_node("Scroll/StatBar").add_child(hbox)
+					var key_text = Label.new()
+					key_text.text = key
+					key_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+					key_text.add_theme_font_size_override("font_size", 20)
+					hbox.add_child(key_text)
+					
+					var key_value = Label.new()
+					key_value.text = str(input[key])
+					
+					if compare_info[key]:
+						if input[key] > compare_info[key]:
+							key_value.add_theme_color_override("font_color", Color(0, 1, 0))
+						elif input[key] < compare_info[key]:
+							key_value.add_theme_color_override("font_color", Color(1, 0, 0))
+						
+					key_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+					key_value.add_theme_font_size_override("font_size", 20)
+					key_value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					hbox.add_child(key_value)
 
 func update_values():
 	image_set("Ranged Weapon")

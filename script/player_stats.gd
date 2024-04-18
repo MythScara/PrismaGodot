@@ -33,7 +33,7 @@ var melee_stats = {
 var ranged_values = {}
 var melee_values = {}
 
-var excluded = ["Type", "Tier", "Element", "Quality", "Max Value"]
+var excluded = ["Type", "Tier", "Element", "Quality", "Energy", "Max Value"]
 
 var specialist_levels = {}
 var specialist_cache = {}
