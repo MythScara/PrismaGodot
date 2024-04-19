@@ -100,8 +100,9 @@ func specialist_unlock(level):
 	match level:
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
+			PlayerInventory.add_to_inventory("Soul Stone", "Demons Crystal", {"HP": 600, "MP": 400, "SHD": 300, "STM": 600, "Type": "Demons Crystal", "Tier": "Diamond", "Element": "Solar", "SLR": 800, "Quality": 50, "Energy": 7})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 900, "MP": 1000, "SHD": 600, "STM": 1200, "Tier": "Obsidian", "Quality": 100})
 		2:
 			PlayerInventory.add_to_inventory("Ranged Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:
@@ -160,7 +161,6 @@ func soul_passive(state):
 			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
 				PlayerStats.connect("player_event", Callable(self, "event_handler"))
 			PlayerStats.weapon_stat_change({"FRC": 5}, "Both", "Add")
-			print("FRC UP")
 		"Active":
 			if soul_ready == true:
 				mind_ready = false
@@ -171,7 +171,6 @@ func soul_passive(state):
 		"Unready":
 			soul_ready = null
 			PlayerStats.weapon_stat_change({"FRC": 5}, "Both", "Sub")
-			print("FRC DOWN")
 			connection_terminate()
 
 func heart_passive(state):

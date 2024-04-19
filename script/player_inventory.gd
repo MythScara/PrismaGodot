@@ -56,12 +56,13 @@ func _process(_delta):
 	pass
 
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
-	print("Added")
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
 		var empty = current_inventory[category].find(null)
 		if empty != -1:
 			current_inventory[category][empty] = {item_name: item_values}
+			PlayerStats.player_stat_change(item_values, "Add")
+			PlayerStats.element_stat_change(item_values, "Add")
 	elif extra_inventory.has(category):
 		if extra_inventory[category].has(item_name):
 			if extra_inventory[category][item_name]["Amount"] == 100:
@@ -86,8 +87,6 @@ func add_to_inventory(category: String, item_name: String, item_values: Dictiona
 			extra_inventory[category][item_name] = item_values
 	else:
 		print_debug("Invalid Item Category")
-	
-	get_inventory(category)
 
 func remove_from_inventory(category: String, item_name: String, item_values: Dictionary = {}) -> void:
 	if equip_inventory.has(category):
@@ -108,11 +107,19 @@ func remove_from_inventory(category: String, item_name: String, item_values: Dic
 func equip_to_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
 	if current_inventory.has(category):
 		if slot != null:
+			var cur_check = current_inventory[category][slot].keys()[0]
+			var cur_values = current_inventory[category][slot][cur_check]
+			PlayerStats.player_stat_change(cur_values, "Sub")
+			PlayerStats.element_stat_change(cur_values, "Sub")
 			current_inventory[category][slot] = {item_name: item_values}
+			PlayerStats.player_stat_change(item_values, "Add")
+			PlayerStats.element_stat_change(item_values, "Add")
 		else:
 			var empty = current_inventory[category].find(null)
 			if empty != -1:
 				current_inventory[category][empty] = {item_name: item_values}
+				PlayerStats.player_stat_change(item_values, "Add")
+				PlayerStats.element_stat_change(item_values, "Add")
 
 func unequip_from_inventory(category: String, slot = null) -> void:
 	if current_inventory.has(category):

@@ -25,14 +25,15 @@ func stat_update():
 		child.queue_free()
 	
 	for key in all_stats.keys():
-		var label_key = Label.new()
-		label_key.text = key
-		label_key.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-		label_key.add_theme_font_size_override("font_size", 20)
-		stat_c.add_child(label_key)
-		
-		var label_value = Label.new()
-		label_value.text = str(all_stats[key])
-		label_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-		label_value.add_theme_font_size_override("font_size", 20)
-		value_c.add_child(label_value)
+		if key not in PlayerStats.excluded:
+			var label_key = Label.new()
+			label_key.text = key
+			label_key.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+			label_key.add_theme_font_size_override("font_size", 20)
+			stat_c.add_child(label_key)
+			
+			var label_value = Label.new()
+			label_value.text = str(all_stats[key])
+			label_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			label_value.add_theme_font_size_override("font_size", 20)
+			value_c.add_child(label_value)

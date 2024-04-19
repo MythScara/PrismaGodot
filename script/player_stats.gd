@@ -352,7 +352,7 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 					print_debug("Invalid Operation")
 					return
 		else:
-			print_debug("Invalid Operation: " + key)
+			#print_debug("Invalid Operation: " + key)
 			return
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
@@ -367,12 +367,12 @@ func weapon_stat_change(stat_values, stat_type, stat_mode):
 		return
 
 func element_stat_change(stat_values, stat_mode):
+	print("Element")
 	elements["Max Value"] = 50000
-	await stat_change(elements, stat_values, stat_mode)
-	calculate_values(ranged_stats, "Ranged")
-	calculate_values(melee_stats, "Melee")
+	stat_change(elements, stat_values, stat_mode)
 
 func player_stat_change(stat_values, stat_mode):
+	print("Player")
 	for key in stat_values.keys():
 		if key in ["HP", "MP"]:
 			stats["Max Value"] = 500000
@@ -382,9 +382,7 @@ func player_stat_change(stat_values, stat_mode):
 			emit_signal("stat_update", key)
 		else:
 			stats["Max Value"] = 50000
-		await stat_change(stats, {key: stat_values[key]}, stat_mode)
-		calculate_values(ranged_stats, "Ranged")
-		calculate_values(melee_stats, "Melee")
+		stat_change(stats, {key: stat_values[key]}, stat_mode)
 
 func exp_handler(value):
 	specialist_experience(value)
@@ -497,7 +495,7 @@ func _input(event):
 			print(get_save_data())
 			print(PlayerInventory.get_save_data())
 		if event.is_action_pressed("Cheat Menu"):
-			exp_handler(400)
+			exp_handler(10000)
 		if event.is_action_pressed("Pause Menu"):
 			PlayerInterface.menu_ui.visible = !PlayerInterface.menu_ui.visible
 			player_active = !player_active
