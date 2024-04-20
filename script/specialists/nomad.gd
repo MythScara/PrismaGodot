@@ -100,7 +100,7 @@ func specialist_unlock(level):
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 600, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 		2:
 			PlayerInventory.add_to_inventory("Ranged Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:

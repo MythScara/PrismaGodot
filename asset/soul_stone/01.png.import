@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0000cfvfkix"
-path="res://.godot/imported/demons crystal.png-ebb01e8846537d16c2bff3dbb7001c7e.ctex"
+uid="uid://dfftdwl27dh8a"
+path="res://.godot/imported/01.png-7448bd3cc309e82df3f0bab66b5282e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/soul_stone/demons crystal.png"
-dest_files=["res://.godot/imported/demons crystal.png-ebb01e8846537d16c2bff3dbb7001c7e.ctex"]
+source_file="res://asset/soul_stone/01.png"
+dest_files=["res://.godot/imported/01.png-7448bd3cc309e82df3f0bab66b5282e3.ctex"]
 
 [params]
 

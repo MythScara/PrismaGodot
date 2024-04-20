@@ -12,8 +12,9 @@ var all_stats
 func _ready():
 	stat_update()
 	PlayerStats.connect("pause_game", Callable(self, "stat_update"))
+	PlayerStats.connect("stat_update", Callable(self, "stat_update"))
 
-func stat_update():
+func stat_update(_stat = null):
 	stats = PlayerStats.stats
 	elements = PlayerStats.elements
 	all_stats = stats.duplicate()

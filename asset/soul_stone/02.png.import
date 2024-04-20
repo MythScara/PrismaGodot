@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfftdwl27dh8a"
-path="res://.godot/imported/angel crystal.png-509b96411d70ea065cfa3447415f3f79.ctex"
+uid="uid://c0000cfvfkix"
+path="res://.godot/imported/02.png-1b862c83c6cc7b147270d66b65a7e558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/soul_stone/angel crystal.png"
-dest_files=["res://.godot/imported/angel crystal.png-509b96411d70ea065cfa3447415f3f79.ctex"]
+source_file="res://asset/soul_stone/02.png"
+dest_files=["res://.godot/imported/02.png-1b862c83c6cc7b147270d66b65a7e558.ctex"]
 
 [params]
 

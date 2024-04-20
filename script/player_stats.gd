@@ -339,7 +339,6 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT or value_type == TYPE_STRING or value_type == TYPE_NIL)
 	
 		if key in target and valid:
-			print(str(key) + " " + str(target[key]) + " " + str(stat_values[key]))
 			match mode:
 				"Add":
 					target[key] = clamp(target[key] + stat_values[key], 0, target.get("Max Value", 100))
@@ -351,13 +350,10 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 					target[key] = stat_values[key]
 				_:
 					print_debug("Invalid Operation")
-					return
 			if key in ["HP", "MP", "SHD", "STM"]:
-				print("Update")
 				emit_signal("stat_update", key)
 		else:
-			#print_debug("Invalid Operation: " + key)
-			return
+			pass
 
 func weapon_stat_change(stat_values, stat_type, stat_mode):
 	if stat_type == "Ranged" or stat_type == "Both":
