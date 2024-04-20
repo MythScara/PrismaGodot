@@ -236,6 +236,7 @@ func update_values(stat):
 			health_bar.max_value = PlayerStats.stats["HP"]
 		"MP":
 			magic_bar.max_value = PlayerStats.stats["MP"]
+			print(PlayerStats.stats["MP"])
 		"SHD":
 			overshield_bar.max_value = PlayerStats.stats["SHD"]
 		"STM":

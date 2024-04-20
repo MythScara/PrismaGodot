@@ -85,14 +85,13 @@ func _on_specialist_activated(s_type):
 func exp_handler(value):
 	if cur_level != 10 and active == true:
 		cur_experience += value
-		if cur_experience >= experience_required:
+		while cur_experience >= experience_required and cur_level < 10:
 			cur_level += 1
 			PlayerStats.stat_points[0] += 2
 			PlayerStats.element_points[0] += 2
 			cur_experience -= experience_required
 			experience_required += 1000
 			specialist_unlock(cur_level)
-			exp_handler(cur_experience)
 		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
 
 func specialist_unlock(level):
@@ -100,9 +99,8 @@ func specialist_unlock(level):
 	match level:
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
-			PlayerInventory.add_to_inventory("Soul Stone", "Demons Crystal", {"HP": 600, "MP": 400, "SHD": 300, "STM": 600, "Type": "Demons Crystal", "Tier": "Diamond", "Element": "Solar", "SLR": 800, "Quality": 50, "Energy": 7})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 900, "MP": 1000, "SHD": 600, "STM": 1200, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
 		2:
 			PlayerInventory.add_to_inventory("Ranged Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:

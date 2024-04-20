@@ -339,6 +339,7 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 				valid = (value_type == TYPE_INT or value_type == TYPE_FLOAT or value_type == TYPE_STRING or value_type == TYPE_NIL)
 	
 		if key in target and valid:
+			print(str(key) + " " + str(target[key]) + " " + str(stat_values[key]))
 			match mode:
 				"Add":
 					target[key] = clamp(target[key] + stat_values[key], 0, target.get("Max Value", 100))
@@ -351,6 +352,9 @@ func stat_change(target: Dictionary, stat_values: Dictionary, stat_mode: String)
 				_:
 					print_debug("Invalid Operation")
 					return
+			if key in ["HP", "MP", "SHD", "STM"]:
+				print("Update")
+				emit_signal("stat_update", key)
 		else:
 			#print_debug("Invalid Operation: " + key)
 			return
@@ -367,19 +371,15 @@ func weapon_stat_change(stat_values, stat_type, stat_mode):
 		return
 
 func element_stat_change(stat_values, stat_mode):
-	print("Element")
-	elements["Max Value"] = 50000
+	elements["Max Value"] = 500000
 	stat_change(elements, stat_values, stat_mode)
 
 func player_stat_change(stat_values, stat_mode):
-	print("Player")
 	for key in stat_values.keys():
 		if key in ["HP", "MP"]:
 			stats["Max Value"] = 500000
-			emit_signal("stat_update", key)
-		if key in ["SHD", "STM"]:
+		elif key in ["SHD", "STM"]:
 			stats["Max Value"] = 100000
-			emit_signal("stat_update", key)
 		else:
 			stats["Max Value"] = 50000
 		stat_change(stats, {key: stat_values[key]}, stat_mode)
@@ -388,13 +388,12 @@ func exp_handler(value):
 	specialist_experience(value)
 	if player_level[0] != 100:
 		player_level[1] += value
-		if player_level[1] >= player_level[2]:
+		while player_level[1] >= player_level[2] and player_level[0] < 100:
 			player_level[0] += 1
 			stat_points[0] += 7
 			element_points[0] += 3
 			player_level[1] -= player_level[2]
 			player_level[2] += 1000
-			exp_handler(player_level[1])
 	emit_signal("exp_update")
 
 func set_stats(new_stats : Dictionary):
@@ -492,10 +491,14 @@ func _input(event):
 		if event.is_action_pressed("Reload"):
 			PlayerInterface.reload()
 		if event.is_action_pressed("Information"):
-			print(get_save_data())
-			print(PlayerInventory.get_save_data())
+			#print(get_save_data())
+			#print(PlayerInventory.get_save_data())
+			print(stats)
+			print(elements)
+			print(ranged_stats)
+			print(melee_stats)
 		if event.is_action_pressed("Cheat Menu"):
-			exp_handler(10000)
+			exp_handler(2000)
 		if event.is_action_pressed("Pause Menu"):
 			PlayerInterface.menu_ui.visible = !PlayerInterface.menu_ui.visible
 			player_active = !player_active
