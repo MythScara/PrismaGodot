@@ -98,6 +98,7 @@ func display_field(button):
 		
 		if key == PlayerInventory.current_inventory[button][0].keys()[0]:
 			_on_Button_pressed(option)
+			display_info(button, key, input[key])
 
 func display_info(button, key_name = null, input = null):
 	var compare_tag
@@ -169,20 +170,15 @@ func update_values():
 
 func _on_ranged_weapon_pressed():
 	display_field("Ranged Weapon")
-	display_info("Ranged Weapon")
 
 func _on_melee_weapon_pressed():
 	display_field("Melee Weapon")
-	display_info("Melee Weapon")
 
 func _on_soul_stone_pressed():
 	display_field("Soul Stone")
-	display_info("Soul Stone")
 
 func _on_summon_pressed():
 	display_field("Summon")
-	display_info("Summon")
 
 func _on_vehicle_pressed():
 	display_field("Vehicle")
-	display_info("Vehicle")

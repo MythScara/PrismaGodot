@@ -27,7 +27,6 @@ func _on_Button_pressed(new_button : Button):
 	emit_signal("button_pressed", new_button.text)
 
 func update_techniques():
-	print(PlayerInventory.current_inventory["Techniques"])
 	var index = 0
 	for tech in PlayerInventory.current_inventory["Techniques"]:
 		var text = "Technique Available"
@@ -67,6 +66,23 @@ func display_info(button, key_name = null, input = null):
 	if current_info != null:
 		current_info.queue_free()
 	
+	if PlayerInventory.current_inventory["Techniques"][0] == null:
+		return
+	
+	var slot = 0
+	
+	match button:
+		"Skill":
+			slot = 0
+		"Special":
+			slot = 1
+		"Super":
+			slot = 2
+	
+	if key_name == null:
+		key_name = PlayerInventory.current_inventory["Techniques"][slot].keys()[0]
+		input = PlayerInventory.current_inventory["Techniques"][slot][key_name]
+	
 	var specialist = PlayerStats.load_specialist(input["Name"])
 	var info = specialist.specialist_info
 	cur_selected = key_name
@@ -85,6 +101,8 @@ func display_info(button, key_name = null, input = null):
 			t_name = "Technique 3"
 			t_type = "Super"
 			
+	print(button)
+	
 	if button != null:
 		current_info = ItemInfo.instantiate()
 		PlayerInterface.information_field.add_child(current_info)
@@ -97,7 +115,7 @@ func display_info(button, key_name = null, input = null):
 		current_info.get_node("ItemImage").texture = load("res://asset/technique_icons/" + key_name.to_lower() + ".png")
 		current_info.get_node("ItemExtra").text = ""
 		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_technique").bind(button, key_name, input, input["Name"], input["Technique"]))
-		current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
+		current_info.get_node("EquipButton").text = "EQUIP TECHNIQUE"
 		
 		var key_text = textstyle.instantiate()
 		current_info.get_node("Scroll/StatBar").add_child(key_text)
@@ -115,8 +133,19 @@ func display_technique(button):
 		option.pressed.connect(_on_Button_pressed.bind(option))
 		PlayerInterface.selection_field.add_child(option)
 		
-		if key in PlayerInventory.current_inventory["Techniques"][0].keys():
+		var slot = 0
+	
+		match button:
+			"Skill":
+				slot = 0
+			"Special":
+				slot = 1
+			"Super":
+				slot = 2
+		
+		if key == PlayerInventory.current_inventory["Techniques"][slot].keys()[0]:
 			_on_Button_pressed(option)
+			display_info(button, key, input[key])
 
 func _on_skill_pressed():
 	display_technique("Skill")
