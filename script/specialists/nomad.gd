@@ -100,25 +100,25 @@ func specialist_unlock(level):
 		0:
 			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
 		1:
-			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 600, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 8000, "MP": 12000, "SHD": 0, "STM":4000, "Tier": "Obsidian", "Quality": 100})
 		2:
 			PlayerInventory.add_to_inventory("Ranged Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_r)
 		3:
-			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		4:
 			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
 		5:
-			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		6:
 			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
 		7:
-			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		8:
 			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
 		9:
-			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		10:
-			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
+			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 8000, "MP": 12000, "SHD": 0, "STM": 4000, "Tier": "Obsidian", "Quality": 100})
 		_:
 			print("No Match Found!")
 
