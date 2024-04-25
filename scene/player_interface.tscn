@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=36 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -23,10 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bhdfmrmo6atst" path="res://asset/progress_bars/level_bar_full.png" id="22_3x4rg"]
 [ext_resource type="Texture2D" uid="uid://b042pygd31oh1" path="res://asset/hud_icons/technique_background.png" id="23_3puvr"]
 [ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/weapon_icons/light machine gun.png" id="23_fgvnr"]
-[ext_resource type="Texture2D" uid="uid://bgw3p7esfblfu" path="res://asset/technique_icons/nomad skill.png" id="23_hbheb"]
 [ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/weapon_icons/long sword.png" id="23_rjvss"]
-[ext_resource type="Texture2D" uid="uid://cagxhyj6virc7" path="res://asset/technique_icons/07.png" id="25_qgark"]
-[ext_resource type="Texture2D" uid="uid://drf2qc47frs18" path="res://asset/technique_icons/10.png" id="26_q8q0b"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="Script" path="res://script/menu_interface.gd" id="28_sw8ie"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
@@ -396,8 +393,6 @@ offset_bottom = 1120.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
-texture_under = ExtResource("23_hbheb")
-texture_progress = ExtResource("23_hbheb")
 tint_under = Color(1, 1, 1, 0.294118)
 
 [node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SkillProgress"]
@@ -424,8 +419,6 @@ offset_bottom = 1120.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
-texture_under = ExtResource("25_qgark")
-texture_progress = ExtResource("25_qgark")
 tint_under = Color(1, 1, 1, 0.294118)
 
 [node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SpecialProgress"]
@@ -452,8 +445,6 @@ offset_bottom = 1120.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
-texture_under = ExtResource("26_q8q0b")
-texture_progress = ExtResource("26_q8q0b")
 tint_under = Color(1, 1, 1, 0.294118)
 
 [node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SuperProgress"]
@@ -472,6 +463,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0

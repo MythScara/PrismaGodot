@@ -42,6 +42,10 @@ extends Node
 @onready var selection_field = $MenuInterface/InventoryScreen/SelectionScroll/SelectionField
 @onready var information_field = $MenuInterface/InventoryScreen/InfoScroll/InformationField
 
+@onready var skill_progress = $GameInterface/Techniques/SkillProgress
+@onready var special_progress = $GameInterface/Techniques/SpecialProgress
+@onready var super_progress = $GameInterface/Techniques/SuperProgress
+
 var weapon_stats
 var damage = 0
 var reloading = false
@@ -91,7 +95,11 @@ func initial_setup():
 	ammo.text = str(PlayerStats.ranged_values["MAG"])
 	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
 	charge.text = str(PlayerStats.melee_values["STE"])
-
+	
+	var technique = PlayerInventory.current_inventory["Techniques"]
+	print(technique)
+	
+	#skill_progress.texture_under = load("res://asset/technique_icons/" + technique[0].keys()[0] + ".png")
 	# Ensure the UI is visible.
 	self.visible = true
 
