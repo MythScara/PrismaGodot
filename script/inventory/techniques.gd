@@ -41,8 +41,6 @@ func update_techniques():
 			2:
 				super_button.text = text
 		index += 1
-	
-	PlayerInterface.update_technique()
 
 func replace_technique(button, t_name, t_key, technique, method):
 	if PlayerStats.change_technique(technique, method, button):
@@ -50,15 +48,15 @@ func replace_technique(button, t_name, t_key, technique, method):
 			"Skill":
 				skill_button.text = t_name
 				PlayerInventory.equip_to_inventory("Techniques", t_name, t_key, 0)
-				PlayerInterface.update_technique()
+				PlayerInterface.update_technique(0)
 			"Special":
 				special_button.text = t_name
 				PlayerInventory.equip_to_inventory("Techniques", t_name, t_key, 1)
-				PlayerInterface.update_technique()
+				PlayerInterface.update_technique(1)
 			"Super":
 				super_button.text = t_name
 				PlayerInventory.equip_to_inventory("Techniques", t_name, t_key, 2)
-				PlayerInterface.update_technique()
+				PlayerInterface.update_technique(2)
 		PlayerInterface.clear_selection()
 	else:
 		print("Technique Change Failed")

@@ -96,18 +96,6 @@ func initial_setup():
 	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
 	charge.text = str(PlayerStats.melee_values["STE"])
 	
-	var technique = PlayerInventory.current_inventory["Techniques"]
-	print(technique)
-	
-	if technique[0] != null:
-		skill_progress.texture_under = load("res://asset/technique_icons/" + technique[0].keys()[0] + ".png")
-		skill_progress.texture_progress = load("res://asset/technique_icons/" + technique[0].keys()[0] + ".png")
-	if technique[1] != null:
-		special_progress.texture_under = load("res://asset/technique_icons/" + technique[1].keys()[0] + ".png")
-		special_progress.texture_progress = load("res://asset/technique_icons/" + technique[1].keys()[0] + ".png")
-	if technique[2] != null:
-		super_progress.texture_under = load("res://asset/technique_icons/" + technique[2].keys()[0] + ".png")
-		super_progress.texture_progress = load("res://asset/technique_icons/" + technique[2].keys()[0] + ".png")
 	# Ensure the UI is visible.
 	self.visible = true
 
@@ -282,16 +270,15 @@ func change_stat(stat, value):
 			stamina_bar.value += value
 			stamina_text.text = str(stamina_bar.value)
 
-func update_technique():
-	var technique = PlayerInventory.current_inventory["Techniques"]
-	print(technique)
+func update_technique(tech = null):
+	var technique = PlayerStats.techniques
 	
-	if technique[0] != null:
-		skill_progress.texture_under = load("res://asset/technique_icons/" + technique[0].keys()[0] + ".png")
-		skill_progress.texture_progress = load("res://asset/technique_icons/" + technique[0].keys()[0] + ".png")
-	if technique[1] != null:
-		special_progress.texture_under = load("res://asset/technique_icons/" + technique[1].keys()[0] + ".png")
-		special_progress.texture_progress = load("res://asset/technique_icons/" + technique[1].keys()[0] + ".png")
-	if technique[2] != null:
-		super_progress.texture_under = load("res://asset/technique_icons/" + technique[2].keys()[0] + ".png")
-		super_progress.texture_progress = load("res://asset/technique_icons/" + technique[2].keys()[0] + ".png")
+	if technique[0] != null and tech == null or tech == 0:
+		skill_progress.texture_under = load("res://asset/technique_icons/" + technique[0][0].to_lower() + ".png")
+		skill_progress.texture_progress = load("res://asset/technique_icons/" + technique[0][0].to_lower() + ".png")
+	if technique[1] != null and tech == null or tech == 1:
+		special_progress.texture_under = load("res://asset/technique_icons/" + technique[1][0].to_lower() + ".png")
+		special_progress.texture_progress = load("res://asset/technique_icons/" + technique[1][0].to_lower() + ".png")
+	if technique[2] != null and tech == null or tech == 2:
+		super_progress.texture_under = load("res://asset/technique_icons/" + technique[2][0].to_lower() + ".png")
+		super_progress.texture_progress = load("res://asset/technique_icons/" + technique[2][0].to_lower() + ".png")

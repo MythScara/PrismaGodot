@@ -75,6 +75,7 @@ func set_specialist(specialist_name):
 		activate_techniques()
 	
 	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
+	PlayerInterface.update_technique()
 
 func calculate_values(stat_value, stat_type):
 	var tier
@@ -243,7 +244,7 @@ func check_technique(identifier):
 			return true
 	return false
 
-func change_technique(specialist_name, technique_type, slot):
+func change_technique(specialist_name, technique_type, slot, init = null):
 	var timer_check = specialist_name + "_" + technique_type
 	
 	for key in timer_cache.keys():
@@ -253,7 +254,7 @@ func change_technique(specialist_name, technique_type, slot):
 	
 	var identifier = specialist_name + " " + slot
 	
-	if check_technique(identifier):
+	if check_technique(identifier) and init == null:
 		print("Technique Already Equipped")
 		return false
 	
@@ -305,15 +306,17 @@ func change_passive(specialist_name, passive_type, modification):
 
 func activate_techniques():
 	timer_cache.clear()
+	print(passives)
 	for identifier in techniques:
 		if identifier != null:
 			var parts = identifier[0].split(" ")
 			var specialist_name = parts[0]
 			var technique_type = identifier[1]
 			var slot = parts[1]
-			change_technique(specialist_name, technique_type, slot)
+			change_technique(specialist_name, technique_type, slot, "Reset")
 		
 func activate_passives():
+	print(techniques)
 	for identifier in passives.keys():
 		var parts = identifier.split(" ")
 		var specialist_name = parts[0]
@@ -493,6 +496,9 @@ func _input(event):
 			print(elements)
 			print(ranged_stats)
 			print(melee_stats)
+			print(techniques)
+			print(PlayerInventory.equip_inventory)
+			print(PlayerInventory.current_inventory)
 		if event.is_action_pressed("Cheat Menu"):
 			exp_handler(2000)
 		if event.is_action_pressed("Pause Menu"):
