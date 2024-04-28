@@ -60,7 +60,6 @@ func _ready():
 func set_specialist(specialist_name):
 	if specialist_name != specialist:
 		var specialist_class = load_specialist(specialist_name)
-		print("Specialist Activated")
 		if specialist_class:
 			specialist = specialist_name
 			change_passive(specialist_name, "mind_passive", "Add")
@@ -258,10 +257,8 @@ func change_technique(specialist_name, technique_type, slot, init = null):
 		print("Technique Already Equipped")
 		return false
 	
-	print(technique_type)
 	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
-	print(technique_method)
 	
 	if technique_method:
 		match slot:
@@ -504,6 +501,7 @@ func _input(event):
 			print(ranged_stats)
 			print(melee_stats)
 			print(techniques)
+			print(passives)
 			print(PlayerInventory.equip_inventory)
 			print(PlayerInventory.current_inventory)
 		if event.is_action_pressed("Cheat Menu"):
