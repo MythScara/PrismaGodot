@@ -258,8 +258,10 @@ func change_technique(specialist_name, technique_type, slot, init = null):
 		print("Technique Already Equipped")
 		return false
 	
+	print(technique_type)
 	var specialist_class = load_specialist(specialist_name)
 	var technique_method = specialist_class.get(technique_type)
+	print(technique_method)
 	
 	if technique_method:
 		match slot:
@@ -306,17 +308,22 @@ func change_passive(specialist_name, passive_type, modification):
 
 func activate_techniques():
 	timer_cache.clear()
-	print(passives)
 	for identifier in techniques:
 		if identifier != null:
 			var parts = identifier[0].split(" ")
 			var specialist_name = parts[0]
-			var technique_type = identifier[1]
+			var technique_type
+			match parts[1]:
+				"Skill":
+					technique_type = "skill_technique"
+				"Special":
+					technique_type = "special_technique"
+				"Super":
+					technique_type = "super_technique"
 			var slot = parts[1]
 			change_technique(specialist_name, technique_type, slot, "Reset")
 		
 func activate_passives():
-	print(techniques)
 	for identifier in passives.keys():
 		var parts = identifier.split(" ")
 		var specialist_name = parts[0]
