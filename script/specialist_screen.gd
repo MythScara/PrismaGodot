@@ -14,6 +14,7 @@ extends Control
 @onready var species_sprite = $SpeciesSprite
 
 var selected_specialist = null
+var info = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +33,7 @@ func update_text(text):
 		sprite.visible = true
 	
 	var specialist = PlayerStats.load_specialist(text)
-	var info = specialist.specialist_info
+	info = specialist.specialist_info
 	selected_specialist = text
 	description.bbcode_text = "Description: " + info["Description"]
 	weapon.bbcode_text = "Weapon: " + info["Weapon"]
@@ -50,8 +51,10 @@ func _on_continue_button_pressed():
 			await PlayerStats.randomize_weapon("Ranged")
 			await PlayerStats.randomize_weapon("Melee")
 			PlayerStats.emit_signal("activate_specialist", selected_specialist)
+			PlayerInventory.add_to_inventory("Specialist", selected_specialist, info)
 		else:
 			PlayerStats.emit_signal("activate_specialist", selected_specialist)
+			PlayerInventory.add_to_inventory("Specialist", selected_specialist, info)
 		PlayerInterface.initial_setup()
 		GameManager.save_game()
 		PlayerStats.player_active = true

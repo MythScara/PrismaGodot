@@ -103,8 +103,6 @@ func display_info(button, key_name = null, input = null):
 		"super_technique":
 			t_name = "Technique 3"
 			t_type = "Super"
-			
-	print(button)
 	
 	if button != null:
 		current_info = ItemInfo.instantiate()

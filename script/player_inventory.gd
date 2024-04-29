@@ -23,7 +23,8 @@ var equip_inventory = {
 	"Support Magic": {},
 	"Techniques": {},
 	"Specialist": {},
-	"Vehicle": {}
+	"Vehicle": {},
+	"Faction": {}
 }
 
 var current_inventory = {
@@ -44,7 +45,8 @@ var current_inventory = {
 	"Support Magic": [null, null, null, null],
 	"Techniques": [null, null, null],
 	"Specialist": [null],
-	"Vehicle": [null]
+	"Vehicle": [null],
+	"Faction": [null]
 }
 
 # Called when the node enters the scene tree for the first time.

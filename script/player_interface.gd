@@ -225,6 +225,7 @@ func update_spec():
 		specialist_bar.max_value = PlayerStats.specialist_levels[PlayerStats.specialist][2]
 		specialist_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
 		specialist_rank.text = PlayerStats.specialist.to_lower() + " Rank " + str(PlayerStats.specialist_levels[PlayerStats.specialist][0])
+		specialist_icon.texture = load("res://asset/specialist_emblems/" + PlayerStats.specialist.to_lower() + "_emblem.png")
 	if PlayerStats.stat_points[0] > 0:
 		$GameInterface/Experience/PlayerBar/LevelPoint.visible = true
 	else:

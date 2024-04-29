@@ -1871,5 +1871,7 @@ expand_icon = true
 [connection signal="pressed" from="MenuInterface/InventoryScreen/Techniques/Skill" to="MenuInterface/InventoryScreen/Techniques" method="_on_skill_pressed"]
 [connection signal="pressed" from="MenuInterface/InventoryScreen/Techniques/Special" to="MenuInterface/InventoryScreen/Techniques" method="_on_special_pressed"]
 [connection signal="pressed" from="MenuInterface/InventoryScreen/Techniques/Super" to="MenuInterface/InventoryScreen/Techniques" method="_on_super_pressed"]
+[connection signal="pressed" from="MenuInterface/InventoryScreen/ExtraEquip/Specialist" to="MenuInterface/InventoryScreen/ExtraEquip" method="_on_specialist_pressed"]
+[connection signal="pressed" from="MenuInterface/InventoryScreen/ExtraEquip/Faction" to="MenuInterface/InventoryScreen/ExtraEquip" method="_on_faction_pressed"]
 [connection signal="pressed" from="MenuInterface/SettingsScreen/ExitButton" to="MenuInterface/SettingsScreen" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="MenuInterface/SettingsScreen/SaveButton" to="MenuInterface/SettingsScreen" method="_on_save_button_pressed"]
