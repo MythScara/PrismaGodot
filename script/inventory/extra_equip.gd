@@ -35,8 +35,10 @@ func update_fields():
 	else:
 		faction_info.text = "Faction"
 
-func replace_option(button):
-	pass
+func replace_option(button, key_name):
+	match button:
+		"Specialist":
+			PlayerStats.emit_signal("activate_specialist", key_name)
 
 func display_info(button, key_name = null, input = null):
 	if key_name == cur_selected:
@@ -62,13 +64,25 @@ func display_info(button, key_name = null, input = null):
 		current_info.get_node("Name").text = key_name
 		var item_type = str(button)
 		current_info.get_node("ItemType").text = item_type
-		current_info.get_node("ItemTier").text = ""
-		current_info.get_node("ItemQuality").text = ""
-		current_info.get_node("ItemElement").text = ""
 		current_info.get_node("ItemImage").texture = load("res://asset/" + str(button).to_lower() + "_emblems/" + key_name.to_lower() + "_emblem.png")
-		current_info.get_node("ItemExtra").text = ""
-		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_option").bind(button))
+		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_option").bind(button, key_name))
 		current_info.get_node("EquipButton").text = "EQUIP " + str(button).to_upper()
+		
+		match button:
+			"Specialist":
+				current_info.get_node("ItemTier").text = "Level " + str(specialist.cur_level)
+				current_info.get_node("ItemQuality").text = ""
+				current_info.get_node("ItemElement").text = "Experience " + str(specialist.cur_experience)
+				current_info.get_node("ItemExtra").text = "Required " + str(specialist.experience_required)
+				
+				var key_text = textstyle.instantiate()
+				current_info.get_node("Scroll/StatBar").add_child(key_text)
+				key_text.bbcode_text = info["Description"]
+			"Faction":
+				current_info.get_node("ItemTier").text = ""
+				current_info.get_node("ItemQuality").text = ""
+				current_info.get_node("ItemElement").text = ""
+				current_info.get_node("ItemExtra").text = ""
 
 func display_options(button):
 	cur_selected = null
