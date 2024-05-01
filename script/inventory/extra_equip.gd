@@ -35,6 +35,9 @@ func update_fields():
 	else:
 		faction_info.text = "Faction"
 
+func replace_option(button):
+	pass
+
 func display_info(button, key_name = null, input = null):
 	if key_name == cur_selected:
 		return
@@ -52,8 +55,23 @@ func display_info(button, key_name = null, input = null):
 	var specialist = PlayerStats.load_specialist(input["Name"])
 	var info = specialist.specialist_info
 	cur_selected = key_name
+	
+	if button != null:
+		current_info = ItemInfo.instantiate()
+		PlayerInterface.information_field.add_child(current_info)
+		current_info.get_node("Name").text = key_name
+		var item_type = str(button)
+		current_info.get_node("ItemType").text = item_type
+		current_info.get_node("ItemTier").text = ""
+		current_info.get_node("ItemQuality").text = ""
+		current_info.get_node("ItemElement").text = ""
+		current_info.get_node("ItemImage").texture = load("res://asset/" + str(button).to_lower() + "_emblems/" + key_name.to_lower() + "_emblem.png")
+		current_info.get_node("ItemExtra").text = ""
+		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_option").bind(button))
+		current_info.get_node("EquipButton").text = "EQUIP " + str(button).to_upper()
 
 func display_options(button):
+	cur_selected = null
 	PlayerInterface.clear_selection()
 	for key in PlayerInventory.equip_inventory[button].keys():
 		var option = buttonstyle.instantiate()

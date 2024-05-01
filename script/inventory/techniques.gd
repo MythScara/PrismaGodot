@@ -111,10 +111,10 @@ func display_info(button, key_name = null, input = null):
 		var item_type = "Technique"
 		current_info.get_node("ItemType").text = item_type
 		current_info.get_node("ItemTier").text = "Standard"
-		current_info.get_node("ItemQuality").text = "Duration: " + str(info[t_name]["TD"])
-		current_info.get_node("ItemElement").text = "Cooldown: " + str(info[t_name]["TC"])
+		current_info.get_node("ItemQuality").text = ""
+		current_info.get_node("ItemElement").text = "Duration: " + str(info[t_name]["TD"])
 		current_info.get_node("ItemImage").texture = load("res://asset/technique_icons/" + key_name.to_lower() + ".png")
-		current_info.get_node("ItemExtra").text = ""
+		current_info.get_node("ItemExtra").text = "Cooldown: " + str(info[t_name]["TC"])
 		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_technique").bind(button, key_name, input, input["Name"], input["Technique"]))
 		current_info.get_node("EquipButton").text = "EQUIP TECHNIQUE"
 		
@@ -123,6 +123,7 @@ func display_info(button, key_name = null, input = null):
 		key_text.bbcode_text = info[t_name][t_type]
 
 func display_technique(button):
+	cur_selected = null
 	PlayerInterface.clear_selection()
 	for key in PlayerInventory.equip_inventory["Techniques"].keys():
 		var option = buttonstyle.instantiate()
@@ -143,10 +144,10 @@ func display_technique(button):
 				slot = 1
 			"Super":
 				slot = 2
-		
-		if key == PlayerInventory.current_inventory["Techniques"][slot].keys()[0]:
-			_on_Button_pressed(option)
-			display_info(button, key, input[key])
+		if PlayerInventory.current_inventory["Techniques"][slot] != null:
+			if key == PlayerInventory.current_inventory["Techniques"][slot].keys()[0]:
+				_on_Button_pressed(option)
+				display_info(button, key, input[key])
 
 func _on_skill_pressed():
 	display_technique("Skill")
