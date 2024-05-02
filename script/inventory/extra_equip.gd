@@ -39,6 +39,9 @@ func replace_option(button, key_name):
 	match button:
 		"Specialist":
 			PlayerStats.emit_signal("activate_specialist", key_name)
+			update_fields()
+		"Faction":
+			update_fields()
 
 func display_info(button, key_name = null, input = null):
 	if key_name == cur_selected:

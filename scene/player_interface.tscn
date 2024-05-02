@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=38 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://script/inventory/stat_field.gd" id="31_ebap6"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
+[ext_resource type="Script" path="res://script/inventory/armor.gd" id="32_un6m8"]
 [ext_resource type="Script" path="res://script/inventory/extra_field.gd" id="32_wvwnw"]
 [ext_resource type="Script" path="res://script/inventory/extra_equip.gd" id="35_msuhn"]
 [ext_resource type="Script" path="res://script/inventory/weapons.gd" id="35_vsuv3"]
@@ -1370,6 +1371,7 @@ stretch_mode = 5
 
 [node name="Armor" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
+script = ExtResource("32_un6m8")
 
 [node name="ChestArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
