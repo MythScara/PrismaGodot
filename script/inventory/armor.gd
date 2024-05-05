@@ -23,23 +23,22 @@ func _on_Button_pressed(new_button : Button):
 	emit_signal("button_pressed", new_button.text)
 
 func image_set(type):
-		if type != null and PlayerInventory.current_inventory[type][0] != null:
-			var image = PlayerInventory.current_inventory[type][0].keys()[0]
-	
-			match type:
-				"Chest Armor":
-					chest.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
-				"Pad Armor":
-					pad.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
-				"Belt Armor":
-					belt.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
-				"Body Armor":
-					body.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
-				"Outfit":
-					outfit.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+	if type != null and PlayerInventory.current_inventory[type][0] != null:
+		var image = PlayerInventory.current_inventory[type][0].keys()[0]
+
+		match type:
+			"Chest Armor":
+				chest.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+			"Pad Armor":
+				pad.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+			"Belt Armor":
+				belt.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+			"Body Armor":
+				body.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+			"Outfit":
+				outfit.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
 
 func replace_field(type, text, values):
-	
 	var original = PlayerInventory.current_inventory[type][0].keys()[0]
 	var cur_values = PlayerInventory.current_inventory[type][0][original]
 	
