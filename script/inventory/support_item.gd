@@ -18,3 +18,18 @@ func _on_Button_pressed(new_button : Button):
 
 func _ready():
 	pass
+
+func update_values():
+	pass
+
+func image_set(type):
+	pass
+
+func display_info(button, key_name, input):
+	pass
+
+func replace_field(type, text, values):
+	pass
+
+func display_field(button):
+	pass
