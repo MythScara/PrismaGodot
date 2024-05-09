@@ -471,6 +471,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -653,6 +654,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
+visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
@@ -744,8 +746,8 @@ script = ExtResource("31_mc8co")
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 8.0
-offset_right = 1300.0
-offset_bottom = 80.0
+offset_right = 1296.0
+offset_bottom = 76.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -757,10 +759,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicTop"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -768,8 +770,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 44.0
-offset_right = 1372.0
-offset_bottom = 116.0
+offset_right = 1368.0
+offset_bottom = 112.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -781,10 +783,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicRight"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -792,8 +794,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 44.0
-offset_right = 1228.0
-offset_bottom = 116.0
+offset_right = 1224.0
+offset_bottom = 112.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -805,10 +807,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicLeft"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -816,8 +818,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 80.0
-offset_right = 1300.0
-offset_bottom = 152.0
+offset_right = 1296.0
+offset_bottom = 148.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -829,10 +831,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicBottom"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -844,8 +846,8 @@ script = ExtResource("33_dcsae")
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 160.0
-offset_right = 1300.0
-offset_bottom = 232.0
+offset_right = 1296.0
+offset_bottom = 228.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -857,10 +859,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicTop"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -868,8 +870,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 196.0
-offset_right = 1372.0
-offset_bottom = 268.0
+offset_right = 1368.0
+offset_bottom = 264.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -881,10 +883,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicRight"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -892,8 +894,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 196.0
-offset_right = 1228.0
-offset_bottom = 268.0
+offset_right = 1224.0
+offset_bottom = 264.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -905,10 +907,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicLeft"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -916,8 +918,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 232.0
-offset_right = 1300.0
-offset_bottom = 304.0
+offset_right = 1296.0
+offset_bottom = 300.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -929,10 +931,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicBottom"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -944,8 +946,8 @@ script = ExtResource("34_3j111")
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 312.0
-offset_right = 1300.0
-offset_bottom = 384.0
+offset_right = 1296.0
+offset_bottom = 380.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -957,10 +959,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemTop"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -968,8 +970,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 348.0
-offset_right = 1372.0
-offset_bottom = 420.0
+offset_right = 1368.0
+offset_bottom = 416.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -981,10 +983,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemRight"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -992,8 +994,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 348.0
-offset_right = 1228.0
-offset_bottom = 420.0
+offset_right = 1224.0
+offset_bottom = 416.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1005,10 +1007,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemLeft"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1016,8 +1018,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 384.0
-offset_right = 1300.0
-offset_bottom = 456.0
+offset_right = 1296.0
+offset_bottom = 452.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1029,10 +1031,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemBottom"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1044,8 +1046,8 @@ script = ExtResource("35_o06yg")
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 464.0
-offset_right = 1300.0
-offset_bottom = 536.0
+offset_right = 1296.0
+offset_bottom = 532.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1057,10 +1059,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemTop"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1068,8 +1070,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 500.0
-offset_right = 1372.0
-offset_bottom = 572.0
+offset_right = 1368.0
+offset_bottom = 568.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1081,10 +1083,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemRight"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1092,8 +1094,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 500.0
-offset_right = 1228.0
-offset_bottom = 572.0
+offset_right = 1224.0
+offset_bottom = 568.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1105,10 +1107,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemLeft"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1116,8 +1118,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 536.0
-offset_right = 1300.0
-offset_bottom = 608.0
+offset_right = 1296.0
+offset_bottom = 604.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1129,10 +1131,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemBottom"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 66.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1142,9 +1144,9 @@ script = ExtResource("32_4ec3f")
 
 [node name="Ring1" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 608.0
-offset_right = 988.0
+offset_left = 898.0
+offset_top = 616.0
+offset_right = 986.0
 offset_bottom = 704.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1159,16 +1161,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring2" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 988.0
-offset_top = 608.0
-offset_right = 1084.0
+offset_left = 994.0
+offset_top = 616.0
+offset_right = 1082.0
 offset_bottom = 704.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1183,16 +1185,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring3" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1084.0
-offset_top = 608.0
-offset_right = 1180.0
+offset_left = 1090.0
+offset_top = 616.0
+offset_right = 1178.0
 offset_bottom = 704.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1207,16 +1209,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring4" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1180.0
-offset_top = 608.0
-offset_right = 1276.0
+offset_left = 1186.0
+offset_top = 616.0
+offset_right = 1274.0
 offset_bottom = 704.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1231,16 +1233,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring5" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1276.0
-offset_top = 608.0
-offset_right = 1372.0
+offset_left = 1282.0
+offset_top = 616.0
+offset_right = 1370.0
 offset_bottom = 704.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1255,16 +1257,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring6" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 704.0
-offset_right = 988.0
+offset_left = 898.0
+offset_top = 712.0
+offset_right = 986.0
 offset_bottom = 800.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1279,16 +1281,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring7" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 988.0
-offset_top = 704.0
-offset_right = 1084.0
+offset_left = 994.0
+offset_top = 712.0
+offset_right = 1082.0
 offset_bottom = 800.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1303,16 +1305,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring8" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1084.0
-offset_top = 704.0
-offset_right = 1180.0
+offset_left = 1090.0
+offset_top = 712.0
+offset_right = 1178.0
 offset_bottom = 800.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1327,16 +1329,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring9" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1180.0
-offset_top = 704.0
-offset_right = 1276.0
+offset_left = 1186.0
+offset_top = 712.0
+offset_right = 1274.0
 offset_bottom = 800.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1351,16 +1353,16 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Ring10" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
-offset_left = 1276.0
-offset_top = 704.0
-offset_right = 1372.0
+offset_left = 1282.0
+offset_top = 712.0
+offset_right = 1370.0
 offset_bottom = 800.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
@@ -1375,8 +1377,8 @@ expand_icon = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_right = 82.0
+offset_bottom = 82.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1386,10 +1388,10 @@ script = ExtResource("32_un6m8")
 
 [node name="ChestArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 120.0
-offset_right = 1020.0
-offset_bottom = 248.0
+offset_left = 898.0
+offset_top = 128.0
+offset_right = 1014.0
+offset_bottom = 244.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1401,19 +1403,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/ChestArmor"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="PadArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 240.0
-offset_right = 1020.0
-offset_bottom = 368.0
+offset_left = 898.0
+offset_top = 248.0
+offset_right = 1014.0
+offset_bottom = 364.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1425,19 +1427,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/PadArmor"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="BeltArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 360.0
-offset_right = 1020.0
-offset_bottom = 488.0
+offset_left = 898.0
+offset_top = 368.0
+offset_right = 1014.0
+offset_bottom = 484.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1449,19 +1451,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BeltArmor"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="BodyArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 480.0
-offset_right = 1020.0
-offset_bottom = 608.0
+offset_left = 898.0
+offset_top = 488.0
+offset_right = 1014.0
+offset_bottom = 604.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1473,19 +1475,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BodyArmor"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Outfit" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
-offset_left = 1020.0
-offset_top = 120.0
-offset_right = 1148.0
-offset_bottom = 248.0
+offset_left = 1026.0
+offset_top = 128.0
+offset_right = 1142.0
+offset_bottom = 244.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1497,10 +1499,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/Outfit"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1510,10 +1512,10 @@ script = ExtResource("33_fejai")
 
 [node name="Artifact1" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
-offset_left = 1020.0
-offset_top = 240.0
-offset_right = 1148.0
-offset_bottom = 368.0
+offset_left = 1026.0
+offset_top = 248.0
+offset_right = 1142.0
+offset_bottom = 364.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1525,19 +1527,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact1"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Artifact2" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
-offset_left = 1020.0
-offset_top = 360.0
-offset_right = 1148.0
-offset_bottom = 488.0
+offset_left = 1026.0
+offset_top = 368.0
+offset_right = 1142.0
+offset_bottom = 484.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1549,19 +1551,19 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact2"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Artifact3" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
-offset_left = 1020.0
-offset_top = 480.0
-offset_right = 1148.0
-offset_bottom = 608.0
+offset_left = 1026.0
+offset_top = 488.0
+offset_right = 1142.0
+offset_bottom = 604.0
 theme_override_styles/normal = ExtResource("29_m6f54")
 theme_override_styles/hover = ExtResource("29_m6f54")
 theme_override_styles/pressed = ExtResource("29_m6f54")
@@ -1573,10 +1575,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact3"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 108.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1601,9 +1603,9 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/RangedWeapon"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 145.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
 offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
@@ -1625,9 +1627,9 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/MeleeWeapon"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 145.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
 offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
@@ -1649,9 +1651,9 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/SoulStone"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 145.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
 offset_bottom = 144.0
 expand_mode = 1
 stretch_mode = 5
@@ -1673,10 +1675,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Summon"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 106.0
-offset_bottom = 106.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 104.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -1697,10 +1699,10 @@ expand_icon = true
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Vehicle"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 106.0
-offset_bottom = 106.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 104.0
 expand_mode = 1
 stretch_mode = 5
 

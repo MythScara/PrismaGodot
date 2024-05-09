@@ -111,10 +111,10 @@ uppercase = true
 
 [node name="ItemImage" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 40.0
-offset_right = 142.0
-offset_bottom = 178.0
+offset_left = 8.0
+offset_top = 44.0
+offset_right = 138.0
+offset_bottom = 174.0
 texture = ExtResource("2_frawn")
 expand_mode = 1
 stretch_mode = 5
