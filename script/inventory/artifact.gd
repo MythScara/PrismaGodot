@@ -17,7 +17,7 @@ func _on_Button_pressed(new_button : Button):
 	emit_signal("button_pressed", new_button.text)
 
 func _ready():
-	pass
+	PlayerStats.connect("pause_game", Callable(self, "update_values"))
 
 func update_values():
 	pass
