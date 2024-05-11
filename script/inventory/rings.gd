@@ -33,3 +33,33 @@ func replace_field(type, text, values):
 
 func display_field(button):
 	pass
+
+func _on_ring_1_pressed():
+	pass # Replace with function body.
+
+func _on_ring_2_pressed():
+	pass # Replace with function body.
+
+func _on_ring_3_pressed():
+	pass # Replace with function body.
+
+func _on_ring_4_pressed():
+	pass # Replace with function body.
+
+func _on_ring_5_pressed():
+	pass # Replace with function body.
+
+func _on_ring_6_pressed():
+	pass # Replace with function body.
+
+func _on_ring_7_pressed():
+	pass # Replace with function body.
+
+func _on_ring_8_pressed():
+	pass # Replace with function body.
+
+func _on_ring_9_pressed():
+	pass # Replace with function body.
+
+func _on_ring_10_pressed():
+	pass # Replace with function body.

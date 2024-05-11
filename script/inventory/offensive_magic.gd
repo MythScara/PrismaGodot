@@ -33,3 +33,15 @@ func replace_field(type, text, values):
 
 func display_field(button):
 	pass
+
+func _on_offensive_magic_top_pressed():
+	pass # Replace with function body.
+
+func _on_offensive_magic_right_pressed():
+	pass # Replace with function body.
+
+func _on_offensive_magic_left_pressed():
+	pass # Replace with function body.
+
+func _on_offensive_magic_bottom_pressed():
+	pass # Replace with function body.
