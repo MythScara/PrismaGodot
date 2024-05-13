@@ -35,10 +35,10 @@ func display_field(button):
 	pass
 
 func _on_artifact_1_pressed():
-	pass # Replace with function body.
+	display_field("1")
 
 func _on_artifact_2_pressed():
-	pass # Replace with function body.
+	display_field("2")
 
 func _on_artifact_3_pressed():
-	pass # Replace with function body.
+	display_field("3")

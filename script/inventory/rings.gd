@@ -35,31 +35,31 @@ func display_field(button):
 	pass
 
 func _on_ring_1_pressed():
-	pass # Replace with function body.
+	display_field("1")
 
 func _on_ring_2_pressed():
-	pass # Replace with function body.
+	display_field("2")
 
 func _on_ring_3_pressed():
-	pass # Replace with function body.
+	display_field("3")
 
 func _on_ring_4_pressed():
-	pass # Replace with function body.
+	display_field("4")
 
 func _on_ring_5_pressed():
-	pass # Replace with function body.
+	display_field("5")
 
 func _on_ring_6_pressed():
-	pass # Replace with function body.
+	display_field("6")
 
 func _on_ring_7_pressed():
-	pass # Replace with function body.
+	display_field("7")
 
 func _on_ring_8_pressed():
-	pass # Replace with function body.
+	display_field("8")
 
 func _on_ring_9_pressed():
-	pass # Replace with function body.
+	display_field("9")
 
 func _on_ring_10_pressed():
-	pass # Replace with function body.
+	display_field("10")

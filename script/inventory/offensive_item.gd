@@ -35,13 +35,13 @@ func display_field(button):
 	pass
 
 func _on_offensive_item_top_pressed():
-	pass # Replace with function body.
+	display_field("Top")
 
 func _on_offensive_item_right_pressed():
-	pass # Replace with function body.
+	display_field("Right")
 
 func _on_offensive_item_left_pressed():
-	pass # Replace with function body.
+	display_field("Left")
 
 func _on_offensive_item_bottom_pressed():
-	pass # Replace with function body.
+	display_field("Bottom")
