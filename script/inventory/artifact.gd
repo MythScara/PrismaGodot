@@ -23,7 +23,10 @@ func update_values():
 	pass
 
 func image_set(type):
-	pass
+	image_set("0")
+	image_set("1")
+	image_set("2")
+
 
 func display_info(button, key_name, input):
 	pass
