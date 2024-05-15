@@ -1,5 +1,10 @@
 extends Control
 
+@onready var top = $SupportMagicTop/Image
+@onready var right = $SupportMagicRight/Image
+@onready var left = $SupportMagicLeft/Image
+@onready var bottom = $SupportMagicBottom/Image
+
 var ItemInfo = preload("res://object/item_info.tscn")
 var current_info = null
 
@@ -20,7 +25,10 @@ func _ready():
 	PlayerStats.connect("pause_game", Callable(self, "update_values"))
 
 func update_values():
-	pass
+	image_set("Top")
+	image_set("Right")
+	image_set("Left")
+	image_set("Bottom")
 
 func image_set(type):
 	pass

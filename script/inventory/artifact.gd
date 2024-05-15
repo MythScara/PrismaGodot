@@ -27,7 +27,6 @@ func update_values():
 func image_set(type):
 	pass
 
-
 func display_info(button, key_name, input):
 	pass
 
