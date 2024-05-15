@@ -20,7 +20,16 @@ func _ready():
 	PlayerStats.connect("pause_game", Callable(self, "update_values"))
 
 func update_values():
-	pass
+	image_set(0)
+	image_set(1)
+	image_set(2)
+	image_set(3)
+	image_set(4)
+	image_set(5)
+	image_set(6)
+	image_set(7)
+	image_set(8)
+	image_set(9)
 
 func image_set(type):
 	pass
