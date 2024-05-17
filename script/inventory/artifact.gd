@@ -1,5 +1,9 @@
 extends Control
 
+@onready var artifact_1 = $Artifact1/Image
+@onready var artifact_2 = $Artifact2/Image
+@onready var artifact_3 = $Artifact3/Image
+
 var ItemInfo = preload("res://object/item_info.tscn")
 var current_info = null
 

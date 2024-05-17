@@ -1,5 +1,16 @@
 extends Control
 
+@onready var ring_1 = $Ring1/Image
+@onready var ring_2 = $Ring2/Image
+@onready var ring_3 = $Ring3/Image
+@onready var ring_4 = $Ring4/Image
+@onready var ring_5 = $Ring5/Image
+@onready var ring_6 = $Ring6/Image
+@onready var ring_7 = $Ring7/Image
+@onready var ring_8 = $Ring8/Image
+@onready var ring_9 = $Ring9/Image
+@onready var ring_10 = $Ring10/Image
+
 var ItemInfo = preload("res://object/item_info.tscn")
 var current_info = null
 
