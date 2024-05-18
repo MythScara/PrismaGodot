@@ -32,7 +32,21 @@ func image_set(type):
 	pass
 
 func display_info(button, key_name, input):
-	pass
+	var compare_tag
+	var compare_info
+	
+	if current_info != null:
+		current_info.queue_free()
+	
+	if PlayerInventory.current_inventory[button][0] != null:
+		compare_tag = PlayerInventory.current_inventory[button][0].keys()[0]
+		compare_info = PlayerInventory.current_inventory[button][0][compare_tag]
+	else:
+		return
+	
+	if key_name == null:
+		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
+		input = PlayerInventory.current_inventory[button][0][key_name]
 
 func replace_field(type, text, values):
 	pass
