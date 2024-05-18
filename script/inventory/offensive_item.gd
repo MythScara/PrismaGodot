@@ -40,7 +40,20 @@ func replace_field(type, text, values):
 	pass
 
 func display_field(button):
-	pass
+	PlayerInterface.clear_selection()
+	for key in PlayerInventory.equip_inventory[button].keys():
+		var option = buttonstyle.instantiate()
+		var input = PlayerInventory.equip_inventory[button]
+		option.text = key
+		option.add_theme_font_size_override("font_size", 20)
+		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		option.connect("pressed", Callable(self, "display_info").bind(button, key, input[key]))
+		option.pressed.connect(_on_Button_pressed.bind(option))
+		PlayerInterface.selection_field.add_child(option)
+		
+		if key == PlayerInventory.current_inventory[button][0].keys()[0]:
+			_on_Button_pressed(option)
+			display_info(button, key, input[key])
 
 func _on_offensive_item_top_pressed():
 	display_field("Top")
