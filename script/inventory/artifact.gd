@@ -29,7 +29,21 @@ func update_values():
 	image_set(2)
 
 func image_set(type):
-	pass
+	if type != null and PlayerInventory.current_inventory["Artifact"][type] != null:
+		var image = PlayerInventory.current_inventory["Artifact"][type].keys()[0]
+		var path = "res://asset/artifact_icons/" + image.to_lower() + ".png"
+		if ResourceLoader.exists(path):
+			pass
+		else:
+			path = "res://asset/hud_icons/locked_icon.png"
+		
+		match type:
+			0:
+				artifact_1.texture = load(path)
+			1:
+				artifact_2.texture = load(path)
+			2:
+				artifact_3.texture = load(path)
 
 func display_info(button, key_name, input):
 	var compare_tag
@@ -51,7 +65,7 @@ func display_info(button, key_name, input):
 func replace_field(type, text, values):
 	pass
 
-func display_field(button):
+func display_field(button, slot):
 	PlayerInterface.clear_selection()
 	for key in PlayerInventory.equip_inventory[button].keys():
 		var option = buttonstyle.instantiate()
@@ -68,10 +82,10 @@ func display_field(button):
 			display_info(button, key, input[key])
 
 func _on_artifact_1_pressed():
-	display_field("1")
+	display_field("Artifact", 1)
 
 func _on_artifact_2_pressed():
-	display_field("2")
+	display_field("Artifact", 2)
 
 func _on_artifact_3_pressed():
-	display_field("3")
+	display_field("Artifact", 3)

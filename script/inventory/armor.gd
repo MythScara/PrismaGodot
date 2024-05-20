@@ -25,18 +25,23 @@ func _on_Button_pressed(new_button : Button):
 func image_set(type):
 	if type != null and PlayerInventory.current_inventory[type][0] != null:
 		var image = PlayerInventory.current_inventory[type][0].keys()[0]
-
+		var path = "res://asset/armor_icons/" + image.to_lower() + ".png"
+		if ResourceLoader.exists(path):
+			pass
+		else:
+			path = "res://asset/hud_icons/locked_icon.png"
+		
 		match type:
 			"Chest Armor":
-				chest.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+				chest.texture = load(path)
 			"Pad Armor":
-				pad.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+				pad.texture = load(path)
 			"Belt Armor":
-				belt.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+				belt.texture = load(path)
 			"Body Armor":
-				body.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+				body.texture = load(path)
 			"Outfit":
-				outfit.texture = load("res://asset/armor_icons/" + type.to_lower() + ".png")
+				outfit.texture = load(path)
 
 func replace_field(type, text, values):
 	var original = PlayerInventory.current_inventory[type][0].keys()[0]
