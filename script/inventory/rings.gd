@@ -63,7 +63,24 @@ func display_info(button, key_name, input):
 		input = PlayerInventory.current_inventory[button][0][key_name]
 
 func replace_field(type, text, values):
-	pass
+	var original = PlayerInventory.current_inventory[type][0].keys()[0]
+	var cur_values = PlayerInventory.current_inventory[type][0][original]
+	
+	if PlayerInventory.current_inventory[type][0].keys()[0] != text:
+		if type != null:
+			PlayerStats.player_stat_change(cur_values, "Sub")
+			PlayerStats.element_stat_change(cur_values, "Sub")
+		
+		PlayerInventory.current_inventory[type][0] = {text: values}
+		image_set(type)
+
+		PlayerStats.player_stat_change(values, "Add")
+		PlayerStats.element_stat_change(values, "Add")
+		
+		PlayerInterface.clear_selection()
+	else:
+		print("This Item is Already Equipped")
+		PlayerInterface.clear_selection()
 
 func display_field(button):
 	PlayerInterface.clear_selection()
