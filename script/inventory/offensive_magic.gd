@@ -31,7 +31,23 @@ func update_values():
 	image_set("Bottom")
 
 func image_set(type):
-	pass
+	if type != null and PlayerInventory.current_inventory["Battle Magic"][type] != null:
+		var image = PlayerInventory.current_inventory["Battle Magic"][type].keys()[0]
+		var path = "res://asset/magic_icons/" + image.to_lower() + ".png"
+		if ResourceLoader.exists(path):
+			pass
+		else:
+			path = "res://asset/hud_icons/locked_icon.png"
+		
+		match type:
+			0:
+				top.texture = load(path)
+			1:
+				left.texture = load(path)
+			2:
+				right.texture = load(path)
+			3:
+				bottom.texture = load(path)
 
 func display_info(button, key_name, input):
 	pass

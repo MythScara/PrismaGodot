@@ -32,7 +32,7 @@ func update_values():
 
 func image_set(type):
 	if type != null and PlayerInventory.current_inventory["Battle Item"][type] != null:
-		var image = PlayerInventory.current_inventory["Battle ITem"][type].keys()[0]
+		var image = PlayerInventory.current_inventory["Battle Item"][type].keys()[0]
 		var path = "res://asset/item_icons/" + image.to_lower() + ".png"
 		if ResourceLoader.exists(path):
 			pass
