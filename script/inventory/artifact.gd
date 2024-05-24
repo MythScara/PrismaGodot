@@ -61,6 +61,19 @@ func display_info(button, key_name, input):
 	if key_name == null:
 		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
 		input = PlayerInventory.current_inventory[button][0][key_name]
+		
+	if button != null:
+		current_info = ItemInfo.instantiate()
+		PlayerInterface.information_field.add_child(current_info)
+		current_info.get_node("Name").text = key_name
+		var item_type = button
+		current_info.get_node("ItemType").text = item_type
+		current_info.get_node("ItemTier").text = input["Tier"]
+		current_info.get_node("ItemQuality").text = "Quality : " + str(input["Quality"])
+		current_info.get_node("ItemElement").text = ""
+		current_info.get_node("ItemImage").texture = load("res://asset/armor_icons/" + item_type.to_lower() + ".png")
+		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
+		current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
 
 func replace_field(type, text, values):
 	var original = PlayerInventory.current_inventory[type][0].keys()[0]
