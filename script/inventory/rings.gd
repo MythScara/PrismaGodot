@@ -43,7 +43,35 @@ func update_values():
 	image_set(9)
 
 func image_set(type):
-	pass
+	if type != null and PlayerInventory.current_inventory["Ring"][type] != null:
+		var image = PlayerInventory.current_inventory["Ring"][type].keys()[0]
+		var path = "res://asset/ring_icons/" + image.to_lower() + ".png"
+		if ResourceLoader.exists(path):
+			pass
+		else:
+			path = "res://asset/hud_icons/locked_icon.png"
+		
+		match type:
+			0:
+				ring_1.texture = load(path)
+			1:
+				ring_2.texture = load(path)
+			2:
+				ring_3.texture = load(path)
+			3:
+				ring_4.texture = load(path)
+			4:
+				ring_5.texture = load(path)
+			5:
+				ring_6.texture = load(path)
+			6:
+				ring_7.texture = load(path)
+			7:
+				ring_8.texture = load(path)
+			8:
+				ring_9.texture = load(path)
+			9:
+				ring_10.texture = load(path)
 
 func display_info(button, key_name, input):
 	var compare_tag
