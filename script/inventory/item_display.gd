@@ -66,35 +66,36 @@ func display_field(button):
 			_on_Button_pressed(option)
 			display_info(button, key, input[key])
 
-func display_info(button, key_name, input):
+func display_info(type, key_name, input, slot = 0):
 	var compare_tag
 	var compare_info
 	
 	if current_info != null:
 		current_info.queue_free()
 	
-	if PlayerInventory.current_inventory[button][0] != null:
-		compare_tag = PlayerInventory.current_inventory[button][0].keys()[0]
-		compare_info = PlayerInventory.current_inventory[button][0][compare_tag]
+	if PlayerInventory.current_inventory[type][slot] != null:
+		compare_tag = PlayerInventory.current_inventory[type][slot].keys()[0]
+		compare_info = PlayerInventory.current_inventory[type][slot][compare_tag]
 	else:
 		return
 	
 	if key_name == null:
-		key_name = PlayerInventory.current_inventory[button][0].keys()[0]
-		input = PlayerInventory.current_inventory[button][0][key_name]
+		key_name = PlayerInventory.current_inventory[type][slot].keys()[0]
+		input = PlayerInventory.current_inventory[type][slot][key_name]
 		
-	if button != null:
+	if type != null:
 		current_info = ItemInfo.instantiate()
 		PlayerInterface.information_field.add_child(current_info)
 		current_info.get_node("Name").text = key_name
-		var item_type = button
+		var item_type = type
 		current_info.get_node("ItemType").text = item_type
 		current_info.get_node("ItemTier").text = input["Tier"]
 		current_info.get_node("ItemQuality").text = "Quality : " + str(input["Quality"])
-		current_info.get_node("ItemElement").text = ""
-		current_info.get_node("ItemImage").texture = load("res://asset/armor_icons/" + item_type.to_lower() + ".png")
-		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(button, key_name, input))
-		current_info.get_node("EquipButton").text = "EQUIP " + button.to_upper()
+		current_info.get_node("ItemElement").text = input["Element"]
+		current_info.get_node("ItemExtra").text = input["Extra"]
+		current_info.get_node("ItemImage").texture = load("res://asset/" + type.to_lower() + "_icons/" + key_name.to_lower() + ".png")
+		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(type, key_name, input, slot))
+		current_info.get_node("EquipButton").text = "EQUIP " + type.to_upper()
 		for key in input.keys():
 			if key not in PlayerStats.excluded:
 				var hbox = HBoxContainer.new()
@@ -120,8 +121,4 @@ func display_info(button, key_name, input):
 				hbox.add_child(key_value)
 
 func update_values():
-	image_set("Body Armor")
-	image_set("Pad Armor")
-	image_set("Belt Armor")
-	image_set("Chest Armor")
-	image_set("Outfit")
+	pass
