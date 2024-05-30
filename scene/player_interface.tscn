@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=37 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -30,16 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
 [ext_resource type="Script" path="res://script/inventory/stat_field.gd" id="31_ebap6"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
-[ext_resource type="Script" path="res://script/inventory/offensive_magic.gd" id="31_mc8co"]
-[ext_resource type="Script" path="res://script/inventory/rings.gd" id="32_4ec3f"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
-[ext_resource type="Script" path="res://script/inventory/armor.gd" id="32_un6m8"]
 [ext_resource type="Script" path="res://script/inventory/extra_field.gd" id="32_wvwnw"]
-[ext_resource type="Script" path="res://script/inventory/support_magic.gd" id="33_dcsae"]
-[ext_resource type="Script" path="res://script/inventory/artifact.gd" id="33_fejai"]
-[ext_resource type="Script" path="res://script/inventory/offensive_item.gd" id="34_3j111"]
 [ext_resource type="Script" path="res://script/inventory/extra_equip.gd" id="35_msuhn"]
-[ext_resource type="Script" path="res://script/inventory/support_item.gd" id="35_o06yg"]
 [ext_resource type="Script" path="res://script/inventory/weapons.gd" id="35_vsuv3"]
 [ext_resource type="Script" path="res://script/inventory/techniques.gd" id="36_sr74o"]
 [ext_resource type="Script" path="res://script/settings_screen.gd" id="38_jpkxq"]
@@ -740,7 +733,6 @@ layout_mode = 2
 
 [node name="OffensiveMagic" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("31_mc8co")
 
 [node name="OffensiveMagicTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
 layout_mode = 0
@@ -840,7 +832,6 @@ stretch_mode = 5
 
 [node name="SupportMagic" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("33_dcsae")
 
 [node name="SupportMagicTop" type="Button" parent="MenuInterface/InventoryScreen/SupportMagic"]
 layout_mode = 0
@@ -940,7 +931,6 @@ stretch_mode = 5
 
 [node name="OffensiveItem" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("34_3j111")
 
 [node name="OffensiveItemTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
 layout_mode = 0
@@ -1040,7 +1030,6 @@ stretch_mode = 5
 
 [node name="SupportItem" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("35_o06yg")
 
 [node name="SupportItemTop" type="Button" parent="MenuInterface/InventoryScreen/SupportItem"]
 layout_mode = 0
@@ -1140,7 +1129,6 @@ stretch_mode = 5
 
 [node name="Rings" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("32_4ec3f")
 
 [node name="Ring1" type="Button" parent="MenuInterface/InventoryScreen/Rings"]
 layout_mode = 0
@@ -1384,7 +1372,6 @@ stretch_mode = 5
 
 [node name="Armor" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("32_un6m8")
 
 [node name="ChestArmor" type="Button" parent="MenuInterface/InventoryScreen/Armor"]
 layout_mode = 0
@@ -1508,7 +1495,6 @@ stretch_mode = 5
 
 [node name="Artifact" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
-script = ExtResource("33_fejai")
 
 [node name="Artifact1" type="Button" parent="MenuInterface/InventoryScreen/Artifact"]
 layout_mode = 0
