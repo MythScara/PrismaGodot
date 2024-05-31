@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=38 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="Script" path="res://script/menu_interface.gd" id="28_sw8ie"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
+[ext_resource type="Script" path="res://script/InventoryScreen.gd" id="29_qdj71"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
 [ext_resource type="Script" path="res://script/inventory/stat_field.gd" id="31_ebap6"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
@@ -653,6 +654,7 @@ offset_left = 268.0
 offset_top = 168.0
 offset_right = 1651.0
 offset_bottom = 977.0
+script = ExtResource("29_qdj71")
 
 [node name="PlayerField" type="ColorRect" parent="MenuInterface/InventoryScreen"]
 layout_mode = 0
