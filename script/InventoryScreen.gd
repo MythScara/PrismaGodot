@@ -1,4 +1,5 @@
 extends Control
 
-func _ready():
-	pass
+func set_dsiplay(type, slot = 0):
+	if type != null:
+		pass
