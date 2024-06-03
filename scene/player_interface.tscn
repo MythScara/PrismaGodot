@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dowfwfcy1hbhc"]
+[gd_scene load_steps=39 format=3 uid="uid://dowfwfcy1hbhc"]
 
 [ext_resource type="Script" path="res://script/player_interface.gd" id="1_65u7r"]
 [ext_resource type="Texture2D" uid="uid://bgayydxps5t77" path="res://asset/splash_backgrounds/main_menu_background_2.jpg" id="2_1xymm"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
 [ext_resource type="Texture2D" uid="uid://bylylf6hfuovj" path="res://asset/button_icons/standard_menu_button.png" id="32_dy6rh"]
 [ext_resource type="Script" path="res://script/inventory/extra_field.gd" id="32_wvwnw"]
+[ext_resource type="Script" path="res://script/object/item_spec.gd" id="33_6yude"]
 [ext_resource type="Script" path="res://script/inventory/extra_equip.gd" id="35_msuhn"]
 [ext_resource type="Script" path="res://script/inventory/weapons.gd" id="35_vsuv3"]
 [ext_resource type="Script" path="res://script/inventory/techniques.gd" id="36_sr74o"]
@@ -648,7 +649,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
-visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
@@ -1146,6 +1146,7 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]
 layout_mode = 0
