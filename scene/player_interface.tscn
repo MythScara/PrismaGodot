@@ -26,8 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/weapon_icons/long sword.png" id="23_rjvss"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="Script" path="res://script/menu_interface.gd" id="28_sw8ie"]
+[ext_resource type="Script" path="res://script/inventory/item_display.gd" id="29_8qoo6"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="29_m6f54"]
-[ext_resource type="Script" path="res://script/InventoryScreen.gd" id="29_qdj71"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="29_sdhsr"]
 [ext_resource type="Script" path="res://script/inventory/stat_field.gd" id="31_ebap6"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="31_lo64m"]
@@ -654,7 +654,7 @@ offset_left = 268.0
 offset_top = 168.0
 offset_right = 1651.0
 offset_bottom = 977.0
-script = ExtResource("29_qdj71")
+script = ExtResource("29_8qoo6")
 
 [node name="PlayerField" type="ColorRect" parent="MenuInterface/InventoryScreen"]
 layout_mode = 0
@@ -1147,6 +1147,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("33_6yude")
+type = "Ring"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]
 layout_mode = 0

@@ -46,6 +46,8 @@ extends Node
 @onready var special_progress = $GameInterface/Techniques/SpecialProgress
 @onready var super_progress = $GameInterface/Techniques/SuperProgress
 
+@onready var inventory_screen = $MenuInterface/InventoryScreen
+
 var weapon_stats
 var damage = 0
 var reloading = false
@@ -270,6 +272,9 @@ func change_stat(stat, value):
 		"STM":
 			stamina_bar.value += value
 			stamina_text.text = str(stamina_bar.value)
+
+func set_display(type):
+	inventory_screen.display_field(type)
 
 func update_technique(tech = null):
 	var technique = PlayerStats.techniques
