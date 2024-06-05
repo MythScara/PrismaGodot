@@ -121,5 +121,7 @@ func display_info(type, key_name, input, slot = 0):
 				hbox.add_child(key_value)
 
 func update_values():
-	#Needs to be able to update all inventory item displays
-	pass
+	var types = ["Ranged Weapon, Melee Weapon"]
+	
+	for type in types:
+		image_set(type)
