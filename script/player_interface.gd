@@ -273,8 +273,8 @@ func change_stat(stat, value):
 			stamina_bar.value += value
 			stamina_text.text = str(stamina_bar.value)
 
-func set_display(type):
-	inventory_screen.display_field(type)
+func set_display(type, slot = 0):
+	inventory_screen.display_field(type, slot)
 
 func update_technique(tech = null):
 	var technique = PlayerStats.techniques

@@ -50,21 +50,21 @@ func replace_field(type, text, values, texture, slot = 0):
 		print("This Item is Already Equipped")
 		PlayerInterface.clear_selection()
 
-func display_field(button):
+func display_field(type, slot = 0):
 	PlayerInterface.clear_selection()
-	for key in PlayerInventory.equip_inventory[button].keys():
+	for key in PlayerInventory.equip_inventory[type].keys():
 		var option = buttonstyle.instantiate()
-		var input = PlayerInventory.equip_inventory[button]
+		var input = PlayerInventory.equip_inventory[type]
 		option.text = key
 		option.add_theme_font_size_override("font_size", 20)
 		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		option.connect("pressed", Callable(self, "display_info").bind(button, key, input[key]))
+		option.connect("pressed", Callable(self, "display_info").bind(type, key, input[key], slot))
 		option.pressed.connect(_on_Button_pressed.bind(option))
 		PlayerInterface.selection_field.add_child(option)
 		
-		if key == PlayerInventory.current_inventory[button][0].keys()[0]:
+		if key == PlayerInventory.current_inventory[type][slot].keys()[0]:
 			_on_Button_pressed(option)
-			display_info(button, key, input[key])
+			display_info(type, key, input[key], slot)
 
 func display_info(type, key_name, input, slot = 0):
 	var compare_tag
@@ -121,7 +121,5 @@ func display_info(type, key_name, input, slot = 0):
 				hbox.add_child(key_value)
 
 func update_values():
-	var types = ["Ranged Weapon, Melee Weapon"]
-	
-	for type in types:
+	for type in PlayerInventory.equip_inventory.keys():
 		image_set(type)

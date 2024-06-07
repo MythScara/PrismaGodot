@@ -1142,6 +1142,8 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("33_6yude")
+item_name = null
+slot = null
 type = "Ring"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]
@@ -1765,7 +1767,7 @@ offset_bottom = 104.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Skill2" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
+[node name="AttackAspect" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 124.0
@@ -1780,7 +1782,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Skill2"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/AttackAspect"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -1789,7 +1791,7 @@ offset_bottom = 104.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Special2" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
+[node name="DefenseAspect" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 124.0
@@ -1804,7 +1806,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Special2"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/DefenseAspect"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -1813,7 +1815,7 @@ offset_bottom = 104.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Super2" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
+[node name="SupportAspect" type="Button" parent="MenuInterface/InventoryScreen/Techniques"]
 layout_mode = 0
 offset_left = 252.0
 offset_top = 124.0
@@ -1828,7 +1830,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Super2"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/SupportAspect"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
