@@ -10,4 +10,4 @@ func _ready():
 	pass
 
 func _pressed():
-	PlayerInterface.set_display(type, slot)
+	PlayerInterface.set_display(type, image, item_name, slot)
