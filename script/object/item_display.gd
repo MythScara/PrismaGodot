@@ -50,7 +50,7 @@ func replace_field(type, text, values, texture, slot = 0):
 		print("This Item is Already Equipped")
 		PlayerInterface.clear_selection()
 
-func display_field(type, image, item_name, slot = 0):
+func display_field(type, image, item_name, values, slot = 0):
 	PlayerInterface.clear_selection()
 	for key in PlayerInventory.equip_inventory[type].keys():
 		var option = buttonstyle.instantiate()

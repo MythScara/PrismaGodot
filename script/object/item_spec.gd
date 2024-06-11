@@ -5,9 +5,7 @@ extends Button
 @export var type = ""
 
 @onready var image = $Image
-
-func _ready():
-	pass
+@onready var values = {}
 
 func _pressed():
-	PlayerInterface.set_display(type, image, item_name, slot)
+	PlayerInterface.set_display(type, image, item_name, values, slot)
