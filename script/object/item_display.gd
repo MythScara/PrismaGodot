@@ -58,7 +58,7 @@ func display_field(type, image, item_name, values, slot = 0):
 		option.text = key
 		option.add_theme_font_size_override("font_size", 20)
 		option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		option.connect("pressed", Callable(self, "display_info").bind(type, key, input[key], slot))
+		option.connect("pressed", Callable(self, "display_info").bind(type, image, key, input[key], slot))
 		option.pressed.connect(_on_Button_pressed.bind(option))
 		PlayerInterface.selection_field.add_child(option)
 		
@@ -66,7 +66,7 @@ func display_field(type, image, item_name, values, slot = 0):
 			_on_Button_pressed(option)
 			display_info(type, key, input[key], slot)
 
-func display_info(type, key_name, input, slot = 0):
+func display_info(type, image, item_name, values, slot = 0):
 	var compare_tag
 	var compare_info
 	
@@ -79,24 +79,24 @@ func display_info(type, key_name, input, slot = 0):
 	else:
 		return
 	
-	if key_name == null:
-		key_name = PlayerInventory.current_inventory[type][slot].keys()[0]
-		input = PlayerInventory.current_inventory[type][slot][key_name]
+	if item_name == null:
+		item_name = PlayerInventory.current_inventory[type][slot].keys()[0]
+		values = PlayerInventory.current_inventory[type][slot][item_name]
 		
 	if type != null:
 		current_info = ItemInfo.instantiate()
 		PlayerInterface.information_field.add_child(current_info)
-		current_info.get_node("Name").text = key_name
+		current_info.get_node("Name").text = item_name
 		var item_type = type
 		current_info.get_node("ItemType").text = item_type
-		current_info.get_node("ItemTier").text = input["Tier"]
-		current_info.get_node("ItemQuality").text = "Quality : " + str(input["Quality"])
-		current_info.get_node("ItemElement").text = input["Element"]
-		current_info.get_node("ItemExtra").text = input["Extra"]
-		current_info.get_node("ItemImage").texture = load("res://asset/" + type.to_lower() + "_icons/" + key_name.to_lower() + ".png")
-		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(type, key_name, input, slot))
+		current_info.get_node("ItemTier").text = values["Tier"]
+		current_info.get_node("ItemQuality").text = "Quality : " + str(values["Quality"])
+		current_info.get_node("ItemElement").text = values["Element"]
+		current_info.get_node("ItemExtra").text = values["Extra"]
+		current_info.get_node("ItemImage").texture = load("res://asset/" + type.to_lower() + "_icons/" + item_name.to_lower() + ".png")
+		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(type, image, item_name, values, slot))
 		current_info.get_node("EquipButton").text = "EQUIP " + type.to_upper()
-		for key in input.keys():
+		for key in values.keys():
 			if key not in PlayerStats.excluded:
 				var hbox = HBoxContainer.new()
 				current_info.get_node("Scroll/StatBar").add_child(hbox)
@@ -107,12 +107,12 @@ func display_info(type, key_name, input, slot = 0):
 				hbox.add_child(key_text)
 				
 				var key_value = Label.new()
-				key_value.text = str(input[key])
+				key_value.text = str(values[key])
 				
 				if compare_info.has(key) and (typeof(compare_info[key]) == TYPE_FLOAT or typeof(compare_info[key]) == TYPE_INT):
-					if input[key] > compare_info[key]:
+					if values[key] > compare_info[key]:
 						key_value.add_theme_color_override("font_color", Color(0, 1, 0))
-					elif input[key] < compare_info[key]:
+					elif values[key] < compare_info[key]:
 						key_value.add_theme_color_override("font_color", Color(1, 0, 0))
 					
 				key_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT

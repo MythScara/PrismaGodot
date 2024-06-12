@@ -1142,8 +1142,6 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("33_6yude")
-item_name = null
-slot = null
 type = "Ring"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]

@@ -92,7 +92,7 @@ func initial_setup():
 
 	# Load textures for species and specialist icons.
 	species_icon.texture = load("res://asset/emblems/" + PlayerStats.species.to_lower() + "_emblem.png")
-	specialist_icon.texture = load("res://asset/specialist_emblems/" + PlayerStats.specialist.to_lower() + "_emblem.png")
+	specialist_icon.texture = load("res://asset/specialist_icons/" + PlayerStats.specialist.to_lower() + "_emblem.png")
 	ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
 	ammo.text = str(PlayerStats.ranged_values["MAG"])
 	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")

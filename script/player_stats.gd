@@ -73,7 +73,7 @@ func set_specialist(specialist_name):
 		activate_passives()
 		activate_techniques()
 	
-	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_emblems/" + specialist_name.to_lower() + "_emblem.png")
+	PlayerInterface.specialist_icon.texture = load("res://asset/specialist_icons/" + specialist_name.to_lower() + "_emblem.png")
 	PlayerInterface.update_technique()
 
 func calculate_values(stat_value, stat_type):
