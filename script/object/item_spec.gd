@@ -13,7 +13,7 @@ func _ready():
 	PlayerStats.connect("pause_game", Callable(self, "check_value"))
 
 func _pressed():
-	PlayerInterface.set_display(type, image, item_name, values, slot)
+	PlayerInterface.set_display(type, image.texture, item_name, values, slot)
 
 func check_value():
 	current_equip = PlayerInventory.current_inventory[type][slot]

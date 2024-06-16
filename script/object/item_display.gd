@@ -29,6 +29,7 @@ func image_set(type, texture = null, slot = 0):
 			path = "res://asset/hud_icons/locked_icon.png"
 	else:
 		print("Missing Data!")
+		var path = "res://asset/hud_icons/locked_icon.png"
 
 func replace_field(type, text, values, texture, slot = 0):
 	var original = PlayerInventory.current_inventory[type][slot].keys()[0]
