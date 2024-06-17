@@ -1141,8 +1141,6 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("33_6yude")
-type = "Ring"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Rings/Ring1"]
 layout_mode = 0
@@ -1584,6 +1582,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Ranged Weapon"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/RangedWeapon"]
 layout_mode = 0

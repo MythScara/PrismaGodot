@@ -65,7 +65,7 @@ func display_field(type, image, item_name, values, slot = 0):
 		
 		if key == PlayerInventory.current_inventory[type][slot].keys()[0]:
 			_on_Button_pressed(option)
-			display_info(type, key, input[key], slot)
+			display_info(type, image, key, input[key], slot)
 
 func display_info(type, image, item_name, values, slot = 0):
 	var compare_tag
@@ -93,8 +93,16 @@ func display_info(type, image, item_name, values, slot = 0):
 		current_info.get_node("ItemTier").text = values["Tier"]
 		current_info.get_node("ItemQuality").text = "Quality : " + str(values["Quality"])
 		current_info.get_node("ItemElement").text = values["Element"]
-		current_info.get_node("ItemExtra").text = values["Extra"]
-		current_info.get_node("ItemImage").texture = load("res://asset/" + type.to_lower() + "_icons/" + item_name.to_lower() + ".png")
+		if "Extra" in values:
+			current_info.get_node("ItemExtra").text = values["Extra"]
+		else:
+			current_info.get_node("ItemExtra").text = ""
+		var path = "res://asset/" + type.to_lower() + "_icons/" + item_name.to_lower() + ".png"
+		if ResourceLoader.exists(path):
+			pass
+		else:
+			path = "res://asset/hud_icons/locked_icon.png"
+		current_info.get_node("ItemImage").texture = load(path)
 		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(type, image, item_name, values, slot))
 		current_info.get_node("EquipButton").text = "EQUIP " + type.to_upper()
 		for key in values.keys():
@@ -122,5 +130,6 @@ func display_info(type, image, item_name, values, slot = 0):
 				hbox.add_child(key_value)
 
 func update_values():
+	return
 	for type in PlayerInventory.equip_inventory.keys():
 		image_set(type)
