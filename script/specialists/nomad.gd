@@ -106,15 +106,15 @@ func specialist_unlock(level):
 		3:
 			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		4:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
+			PlayerInventory.add_to_inventory("Technique", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
 		5:
 			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		6:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
+			PlayerInventory.add_to_inventory("Technique", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
 		7:
 			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		8:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
+			PlayerInventory.add_to_inventory("Technique", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
 		9:
 			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 4000, "Tier": "Obsidian", "Quality": 100})
 		10:

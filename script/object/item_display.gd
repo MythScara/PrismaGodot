@@ -31,7 +31,7 @@ func image_set(type, texture = null, slot = 0):
 		print("Missing Data!")
 		var path = "res://asset/hud_icons/locked_icon.png"
 
-func replace_field(type, text, values, texture, slot = 0):
+func replace_field(type, image, text, values, slot = 0):
 	var original = PlayerInventory.current_inventory[type][slot].keys()[0]
 	var cur_values = PlayerInventory.current_inventory[type][slot][original]
 	
@@ -41,7 +41,7 @@ func replace_field(type, text, values, texture, slot = 0):
 			PlayerStats.element_stat_change(cur_values, "Sub")
 		
 		PlayerInventory.current_inventory[type][slot] = {text: values}
-		image_set(type, texture, slot)
+		image_set(type, image, slot)
 
 		PlayerStats.player_stat_change(values, "Add")
 		PlayerStats.element_stat_change(values, "Add")
