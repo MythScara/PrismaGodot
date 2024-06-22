@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://b20umuda1sx50" path="res://asset/hud_icons/stamina_icon.png" id="21_hb3yy"]
 [ext_resource type="Texture2D" uid="uid://bhdfmrmo6atst" path="res://asset/progress_bars/level_bar_full.png" id="22_3x4rg"]
 [ext_resource type="Texture2D" uid="uid://b042pygd31oh1" path="res://asset/hud_icons/technique_background.png" id="23_3puvr"]
-[ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/weapon_icons/light machine gun.png" id="23_fgvnr"]
-[ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/weapon_icons/long sword.png" id="23_rjvss"]
+[ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/ranged weapon/light machine gun.png" id="23_fgvnr"]
+[ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/melee weapon/long sword.png" id="23_rjvss"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="28_dsyi6"]
 [ext_resource type="Script" path="res://script/menu_interface.gd" id="28_sw8ie"]
 [ext_resource type="Script" path="res://script/object/item_display.gd" id="29_8qoo6"]
@@ -1608,6 +1608,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Melee Weapon"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/MeleeWeapon"]
 layout_mode = 0
@@ -1632,6 +1634,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Soul Stone"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/SoulStone"]
 layout_mode = 0
@@ -1656,6 +1660,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Summon"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Summon"]
 layout_mode = 0
@@ -1680,6 +1686,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Vehicle"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Weapons/Vehicle"]
 layout_mode = 0

@@ -93,9 +93,9 @@ func initial_setup():
 	# Load textures for species and specialist icons.
 	species_icon.texture = load("res://asset/emblems/" + PlayerStats.species.to_lower() + "_emblem.png")
 	specialist_icon.texture = load("res://asset/specialist_icons/" + PlayerStats.specialist.to_lower() + "_emblem.png")
-	ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
+	ranged_weapon.texture = load("res://asset/ranged weapon/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
 	ammo.text = str(PlayerStats.ranged_values["MAG"])
-	melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
+	melee_weapon.texture = load("res://asset/melee weapon/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
 	charge.text = str(PlayerStats.melee_values["STE"])
 	
 	# Ensure the UI is visible.
@@ -250,10 +250,10 @@ func update_values(stat):
 
 func update_weapons(type):
 	if type == "Ranged":
-		ranged_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
+		ranged_weapon.texture = load("res://asset/ranged weapon/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
 		ammo.text = str(PlayerStats.ranged_values["MAG"])
 	elif type == "Melee":
-		melee_weapon.texture = load("res://asset/weapon_icons/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
+		melee_weapon.texture = load("res://asset/melee weapon/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
 		charge.text = str(PlayerStats.melee_values["STE"])
 	else:
 		print("Invalid Type")
@@ -280,11 +280,11 @@ func update_technique(tech = null):
 	var technique = PlayerStats.techniques
 	
 	if technique[0] != null and tech == null or tech == 0:
-		skill_progress.texture_under = load("res://asset/technique_icons/" + technique[0][0].to_lower() + ".png")
-		skill_progress.texture_progress = load("res://asset/technique_icons/" + technique[0][0].to_lower() + ".png")
+		skill_progress.texture_under = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
+		skill_progress.texture_progress = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
 	if technique[1] != null and tech == null or tech == 1:
-		special_progress.texture_under = load("res://asset/technique_icons/" + technique[1][0].to_lower() + ".png")
-		special_progress.texture_progress = load("res://asset/technique_icons/" + technique[1][0].to_lower() + ".png")
+		special_progress.texture_under = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
+		special_progress.texture_progress = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
 	if technique[2] != null and tech == null or tech == 2:
-		super_progress.texture_under = load("res://asset/technique_icons/" + technique[2][0].to_lower() + ".png")
-		super_progress.texture_progress = load("res://asset/technique_icons/" + technique[2][0].to_lower() + ".png")
+		super_progress.texture_under = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")
+		super_progress.texture_progress = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")

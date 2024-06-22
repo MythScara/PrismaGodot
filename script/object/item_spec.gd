@@ -21,7 +21,7 @@ func check_value():
 	if current_equip != null:
 		item_name = current_equip.keys()[0]
 		values = current_equip[item_name]
-		var path = "res://asset/" + type.to_lower() + "_icons/" + item_name.to_lower() + ".png"
+		var path = "res://asset/" + type.to_lower() + "/" + item_name.to_lower() + ".png"
 		if ResourceLoader.exists(path):
 			pass
 		else:

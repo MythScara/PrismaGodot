@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rhx0brxv4mr7"]
 
 [ext_resource type="Script" path="res://script/object/item_info.gd" id="1_thh4v"]
-[ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/weapon_icons/assault rifle.png" id="2_frawn"]
+[ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/ranged weapon/assault rifle.png" id="2_y1wat"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_kwjjm"]
 
 [node name="ItemInfo" type="Control"]
@@ -115,7 +115,7 @@ offset_left = 8.0
 offset_top = 44.0
 offset_right = 138.0
 offset_bottom = 174.0
-texture = ExtResource("2_frawn")
+texture = ExtResource("2_y1wat")
 expand_mode = 1
 stretch_mode = 5
 
