@@ -22,7 +22,7 @@ var equip_inventory = {
 	"Battle Magic": {},
 	"Support Magic": {},
 	"Technique": {},
-	"Modification": {},
+	"Aspect": {},
 	"Specialist": {},
 	"Vehicle": {},
 	"Faction": {}
@@ -45,7 +45,7 @@ var current_inventory = {
 	"Battle Magic": [null, null, null, null],
 	"Support Magic": [null, null, null, null],
 	"Technique": [null, null, null],
-	"Modification": [null, null, null],
+	"Aspect": [null, null, null],
 	"Specialist": [null],
 	"Vehicle": [null],
 	"Faction": [null]

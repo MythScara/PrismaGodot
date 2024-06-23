@@ -1715,6 +1715,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Technique"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Skill"]
 layout_mode = 0
@@ -1739,6 +1741,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Technique"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Special"]
 layout_mode = 0
@@ -1763,6 +1768,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Technique"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/Super"]
 layout_mode = 0
@@ -1787,6 +1795,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Aspect"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/AttackAspect"]
 layout_mode = 0
@@ -1811,6 +1821,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Aspect"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/DefenseAspect"]
 layout_mode = 0
@@ -1835,6 +1848,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Aspect"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Techniques/SupportAspect"]
 layout_mode = 0
