@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brigsx5emk8yd"
-path="res://.godot/imported/belt armor.png-93530e4e6aa568e2bf91d7e7db741020.ctex"
+uid="uid://c1x21n0rtbojc"
+path="res://.godot/imported/body armor.png-add765961df47b7eeb99a8013633ef13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/armor/belt armor.png"
-dest_files=["res://.godot/imported/belt armor.png-93530e4e6aa568e2bf91d7e7db741020.ctex"]
+source_file="res://asset/body armor/body armor.png"
+dest_files=["res://.godot/imported/body armor.png-add765961df47b7eeb99a8013633ef13.ctex"]
 
 [params]
 

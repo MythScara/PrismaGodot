@@ -1384,6 +1384,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Chest Armor"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/ChestArmor"]
 layout_mode = 0
@@ -1408,6 +1410,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Pad Armor"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/PadArmor"]
 layout_mode = 0
@@ -1432,6 +1436,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Belt Armor"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BeltArmor"]
 layout_mode = 0
@@ -1456,6 +1462,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Body Armor"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/BodyArmor"]
 layout_mode = 0
@@ -1480,6 +1488,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Outfit"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Armor/Outfit"]
 layout_mode = 0
@@ -1507,6 +1517,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Artifact"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact1"]
 layout_mode = 0
@@ -1531,6 +1543,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Artifact"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact2"]
 layout_mode = 0
@@ -1555,6 +1570,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Artifact"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/Artifact/Artifact3"]
 layout_mode = 0
