@@ -1042,6 +1042,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Support Item"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemTop"]
 layout_mode = 0
@@ -1066,6 +1068,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Support Item"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemRight"]
 layout_mode = 0
@@ -1090,6 +1095,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Support Item"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemLeft"]
 layout_mode = 0
@@ -1114,6 +1122,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Support Item"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportItem/SupportItemBottom"]
 layout_mode = 0
