@@ -28,3 +28,6 @@ func check_value():
 			path = "res://asset/hud_icons/locked_icon.png"
 		
 		image.texture = load(path)
+	else:
+		var path = "res://asset/hud_icons/locked_icon.png"
+		image.texture = load(path)

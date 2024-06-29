@@ -728,10 +728,10 @@ layout_mode = 2
 [node name="ValueContainer" type="VBoxContainer" parent="MenuInterface/InventoryScreen/ExtraField/MainStats/SplitContainer"]
 layout_mode = 2
 
-[node name="OffensiveMagic" type="Control" parent="MenuInterface/InventoryScreen"]
+[node name="BattleMagic" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
 
-[node name="OffensiveMagicTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+[node name="BattleMagicTop" type="Button" parent="MenuInterface/InventoryScreen/BattleMagic"]
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 8.0
@@ -745,8 +745,10 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Battle Magic"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicTop"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleMagic/BattleMagicTop"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -755,7 +757,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveMagicRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+[node name="BattleMagicRight" type="Button" parent="MenuInterface/InventoryScreen/BattleMagic"]
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 44.0
@@ -769,8 +771,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Battle Magic"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicRight"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleMagic/BattleMagicRight"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -779,7 +784,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+[node name="BattleMagicLeft" type="Button" parent="MenuInterface/InventoryScreen/BattleMagic"]
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 44.0
@@ -793,8 +798,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Battle Magic"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicLeft"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleMagic/BattleMagicLeft"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -803,7 +811,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveMagic"]
+[node name="BattleMagicBottom" type="Button" parent="MenuInterface/InventoryScreen/BattleMagic"]
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 80.0
@@ -817,8 +825,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 3
+type = "Battle Magic"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveMagic/OffensiveMagicBottom"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleMagic/BattleMagicBottom"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -844,6 +855,8 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Support Magic"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicTop"]
 layout_mode = 0
@@ -868,6 +881,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Support Magic"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicRight"]
 layout_mode = 0
@@ -892,6 +908,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Support Magic"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicLeft"]
 layout_mode = 0
@@ -916,6 +935,9 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 3
+type = "Support Magic"
 
 [node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/SupportMagic/SupportMagicBottom"]
 layout_mode = 0
@@ -926,10 +948,10 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveItem" type="Control" parent="MenuInterface/InventoryScreen"]
+[node name="BattleItem" type="Control" parent="MenuInterface/InventoryScreen"]
 anchors_preset = 0
 
-[node name="OffensiveItemTop" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+[node name="BattleItemTop" type="Button" parent="MenuInterface/InventoryScreen/BattleItem"]
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 312.0
@@ -943,8 +965,10 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+type = "Battle Item"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemTop"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleItem/BattleItemTop"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -953,7 +977,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveItemRight" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+[node name="BattleItemRight" type="Button" parent="MenuInterface/InventoryScreen/BattleItem"]
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 348.0
@@ -967,8 +991,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 1
+type = "Battle Item"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemRight"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleItem/BattleItemRight"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -977,7 +1004,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveItemLeft" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+[node name="BattleItemLeft" type="Button" parent="MenuInterface/InventoryScreen/BattleItem"]
 layout_mode = 0
 offset_left = 1156.0
 offset_top = 348.0
@@ -991,8 +1018,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 2
+type = "Battle Item"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemLeft"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleItem/BattleItemLeft"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -1001,7 +1031,7 @@ offset_bottom = 64.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OffensiveItemBottom" type="Button" parent="MenuInterface/InventoryScreen/OffensiveItem"]
+[node name="BattleItemBottom" type="Button" parent="MenuInterface/InventoryScreen/BattleItem"]
 layout_mode = 0
 offset_left = 1228.0
 offset_top = 384.0
@@ -1015,8 +1045,11 @@ icon = ExtResource("31_lo64m")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("33_6yude")
+slot = 3
+type = "Battle Item"
 
-[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/OffensiveItem/OffensiveItemBottom"]
+[node name="Image" type="TextureRect" parent="MenuInterface/InventoryScreen/BattleItem/BattleItemBottom"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
