@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs3r34ws4gi7x"
-path="res://.godot/imported/ronin_emblem.png-0832df2bb86501f74b47e6c6d3b067f5.ctex"
+uid="uid://b8720yoc2u6nk"
+path="res://.godot/imported/warden_emblem.png-9c670c3053616c35f4911dc2d4eef6f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/ronin_emblem.png"
-dest_files=["res://.godot/imported/ronin_emblem.png-0832df2bb86501f74b47e6c6d3b067f5.ctex"]
+source_file="res://asset/specialist/warden_emblem.png"
+dest_files=["res://.godot/imported/warden_emblem.png-9c670c3053616c35f4911dc2d4eef6f1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fun4ynm1s7aw"
-path="res://.godot/imported/paladin_emblem.png-293d6d06472fa21d7e2caba6b6fbbe83.ctex"
+uid="uid://bkkuagstnvujc"
+path="res://.godot/imported/mercenary_emblem.png-3dbd788ff81d827fd2c77a60970e4488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/paladin_emblem.png"
-dest_files=["res://.godot/imported/paladin_emblem.png-293d6d06472fa21d7e2caba6b6fbbe83.ctex"]
+source_file="res://asset/specialist/mercenary_emblem.png"
+dest_files=["res://.godot/imported/mercenary_emblem.png-3dbd788ff81d827fd2c77a60970e4488.ctex"]
 
 [params]
 

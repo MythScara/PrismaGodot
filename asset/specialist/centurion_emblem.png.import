@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ts4r818m5x7"
-path="res://.godot/imported/monk_emblem.png-51d1a8c4444e29603d12ca4f555d04b1.ctex"
+uid="uid://bx88khludy5ws"
+path="res://.godot/imported/centurion_emblem.png-1872053b0472debc68187f01bd073935.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/monk_emblem.png"
-dest_files=["res://.godot/imported/monk_emblem.png-51d1a8c4444e29603d12ca4f555d04b1.ctex"]
+source_file="res://asset/specialist/centurion_emblem.png"
+dest_files=["res://.godot/imported/centurion_emblem.png-1872053b0472debc68187f01bd073935.ctex"]
 
 [params]
 

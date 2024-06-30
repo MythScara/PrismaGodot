@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67v258usvpin"
-path="res://.godot/imported/assassin_emblem.png-81dd80c4e2b2c5c7078de61d9a2a5a3f.ctex"
+uid="uid://crmpfvoxpiosi"
+path="res://.godot/imported/pirate_emblem.png-0e529a9cd096525403a83bc61b2226aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/assassin_emblem.png"
-dest_files=["res://.godot/imported/assassin_emblem.png-81dd80c4e2b2c5c7078de61d9a2a5a3f.ctex"]
+source_file="res://asset/specialist/pirate_emblem.png"
+dest_files=["res://.godot/imported/pirate_emblem.png-0e529a9cd096525403a83bc61b2226aa.ctex"]
 
 [params]
 

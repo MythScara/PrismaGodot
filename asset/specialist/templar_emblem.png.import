@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blxop3oea105b"
-path="res://.godot/imported/inquisitor_emblem.png-e26de0ad15b8e24d4f7f208d67b8ab50.ctex"
+uid="uid://di0if0m78a71l"
+path="res://.godot/imported/templar_emblem.png-00374a7f27e345be694b1b0597eacf60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/inquisitor_emblem.png"
-dest_files=["res://.godot/imported/inquisitor_emblem.png-e26de0ad15b8e24d4f7f208d67b8ab50.ctex"]
+source_file="res://asset/specialist/templar_emblem.png"
+dest_files=["res://.godot/imported/templar_emblem.png-00374a7f27e345be694b1b0597eacf60.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3s0byrjhvv5l"
-path="res://.godot/imported/ranger_emblem.png-4d68f42dbfc665c963783b376146416c.ctex"
+uid="uid://c67v258usvpin"
+path="res://.godot/imported/assassin_emblem.png-3cd93bf25e12165fe9f292e135395c43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/ranger_emblem.png"
-dest_files=["res://.godot/imported/ranger_emblem.png-4d68f42dbfc665c963783b376146416c.ctex"]
+source_file="res://asset/specialist/assassin_emblem.png"
+dest_files=["res://.godot/imported/assassin_emblem.png-3cd93bf25e12165fe9f292e135395c43.ctex"]
 
 [params]
 

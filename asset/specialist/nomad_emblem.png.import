@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5nb0xfo2q3uu"
-path="res://.godot/imported/sage_emblem.png-96fe96e72936b00be1a98c7484e5177b.ctex"
+uid="uid://djhfb8a3xqvyi"
+path="res://.godot/imported/nomad_emblem.png-4f1bf9a87f7416f9c95d03b68fed9b24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/sage_emblem.png"
-dest_files=["res://.godot/imported/sage_emblem.png-96fe96e72936b00be1a98c7484e5177b.ctex"]
+source_file="res://asset/specialist/nomad_emblem.png"
+dest_files=["res://.godot/imported/nomad_emblem.png-4f1bf9a87f7416f9c95d03b68fed9b24.ctex"]
 
 [params]
 

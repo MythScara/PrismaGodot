@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crmpfvoxpiosi"
-path="res://.godot/imported/pirate_emblem.png-aaf91a37f902ac687ed6307229766afd.ctex"
+uid="uid://fun4ynm1s7aw"
+path="res://.godot/imported/paladin_emblem.png-b610813dc4913ee7b857fe61b9a12a7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/pirate_emblem.png"
-dest_files=["res://.godot/imported/pirate_emblem.png-aaf91a37f902ac687ed6307229766afd.ctex"]
+source_file="res://asset/specialist/paladin_emblem.png"
+dest_files=["res://.godot/imported/paladin_emblem.png-b610813dc4913ee7b857fe61b9a12a7c.ctex"]
 
 [params]
 

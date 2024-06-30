@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnr6dgycmni12"
-path="res://.godot/imported/valkyrie_emblem.png-f10903d889325371abf48ab01c443edc.ctex"
+uid="uid://b0hhu0v6vgfl1"
+path="res://.godot/imported/druid_emblem.png-cccb7defb0b4ad54f8a4414809358af4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/valkyrie_emblem.png"
-dest_files=["res://.godot/imported/valkyrie_emblem.png-f10903d889325371abf48ab01c443edc.ctex"]
+source_file="res://asset/specialist/druid_emblem.png"
+dest_files=["res://.godot/imported/druid_emblem.png-cccb7defb0b4ad54f8a4414809358af4.ctex"]
 
 [params]
 

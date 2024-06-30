@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmxl6bipcln0m"
-path="res://.godot/imported/ninja_emblem.png-58ca8552858964adf4e07f8360417224.ctex"
+uid="uid://blxop3oea105b"
+path="res://.godot/imported/inquisitor_emblem.png-8bfcb93cfaa8a9305d61867fa26453af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/ninja_emblem.png"
-dest_files=["res://.godot/imported/ninja_emblem.png-58ca8552858964adf4e07f8360417224.ctex"]
+source_file="res://asset/specialist/inquisitor_emblem.png"
+dest_files=["res://.godot/imported/inquisitor_emblem.png-8bfcb93cfaa8a9305d61867fa26453af.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di0if0m78a71l"
-path="res://.godot/imported/templar_emblem.png-392a23929535e0bbf9ca1dfad6648839.ctex"
+uid="uid://bateulv5f5873"
+path="res://.godot/imported/scout_emblem.png-9720955d50f907ceafb34fb0b9e4f901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/templar_emblem.png"
-dest_files=["res://.godot/imported/templar_emblem.png-392a23929535e0bbf9ca1dfad6648839.ctex"]
+source_file="res://asset/specialist/scout_emblem.png"
+dest_files=["res://.godot/imported/scout_emblem.png-9720955d50f907ceafb34fb0b9e4f901.ctex"]
 
 [params]
 

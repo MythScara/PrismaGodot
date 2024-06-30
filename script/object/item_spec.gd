@@ -17,7 +17,6 @@ func _pressed():
 
 func check_value():
 	current_equip = PlayerInventory.current_inventory[type][slot]
-	print(current_equip)
 	if current_equip != null:
 		item_name = current_equip.keys()[0]
 		values = current_equip[item_name]

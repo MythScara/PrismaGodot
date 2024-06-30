@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6hfn7xo12j1f"
-path="res://.godot/imported/spartan_emblem.png-7da5099e9c5f01f2f949f1410c7d4a6e.ctex"
+uid="uid://dnygwesl3i0yj"
+path="res://.godot/imported/hunter_emblem.png-613d23dc055f7ce903c85466dbc72465.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/specialist_icons/spartan_emblem.png"
-dest_files=["res://.godot/imported/spartan_emblem.png-7da5099e9c5f01f2f949f1410c7d4a6e.ctex"]
+source_file="res://asset/specialist/hunter_emblem.png"
+dest_files=["res://.godot/imported/hunter_emblem.png-613d23dc055f7ce903c85466dbc72465.ctex"]
 
 [params]
 
