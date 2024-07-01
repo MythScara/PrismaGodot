@@ -90,9 +90,18 @@ func display_info(type, image, item_name, values, slot = 0):
 		current_info.get_node("Name").text = item_name
 		var item_type = type
 		current_info.get_node("ItemType").text = item_type
-		current_info.get_node("ItemTier").text = values["Tier"]
-		current_info.get_node("ItemQuality").text = "Quality : " + str(values["Quality"])
-		current_info.get_node("ItemElement").text = values["Element"]
+		if "Tier" in values:
+			current_info.get_node("ItemTier").text = values["Tier"]
+		else:
+			current_info.get_node("ItemTier").text = ""
+		if "Quality" in values:
+			current_info.get_node("ItemQuality").text = "Quality : " + str(values["Quality"])
+		else:
+			current_info.get_node("ItemQuality").text = ""
+		if "Element" in values:
+			current_info.get_node("ItemElement").text = values["Element"]
+		else:
+			current_info.get_node("ItemElement").text = ""
 		if "Extra" in values:
 			current_info.get_node("ItemExtra").text = values["Extra"]
 		else:
