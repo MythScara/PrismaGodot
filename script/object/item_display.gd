@@ -115,7 +115,9 @@ func display_info(type, image, item_name, values, slot = 0):
 		current_info.get_node("EquipButton").connect("pressed", Callable(self, "replace_field").bind(type, image, item_name, values, slot))
 		current_info.get_node("EquipButton").text = "EQUIP " + type.to_upper()
 		for key in values.keys():
-			if key not in PlayerStats.excluded:
+			if key not in PlayerStats.excluded and (typeof(values[key]) == TYPE_FLOAT or typeof(values[key]) == TYPE_INT):
+				print(values[key])
+				print(typeof(values[key]))
 				var hbox = HBoxContainer.new()
 				current_info.get_node("Scroll/StatBar").add_child(hbox)
 				var key_text = Label.new()
