@@ -24,7 +24,11 @@ func check_value():
 		if ResourceLoader.exists(path):
 			pass
 		else:
-			path = "res://asset/hud_icons/locked_icon.png"
+			path = "res://asset/" + type.to_lower() + "/" + type.to_lower() + ".png"
+			if ResourceLoader.exists(path):
+				pass
+			else:
+				path = "res://asset/hud_icons/locked_icon.png"
 		
 		image.texture = load(path)
 	else:
