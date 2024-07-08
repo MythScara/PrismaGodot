@@ -90,6 +90,11 @@ func display_info(type, image, item_name, values, slot = 0):
 			current_info.get_node("ItemExtra").text = values["Extra"]
 		else:
 			current_info.get_node("ItemExtra").text = ""
+		if "Description" in values:
+			current_info.get_node("Scroll/StatBar/ItemDescription").visible = true
+			current_info.get_node("Scroll/StatBar/ItemDescription").text = values["Description"]
+		else:
+			current_info.get_node("Scroll/StatBar/ItemDescription").visible = false
 		var path = "res://asset/" + type.to_lower() + "/" + item_name.to_lower() + ".png"
 		if ResourceLoader.exists(path):
 			pass

@@ -6,8 +6,9 @@ extends Control
 @onready var type_image = $ItemImage
 @onready var element_label = $ItemElement
 @onready var quality_label = $ItemQuality
-@onready var firing_label = $ItemExtra
+@onready var extra_label = $ItemExtra
 @onready var equip = $EquipButton
+@onready var description = $Scroll/StatBar/ItemDescription
 
 func _ready():
 	name_label.text = ""
@@ -16,4 +17,6 @@ func _ready():
 	type_image.texture = null
 	element_label.text = ""
 	quality_label.text = ""
-	firing_label.text = ""
+	extra_label.text = ""
+	description.text = ""
+
