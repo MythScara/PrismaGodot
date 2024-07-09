@@ -54,6 +54,7 @@ func display_field(type, image, item_name, values, slot = 0):
 func display_info(type, image, item_name, values, slot = 0):
 	var compare_tag
 	var compare_info
+	var path
 	
 	if current_info != null:
 		current_info.queue_free()
@@ -95,7 +96,7 @@ func display_info(type, image, item_name, values, slot = 0):
 			current_info.get_node("Scroll/StatBar/ItemDescription").text = values["Description"]
 		else:
 			current_info.get_node("Scroll/StatBar/ItemDescription").visible = false
-		var path = "res://asset/" + type.to_lower() + "/" + item_name.to_lower() + ".png"
+		path = "res://asset/" + type.to_lower() + "/" + item_name.to_lower() + ".png"
 		if ResourceLoader.exists(path):
 			pass
 		else:

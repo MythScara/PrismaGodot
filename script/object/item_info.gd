@@ -19,4 +19,3 @@ func _ready():
 	quality_label.text = ""
 	extra_label.text = ""
 	description.text = ""
-
