@@ -47,6 +47,7 @@ signal stat_update(stat)
 signal exp_update(value)
 signal spec_update(s_name)
 signal pause_game
+signal value_change(type, slot)
 
 var attacking = false
 var cooldown_time = 0.0

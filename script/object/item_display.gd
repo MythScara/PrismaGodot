@@ -30,6 +30,8 @@ func replace_field(type, image, text, values, slot = 0):
 		PlayerStats.player_stat_change(values, "Add")
 		PlayerStats.element_stat_change(values, "Add")
 		
+		PlayerStats.emit_signal("value_change", type, slot)
+		
 		PlayerInterface.clear_selection()
 	else:
 		print("This Item is Already Equipped")
@@ -47,9 +49,10 @@ func display_field(type, image, item_name, values, slot = 0):
 		option.pressed.connect(_on_Button_pressed.bind(option))
 		PlayerInterface.selection_field.add_child(option)
 		
-		if key == PlayerInventory.current_inventory[type][slot].keys()[0]:
-			_on_Button_pressed(option)
-			display_info(type, image, key, input[key], slot)
+		if PlayerInventory.current_inventory[type][slot] != null:
+			if key == PlayerInventory.current_inventory[type][slot].keys()[0]:
+				_on_Button_pressed(option)
+				display_info(type, image, key, input[key], slot)
 
 func display_info(type, image, item_name, values, slot = 0):
 	var compare_tag
