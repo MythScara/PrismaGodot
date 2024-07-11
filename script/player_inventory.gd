@@ -120,6 +120,10 @@ func equip_to_inventory(category: String, item_name: String, item_values: Dictio
 func unequip_from_inventory(category: String, slot = null) -> void:
 	if current_inventory.has(category):
 		if slot != null:
+			var cur_check = current_inventory[category][slot].keys()[0]
+			var cur_values = current_inventory[category][slot][cur_check]
+			PlayerStats.player_stat_change(cur_values, "Sub")
+			PlayerStats.element_stat_change(cur_values, "Sub")
 			current_inventory[category].remove(slot)
 		else:
 			current_inventory[category].remove(0)

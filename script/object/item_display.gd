@@ -76,8 +76,7 @@ func display_info(type, image, item_name, values, slot = 0):
 		current_info = ItemInfo.instantiate()
 		PlayerInterface.information_field.add_child(current_info)
 		current_info.get_node("Name").text = item_name
-		var item_type = type
-		current_info.get_node("ItemType").text = item_type
+		current_info.get_node("ItemType").text = type
 		if "Tier" in values:
 			current_info.get_node("ItemTier").text = values["Tier"]
 		else:

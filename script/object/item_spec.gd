@@ -18,7 +18,7 @@ func _pressed():
 
 func check_value(type_in, slot_in):
 	if type_in == type and slot_in == slot:
-		print("Value Changed: " + type_in + " " + str(slot_in))
+		#print("Value Changed: " + type_in + " " + str(slot_in))
 		current_equip = PlayerInventory.current_inventory[type][slot]
 		if current_equip != null:
 			item_name = current_equip.keys()[0]
