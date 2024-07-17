@@ -43,15 +43,17 @@ var specialist_rewards = {
 	"Level 10": "Specialist Heart Artifact"
 }
 
+#Copy over for Ranged Weapon
 var weapon_stats_r = {
 	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+	"Type": "", "Tier": "Diamond", "Element": "None", "Quality": 0, "Max Value": 100}
 
+#Copy over for Melee Weapon
 var weapon_stats_m = {
 	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
 	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "Spear", "Tier": "Diamond", "Element": null, "Quality": null, "Max Value": 100}
+	"Type": "", "Tier": "Diamond", "Element": "None", "Quality": 0, "Max Value": 100}
 
 func initialize():
 	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))

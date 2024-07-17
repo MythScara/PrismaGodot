@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xw6c67gi5p3a"
-path="res://.godot/imported/nomad special.png-65f8070ccde84931e93e53863f34beff.ctex"
+uid="uid://c6e8u88mvlhkp"
+path="res://.godot/imported/03.png-52806cb4cab54e76bc9ce1646b1b8c7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/technique/nomad special.png"
-dest_files=["res://.godot/imported/nomad special.png-65f8070ccde84931e93e53863f34beff.ctex"]
+source_file="res://asset/technique/03.png"
+dest_files=["res://.godot/imported/03.png-52806cb4cab54e76bc9ce1646b1b8c7b.ctex"]
 
 [params]
 

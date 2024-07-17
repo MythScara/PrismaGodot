@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgw3p7esfblfu"
-path="res://.godot/imported/nomad skill.png-f8163017f5751a9f6179b279baf3d02e.ctex"
+path="res://.godot/imported/01.png-cabae0348efe332fca5292486a2767cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/technique/nomad skill.png"
-dest_files=["res://.godot/imported/nomad skill.png-f8163017f5751a9f6179b279baf3d02e.ctex"]
+source_file="res://asset/technique/01.png"
+dest_files=["res://.godot/imported/01.png-cabae0348efe332fca5292486a2767cb.ctex"]
 
 [params]
 
