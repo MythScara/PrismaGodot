@@ -278,6 +278,7 @@ func set_display(type, image, item_name, values, slot = 0):
 
 func update_technique(tech = null):
 	var technique = PlayerStats.techniques
+	return
 	
 	if technique[0] != null and tech == null or tech == 0:
 		skill_progress.texture_under = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
