@@ -39,14 +39,14 @@ var element_info = {
 	"Strength": "[color='#00FF00']Nature[/color]",
 	"Weakness": "[color='#00FFFF']Frost[/color]",
 	"Reactions": {
-		"[color='#FF0000']Burn[/color]" : "Deal [b]1% [/b]of user [b]ATK[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#00FF00']Scorch[/color]": "Deplete [b]2% [/b]of target [b]Overshield[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#FFFF00']Blaze[/color]": "Target cannot receive any type of [b]Healing[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#AD00FF']Combust[/color]": "Prevent [b]Shield Recovery[/b] for [b]10/15/20/25/30[/b] seconds",
-		"[color='#0000FF']Spark[/color]" : "Target cannot receive any type of [b]Buff[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#00FFFF']Exhaust[/color]": "Prevent [b]Stamina Recovery[/b] for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#FF9600']Melt[/color]" : "Reduce target [b]DEF[/b] by [b]20% [/b]for [b]20/25/30/35/40 [/b]seconds",
-		"[color='#C8C8C8']Overheat[/color]": "Deal [b]2%[/b] of [b]SLR[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']BURN[/color]" : "Take [b]2000 Elemental Damage[/b] of type [b]Solar[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#00FF00']ECLIPSE[/color]": "Target cannot [b]Summon[/b] or activate [b]Summon[/b] ability for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FFFF00']SCORCH[/color]": "Target takes [b]10%[/b] more [b]Physical Damage[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']SIPHON[/color]": "Target cannot receive or cast any [b]Healing[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#0000FF']BLAZE[/color]" : "Target takes [b]10%[/b] more [b]Magic Damage[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#00FFFF']VAPORIZE[/color]": "Target cannot receive or cast any [b]Buff[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FF9600']MELT[/color]" : "Reduces targets [b]SLR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']COMBUST[/color]": "Reduces targets [b]ATK[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"NTR": {
@@ -54,14 +54,14 @@ var element_info = {
 	"Strength": "[color='#FFFF00']Spirit[/color]",
 	"Weakness": "[color='#FF0000']Solar[/color]",
 	"Reactions": {
-		"[color='#FF0000']Scorch[/color]" : "Deplete [b]2% [/b]of target [b]Overshield[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#00FF00']Knock[/color]": "Cancel any [b]Buff[/b] currently on target and others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#FFFF00']Siphon[/color]": "User regains [b]2%[/b] of all damage dealt to target as [b]HP[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#AD00FF']Poison[/color]": "Deal [b]1% [/b]of user [b]MGA[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9 [/b]seconds",
-		"[color='#0000FF']Thunder[/color]" : "Cancel any [b]Healing[/b] currently on target and others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#00FFFF']Chill[/color]": "Increase target’s [b]Stamina[/b] usage by [b]20% [/b]for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FF9600']Corrode[/color]" : "Increase [b]Magic Damage[/b] taken by target by [b]15% [/b]for [b]30/35/40/45/50 [/b]seconds",
-		"[color='#C8C8C8']Overgrow[/color]": "Deal [b]2%[/b] of [b]NTR[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']ECLIPSE[/color]" : "Target cannot [b]Summon[/b] or activate [b]Summon[/b] ability for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']THORN[/color]": "Take [b]2000 Elemental Damage[/b] of type [b]Nature[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#FFFF00']KNOCK[/color]": "Prevents [b]Equipment[/b] and [b]Technique[/b] use for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']PETRIFY[/color]": "Target cannot [b]CAST[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#0000FF']SILENCE[/color]" : "Targets [b]Hearing[/b] is [b]Impaired[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#00FFFF']NUMB[/color]": "Target cannot [b]ATTACK[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FF9600']CORRODE[/color]" : "Reduces targets [b]NTR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']THUNDER[/color]": "Reduces targets [b]DEF[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"SPR": {
@@ -69,14 +69,14 @@ var element_info = {
 	"Strength": "[color='#AD00FF']Void[/color]",
 	"Weakness": "[color='#00FF00']Nature[/color]",
 	"Reactions": {
-		"[color='#FF0000']Blaze[/color]" : "Target cannot receive any type of [b]Healing[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FF00']Siphon[/color]": "User regains [b]2%[/b] of all damage dealt to target as [b]HP[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#FFFF00']Blind[/color]": "Block target vision for [b]5/6/7/8/9[/b] seconds",
-		"[color='#AD00FF']Curse[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
-		"[color='#0000FF']Radiate[/color]" : "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
-		"[color='#00FFFF']Suppress[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
-		"[color='#FF9600']Reflect[/color]" : "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#C8C8C8']Overload[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']Scorch[/color]" : "Target cannot receive any type of [b]Healing[/b] for [b]10/12/14/16/18[/b] seconds",
+		"[color='#00FF00']Knock[/color]": "User regains [b]2%[/b] of all damage dealt to target as [b]HP[/b] for [b]10/12/14/16/18 [/b]seconds",
+		"[color='#FFFF00']Radiate[/color]": "Block target vision for [b]5/6/7/8/9[/b] seconds",
+		"[color='#AD00FF']Stun[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
+		"[color='#0000FF']Spark[/color]" : "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
+		"[color='#00FFFF']Exhaust[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
+		"[color='#FF9600']Suppress[/color]" : "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
+		"[color='#C8C8C8']Intimidate[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 	"VOD": {
@@ -84,14 +84,14 @@ var element_info = {
 	"Strength": "[color='#0000FF']Arc[/color]",
 	"Weakness": "[color='#FFFF00']Spirit[/color]",
 	"Reactions": {
-		"[color='#FF0000']Combust[/color]" : "Prevent [b]Shield Recovery[/b] for [b]10/15/20/25/30[/b] seconds",
-		"[color='#00FF00']Poison[/color]": "Deal [b]1% [/b]of user [b]MGA[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9 [/b]seconds",
-		"[color='#FFFF00']Curse[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
+		"[color='#FF0000']Siphon[/color]" : "Prevent [b]Shield Recovery[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']Petrify[/color]": "Deal [b]1% [/b]of user [b]MGA[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9 [/b]seconds",
+		"[color='#FFFF00']Stun[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
 		"[color='#AD00FF']Blight[/color]": "Next single target [b]Magic[/b] cast on target is spread to others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#0000FF']Null[/color]" : "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#00FFFF']Petrify[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
+		"[color='#0000FF']Blind[/color]" : "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
+		"[color='#00FFFF']Freeze[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
 		"[color='#FF9600']Decay[/color]" : "Deplete [b]2% [/b]of target [b]Magic Power[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#C8C8C8']Overweigh[/color]": "Deal [b]2%[/b] of [b]VOD[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#C8C8C8']Curse[/color]": "Deal [b]2%[/b] of [b]VOD[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 	"ARC": {
@@ -99,14 +99,14 @@ var element_info = {
 	"Strength": "[color='#00FFFF']Frost[/color]",
 	"Weakness": "[color='#AD00FF']Void[/color]",
 	"Reactions": {
-		"[color='#FF0000']Spark[/color]" : "Target cannot receive any type of [b]Buff[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#00FF00']Thunder[/color]": "Cancel any [b]Healing[/b] currently on target and others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#FFFF00']Radiate[/color]": "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
-		"[color='#AD00FF']Null[/color]": "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#0000FF']Paralyze[/color]" : "Prevent target from moving or swapping weapons for [b]2/3/4/5/6[/b] seconds",
-		"[color='#00FFFF']Ionize[/color]": "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#FF9600']Silence[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#C8C8C8']Overcharge[/color]": "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']Blaze[/color]" : "Target cannot receive any type of [b]Buff[/b] for [b]10/12/14/16/18 [/b]seconds",
+		"[color='#00FF00']Silence[/color]": "Cancel any [b]Healing[/b] currently on target and others within [b]2/3/4/5/6 [/b]meters",
+		"[color='#FFFF00']Spark[/color]": "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
+		"[color='#AD00FF']Blind[/color]": "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
+		"[color='#0000FF']Shock[/color]" : "Prevent target from moving or swapping weapons for [b]2/3/4/5/6[/b] seconds",
+		"[color='#00FFFF']Daze[/color]": "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
+		"[color='#FF9600']Discharge[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
+		"[color='#C8C8C8']Paralyze[/color]": "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 	"FST": {
@@ -114,14 +114,14 @@ var element_info = {
 	"Strength": "[color='#FF0000']Solar[/color]",
 	"Weakness": "[color='#0000FF']Arc[/color]",
 	"Reactions": {
-		"[color='#FF0000']Exhaust[/color]" : "Prevent [b]Stamina Recovery[/b] for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#00FF00']Chill[/color]": "Increase target’s [b]Stamina[/b] usage by [b]20% [/b]for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FFFF00']Suppress[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
-		"[color='#AD00FF']Petrify[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
-		"[color='#0000FF']Ionize[/color]" : "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#00FFFF']Freeze[/color]": "Reduce target [b]AG[/b] by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
-		"[color='#FF9600']Shatter[/color]" : "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
-		"[color='#C8C8C8']Overflow[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']Vaporize[/color]" : "Prevent [b]Stamina Recovery[/b] for [b]10/15/20/25/30 [/b]seconds",
+		"[color='#00FF00']Numb[/color]": "Increase target’s [b]Stamina[/b] usage by [b]20% [/b]for [b]10/12/14/16/18[/b] seconds",
+		"[color='#FFFF00']Exhaust[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
+		"[color='#AD00FF']Freeze[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
+		"[color='#0000FF']Daze[/color]" : "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
+		"[color='#00FFFF']Chill[/color]": "Reduce target [b]AG[/b] by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
+		"[color='#FF9600']Rust[/color]" : "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
+		"[color='#C8C8C8']Shatter[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 	"MTL": {
@@ -131,12 +131,12 @@ var element_info = {
 	"Reactions": {
 		"[color='#FF0000']Melt[/color]" : "Reduce target [b]DEF[/b] by [b]20% [/b]for [b]20/25/30/35/40 [/b]seconds",
 		"[color='#00FF00']Corrode[/color]": "Increase [b]Magic Damage[/b] taken by target by [b]15% [/b]for [b]30/35/40/45/50 [/b]seconds",
-		"[color='#FFFF00']Reflect[/color]": "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
+		"[color='#FFFF00']Suppress[/color]": "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
 		"[color='#AD00FF']Decay[/color]": "Deplete [b]2% [/b]of target [b]Magic Power[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#0000FF']Silence[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FFFF']Shatter[/color]": "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
+		"[color='#0000FF']Discharge[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
+		"[color='#00FFFF']Rust[/color]": "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
 		"[color='#FF9600']Bleed[/color]" : "Increase [b]Physical Damage[/b] taken by target by [b]15%[/b] for [b]30/35/40/45/50 [/b]seconds",
-		"[color='#C8C8C8']Overpower[/color]": "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#C8C8C8']Disable[/color]": "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 	"DVN": {
@@ -144,14 +144,14 @@ var element_info = {
 	"Strength": "[color='#FF9600']Metal[/color]",
 	"Weakness": "[color='#FF9600']Metal[/color]",
 	"Reactions": {
-		"[color='#FF0000']Overheat[/color]" : "Deal [b]2%[/b] of [b]SLR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FF00']Overgrow[/color]": "Deal [b]2%[/b] of [b]NTR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FFFF00']Overload[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#AD00FF']Overweigh[/color]": "Deal [b]2%[/b] of [b]VOD[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#0000FF']Overcharge[/color]" : "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FFFF']Overflow[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FF9600']Overpower[/color]" : "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#C8C8C8']Overwhelm[/color]": "Deal [b]2%[/b] of [b]DVN[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']Combust[/color]" : "Deal [b]2%[/b] of [b]SLR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#00FF00']Thunder[/color]": "Deal [b]2%[/b] of [b]NTR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#FFFF00']Intimidate[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#AD00FF']Curse[/color]": "Deal [b]2%[/b] of [b]VOD[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#0000FF']Paralyze[/color]" : "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#00FFFF']Shatter[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#FF9600']Disable[/color]" : "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
+		"[color='#C8C8C8']Purify[/color]": "Deal [b]2%[/b] of [b]DVN[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
 		}
 	},
 }
