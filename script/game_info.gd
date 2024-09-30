@@ -3,62 +3,62 @@ extends Node
 var species_info = {
 	"Human": {
 	"Description": "Humans are an immigrant race forced to evacuate their home planet Earth after it was destroyed by famine, pollution, and war. They sought refuge on Prismadiane and soon became the planets most abundant work force. Humans are dedicated and hardworking, they control most of the markets on Prismadiane giving them access to the planets best gear at exceptional prices.",
-	"Bonus1": {"General Discount": "Prisma cost for [b]General Vendor[/b] purchases is decreased by [b]10%[/b]"},
-	"Bonus2": {"Summon Cooldown": "[b]Summons[/b] cooldown reduced by [b]20%[/b]"},
-	"Bonus3": {"Lucky Caches": "Prisma gained from [b]Loot Caches[/b] increased by [b]5%[/b]"},
+	"Bonus1": {"General Discount": "Prisma cost for [b]GENERAL VENDOR[/b] purchases are decreased by [b]10%[/b]"},
+	"Bonus2": {"Summon Cooldown": "[b]SUMMON[/b] cooldown reduced by [b]20%[/b]"},
+	"Bonus3": {"Lucky Caches": "Prisma gained from [b]LOOT CACHE[/b] increased by [b]5%[/b]"},
 	"Stats": [20000, 48000, 9600, 8000, 2800, 6000, 4000, 2800, 4000, 4000, 2800, 6000]},
 	"Meka": {
 	"Description": "The Meka are cybernetic machines created by the Celestials who once ruled over planet Prismadiane. Their sole purpose was to aid the Celestials in battle but after being abandoned by their creators, they began to advance the weaponry in preparation for their masters’ return. The Meka are highly intelligent and are skilled craftsmen, with incredible efficiency they waste no time in the workshop or on the battlefield.",
-	"Bonus1": {"Repair Discount": "[b]Repair[/b] cost decreased by [b]20%[/b]"},
-	"Bonus2": {"Forge Success": "[b]Forge[/b] success rate increased by [b]5%[/b] and cost decreased by [b]10%[/b]"},
-	"Bonus3": {"Transport Discount": "[b]Transport[/b] cost decreased by [b]50%[/b]"},
+	"Bonus1": {"Repair Discount": "[b]REPAIR[/b] cost decreased by [b]20%[/b]"},
+	"Bonus2": {"Forge Success": "[b]FORGE[/b] success rate increased by [b]5%[/b] and cost decreased by [b]10%[/b]"},
+	"Bonus3": {"Transport Discount": "[b]TRANSPORT[/b] cost decreased by [b]50%[/b]"},
 	"Stats": [40000, 20000, 14400, 5600, 4000, 7200, 2800, 6000, 4800, 1200, 1200, 4800]},
 	"Daemon": {
 	"Description": "When the Demons of the underworld rose up and cast darkness upon the planet, they began to possess and absorb the civilians. As time passed, generation after generation began to develop resistance against the Demons; eventually these civilians mutated into the Demon hybrid known as Daemons. Daemons are persistent and resilient, never allowing themselves to be broken down. Their strengthened immune systems allow them to run headfirst into battle with overwhelming confidence.",
-	"Bonus1": {"Corpse Siphon": "[b]Magic Power[/b] gained from defeated enemies increased by [b]10%[/b]"},
-	"Bonus2": {"Magic Library": "[b]Magic Scrolls[/b] offer [b]1[/b] additional choice"},
-	"Bonus3": {"Magical Summon": "[b]Summons[/b] gain [b]20% MGA[/b] and [b]10% MGD[/b] while on the field"},
+	"Bonus1": {"Corpse Siphon": "[b]MAGIC POWER[/b] gained from defeated enemies increased by [b]10%[/b]"},
+	"Bonus2": {"Magic Library": "[b]MAGIC SCROLL[/b] offers [b]1[/b] additional choice"},
+	"Bonus3": {"Magical Summon": "[b]SUMMON[/b] gains [b]20% MGA[/b] and [b]10% MGD[/b] while on the field"},
 	"Stats": [28000, 72000, 2400, 9600, 7200, 4000, 6000, 2800, 2000, 1200, 4800, 4000]},
 	"Sylph": {
 	"Description": "Sylphs are distant descendants of the Celestials, and the true natives of Prismadiane. Natural power rushes through their veins and the purest magic flows in their blood. The Sylphs are known for their close bond to the planet and their flawless control over their summons. Although their power is far weaker than their ancestors’, once awakened the Sylphs can effortlessly vanquish foes with extraordinary prowess.",
-	"Bonus1": {"Summon Discount": "[b]Summons[/b] require [b]50%[/b] less [b]Summon Tokens[/b]"},
-	"Bonus2": {"Healthy Summon": "[b]Summons[/b] gain [b]20% HP[/b] and [b]10% MP[/b] while on the field"},
-	"Bonus3": {"Planet Siphon": "[b]Magic Power[/b] gained from planetary resources increased by [b]10%[/b]"},
+	"Bonus1": {"Summon Discount": "[b]SUMMON[/b] requires [b]50%[/b] less [b]SUMMON TOKENS[/b]"},
+	"Bonus2": {"Healthy Summon": "[b]SUMMON[/b] gains [b]20% HP[/b] and [b]10% MP[/b] while on the field"},
+	"Bonus3": {"Planet Siphon": "[b]MAGIC POWER[/b] gained from planetary resources increased by [b]10%[/b]"},
 	"Stats": [60000, 40000, 1200, 2800, 1200, 2000, 4800, 6000, 6000, 7200, 4000, 2800]},
 	"Kaiju": {
 	"Description": "The Kaiju are primal creatures who have evolved to the degree where they can no longer be considered simply animals. With heightened senses, Kaiju rely heavily on their instincts and are extremely prideful. The Kaiju are the planet’s most resourceful scavengers with an unmatched knowledge of their surroundings.",
-	"Bonus1": {"Higher Bounties": "Prisma reward from [b]Bounties[/b] increased by [b]20%[/b]"},
+	"Bonus1": {"Higher Bounties": "Prisma reward from [b]BOUNTY[/b] increased by [b]20%[/b]"},
 	"Bonus2": {"Lucky Corpses": "Prisma reward from defeating enemies increased by [b]5%[/b]"},
-	"Bonus3": {"Powerful Summon": "[b]Summons[/b] gain [b]20% ATK[/b] and [b]20% DEF[/b] while on the field"},
+	"Bonus3": {"Powerful Summon": "[b]SUMMON[/b] gains [b]20% ATK[/b] and [b]20% DEF[/b] while on the field"},
 	"Stats": [48000, 20000, 8000, 12000, 4800, 1200, 1200, 4000, 2800, 7200, 7200, 2800]}
 }
 
 var element_info = {
 	"SLR": {
-	"Description": "Resistance value against [color='#FF0000']Solar[/color] Attacks, Pressure value using [color='#FF0000']Solar[/color] Attacks",
-	"Strength": "[color='#00FF00']Nature[/color]",
-	"Weakness": "[color='#00FFFF']Frost[/color]",
+	"Description": "Resistance value against [color='#FF0000']SOLAR[/color] Attacks, Pressure value using [color='#FF0000']SOLAR[/color] Attacks",
+	"Strength": "[color='#00FF00']NATURE[/color]",
+	"Weakness": "[color='#00FFFF']FROST[/color]",
 	"Reactions": {
-		"[color='#FF0000']BURN[/color]" : "Take [b]2000 Elemental Damage[/b] of type [b]Solar[/b] per second for [b]2/4/6/8/10[/b] seconds",
-		"[color='#00FF00']ECLIPSE[/color]": "Target cannot [b]Summon[/b] or activate [b]Summon[/b] ability for [b]10/15/20/25/30[/b] seconds",
-		"[color='#FFFF00']SCORCH[/color]": "Target takes [b]10%[/b] more [b]Physical Damage[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
-		"[color='#AD00FF']SIPHON[/color]": "Target cannot receive or cast any [b]Healing[/b] for [b]10/15/20/25/30[/b] seconds",
-		"[color='#0000FF']BLAZE[/color]" : "Target takes [b]10%[/b] more [b]Magic Damage[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
-		"[color='#00FFFF']VAPORIZE[/color]": "Target cannot receive or cast any [b]Buff[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FF0000']BURN[/color]" : "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]SOLAR[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#00FF00']ECLIPSE[/color]": "Target cannot [b]SUMMON[/b] or activate [b]SUMMON ABILITY[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FFFF00']SCORCH[/color]": "Target takes [b]10%[/b] more [b]PHYSICAL DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']SIPHON[/color]": "Target cannot receive or cast any [b]HEALING[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#0000FF']BLAZE[/color]" : "Target takes [b]10%[/b] more [b]MAGIC DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#00FFFF']VAPORIZE[/color]": "Target cannot receive or cast any [b]BUFF[/b] for [b]10/15/20/25/30[/b] seconds",
 		"[color='#FF9600']MELT[/color]" : "Reduces targets [b]SLR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
 		"[color='#C8C8C8']COMBUST[/color]": "Reduces targets [b]ATK[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"NTR": {
-	"Description": "Resistance value against [color='#00FF00']Nature[/color] Attacks, Pressure value using [color='#00FF00']Nature[/color] Attacks",
-	"Strength": "[color='#FFFF00']Spirit[/color]",
-	"Weakness": "[color='#FF0000']Solar[/color]",
+	"Description": "Resistance value against [color='#00FF00']NATURE[/color] Attacks, Pressure value using [color='#00FF00']NATURE[/color] Attacks",
+	"Strength": "[color='#FFFF00']SPIRIT[/color]",
+	"Weakness": "[color='#FF0000']SOLAR[/color]",
 	"Reactions": {
-		"[color='#FF0000']ECLIPSE[/color]" : "Target cannot [b]Summon[/b] or activate [b]Summon[/b] ability for [b]10/15/20/25/30[/b] seconds",
-		"[color='#00FF00']THORN[/color]": "Take [b]2000 Elemental Damage[/b] of type [b]Nature[/b] per second for [b]2/4/6/8/10[/b] seconds",
-		"[color='#FFFF00']KNOCK[/color]": "Prevents [b]Equipment[/b] and [b]Technique[/b] use for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#FF0000']ECLIPSE[/color]" : "Target cannot [b]SUMMON[/b] or activate [b]SUMMON ABILITY[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']THORN[/color]": "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]NATURE[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#FFFF00']KNOCK[/color]": "Prevents [b]EQUIPMENT[/b] and [b]TECHNIQUE[/b] use for [b]5/7.5/10/12.5/15[/b] seconds",
 		"[color='#AD00FF']PETRIFY[/color]": "Target cannot [b]CAST[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
-		"[color='#0000FF']SILENCE[/color]" : "Targets [b]Hearing[/b] is [b]Impaired[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#0000FF']SILENCE[/color]" : "Targets [b]HEARING[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
 		"[color='#00FFFF']NUMB[/color]": "Target cannot [b]ATTACK[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
 		"[color='#FF9600']CORRODE[/color]" : "Reduces targets [b]NTR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
 		"[color='#C8C8C8']THUNDER[/color]": "Reduces targets [b]DEF[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
