@@ -69,14 +69,14 @@ var element_info = {
 	"Strength": "[color='#AD00FF']VOID[/color]",
 	"Weakness": "[color='#00FF00']NATURE[/color]",
 	"Reactions": {
-		"[color='#FF0000']SCORCH[/color]" : "Target cannot receive any type of [b]Healing[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FF00']KNOCK[/color]": "User regains [b]2%[/b] of all damage dealt to target as [b]HP[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#FFFF00']RADIATE[/color]": "Block target vision for [b]5/6/7/8/9[/b] seconds",
-		"[color='#AD00FF']STUN[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
-		"[color='#0000FF']SPARK[/color]" : "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
-		"[color='#00FFFF']EXHAUST[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
-		"[color='#FF9600']SUPPRESS[/color]" : "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#C8C8C8']INTIMIDATE[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']SCORCH[/color]" : "Target takes [b]10%[/b] more [b]PHYSICAL DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#00FF00']KNOCK[/color]": "Prevents [b]EQUIPMENT[/b] and [b]TECHNIQUE[/b] use for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#FFFF00']RADIATE[/color]": "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]SPIRIT[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#AD00FF']STUN[/color]": "Prevents [b]CRITICAL HITS[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#0000FF']SPARK[/color]" : "Target takes [b]10%[/b] more [b]ELEMENTAL DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#00FFFF']EXHAUST[/color]": "Prevents [b]STAMINA RECOVERY[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#FF9600']SUPPRESS[/color]" : "Reduces targets [b]SPR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']INTIMIDATE[/color]": "Reduces targets [b]MGA[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"VOD": {
