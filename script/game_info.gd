@@ -84,14 +84,14 @@ var element_info = {
 	"Strength": "[color='#0000FF']ARC[/color]",
 	"Weakness": "[color='#FFFF00']SPIRIT[/color]",
 	"Reactions": {
-		"[color='#FF0000']SIPHON[/color]" : "Prevent [b]Shield Recovery[/b] for [b]10/15/20/25/30[/b] seconds",
-		"[color='#00FF00']PETRFIY[/color]": "Deal [b]1% [/b]of user [b]MGA[/b] as [b]True Damage[/b] to target every second for [b]5/6/7/8/9 [/b]seconds",
-		"[color='#FFFF00']STUN[/color]": "Reduce target [b]ATK [/b]by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
-		"[color='#AD00FF']BLIGHT[/color]": "Next single target [b]Magic[/b] cast on target is spread to others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#0000FF']BLIND[/color]" : "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#00FFFF']FREEZE[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
-		"[color='#FF9600']DECAY[/color]" : "Deplete [b]2% [/b]of target [b]Magic Power[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#C8C8C8']CURSE[/color]": "Deal [b]2%[/b] of [b]VOD[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']SIPHON[/color]" : "Target cannot receive or cast any [b]HEALING[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']PETRFIY[/color]": "Target cannot [b]CAST[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FFFF00']STUN[/color]": "Prevents [b]CRITICAL HITS[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']BLIGHT[/color]": "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]VOID[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#0000FF']BLIND[/color]" : "Targets [b]VISION[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#00FFFF']FREEZE[/color]": "Target cannot [b]MOVE[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FF9600']DECAY[/color]" : "Reduces targets [b]VOD[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']CURSE[/color]": "Reduces targets [b]MGD[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"ARC": {
@@ -99,14 +99,14 @@ var element_info = {
 	"Strength": "[color='#00FFFF']FROST[/color]",
 	"Weakness": "[color='#AD00FF']VOID[/color]",
 	"Reactions": {
-		"[color='#FF0000']BLAZE[/color]" : "Target cannot receive any type of [b]Buff[/b] for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#00FF00']SILENCE[/color]": "Cancel any [b]Healing[/b] currently on target and others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#FFFF00']SPARK[/color]": "Increase [b]Weakpoint[/b] damage on target by [b]10/15/20/25/30 %[/b] for [b]15 [/b]seconds",
-		"[color='#AD00FF']BLIND[/color]": "Cancel any [b]Magic[/b] currently being conjured by target or others within [b]2/3/4/5/6 [/b]meters",
-		"[color='#0000FF']SHOCK[/color]" : "Prevent target from moving or swapping weapons for [b]2/3/4/5/6[/b] seconds",
-		"[color='#00FFFF']DAZE[/color]": "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#FF9600']DISCHARGE[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#C8C8C8']PARALYZE[/color]": "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']BLAZE[/color]" : "Target takes [b]10%[/b] more [b]MAGIC DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#00FF00']SILENCE[/color]": "Targets [b]HEARING[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FFFF00']SPARK[/color]": "Target takes [b]10%[/b] more [b]ELEMENTAL DAMAGE[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']BLIND[/color]": "Targets [b]VISION[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#0000FF']SHOCK[/color]" : "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]ARC[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#00FFFF']DAZE[/color]": "Targets [b]MOVEMENT[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FF9600']DISCHARGE[/color]" : "Reduces targets [b]ARC[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']PARALYZE[/color]": "Reduces targets [b]AG[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"FST": {
@@ -114,14 +114,14 @@ var element_info = {
 	"Strength": "[color='#FF0000']SOLAR[/color]",
 	"Weakness": "[color='#0000FF']ARC[/color]",
 	"Reactions": {
-		"[color='#FF0000']VAPORIZE[/color]" : "Prevent [b]Stamina Recovery[/b] for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#00FF00']NUMB[/color]": "Increase target’s [b]Stamina[/b] usage by [b]20% [/b]for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FFFF00']EXHAUST[/color]": "Reduce target [b]MGA[/b] by [b]20%[/b] for the next [b]20/25/30/35/40[/b] seconds",
-		"[color='#AD00FF']FREEZE[/color]": "Prevent target from attacking for [b]2/3/4/5/6[/b] seconds",
-		"[color='#0000FF']DAZE[/color]" : "User regains [b]2% [/b]of all damage dealt to target as [b]MP [/b]for [b]10/12/14/16/18 [/b]seconds",
-		"[color='#00FFFF']CHILL[/color]": "Reduce target [b]AG[/b] by [b]20%[/b] for [b]20/25/30/35/40[/b] seconds",
-		"[color='#FF9600']RRUSTust[/color]" : "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
-		"[color='#C8C8C8']SHATTER[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']VAPORIZE[/color]" : "Target cannot receive or cast any [b]BUFF[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']NUMB[/color]": "Target cannot [b]ATTACK[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#FFFF00']EXHAUST[/color]": "Prevents [b]STAMINA RECOVERY[/b] for [b]5/7.5/10/12.5/15[/b] seconds",
+		"[color='#AD00FF']FREEZE[/color]": "Target cannot [b]MOVE[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#0000FF']DAZE[/color]" : "Targets [b]MOVEMENT[/b] is [b]IMPAIRED[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#00FFFF']CHILL[/color]": "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]FROST[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#FF9600']RUST[/color]" : "Reduces targets [b]FST[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#C8C8C8']SHATTER[/color]": "Reduces targets [b]SHR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds"
 		}
 	},
 	"MTL": {
@@ -129,14 +129,14 @@ var element_info = {
 	"Strength": "[color='#C8C8C8']DIVINE[/color]",
 	"Weakness": "[color='#C8C8C8']DIVINE[/color]",
 	"Reactions": {
-		"[color='#FF0000']MELT[/color]" : "Reduce target [b]DEF[/b] by [b]20% [/b]for [b]20/25/30/35/40 [/b]seconds",
-		"[color='#00FF00']CORRODE[/color]": "Increase [b]Magic Damage[/b] taken by target by [b]15% [/b]for [b]30/35/40/45/50 [/b]seconds",
-		"[color='#FFFF00']SUPPRESS[/color]": "Any [b]Magic[/b] used by target is reflected back at target for [b]10/15/20/25/30 [/b]seconds",
-		"[color='#AD00FF']DECAY[/color]": "Deplete [b]2% [/b]of target [b]Magic Power[/b] per second for [b]5/6/7/8/9[/b] seconds",
-		"[color='#0000FF']DISCHARGE[/color]" : "Prevent target from using any [b]Magic[/b] for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FFFF']RUST[/color]": "Reduce target [b]MGD[/b] by [b]20% [/b]for [b]20/25/30/35/40[/b] seconds",
-		"[color='#FF9600']BLEED[/color]" : "Increase [b]Physical Damage[/b] taken by target by [b]15%[/b] for [b]30/35/40/45/50 [/b]seconds",
-		"[color='#C8C8C8']DISABLE[/color]": "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']MELT[/color]" : "Reduces targets [b]SLR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']CORRODE[/color]": "Reduces targets [b]NTR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FFFF00']SUPPRESS[/color]": "Reduces targets [b]SPR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#AD00FF']DECAY[/color]": "Reduces targets [b]VOD[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#0000FF']DISCHARGE[/color]" : "Reduces targets [b]ARC[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FFFF']RUST[/color]": "Reduces targets [b]FST[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FF9600']BLEED[/color]" : "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]METAL[/b] per second for [b]2/4/6/8/10[/b] seconds",
+		"[color='#C8C8C8']DISABLE[/color]": "Target cannot [b]MOVE, ATTACK,[/b] or [b]CAST[/b] for [b]3/3.5/4/4.5/5[/b] seconds"
 		}
 	},
 	"DVN": {
@@ -144,13 +144,14 @@ var element_info = {
 	"Strength": "[color='#FF9600']METAL[/color]",
 	"Weakness": "[color='#FF9600']METAL[/color]",
 	"Reactions": {
-		"[color='#FF0000']COMBUST[/color]" : "Deal [b]2%[/b] of [b]SLR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FF00']THUNDER[/color]": "Deal [b]2%[/b] of [b]NTR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FFFF00']INTIMIDATE[/color]": "Deal [b]2%[/b] of [b]SPR[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#AD00FF']PARALYZE[/color]" : "Deal [b]2%[/b] of [b]ARC[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#00FFFF']SHATTER[/color]": "Deal [b]2%[/b] of [b]FST[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#FF9600']DISABLE[/color]" : "Deal [b]2%[/b] of [b]MTL[/b] damage per second for [b]10/12/14/16/18[/b] seconds",
-		"[color='#C8C8C8']PURIFY[/color]": "Deal [b]2%[/b] of [b]DVN[/b] damage per second for [b]10/12/14/16/18[/b] seconds"
+		"[color='#FF0000']COMBUST[/color]" : "Reduces targets [b]ATK[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FF00']THUNDER[/color]": "Reduces targets [b]DEF[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FFFF00']INTIMIDATE[/color]": "Reduces targets [b]MGA[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#AD00FF']CURSE[/color]" : "Reduces targets [b]MGD[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#0000FF']PARALYZE[/color]" : "Reduces targets [b]AG[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#00FFFF']SHATTER[/color]": "Reduces targets [b]SHR[/b] by [b]20%[/b] for [b]10/15/20/25/30[/b] seconds",
+		"[color='#FF9600']DISABLE[/color]" : "Target cannot [b]MOVE, ATTACK,[/b] or [b]CAST[/b] for [b]3/3.5/4/4.5/5[/b] seconds",
+		"[color='#C8C8C8']PURIFY[/color]": "Take [b]2000 ELEMENTAL DAMAGE[/b] of type [b]DIVINE[/b] per second for [b]2/4/6/8/10[/b] seconds"
 		}
 	},
 }
