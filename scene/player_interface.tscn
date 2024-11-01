@@ -365,41 +365,46 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Techniques" type="Control" parent="GameInterface"]
+[node name="SelectionSlots" type="Control" parent="GameInterface"]
 anchors_preset = 0
 
-[node name="TechniqueBackground" type="Sprite2D" parent="GameInterface/Techniques"]
-position = Vector2(880, 1024)
+[node name="Slot1Background" type="Sprite2D" parent="GameInterface/SelectionSlots"]
+position = Vector2(840, 1025)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_3puvr")
 
-[node name="TechniqueBackground2" type="Sprite2D" parent="GameInterface/Techniques"]
-position = Vector2(960, 1024)
+[node name="Slot2Background" type="Sprite2D" parent="GameInterface/SelectionSlots"]
+position = Vector2(920, 1025)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_3puvr")
 
-[node name="TechniqueBackground3" type="Sprite2D" parent="GameInterface/Techniques"]
-position = Vector2(1040, 1024)
+[node name="Slot3Background" type="Sprite2D" parent="GameInterface/SelectionSlots"]
+position = Vector2(1000, 1025)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_3puvr")
 
-[node name="SkillProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+[node name="Slot4Background" type="Sprite2D" parent="GameInterface/SelectionSlots"]
+position = Vector2(1080, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_3puvr")
+
+[node name="Slot1" type="TextureProgressBar" parent="GameInterface/SelectionSlots"]
 layout_mode = 0
-offset_left = 848.0
-offset_top = 992.0
-offset_right = 976.0
-offset_bottom = 1120.0
+offset_left = 808.0
+offset_top = 993.0
+offset_right = 936.0
+offset_bottom = 1121.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
 tint_under = Color(1, 1, 1, 0.294118)
 
-[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SkillProgress"]
+[node name="Overlay" type="Sprite2D" parent="GameInterface/SelectionSlots/Slot1"]
 position = Vector2(64, 64)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("17_2vjxx")
 
-[node name="Label" type="Label" parent="GameInterface/Techniques/SkillProgress"]
+[node name="Label" type="Label" parent="GameInterface/SelectionSlots/Slot1"]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 132.0
@@ -409,23 +414,23 @@ text = "Z"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpecialProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+[node name="Slot2" type="TextureProgressBar" parent="GameInterface/SelectionSlots"]
 layout_mode = 0
-offset_left = 928.0
-offset_top = 992.0
-offset_right = 1056.0
-offset_bottom = 1120.0
+offset_left = 888.0
+offset_top = 993.0
+offset_right = 1016.0
+offset_bottom = 1121.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
 tint_under = Color(1, 1, 1, 0.294118)
 
-[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SpecialProgress"]
+[node name="Overlay" type="Sprite2D" parent="GameInterface/SelectionSlots/Slot2"]
 position = Vector2(64, 64)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("17_2vjxx")
 
-[node name="Label" type="Label" parent="GameInterface/Techniques/SpecialProgress"]
+[node name="Label" type="Label" parent="GameInterface/SelectionSlots/Slot2"]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 132.0
@@ -435,23 +440,23 @@ text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SuperProgress" type="TextureProgressBar" parent="GameInterface/Techniques"]
+[node name="Slot3" type="TextureProgressBar" parent="GameInterface/SelectionSlots"]
 layout_mode = 0
-offset_left = 1008.0
-offset_top = 992.0
-offset_right = 1136.0
-offset_bottom = 1120.0
+offset_left = 968.0
+offset_top = 993.0
+offset_right = 1096.0
+offset_bottom = 1121.0
 scale = Vector2(0.5, 0.5)
 rounded = true
 fill_mode = 4
 tint_under = Color(1, 1, 1, 0.294118)
 
-[node name="Overlay" type="Sprite2D" parent="GameInterface/Techniques/SuperProgress"]
+[node name="Overlay" type="Sprite2D" parent="GameInterface/SelectionSlots/Slot3"]
 position = Vector2(64, 64)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("17_2vjxx")
 
-[node name="Label" type="Label" parent="GameInterface/Techniques/SuperProgress"]
+[node name="Label" type="Label" parent="GameInterface/SelectionSlots/Slot3"]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 132.0
@@ -461,7 +466,46 @@ text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Slot4" type="TextureProgressBar" parent="GameInterface/SelectionSlots"]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 993.0
+offset_right = 1176.0
+offset_bottom = 1121.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="GameInterface/SelectionSlots/Slot4"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("17_2vjxx")
+
+[node name="Label" type="Label" parent="GameInterface/SelectionSlots/Slot4"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "V"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionLabel" type="Label" parent="GameInterface/SelectionSlots"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 968.0
+offset_right = 1112.0
+offset_bottom = 990.0
+theme_override_font_sizes/font_size = 18
+text = "Technique"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="MenuInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0

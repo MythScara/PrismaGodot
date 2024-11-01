@@ -42,9 +42,11 @@ extends Node
 @onready var selection_field = $MenuInterface/InventoryScreen/SelectionScroll/SelectionField
 @onready var information_field = $MenuInterface/InventoryScreen/InfoScroll/InformationField
 
-@onready var skill_progress = $GameInterface/Techniques/SkillProgress
-@onready var special_progress = $GameInterface/Techniques/SpecialProgress
-@onready var super_progress = $GameInterface/Techniques/SuperProgress
+@onready var slot1 = $GameInterface/SelectionSlots/Slot1
+@onready var slot2 = $GameInterface/SelectionSlots/Slot2
+@onready var slot3 = $GameInterface/SelectionSlots/Slot3
+@onready var slot4 = $GameInterface/SelectionSlots/Slot4
+@onready var slot_label = $GameInterface/SelectionSlots/SelectionLabel
 
 @onready var inventory_screen = $MenuInterface/InventoryScreen
 
@@ -275,17 +277,30 @@ func change_stat(stat, value):
 
 func set_display(type, image, item_name, values, slot = 0):
 	inventory_screen.display_field(type, image, item_name, values, slot)
+	
+func swap_selection(state):
+	match state:
+		"Technique": 
+			slot_label.text = "TECHNIQUE"
+		"Battle Magic": 
+			slot_label.text = "BATTLE MAGIC"
+		"Support Magic": 
+			slot_label.text = "SUPPORT MAGIC"
+		"Battle Item": 
+			slot_label.text = "BATTLE ITEM"
+		"Support Item": 
+			slot_label.text = "SUPPORT ITEM"
 
 func update_technique(tech = null):
 	var technique = PlayerStats.techniques
 	return
 	
 	if technique[0] != null and tech == null or tech == 0:
-		skill_progress.texture_under = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
-		skill_progress.texture_progress = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
+		slot1.texture_under = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
+		slot1.texture_progress = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
 	if technique[1] != null and tech == null or tech == 1:
-		special_progress.texture_under = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
-		special_progress.texture_progress = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
+		slot2.texture_under = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
+		slot2.texture_progress = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
 	if technique[2] != null and tech == null or tech == 2:
-		super_progress.texture_under = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")
-		super_progress.texture_progress = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")
+		slot3.texture_under = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")
+		slot3.texture_progress = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")

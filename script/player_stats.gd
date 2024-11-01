@@ -472,18 +472,32 @@ func _unhandled_input(event):
 
 func _input(event):
 	if event is InputEventKey:
-		if event.is_action_released("Technique 1"):
-			if techniques[0] != null:
-				var technique = techniques[0][1]
-				technique.call("Active")
-		if event.is_action_released("Technique 2"):
-			if techniques[1] != null:
-				var technique = techniques[1][1]
-				technique.call("Active")
-		if event.is_action_released("Technique 3"):
-			if techniques[2] != null:
-				var technique = techniques[2][1]
-				technique.call("Active")
+		if event.is_action_released("Slot1"):
+			var state = PlayerInterface.slot_label.text
+			match state:
+				"Technique":
+					if techniques[0] != null:
+						var technique = techniques[0][1]
+						technique.call("Active")
+		if event.is_action_released("Slot2"):
+			var state = PlayerInterface.slot_label.text
+			match state:
+				"Technique":
+					if techniques[1] != null:
+						var technique = techniques[1][1]
+						technique.call("Active")
+		if event.is_action_released("Slot3"):
+			var state = PlayerInterface.slot_label.text
+			match state:
+				"Technique":
+					if techniques[2] != null:
+						var technique = techniques[2][1]
+						technique.call("Active")
+		if event.is_action_released("Slot4"):
+			var state = PlayerInterface.slot_label.text
+			match state:
+				"Technique":
+					pass
 		if event.is_action_released("Swap Weapon"):
 			PlayerInterface.swap_active("Swap")
 		if event.is_action_released("Unequip Weapon"):
@@ -505,6 +519,16 @@ func _input(event):
 			print(passives)
 			print(PlayerInventory.equip_inventory)
 			print(PlayerInventory.current_inventory)
+		if event.is_action_released("Technique"):
+			PlayerInterface.swap_selection("Technique")
+		if event.is_action_released("Battle Magic"):
+			PlayerInterface.swap_selection("Battle Magic")
+		if event.is_action_released("Support Magic"):
+			PlayerInterface.swap_selection("Support Magic")
+		if event.is_action_released("Battle Item"):
+			PlayerInterface.swap_selection("Battle Item")
+		if event.is_action_released("Support Item"):
+			PlayerInterface.swap_selection("Support Item")
 		if event.is_action_pressed("Cheat Menu"):
 			exp_handler(2000)
 		if event.is_action_pressed("Pause Menu"):
