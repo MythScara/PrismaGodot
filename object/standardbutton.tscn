@@ -3,13 +3,13 @@
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_7e0lp"]
 
 [node name="Mercenary" type="Button"]
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_7e0lp")
+theme_override_styles/focus = ExtResource("1_7e0lp")
 theme_override_styles/hover = ExtResource("1_7e0lp")
 theme_override_styles/pressed = ExtResource("1_7e0lp")
-theme_override_styles/focus = ExtResource("1_7e0lp")
+theme_override_styles/normal = ExtResource("1_7e0lp")
 toggle_mode = true
 text = "DEFAULT"
 flat = true

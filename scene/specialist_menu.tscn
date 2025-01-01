@@ -135,13 +135,13 @@ offset_left = 24.0
 offset_top = 960.0
 offset_right = 304.0
 offset_bottom = 1028.0
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 text = "CONTINUE"
 icon = ExtResource("7_uldyy")
 flat = true
@@ -162,13 +162,13 @@ script = ExtResource("2_y5xso")
 
 [node name="Mercenary" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Mercenary"
 flat = true
@@ -177,13 +177,13 @@ expand_icon = true
 
 [node name="Cavalier" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Cavalier"
 flat = true
@@ -192,13 +192,13 @@ expand_icon = true
 
 [node name="Spartan" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Spartan"
 flat = true
@@ -207,13 +207,13 @@ expand_icon = true
 
 [node name="Ranger" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Ranger"
 flat = true
@@ -222,13 +222,13 @@ expand_icon = true
 
 [node name="Scout" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Scout"
 flat = true
@@ -237,13 +237,13 @@ expand_icon = true
 
 [node name="Pirate" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Pirate"
 flat = true
@@ -252,13 +252,13 @@ expand_icon = true
 
 [node name="Assassin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Assassin"
 flat = true
@@ -267,13 +267,13 @@ expand_icon = true
 
 [node name="Nomad" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Nomad"
 flat = true
@@ -282,13 +282,13 @@ expand_icon = true
 
 [node name="Engineer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Engineer"
 flat = true
@@ -297,13 +297,13 @@ expand_icon = true
 
 [node name="Hunter" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Hunter"
 flat = true
@@ -312,13 +312,13 @@ expand_icon = true
 
 [node name="Archer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Archer"
 flat = true
@@ -327,13 +327,13 @@ expand_icon = true
 
 [node name="Paladin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Paladin"
 flat = true
@@ -342,13 +342,13 @@ expand_icon = true
 
 [node name="Warden" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Warden"
 flat = true
@@ -357,13 +357,13 @@ expand_icon = true
 
 [node name="Ronin" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Ronin"
 flat = true
@@ -372,13 +372,13 @@ expand_icon = true
 
 [node name="Ninja" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Ninja"
 flat = true
@@ -387,13 +387,13 @@ expand_icon = true
 
 [node name="Templar" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Templar"
 flat = true
@@ -402,13 +402,13 @@ expand_icon = true
 
 [node name="Rogue" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Rogue"
 flat = true
@@ -417,13 +417,13 @@ expand_icon = true
 
 [node name="Samurai" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Samurai"
 flat = true
@@ -432,13 +432,13 @@ expand_icon = true
 
 [node name="Valkyrie" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Valkyrie"
 flat = true
@@ -447,13 +447,13 @@ expand_icon = true
 
 [node name="Inquisitor" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Inquisitor"
 flat = true
@@ -462,13 +462,13 @@ expand_icon = true
 
 [node name="Druid" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Druid"
 flat = true
@@ -477,13 +477,13 @@ expand_icon = true
 
 [node name="Necromancer" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Necromancer"
 flat = true
@@ -492,13 +492,13 @@ expand_icon = true
 
 [node name="Monk" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Monk"
 flat = true
@@ -507,13 +507,13 @@ expand_icon = true
 
 [node name="Centurion" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Centurion"
 flat = true
@@ -522,13 +522,13 @@ expand_icon = true
 
 [node name="Sage" type="Button" parent="SpecialistScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("1_p3f6k")
+theme_override_styles/focus = ExtResource("1_p3f6k")
 theme_override_styles/hover = ExtResource("1_p3f6k")
 theme_override_styles/pressed = ExtResource("1_p3f6k")
-theme_override_styles/focus = ExtResource("1_p3f6k")
+theme_override_styles/normal = ExtResource("1_p3f6k")
 toggle_mode = true
 text = "Sage"
 flat = true
