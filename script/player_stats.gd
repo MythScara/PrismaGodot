@@ -41,12 +41,19 @@ var timer_cache = {}
 
 var player_active = false
 
+@warning_ignore("unused_signal")
 signal activate_specialist(s_type)
+@warning_ignore("unused_signal")
 signal player_event(event)
+@warning_ignore("unused_signal")
 signal stat_update(stat)
+@warning_ignore("unused_signal")
 signal exp_update(value)
+@warning_ignore("unused_signal")
 signal spec_update(s_name)
+@warning_ignore("unused_signal")
 signal pause_game
+@warning_ignore("unused_signal")
 signal value_change(type, slot)
 
 var attacking = false
