@@ -51,6 +51,29 @@ var current_inventory = {
 	"Faction": [null]
 }
 
+var archive_inventory = {
+	"Ranged Weapon": {},
+	"Melee Weapon": {},
+	"Summon": {},
+	"Outfit": {},
+	"Ring": {},
+	"Artifact": {},
+	"Soul Stone": {},
+	"Chest Armor": {},
+	"Pad Armor": {},
+	"Belt Armor": {},
+	"Body Armor": {},
+	"Battle Item": {},
+	"Support Item": {},
+	"Battle Magic": {},
+	"Support Magic": {},
+	"Technique": {},
+	"Aspect": {},
+	"Specialist": {},
+	"Vehicle": {},
+	"Faction": {}
+}
+
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
 	if equip_inventory.has(category):
 		equip_inventory[category][item_name] = item_values
@@ -142,7 +165,8 @@ func get_save_data() -> Dictionary:
 	return {
 		"extra_inventory": extra_inventory,
 		"equip_inventory": equip_inventory,
-		"current_inventory": current_inventory
+		"current_inventory": current_inventory,
+		"archive_inventory": archive_inventory
 	}
 
 func set_data(data: Dictionary) -> void:
