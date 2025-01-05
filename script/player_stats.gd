@@ -14,7 +14,6 @@ var elements = {"SLR": 2000,"NTR": 2000,"SPR": 2000,"VOD": 2000,"ARC": 2000,"FST
 var immunities = []
 var buffs = []
 var afflictions = []
-#var afflictions = {"Solar" : [], "Nature": [], "Spirit": [], "Void": [], "Arc": [], "Frost": [], "Metal": [], "Divine": []}
 
 var passives = {}
 var techniques = [null, null, null]
@@ -516,16 +515,14 @@ func _input(event):
 		if event.is_action_pressed("Reload"):
 			PlayerInterface.reload()
 		if event.is_action_pressed("Information"):
-			#print(get_save_data())
-			#print(PlayerInventory.get_save_data())
 			print(stats)
-			print(elements)
-			print(ranged_stats)
-			print(melee_stats)
-			print(techniques)
-			print(passives)
-			print(PlayerInventory.equip_inventory)
-			print(PlayerInventory.current_inventory)
+			#print(elements)
+			#print(ranged_stats)
+			#print(melee_stats)
+			#print(techniques)
+			#print(passives)
+			#print(PlayerInventory.equip_inventory)
+			#print(PlayerInventory.current_inventory)
 		if event.is_action_released("Technique"):
 			PlayerInterface.swap_selection("Technique")
 		if event.is_action_released("Battle Magic"):
