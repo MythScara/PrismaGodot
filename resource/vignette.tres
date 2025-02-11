@@ -3,6 +3,12 @@
 [ext_resource type="Shader" path="res://resource/vignette.gdshader" id="1_m43gs"]
 
 [resource]
+; Assign the custom vignette shader.
 shader = ExtResource("1_m43gs")
-shader_parameter/rect_size = Vector2(960, 540)
-shader_parameter/rect_position = Vector2(250, 100)
+; Base parameters for the vignette effect:
+shader_parameter/rect_size = Vector2(960, 540)   ; Defines the area size where the vignette applies.
+shader_parameter/rect_position = Vector2(250, 100) ; Defines the offset position for the vignette rectangle.
+; New enhancements for improved customization:
+shader_parameter/vignette_color = Color(0, 0, 0, 1)  ; The color used for the vignette (default black).
+shader_parameter/intensity = 0.75                  ; Strength of the vignette effect (0.0 to 1.0).
+shader_parameter/softness = 0.3                    ; How gradually the vignette fades (lower is harder, higher is softer).
