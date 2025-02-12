@@ -241,8 +241,8 @@ scale = Vector2(1.07597, 1.01613)
 texture = ExtResource("21_hb3yy")
 
 [node name="LevelPoint" type="Sprite2D" parent="GameInterface/Experience/PlayerBar"]
-position = Vector2(364.467, 7.70092e-05)
-scale = Vector2(1.7133, 1.57948)
+position = Vector2(356, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("21_066vv")
 
 [node name="RangedWeapon" type="Control" parent="GameInterface"]
@@ -688,6 +688,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="InventoryScreen" type="Control" parent="MenuInterface"]
+visible = false
 anchors_preset = 0
 offset_left = 268.0
 offset_top = 168.0
