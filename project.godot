@@ -22,7 +22,6 @@ PlayerInventory="*res://scene/player_inventory.tscn"
 GameManager="*res://scene/game_manager.tscn"
 PlayerInterface="*res://scene/player_interface.tscn"
 GameInfo="*res://scene/game_info.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -32,7 +31,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
