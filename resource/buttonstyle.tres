@@ -1,14 +1,4 @@
 [gd_resource type="StyleBoxFlat" format=3 uid="uid://dx8pdckt4l1rb"]
 
 [resource]
-bg_color = Color(0.1, 0.1, 0.1, 1)                   # A dark background color.
-border_color = Color(0.8, 0.8, 0.8, 1)               # Light grey border.
-border_width_all = 2                                # Uniform border width.
-border_blend = true                                 # Smooths the border blending.
-corner_radius_top_left = 5.0                        # Rounded corner (top-left).
-corner_radius_top_right = 5.0                       # Rounded corner (top-right).
-corner_radius_bottom_left = 5.0                     # Rounded corner (bottom-left).
-corner_radius_bottom_right = 5.0                    # Rounded corner (bottom-right).
-shadow_color = Color(0, 0, 0, 0.25)                 # Subtle shadow for depth.
-shadow_offset = Vector2(2, 2)                       # Shadow offset in pixels.
-
+bg_color = Color(0.1, 0.1, 0.1, 1)

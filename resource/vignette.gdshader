@@ -4,12 +4,12 @@ shader_type canvas_item;
 uniform vec2 viewport_size;
 
 // Vignette parameters (expressed as factors relative to the maximum distance from the center)
-uniform float inner_radius_factor : hint_range(0.0, 1.0) = 0.7;
-uniform float outer_radius_factor : hint_range(0.0, 1.0) = 1.0;
-uniform float vignette_strength : hint_range(0.0, 1.0) = 0.8;
+uniform float inner_radius_factor = 0.7;
+uniform float outer_radius_factor = 1.0;
+uniform float vignette_strength = 0.8;
 
 // Tint color for the vignette (default is black)
-uniform vec3 vignette_color : hint_color = vec3(0.0);
+uniform vec4 vignette_color = vec4(0.0, 0.0, 0.0, 1.0);
 
 void fragment() {
     // Calculate the center of the viewport.
@@ -31,5 +31,5 @@ void fragment() {
     // Blend the original color with the vignette color.
     // At the center (t=0) the original color remains unchanged;
     // at the edges (t=1), the color is tinted by 'vignette_color' based on 'vignette_strength'.
-    COLOR.rgb = mix(COLOR.rgb, vignette_color, t * vignette_strength);
+    COLOR.rgb = mix(COLOR.rgb, vignette_color.rgb, t * vignette_strength);
 }
