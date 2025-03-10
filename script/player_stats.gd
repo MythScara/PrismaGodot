@@ -521,8 +521,8 @@ func _input(event):
 			#print(melee_stats)
 			#print(techniques)
 			#print(passives)
-			#print(PlayerInventory.equip_inventory)
-			#print(PlayerInventory.current_inventory)
+			print(PlayerInventory.equip_inventory)
+			print(PlayerInventory.current_inventory)
 		if event.is_action_released("Technique"):
 			PlayerInterface.swap_selection("Technique")
 		if event.is_action_released("Battle Magic"):
