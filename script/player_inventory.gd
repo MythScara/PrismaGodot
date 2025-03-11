@@ -1,176 +1,77 @@
 extends Node
 
-var extra_inventory = {
-	"Consumable": {},
-	"Crafting Resource": {},
-	"Quest Item": {}
-}
-var equip_inventory = {
-	"Ranged Weapon": {},
-	"Melee Weapon": {},
-	"Summon": {},
-	"Outfit": {},
-	"Ring": {},
-	"Artifact": {},
-	"Soul Stone": {},
-	"Chest Armor": {},
-	"Pad Armor": {},
-	"Belt Armor": {},
-	"Body Armor": {},
-	"Battle Item": {},
-	"Support Item": {},
-	"Battle Magic": {},
-	"Support Magic": {},
-	"Technique": {},
-	"Aspect": {},
-	"Specialist": {},
-	"Vehicle": {},
-	"Faction": {}
-}
+# Signals for inventory events
+signal item_added(item_name: String, slot_index: int)
+signal item_removed(item_name: String, slot_index: int)
+signal inventory_full()
 
-var current_inventory = {
-	"Ranged Weapon": [null],
-	"Melee Weapon": [null],
-	"Summon": [null],
-	"Outfit": [null],
-	"Ring": [null, null, null, null, null, null, null, null, null, null],
-	"Artifact": [null, null, null],
-	"Soul Stone": [null],
-	"Chest Armor": [null],
-	"Pad Armor": [null],
-	"Belt Armor": [null],
-	"Body Armor": [null],
-	"Battle Item": [null, null, null, null],
-	"Support Item": [null, null, null, null],
-	"Battle Magic": [null, null, null, null],
-	"Support Magic": [null, null, null, null],
-	"Technique": [null, null, null],
-	"Aspect": [null, null, null],
-	"Specialist": [null],
-	"Vehicle": [null],
-	"Faction": [null]
-}
+# Inventory configuration
+const MAX_SLOTS: int = 5
+var inventory_slots: Array = []  # Array to hold items (null for empty slots)
 
-var archive_inventory = {
-	"Ranged Weapon": {},
-	"Melee Weapon": {},
-	"Summon": {},
-	"Outfit": {},
-	"Ring": {},
-	"Artifact": {},
-	"Soul Stone": {},
-	"Chest Armor": {},
-	"Pad Armor": {},
-	"Belt Armor": {},
-	"Body Armor": {},
-	"Battle Item": {},
-	"Support Item": {},
-	"Battle Magic": {},
-	"Support Magic": {},
-	"Technique": {},
-	"Aspect": {},
-	"Specialist": {},
-	"Vehicle": {},
-	"Faction": {},
-	"Potion": {}
-}
+# Preload item scene for instantiation
+@onready var item_icon_scene: PackedScene = preload("res://scenes/item_icon.tscn")
+@onready var grid_container: GridContainer = $InventoryUI/GridContainer
 
-func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
-	if equip_inventory.has(category):
-		equip_inventory[category][item_name] = item_values
-		var empty = current_inventory[category].find(null)
-		if empty != -1:
-			current_inventory[category][empty] = {item_name: item_values}
-			PlayerStats.player_stat_change(item_values, "Add")
-			PlayerStats.element_stat_change(item_values, "Add")
-	elif extra_inventory.has(category):
-		if extra_inventory[category].has(item_name):
-			if extra_inventory[category][item_name]["Amount"] == 100:
-				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
-				var prisma = item_values["Amount"] * item_values["Value"]
-				PlayerStats.currency["Prisma"] += prisma
-				return
-				
-			extra_inventory[category][item_name]["Amount"] += item_values["Amount"]
-			
-			if extra_inventory[category][item_name]["Amount"] > 100:
-				var prisma = (item_values["Amount"] - 100) * item_values["Value"]
-				PlayerStats.currency["Prisma"] += prisma
-				extra_inventory[category][item_name]["Amount"] = 100
-				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
-		else:
-			if item_values["Amount"] > 100:
-				var prisma = (item_values["Amount"] - 100) * item_values["Value"]
-				PlayerStats.currency["Prisma"] += prisma
-				item_values["Amount"] = 100
-				print_debug("Value Exceeds Max Capacity: Converting To Prisma")
-			extra_inventory[category][item_name] = item_values
-	else:
-		print_debug("Invalid Item Category")
+func _ready() -> void:
+    # Initialize inventory slots
+    inventory_slots.resize(MAX_SLOTS)
+    inventory_slots.fill(null)
+    
+    # Connect UI slots to input handling
+    for i in range(grid_container.get_child_count()):
+        var slot = grid_container.get_child(i)
+        slot.gui_input.connect(_on_slot_gui_input.bind(i))
 
-func remove_from_inventory(category: String, item_name: String, item_values: Dictionary = {}) -> void:
-	if equip_inventory.has(category):
-		equip_inventory[category].erase(item_name)
-	elif extra_inventory.has(category):
-		if item_values != {}:
-			if item_values["Amount"] < extra_inventory[category][item_name]["Amount"]:
-				extra_inventory[category][item_name]["Amount"] -= item_values["Amount"]
-			elif item_values["Amount"] == extra_inventory[category][item_name]["Amount"]:
-				extra_inventory[category].erase(item_name)
-			else:
-				print_debug("Value Exceeds Available Inventory: Transaction Cancelled")
-		else:
-			extra_inventory[category].erase(item_name)
-	else:
-		print_debug("Invalid Item Category")
+func add_item(item_name: String, item_texture: Texture2D = null) -> bool:
+    # Find first empty slot
+    var empty_slot = inventory_slots.find(null)
+    if empty_slot == -1:
+        inventory_full.emit()
+        return false
+    
+    # Add item to inventory
+    inventory_slots[empty_slot] = item_name
+    
+    # Update UI
+    var slot_node = grid_container.get_child(empty_slot)
+    var item_icon = item_icon_scene.instantiate()
+    item_icon.texture = item_texture if item_texture else preload("res://assets/default_item.png")
+    slot_node.add_child(item_icon)
+    
+    item_added.emit(item_name, empty_slot)
+    return true
 
-func equip_to_inventory(category: String, item_name: String, item_values: Dictionary, slot = null) -> void:
-	if current_inventory.has(category):
-		if slot != null:
-			var cur_check = current_inventory[category][slot].keys()[0]
-			var cur_values = current_inventory[category][slot][cur_check]
-			PlayerStats.player_stat_change(cur_values, "Sub")
-			PlayerStats.element_stat_change(cur_values, "Sub")
-			current_inventory[category][slot] = {item_name: item_values}
-			PlayerStats.player_stat_change(item_values, "Add")
-			PlayerStats.element_stat_change(item_values, "Add")
-		else:
-			var empty = current_inventory[category].find(null)
-			if empty != -1:
-				current_inventory[category][empty] = {item_name: item_values}
-				PlayerStats.player_stat_change(item_values, "Add")
-				PlayerStats.element_stat_change(item_values, "Add")
+func remove_item(slot_index: int) -> bool:
+    if slot_index < 0 or slot_index >= MAX_SLOTS or inventory_slots[slot_index] == null:
+        return false
+    
+    # Remove item from inventory
+    var item_name = inventory_slots[slot_index]
+    inventory_slots[slot_index] = null
+    
+    # Update UI
+    var slot_node = grid_container.get_child(slot_index)
+    for child in slot_node.get_children():
+        child.queue_free()
+    
+    item_removed.emit(item_name, slot_index)
+    return true
 
-func unequip_from_inventory(category: String, slot = null) -> void:
-	if current_inventory.has(category):
-		if slot != null:
-			var cur_check = current_inventory[category][slot].keys()[0]
-			var cur_values = current_inventory[category][slot][cur_check]
-			PlayerStats.player_stat_change(cur_values, "Sub")
-			PlayerStats.element_stat_change(cur_values, "Sub")
-			current_inventory[category].remove(slot)
-		else:
-			current_inventory[category].remove(0)
-	else:
-		print("Invalid Item Category")
+func get_item(slot_index: int) -> String:
+    if slot_index >= 0 and slot_index < MAX_SLOTS:
+        return inventory_slots[slot_index]
+    return ""
 
-func get_inventory(category: String):
-	if equip_inventory.has(category):
-		for key in equip_inventory[category].keys():
-			print_debug(key)
-	elif extra_inventory.has(category):
-		for key in extra_inventory[category].keys():
-			print_debug(key)
+func is_full() -> bool:
+    return inventory_slots.find(null) == -1
 
-func get_save_data() -> Dictionary:
-	return {
-		"extra_inventory": extra_inventory,
-		"equip_inventory": equip_inventory,
-		"current_inventory": current_inventory,
-		"archive_inventory": archive_inventory
-	}
+func _on_slot_gui_input(event: InputEvent, slot_index: int) -> void:
+    if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+        if inventory_slots[slot_index] != null:
+            remove_item(slot_index)
 
-func set_data(data: Dictionary) -> void:
-	for key in data.keys():
-		if key in self:
-			self[key] = data[key]
+# Example usage function
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_accept"):  # For testing, e.g., pressing Enter
+        add_item("Sword", preload("res://assets/sword_icon.png"))
