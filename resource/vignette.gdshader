@@ -1,35 +1,20 @@
-shader_type canvas_item;
+[shader_type canvas_item]
 
-// Size of the viewport (should be passed in from script)
-uniform vec2 viewport_size;
-
-// Vignette parameters (expressed as factors relative to the maximum distance from the center)
-uniform float inner_radius_factor = 0.7;
-uniform float outer_radius_factor = 1.0;
-uniform float vignette_strength = 0.8;
-
-// Tint color for the vignette (default is black)
-uniform vec4 vignette_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform float radius : hint_range(0.0, 2.0) = 1.0;
+uniform float softness : hint_range(0.0, 1.0) = 0.5;
+uniform float opacity : hint_range(0.0, 1.0) = 0.8;
+uniform vec4 color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform vec2 center = vec2(0.5, 0.5);
+uniform bool enabled = true;
 
 void fragment() {
-    // Calculate the center of the viewport.
-    vec2 center = viewport_size * 0.5;
-
-    // Compute the maximum distance from the center to any corner.
-    float max_dist = length(viewport_size) * 0.5;
-
-    // Determine inner and outer radii for the vignette effect.
-    float inner_radius = max_dist * inner_radius_factor;
-    float outer_radius = max_dist * outer_radius_factor;
-
-    // Calculate the distance from the current fragment to the center.
-    float dist = distance(FRAGCOORD.xy, center);
-
-    // Smoothly interpolate between the inner and outer radii.
-    float t = smoothstep(inner_radius, outer_radius, dist);
-
-    // Blend the original color with the vignette color.
-    // At the center (t=0) the original color remains unchanged;
-    // at the edges (t=1), the color is tinted by 'vignette_color' based on 'vignette_strength'.
-    COLOR.rgb = mix(COLOR.rgb, vignette_color.rgb, t * vignette_strength);
+    if (enabled) {
+        vec2 uv = SCREEN_UV;
+        float dist = distance(uv, center);
+        float vignette = smoothstep(radius, radius - softness, dist);
+        vec4 base_color = texture(SCREEN_TEXTURE, SCREEN_UV);
+        COLOR = mix(base_color, color, (1.0 - vignette) * opacity);
+    } else {
+        COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+    }
 }
