@@ -1,6 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv082qmhal8c7"]
+[gd_scene load_steps=4 format=3 uid="uid://bv082qmhal8c7"]
 
 [ext_resource type="Script" path="res://script/player_stats.gd" id="1_2qshr"]
+[ext_resource type="Texture2D" path="res://textures/health_bar.png" id="2_health_texture"]
+[ext_resource type="Texture2D" path="res://textures/experience_bar.png" id="3_exp_texture"]
 
 [node name="PlayerStats" type="Node"]
 script = ExtResource("1_2qshr")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
+
+[node name="StatsUI" type="Control" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/StatsUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+value = 100.0
+texture_progress = ExtResource("2_health_texture")
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="CanvasLayer/StatsUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+value = 0.0
+texture_progress = ExtResource("3_exp_texture")
+
+[node name="StatsLabel" type="Label" parent="CanvasLayer/StatsUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level: 1\nHealth: 100/100\nExperience: 0/100"
+horizontal_alignment = 1
+vertical_alignment = 1
