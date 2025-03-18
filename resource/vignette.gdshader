@@ -1,35 +1,32 @@
 shader_type canvas_item;
 
-// Size of the viewport (should be passed in from script)
-uniform vec2 viewport_size;
-
-// Vignette parameters (expressed as factors relative to the maximum distance from the center)
-uniform float inner_radius_factor = 0.7;
-uniform float outer_radius_factor = 1.0;
-uniform float vignette_strength = 0.8;
-
-// Tint color for the vignette (default is black)
-uniform vec4 vignette_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform float radius = 1.0;
+uniform float softness = 0.5;
+uniform float opacity = 0.8;
+uniform vec4 color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform vec2 center = vec2(0.5, 0.5);
+uniform bool enabled = true;
+uniform bool use_texture = false;
+uniform sampler2D vignette_texture;
 
 void fragment() {
-    // Calculate the center of the viewport.
-    vec2 center = viewport_size * 0.5;
+    if (!enabled) {
+        COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+        return;
+    }
 
-    // Compute the maximum distance from the center to any corner.
-    float max_dist = length(viewport_size) * 0.5;
+    vec4 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV);
+    float vignette_strength;
 
-    // Determine inner and outer radii for the vignette effect.
-    float inner_radius = max_dist * inner_radius_factor;
-    float outer_radius = max_dist * outer_radius_factor;
+    if (use_texture) {
+        // Use the texture's alpha channel for vignette strength
+        vignette_strength = texture(vignette_texture, UV).a;
+    } else {
+        // Calculate distance-based vignette
+        float dist = distance(SCREEN_UV, center);
+        vignette_strength = smoothstep(radius, radius - softness, dist);
+    }
 
-    // Calculate the distance from the current fragment to the center.
-    float dist = distance(FRAGCOORD.xy, center);
-
-    // Smoothly interpolate between the inner and outer radii.
-    float t = smoothstep(inner_radius, outer_radius, dist);
-
-    // Blend the original color with the vignette color.
-    // At the center (t=0) the original color remains unchanged;
-    // at the edges (t=1), the color is tinted by 'vignette_color' based on 'vignette_strength'.
-    COLOR.rgb = mix(COLOR.rgb, vignette_color.rgb, t * vignette_strength);
+    // Apply vignette by mixing screen color with tinted color
+    COLOR = mix(screen_color, screen_color * color, vignette_strength * opacity);
 }
