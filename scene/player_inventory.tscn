@@ -1,6 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmp54ol1hoiry"]
+[gd_scene load_steps=4 format=3 uid="uid://cmp54ol1hoiry"]
 
 [ext_resource type="Script" path="res://script/player_inventory.gd" id="1_fqsm2"]
+[ext_resource type="Texture2D" path="res://textures/placeholder.png" id="2_placeholder_texture"]
+[ext_resource type="AudioStream" path="res://sounds/inventory_action.wav" id="3_sound_effect"]
 
 [node name="PlayerInventory" type="Node"]
 script = ExtResource("1_fqsm2")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
+
+[node name="InventoryUI" type="Control" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="CanvasLayer/InventoryUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InventoryUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Slot1" type="TextureRect" parent="CanvasLayer/InventoryUI/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_placeholder_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="TextureRect" parent="CanvasLayer/InventoryUI/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_placeholder_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot3" type="TextureRect" parent="CanvasLayer/InventoryUI/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_placeholder_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot4" type="TextureRect" parent="CanvasLayer/InventoryUI/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_placeholder_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot5" type="TextureRect" parent="CanvasLayer/InventoryUI/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_placeholder_texture")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sound_effect")
+volume_db = -10.0
