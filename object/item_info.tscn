@@ -1,149 +1,211 @@
-[gd_scene load_steps=4 format=3 uid="uid://rhx0brxv4mr7"]
+[gd_scene load_steps=6 format=3 uid="uid://rhx0brxv4mr7"]
 
 [ext_resource type="Script" path="res://script/object/item_info.gd" id="1_thh4v"]
 [ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/ranged weapon/assault rifle.png" id="2_y1wat"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_kwjjm"]
+[ext_resource type="Texture2D" path="res://asset/ui/background_panel.png" id="4_newbg"]  # New background texture
+[ext_resource type="FontFile" path="res://asset/fonts/custom_font.tres" id="5_font"]    # Optional custom font
 
 [node name="ItemInfo" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15  # Anchored to fill parent
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_thh4v")
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_newbg")
+expand_mode = 1
+stretch_mode = 6  # Aspect ratio preserved
+
 [node name="Outline" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 392.0
-offset_bottom = 400.0
-color = Color(0.162066, 0.162066, 0.162066, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+color = Color(0.2, 0.2, 0.2, 0.9)  # Slightly lighter and translucent
 
 [node name="InnerBox" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 40.0
-offset_right = 388.0
-offset_bottom = 376.0
-color = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.1
+anchor_right = 0.98
+anchor_bottom = 0.9
+color = Color(0.05, 0.05, 0.05, 0.95)  # Darker, more subtle
 
 [node name="VDivide" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 178.0
-offset_right = 388.0
-offset_bottom = 182.0
-color = Color(0.160784, 0.160784, 0.160784, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.45
+anchor_right = 0.98
+anchor_bottom = 0.46
+color = Color(0.3, 0.3, 0.3, 1)  # Brighter divider
 
 [node name="HDivide" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 142.0
-offset_top = 40.0
-offset_right = 146.0
-offset_bottom = 178.0
-color = Color(0.160784, 0.160784, 0.160784, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.1
+anchor_right = 0.36
+anchor_bottom = 0.45
+color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Name" type="Label" parent="."]
-layout_mode = 0
-offset_right = 392.0
+layout_mode = 1
+anchors_preset = 5  # Top center
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_right = 196.0
 offset_bottom = 40.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 24
 text = "DEFAULT RANGED WEAPON"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ItemType" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 44.0
-offset_right = 384.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 20
-text = "assault rifle"
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
-
-[node name="ItemTier" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 70.0
-offset_right = 384.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 20
-text = "adamantine"
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
-
-[node name="ItemElement" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 96.0
-offset_right = 384.0
-offset_bottom = 122.0
-theme_override_font_sizes/font_size = 20
-text = "solar"
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
-
-[node name="ItemExtra" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 122.0
-offset_right = 384.0
-offset_bottom = 148.0
-theme_override_font_sizes/font_size = 20
-text = "fully-automatic"
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
-
-[node name="ItemQuality" type="Label" parent="."]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 148.0
-offset_right = 384.0
-offset_bottom = 174.0
-theme_override_font_sizes/font_size = 20
-text = "quality : 100"
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
-
 [node name="ItemImage" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 44.0
-offset_right = 138.0
-offset_bottom = 174.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.12
+anchor_right = 0.34
+anchor_bottom = 0.44
 texture = ExtResource("2_y1wat")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="InfoContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37
+anchor_top = 0.12
+anchor_right = 0.98
+anchor_bottom = 0.44
+grow_horizontal = 0
+
+[node name="ItemType" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TYPE: ASSAULT RIFLE"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+tooltip_text = "Weapon classification"
+
+[node name="ItemTier" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TIER: ADAMANTINE"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+tooltip_text = "Material strength level"
+
+[node name="ItemElement" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ELEMENT: SOLAR"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+tooltip_text = "Elemental property"
+
+[node name="ItemExtra" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "EXTRA: FULLY-AUTOMATIC"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+tooltip_text = "Special feature"
+
+[node name="QualityContainer" type="HBoxContainer" parent="InfoContainer"]
+layout_mode = 2
+
+[node name="ItemQuality" type="Label" parent="QualityContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "QUALITY: 100"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+tooltip_text = "Current condition"
+
+[node name="QualityBar" type="ProgressBar" parent="QualityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
 [node name="Scroll" type="ScrollContainer" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 182.0
-offset_right = 388.0
-offset_bottom = 376.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.47
+anchor_right = 0.98
+anchor_bottom = 0.85
 horizontal_scroll_mode = 0
 
 [node name="StatBar" type="VBoxContainer" parent="Scroll"]
-custom_minimum_size = Vector2(364, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ItemDescription" type="Label" parent="Scroll/StatBar"]
-clip_contents = true
-custom_minimum_size = Vector2(364, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "A HIGH-POWERED SOLAR-POWERED ASSAULT RIFLE WITH RAPID-FIRE CAPABILITIES."
 autowrap_mode = 3
 uppercase = true
 
-[node name="EquipButton" type="Button" parent="."]
-layout_mode = 0
-offset_top = 375.0
-offset_right = 392.0
-offset_bottom = 400.0
+[node name="StatDamage" type="Label" parent="Scroll/StatBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "DAMAGE: 25-30"
+uppercase = true
+tooltip_text = "Damage per shot"
+
+[node name="StatFireRate" type="Label" parent="Scroll/StatBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "FIRE RATE: 10 SHOTS/SEC"
+uppercase = true
+tooltip_text = "Shots per second"
+
+[node name="StatRange" type="Label" parent="Scroll/StatBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "RANGE: 50M"
+uppercase = true
+tooltip_text = "Effective distance"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.86
+anchor_right = 0.98
+anchor_bottom = 0.98
+alignment = 1
+
+[node name="EquipButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
 theme_override_font_sizes/font_size = 20
@@ -152,3 +214,34 @@ theme_override_styles/hover = ExtResource("3_kwjjm")
 theme_override_styles/pressed = ExtResource("3_kwjjm")
 theme_override_styles/normal = ExtResource("3_kwjjm")
 text = "EQUIP"
+tooltip_text = "Equip this item"
+
+[node name="SellButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.607843, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_kwjjm")
+theme_override_styles/hover = ExtResource("3_kwjjm")
+theme_override_styles/pressed = ExtResource("3_kwjjm")
+theme_override_styles/normal = ExtResource("3_kwjjm")
+text = "SELL"
+tooltip_text = "Sell for credits"
+
+[node name="DropButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.607843, 0.607843, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("3_kwjjm")
+theme_override_styles/hover = ExtResource("3_kwjjm")
+theme_override_styles/pressed = ExtResource("3_kwjjm")
+theme_override_styles/normal = ExtResource("3_kwjjm")
+text = "DROP"
+tooltip_text = "Remove from inventory"
+
+[connection signal="pressed" from="ButtonContainer/EquipButton" to="." method="_on_equip_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/DropButton" to="." method="_on_drop_button_pressed"]
