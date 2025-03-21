@@ -4,9 +4,103 @@
 
 [resource]
 shader = ExtResource("1_m43gs")
-shader_parameter/radius = 1.0
-shader_parameter/softness = 0.5
-shader_parameter/opacity = 0.8
-shader_parameter/color = Color(0, 0, 0, 1)
+
+; --- Core Vignette Settings ---
+shader_parameter/radius = 0.8  ; Reduced default radius for a more subtle effect, was 1.0
+shader_parameter/softness = 0.6  ; Increased softness slightly, was 0.5
+shader_parameter/opacity = 0.7  ; Reduced opacity, was 0.8. More flexible control.
+shader_parameter/color = Color(0.05, 0.05, 0.1, 1)  ; Slightly darker and bluer, for a common cinematic look
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/enabled = true
+
+; --- Advanced Vignette Settings (Added) ---
+
+; Shape Control
+shader_parameter/aspect_ratio_correction = true ; Corrects for non-square aspect ratios
+shader_parameter/shape_power = 2.0 ;  Controls the "roundness" of the vignette.  >1 = more circular, <1 = more rectangular.  2.0 is standard elliptical.
+shader_parameter/feather_curve = 1.0   ; Controls the falloff curve of the feathering. 0 = linear, <1 = faster falloff, >1 = slower falloff.
+shader_parameter/dither_strength = 0.0 ; Controls the amount of dithering, helps remove banding artifacts
+
+; Color Modulation
+shader_parameter/color_tint = Color(1, 1, 1, 1)  ; Multiplies the vignette color.  Allows for subtle color shifts.
+shader_parameter/saturation_boost = 1.0 ; Modulate saturation around the vignette. 1=normal, >1 increases, <1 desaturates.
+shader_parameter/brightness_boost = 1.0; Modulate brightness.
+
+; Animation and Dynamics
+shader_parameter/pulsate_speed = 0.0     ; Speed of pulsation (cycles per second).  0.0 disables.
+shader_parameter/pulsate_amplitude = 0.1   ; How much the radius pulsates (0.0 to 1.0)
+shader_parameter/flicker_speed = 0.0      ; Speed of opacity flicker.
+shader_parameter/flicker_amplitude = 0.0  ; Intensity of opacity flicker.
+shader_parameter/offset_x = 0.0  ;  X offset for animating the center, or creating an off-center vignette.
+shader_parameter/offset_y = 0.0  ;  Y offset.
+shader_parameter/dynamic_center = false ; Enables automatic center tracking (see below).
+
+; Noise and Texture Overlay (for a film-grain-like vignette)
+shader_parameter/noise_strength = 0.0;  Adds a subtle noise overlay to the vignette.
+shader_parameter/noise_scale = 50.0;  Controls the size of the noise.  Larger values = finer noise.
+shader_parameter/noise_speed = 0.0; Speed of noise animation.
+shader_parameter/noise_offset = Vector2(0,0); Allow noise position to be moved, better for seamless loops.
+
+; ---  Optional:  Center Tracking (Added - Requires GDScript Interaction) ---
+;   To use dynamic_center, you'd update  `dynamic_center_position` from GDScript,
+;   e.g., in your player's _process() function.
+shader_parameter/dynamic_center_position = Vector2(0.5, 0.5)  ;  Used if dynamic_center is true.
+shader_parameter/center_track_smoothness = 0.9 ; Smoothing factor for dynamic center tracking (0 = no smoothing, 1 = infinite smoothing).
+; ---  Optional:  Screen-space gradient.  Good for faking lighting. ---
+shader_parameter/gradient_enabled = false
+shader_parameter/gradient_start = Vector2(0,0)
+shader_parameter/gradient_end = Vector2(1,1)
+shader_parameter/gradient_color = Color(1,1,1,0)
+
+
+; --- Presets (Conceptual - Requires GDScript to manage) ---
+; This section isn't directly usable in the shader material resource,
+; but it describes how you could manage presets using GDScript.
+
+/*  In GDScript (e.g., in a manager node):
+
+var vignette_presets = {
+    "subtle": {
+        "radius": 0.8,
+        "softness": 0.6,
+        "opacity": 0.4,
+        "color": Color(0, 0, 0, 1),
+        "shape_power": 2.0,
+        "feather_curve": 1.2,
+    },
+    "dramatic": {
+        "radius": 0.5,
+        "softness": 0.8,
+        "opacity": 0.9,
+		"color": Color(0.1, 0.0, 0.0, 1),
+        "shape_power": 1.5,
+        "feather_curve": 0.8,
+		"pulsate_speed": 0.2,
+		"pulsate_amplitude": 0.2,
+    },
+	"off-center":{
+		"radius": 1.2,
+        "softness": 0.6,
+        "opacity": 0.4,
+		"color": Color(0, 0, 0.2, 1),
+        "shape_power": 2,
+        "feather_curve": 1,
+		"offset_x": -0.3,
+		"offset_y": 0.2
+	}
+    "disabled": { "enabled": false }
+}
+
+func apply_vignette_preset(preset_name: String, material: ShaderMaterial):
+    if preset_name in vignette_presets:
+        var preset = vignette_presets[preset_name]
+        for param in preset:
+            material.set_shader_parameter(param, preset[param])
+    else:
+        push_warning("Vignette preset '", preset_name, "' not found.")
+
+# Example Usage (in a node that has access to the ShaderMaterial):
+#  apply_vignette_preset("dramatic", $ColorRect.material) # Apply to a ColorRect
+#  apply_vignette_preset("subtle", get_viewport().get_texture().get_material() )  #  For a full-screen effect
+
+*/
