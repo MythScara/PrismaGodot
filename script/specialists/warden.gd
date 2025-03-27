@@ -1,254 +1,390 @@
 extends Node
 
-var specialist_name = "Warden"
-var active = false
-var cur_level = 0
-var cur_experience = 0
-var experience_required = 1000
+class_name SpecialistWarden
 
-var mind_ready = null
-var soul_ready = null
-var heart_ready = null
-var skill_ready = null
-var special_ready = null
-var super_ready = null
+# Core Properties with Export Variables
+@export var specialist_name: String = "Warden"
+@export var max_level: int = 15  # Expanded progression
+@export var base_exp_required: int = 1000
+@export var exp_growth_factor: float = 1.25  # Exponential growth for higher levels
+@export var specialist_faction: String = "Knights of Valor"  # New: Faction affiliation
 
-var mind_signal = "Physical Damage Dealt"
-var soul_signal = ""
-var heart_signal = "Summon Used"
+var active: bool = false
+var current_level: int = 0
+var current_experience: int = 0
+var experience_required: int = base_exp_required
+var mastery_points: int = 0  # New: Earned through experience, spent on upgrades
 
-var specialist_info = {
-	"Name": "Warden",
-	"Description": "Highborn knight with a duty to protect the will of the people. Power may come from the heart, but the heart is powerless against love.",
-	"Weapon": "Great Sword",
-	"Passive 1": {"Mind": "Dealing [b]Physical Damage [/b]grants [b]1 [/b]stack of [b]Rage[/b]. Does not stack with itself."},
-	"Passive 2": {"Soul": "Increase [b]POW[/b] by [b]5 [/b]on [b]Melee Weapons[/b]."},
-	"Passive 3": {"Heart": "Using a [b]Summon [/b]instantly recharges [b]Melee Weapons[/b] and starts [b]Shield Recovery[/b]."},
-	"Technique 1": {"Skill": "Remove all[b] Status Affliction [/b]of type [b]Frost[/b].", "TD": "SU", "TC": 10},
-	"Technique 2": {"Special": "Increase [b]CRD[/b] by [b]20 [/b]on [b]Melee Weapons[/b].", "TD": 10, "TC": 40},
-	"Technique 3": {"Super": "[b]Summon[/b] gains [b]Damage Mitigation [/b]and increases [b]DEF[/b] by [b]50%[/b].", "TD": 30, "TC": 120}
+# Technique Readiness States
+var mind_ready: bool = true
+var soul_ready: bool = true
+var heart_ready: bool = true
+var skill_ready: bool = false
+var special_ready: bool = false
+var super_ready: bool = false
+var valor_strike_ready: bool = false  # New Technique
+var guardian_aura_ready: bool = false  # New Technique
+var knightly_resolve_ready: bool = false  # New Technique
+
+# Passive Signals
+var mind_signal: String = "Physical Damage Dealt"
+var soul_signal: String = ""
+var heart_signal: String = "Summon Used"
+
+# Specialist Information with Expanded Lore
+var specialist_info: Dictionary = {
+    "Name": "Warden",
+    "Description": "A highborn knight sworn to protect the realm. Forged in honor, tempered by duty, the Warden stands as a bastion against darkness.",
+    "Weapon": "Great Sword",
+    "Faction": "Knights of Valor",
+    "Passives": {
+        "Mind": "Dealing [b]Physical Damage[/b] grants [b]1[/b] stack of [b]Rage[/b]. Does not stack with itself.",
+        "Soul": "Increase [b]POW[/b] by [b]5[/b] on [b]Melee Weapons[/b].",
+        "Heart": "Using a [b]Summon[/b] instantly recharges [b]Melee Weapons[/b] and starts [b]Shield Recovery[/b].",
+        "Guardian Aura": "Allies within range gain [b]10%[/b] damage reduction.",
+        "Knightly Resolve": "When health drops below [b]30%[/b], gain [b]50%[/b] increased defense for [b]10[/b] seconds."
+    },
+    "Techniques": {
+        "Skill": {"Description": "Remove all [b]Status Affliction[/b] of type [b]Frost[/b].", "TD": "SU", "TC": 10},
+        "Special": {"Description": "Increase [b]CRD[/b] by [b]20[/b] on [b]Melee Weapons[/b].", "TD": 10, "TC": 40},
+        "Super": {"Description": "[b]Summon[/b] gains [b]Damage Mitigation[/b] and increases [b]DEF[/b] by [b]50%[/b].", "TD": 30, "TC": 120},
+        "Valor Strike": {"Description": "Deal [b]200%[/b] weapon damage to all enemies in a cone.", "TD": "SU", "TC": 25},
+        "Guardian Aura": {"Description": "Activate an aura that reduces damage taken by allies by [b]15%[/b] for [b]15[/b] seconds.", "TD": 15, "TC": 60},
+        "Knightly Resolve": {"Description": "Instantly heal [b]20%[/b] of max health and gain [b]30%[/b] damage reduction for [b]10[/b] seconds.", "TD": 10, "TC": 90}
+    },
+    "Lore": [
+        "Born to nobility, the Warden swore an oath to protect the weak.",
+        "His greatsword, forged in dragonfire, cleaves through darkness.",
+        "Legends speak of his unwavering courage in the face of despair."
+    ]
 }
 
-var specialist_rewards = {
-	"Level 0": "Legendary Supply Crate",
-	"Level 1": "Specialist Outfit",
-	"Level 2": "Specialist Exclusive Weapon",
-	"Level 3": "Specialist Belt",
-	"Level 4": "Specialist Skill",
-	"Level 5": "Specialist Pads",
-	"Level 6": "Specialist Special",
-	"Level 7": "Specialist Chest",
-	"Level 8": "Specialist Super",
-	"Level 9": "Specialist Body",
-	"Level 10": "Specialist Heart Artifact"
+# Expanded Rewards per Level
+var specialist_rewards: Dictionary = {
+    0: {"Type": "Crafting Resource", "Item": "Legendary Supply Crate", "Data": {"Amount": 1, "Value": 1000}},
+    1: {"Type": "Outfit", "Item": "Warden's Plate", "Data": {"HP": 50, "DEF": 20, "Tier": "Obsidian", "Quality": 100}},
+    2: {"Type": "Melee Weapon", "Item": "Warden's Greatsword", "Data": weapon_stats_m.duplicate()},
+    3: {"Type": "Belt Armor", "Item": "Warden's Girdle", "Data": {"STR": 10, "VIT": 10, "Tier": "Obsidian", "Quality": 100}},
+    4: {"Type": "Technique", "Item": "Skill", "Data": {"Name": "Warden", "Technique": "skill_technique"}},
+    5: {"Type": "Pad Armor", "Item": "Warden's Greaves", "Data": {"AGI": 5, "DEF": 15, "Tier": "Obsidian", "Quality": 100}},
+    6: {"Type": "Technique", "Item": "Special", "Data": {"Name": "Warden", "Technique": "special_technique"}},
+    7: {"Type": "Chest Armor", "Item": "Warden's Breastplate", "Data": {"HP": 100, "DEF": 30, "Tier": "Obsidian", "Quality": 100}},
+    8: {"Type": "Technique", "Item": "Super", "Data": {"Name": "Warden", "Technique": "super_technique"}},
+    9: {"Type": "Body Armor", "Item": "Warden's Full Plate", "Data": {"DEF": 50, "VIT": 20, "Tier": "Obsidian", "Quality": 100}},
+    10: {"Type": "Artifact", "Item": "Warden's Heart", "Data": {"HP": 200, "DEF": 50, "Tier": "Mythic", "Quality": 150}},
+    11: {"Type": "Technique", "Item": "Valor Strike", "Data": {"Name": "Warden", "Technique": "valor_strike"}},
+    12: {"Type": "Melee Weapon", "Item": "Dragonfire Greatsword", "Data": weapon_stats_m.duplicate()},
+    13: {"Type": "Technique", "Item": "Guardian Aura", "Data": {"Name": "Warden", "Technique": "guardian_aura"}},
+    14: {"Type": "Crafting Resource", "Item": "Dragon Scales", "Data": {"Amount": 10, "Value": 500}},
+    15: {"Type": "Artifact", "Item": "Warden's Legacy", "Data": {"HP": 300, "DEF": 100, "Tier": "Mythic", "Quality": 200}}
 }
 
-#Copy over for Ranged Weapon
-var weapon_stats_r = {
-	"DMG": 1, "RNG": 1, "MOB": 1, "HND": 1, "AC": 1, "RLD": 1, "FR": 1, "MAG": 1, "DUR": 1, "WCP": 1,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "", "Tier": "Diamond", "Element": "None", "Quality": 0, "Max Value": 100}
+# Enhanced Melee Weapon Stats Template
+var weapon_stats_m: Dictionary = {
+    "POW": 15, "RCH": 3, "MOB": 2, "HND": 2, "BLK": 5, "CHG": 1, "ASP": 1, "STE": 0, "DUR": 100, "WCP": 1,
+    "CRR": 5, "CRD": 50, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
+    "Type": "Great Sword", "Tier": "Diamond", "Element": "Fire", "Quality": 75, "Max Value": 100
+}
 
-#Copy over for Melee Weapon
-var weapon_stats_m = {
-	"POW": 1, "RCH": 1, "MOB": 1, "HND": 1, "BLK": 1, "CHG": 1, "ASP": 1, "STE": 1, "DUR": 1, "WCP": 1,
-	"CRR": 0, "CRD": 0, "INF": 0, "SLS": 0, "PRC": 0, "FRC": 0,
-	"Type": "", "Tier": "Diamond", "Element": "None", "Quality": 0, "Max Value": 100}
+# New: Equipment Slots
+var equipment: Dictionary = {
+    "weapon": null,
+    "armor": null,
+    "shield": null,
+    "accessory": null
+}
 
-func initialize():
-	PlayerStats.connect("activate_specialist", Callable(self, "_on_specialist_activated"))
+# New: Status Effects Tracking
+var status_effects: Dictionary = {}
 
-func _on_specialist_activated(s_type):
-	if s_type == specialist_name and active == false:
-		active = true
-		PlayerStats.set_specialist(specialist_name)
-		if PlayerStats.specialist_levels.has(specialist_name):
-			cur_level = PlayerStats.specialist_levels[specialist_name][0]
-			cur_experience = PlayerStats.specialist_levels[specialist_name][1]
-			experience_required = PlayerStats.specialist_levels[specialist_name][2]
-		else:
-			specialist_unlock(0)
-			PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
-	elif s_type != specialist_name and active == true:
-		active = false
-		PlayerStats.change_passive(specialist_name, "mind_passive", "Sub")
-		PlayerStats.change_passive(specialist_name, "soul_passive", "Sub")
-		PlayerStats.change_passive(specialist_name, "heart_passive", "Sub")
-	else:
-		pass
+# Signals for Gameplay Integration
+signal level_up(new_level: int, reward: Dictionary)
+signal technique_activated(technique: String)
+signal passive_triggered(passive: String)
+signal mastery_points_gained(amount: int)
 
-func exp_handler(value):
-	if cur_level != 10 and active == true:
-		cur_experience += value
-		while cur_experience >= experience_required and cur_level < 10:
-			cur_level += 1
-			PlayerStats.stat_points[0] += 2
-			PlayerStats.element_points[0] += 2
-			cur_experience -= experience_required
-			experience_required += 1000
-			specialist_unlock(cur_level)
-		PlayerStats.update_specialist(specialist_name, cur_level, cur_experience, experience_required)
+# Lifecycle Methods
+func _ready() -> void:
+    initialize()
 
-func specialist_unlock(level):
-	level = int(level)
-	match level:
-		0:
-			PlayerInventory.add_to_inventory("Crafting Resource", "Mithril Ore", {"Amount": 5, "Value": 700})
-		1:
-			PlayerInventory.add_to_inventory("Outfit", specialist_name+" Outfit", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
-		2:
-			PlayerInventory.add_to_inventory("Melee Weapon", specialist_name+" "+specialist_info["Weapon"], weapon_stats_m)
-		3:
-			PlayerInventory.add_to_inventory("Belt Armor", specialist_name+" Belt", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
-		4:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Skill", {"Name": specialist_name, "Technique": "skill_technique"})
-		5:
-			PlayerInventory.add_to_inventory("Pad Armor", specialist_name+" Pads", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
-		6:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Special", {"Name": specialist_name, "Technique": "special_technique"})
-		7:
-			PlayerInventory.add_to_inventory("Chest Armor", specialist_name+" Chest", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
-		8:
-			PlayerInventory.add_to_inventory("Techniques", specialist_name+" Super", {"Name": specialist_name, "Technique": "super_technique"})
-		9:
-			PlayerInventory.add_to_inventory("Body Armor", specialist_name+" Body", {"AG": 0, "CAP": 0, "STR": 0, "SHR": 0, "Tier": "Obsidian", "Quality": 100})
-		10:
-			PlayerInventory.add_to_inventory("Artifact", specialist_name+" Heart Artifact", {"HP": 0, "MP": 0, "SHD": 0, "STM": 0, "Tier": "Obsidian", "Quality": 100})
-		_:
-			print("No Match Found!")
+func initialize() -> void:
+    """Set up connections and load initial data."""
+    if not PlayerStats.is_connected("activate_specialist", _on_specialist_activated):
+        PlayerStats.connect("activate_specialist", _on_specialist_activated)
+    if not PlayerStats.is_connected("player_event", event_handler):
+        PlayerStats.connect("player_event", event_handler)
+    load_specialist_data()
 
-func event_handler(event):
-	if event == mind_signal:
-		mind_passive("Active")
-	if event == soul_signal:
-		soul_passive("Active")
-	if event == heart_signal:
-		heart_passive("Active")
+func load_specialist_data() -> void:
+    """Load or initialize specialist data from PlayerStats."""
+    if PlayerStats.specialist_levels.has(specialist_name):
+        var data = PlayerStats.specialist_levels[specialist_name]
+        current_level = data[0]
+        current_experience = data[1]
+        experience_required = data[2]
+        mastery_points = data[3] if data.size() > 3 else 0
+    else:
+        specialist_unlock(0)
+        save_specialist_data()
 
-func connection_terminate():
-	if mind_ready == null and soul_ready == null and heart_ready == null:
-		if PlayerStats.is_connected("player_event", Callable(self, "event_handler")):
-			PlayerStats.disconnect("player_event", Callable(self, "event_handler"))
+func save_specialist_data() -> void:
+    """Save current specialist state."""
+    PlayerStats.update_specialist(specialist_name, current_level, current_experience, experience_required, mastery_points)
 
-func mind_passive(state):
-	match state:
-		"Ready":
-			mind_ready = true
-			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and mind_signal != "":
-				PlayerStats.connect("player_event", Callable(self, "event_handler"))
-		"Active":
-			if mind_ready == true:
-				mind_ready = false
-				mind_passive("Cooldown")
-		"Cooldown":
-			if mind_ready == false:
-				PlayerStats.start_timer(specialist_name, "mind_passive", 5, "Ready")
-		"Unready":
-			mind_ready = null
-			connection_terminate()
+# Activation Logic
+func _on_specialist_activated(s_type: String) -> void:
+    if s_type == specialist_name and not active:
+        activate_specialist()
+    elif s_type != specialist_name and active:
+        deactivate_specialist()
 
-func soul_passive(state):
-	match state:
-		"Ready":
-			soul_ready = true
-			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and soul_signal != "":
-				PlayerStats.connect("player_event", Callable(self, "event_handler"))
-		"Active":
-			if soul_ready == true:
-				mind_ready = false
-				mind_passive("Cooldown")
-		"Cooldown":
-			if soul_ready == false:
-				PlayerStats.start_timer(specialist_name, "soul_passive", 5, "Ready")
-		"Unready":
-			soul_ready = null
-			connection_terminate()
+func activate_specialist() -> void:
+    """Activate the specialist with full system integration."""
+    active = true
+    PlayerStats.set_specialist(specialist_name)
+    apply_passives(true)
+    apply_equipment_effects(true)
+    save_specialist_data()
 
-func heart_passive(state):
-	match state:
-		"Ready":
-			heart_ready = true
-			if not PlayerStats.is_connected("player_event", Callable(self, "event_handler")) and heart_signal != "":
-				PlayerStats.connect("player_event", Callable(self, "event_handler"))
-		"Active":
-			if heart_ready == true:
-				heart_ready = false
-				heart_passive("Cooldown")
-		"Cooldown":
-			if heart_ready == false:
-				PlayerStats.start_timer(specialist_name, "heart_passive", 5, "Ready")
-		"Unready":
-			heart_ready = null
-			connection_terminate()
+func deactivate_specialist() -> void:
+    """Deactivate and clean up."""
+    active = false
+    apply_passives(false)
+    apply_equipment_effects(false)
+    clear_status_effects()
+    save_specialist_data()
 
-func skill_technique(state):
-	match state:
-		"Ready":
-			if skill_ready == null:
-				skill_ready = false
-				skill_technique("Cooldown")
-			else:
-				skill_ready = true
-		"Active":
-			if skill_ready == true:
-				skill_ready = false
-				if typeof(specialist_info["Technique 1"]["TD"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TD"], "Cooldown")
-				else:
-					skill_technique("Cooldown")
-				PlayerStats.emit_signal("player_event", "Technique Used")
-		"Cooldown":
-			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
-				PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Technique 1"]["TC"], "Ready")
-			else:
-				skill_technique("Ready")
-		"Unready":
-			skill_ready = null
+func apply_passives(enable: bool) -> void:
+    """Apply or remove passive effects."""
+    var action = "Add" if enable else "Sub"
+    for passive in ["mind", "soul", "heart", "guardian_aura", "knightly_resolve"]:
+        PlayerStats.change_passive(specialist_name, passive + "_passive", action)
 
-func special_technique(state):
-	match state:
-		"Ready":
-			if special_ready == null:
-				special_ready = false
-				special_technique("Cooldown")
-			else:
-				special_ready = true
-		"Active":
-			if special_ready == true:
-				special_ready = false
-				if typeof(specialist_info["Technique 2"]["TD"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TD"], "Cooldown")
-				else:
-					special_technique("Cooldown")
-				PlayerStats.emit_signal("player_event", "Technique Used")
-		"Cooldown":
-			if typeof(specialist_info["Technique 2"]["TC"]) == TYPE_INT:
-				PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Technique 2"]["TC"], "Ready")
-			else:
-				special_technique("Ready")
-		"Unready":
-			special_ready = null
+func apply_equipment_effects(enable: bool) -> void:
+    """Apply or remove equipment effects."""
+    var action = "Add" if enable else "Sub"
+    for slot in equipment:
+        if equipment[slot]:
+            PlayerStats.apply_item_effects(equipment[slot], action)
 
-func super_technique(state):
-	match state:
-		"Ready":
-			if super_ready == null:
-				super_ready = false
-				super_technique("Cooldown")
-			else:
-				super_ready = true
-		"Active":
-			if super_ready == true:
-				super_ready = false
-				if typeof(specialist_info["Technique 1"]["TD"]) == TYPE_INT:
-					PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TD"], "Cooldown")
-				else:
-					super_technique("Cooldown")
-				PlayerStats.emit_signal("player_event", "Technique Used")
-		"Cooldown":
-			if typeof(specialist_info["Technique 1"]["TC"]) == TYPE_INT:
-				PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Technique 3"]["TC"], "Ready")
-			else:
-				super_technique("Ready")
-		"Unready":
-			super_ready = null
+# Experience and Leveling
+func exp_handler(value: int) -> void:
+    """Manage experience gain and leveling."""
+    if current_level >= max_level or not active:
+        return
+    current_experience += value
+    mastery_points += int(value / 20)  # Earn mastery points
+    emit_signal("mastery_points_gained", int(value / 20))
+    while current_experience >= experience_required and current_level < max_level:
+        level_up()
+    save_specialist_data()
+
+func level_up() -> void:
+    """Handle level-up process."""
+    current_level += 1
+    current_experience -= experience_required
+    experience_required = int(base_exp_required * pow(exp_growth_factor, current_level))
+    PlayerStats.stat_points[0] += 3  # More stat points per level
+    PlayerStats.element_points[0] += 2
+    specialist_unlock(current_level)
+    emit_signal("level_up", current_level, specialist_rewards[current_level])
+
+func specialist_unlock(level: int) -> void:
+    """Unlock rewards and techniques at specific levels."""
+    if level in specialist_rewards:
+        var reward = specialist_rewards[level]
+        PlayerInventory.add_to_inventory(reward["Type"], reward["Item"], reward["Data"])
+        if reward["Type"] == "Technique":
+            unlock_technique(reward["Data"]["Technique"])
+    unlock_lore_entry(level)
+
+func unlock_technique(technique: String) -> void:
+    """Enable a technique based on its name."""
+    match technique:
+        "skill_technique": skill_ready = true
+        "special_technique": special_ready = true
+        "super_technique": super_ready = true
+        "valor_strike": valor_strike_ready = true
+        "guardian_aura": guardian_aura_ready = true
+        "knightly_resolve": knightly_resolve_ready = true
+
+func unlock_lore_entry(level: int) -> void:
+    """Unlock lore progressively as the specialist levels up."""
+    if level - 1 < specialist_info["Lore"].size():
+        print("Lore Unlocked: ", specialist_info["Lore"][level - 1])
+
+# Event and Passive Management
+func event_handler(event: String) -> void:
+    """Respond to player events for passive activation."""
+    if event == mind_signal:
+        mind_passive("Active")
+    if event == heart_signal:
+        heart_passive("Active")
+    if event == "Low Health":
+        knightly_resolve_passive("Active")
+
+func mind_passive(state: String) -> void:
+    """Mind passive: Grants Rage on physical damage."""
+    match state:
+        "Ready":
+            mind_ready = true
+        "Active":
+            if mind_ready:
+                mind_ready = false
+                PlayerStats.add_status_effect("Rage", 1)
+                mind_passive("Cooldown")
+        "Cooldown":
+            PlayerStats.start_timer(specialist_name, "mind_passive", 5, Callable(self, "mind_passive").bind("Ready"))
+
+func heart_passive(state: String) -> void:
+    """Heart passive: Recharge weapons and recover shield on summon."""
+    match state:
+        "Ready":
+            heart_ready = true
+        "Active":
+            if heart_ready:
+                heart_ready = false
+                PlayerStats.recharge_melee_weapons()
+                PlayerStats.start_shield_recovery()
+                heart_passive("Cooldown")
+        "Cooldown":
+            PlayerStats.start_timer(specialist_name, "heart_passive", 5, Callable(self, "heart_passive").bind("Ready"))
+
+func knightly_resolve_passive(state: String) -> void:
+    """New passive: Boost defense at low health."""
+    if state == "Active" and PlayerStats.health < PlayerStats.max_health * 0.3:
+        apply_status_effect("Knightly Resolve", 1, 10)
+
+# Technique Functions
+func skill_technique(state: String) -> void:
+    """Skill: Remove Frost afflictions."""
+    match state:
+        "Ready":
+            skill_ready = true
+        "Active":
+            if skill_ready:
+                skill_ready = false
+                PlayerStats.remove_status_affliction("Frost")
+                emit_signal("technique_activated", "Skill")
+                PlayerStats.start_timer(specialist_name, "skill_technique", specialist_info["Techniques"]["Skill"]["TC"], Callable(self, "skill_technique").bind("Ready"))
+
+func special_technique(state: String) -> void:
+    """Special: Boost critical damage on melee weapons."""
+    match state:
+        "Ready":
+            special_ready = true
+        "Active":
+            if special_ready:
+                special_ready = false
+                PlayerStats.add_stat("CRD", 20, specialist_info["Techniques"]["Special"]["TD"])
+                emit_signal("technique_activated", "Special")
+                PlayerStats.start_timer(specialist_name, "special_technique", specialist_info["Techniques"]["Special"]["TC"], Callable(self, "special_technique").bind("Ready"))
+
+func super_technique(state: String) -> void:
+    """Super: Enhance summon with mitigation and defense."""
+    match state:
+        "Ready":
+            super_ready = true
+        "Active":
+            if super_ready:
+                super_ready = false
+                PlayerStats.apply_summon_buff("Damage Mitigation", 0.5, specialist_info["Techniques"]["Super"]["TD"])
+                PlayerStats.add_stat("DEF", 50, specialist_info["Techniques"]["Super"]["TD"])
+                emit_signal("technique_activated", "Super")
+                PlayerStats.start_timer(specialist_name, "super_technique", specialist_info["Techniques"]["Super"]["TC"], Callable(self, "super_technique").bind("Ready"))
+
+func valor_strike(state: String) -> void:
+    """New Technique: Deal AoE damage in a cone."""
+    match state:
+        "Ready":
+            valor_strike_ready = true
+        "Active":
+            if valor_strike_ready:
+                valor_strike_ready = false
+                PlayerStats.deal_aoe_damage(2.0 * PlayerStats.get_weapon_damage())
+                emit_signal("technique_activated", "Valor Strike")
+                PlayerStats.start_timer(specialist_name, "valor_strike", specialist_info["Techniques"]["Valor Strike"]["TC"], Callable(self, "valor_strike").bind("Ready"))
+
+func guardian_aura(state: String) -> void:
+    """New Technique: Reduce ally damage taken."""
+    match state:
+        "Ready":
+            guardian_aura_ready = true
+        "Active":
+            if guardian_aura_ready:
+                guardian_aura_ready = false
+                PlayerStats.apply_ally_buff("Damage Reduction", 0.15, specialist_info["Techniques"]["Guardian Aura"]["TD"])
+                emit_signal("technique_activated", "Guardian Aura")
+                PlayerStats.start_timer(specialist_name, "guardian_aura", specialist_info["Techniques"]["Guardian Aura"]["TC"], Callable(self, "guardian_aura").bind("Ready"))
+
+func knightly_resolve(state: String) -> void:
+    """New Technique: Heal and reduce damage taken."""
+    match state:
+        "Ready":
+            knightly_resolve_ready = true
+        "Active":
+            if knightly_resolve_ready:
+                knightly_resolve_ready = false
+                PlayerStats.heal(0.2 * PlayerStats.max_health)
+                apply_status_effect("Damage Reduction", 0.3, 10)
+                emit_signal("technique_activated", "Knightly Resolve")
+                PlayerStats.start_timer(specialist_name, "knightly_resolve", specialist_info["Techniques"]["Knightly Resolve"]["TC"], Callable(self, "knightly_resolve").bind("Ready"))
+
+# Status Effect Management
+func apply_status_effect(effect: String, value: float, duration: float) -> void:
+    """Apply a status effect with a duration."""
+    status_effects[effect] = {"value": value, "duration": duration}
+    if duration > 0:
+        PlayerStats.start_timer(specialist_name, effect + "_effect", duration, Callable(self, "_on_effect_finished").bind(effect))
+
+func _on_effect_finished(effect: String) -> void:
+    """Remove expired status effects."""
+    status_effects.erase(effect)
+
+func clear_status_effects() -> void:
+    """Clear all active status effects."""
+    status_effects.clear()
+
+# Equipment Management
+func equip_item(slot: String, item: Dictionary) -> void:
+    """Equip an item in a specified slot."""
+    if slot in equipment:
+        if equipment[slot]:
+            PlayerStats.apply_item_effects(equipment[slot], "Sub")
+        equipment[slot] = item
+        if active:
+            PlayerStats.apply_item_effects(item, "Add")
+
+func unequip_item(slot: String) -> void:
+    """Unequip an item from a slot."""
+    if slot in equipment and equipment[slot]:
+        PlayerStats.apply_item_effects(equipment[slot], "Sub")
+        equipment[slot] = null
+
+# Utility Functions
+func get_specialist_info() -> Dictionary:
+    """Return specialist information."""
+    return specialist_info
+
+func get_level_progress() -> Dictionary:
+    """Return current level progression data."""
+    return {"level": current_level, "experience": current_experience, "experience_required": experience_required, "mastery_points": mastery_points}
+
+func get_technique_status() -> Dictionary:
+    """Return readiness status of all techniques."""
+    return {
+        "skill": skill_ready,
+        "special": special_ready,
+        "super": super_ready,
+        "valor_strike": valor_strike_ready,
+        "guardian_aura": guardian_aura_ready,
+        "knightly_resolve": knightly_resolve_ready
+    }
+
+func get_equipment() -> Dictionary:
+    """Return current equipment setup."""
+    return equipment.duplicate()
+
+func get_status_effects() -> Dictionary:
+    """Return active status effects."""
+    return status_effects.duplicate()
