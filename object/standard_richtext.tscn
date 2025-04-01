@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtlxh87hqokhp"]
+[gd_scene load_steps=6 format=3 uid="uid://dtlxh87hqokhp"]
 
 [ext_resource type="FontFile" uid="uid://b385mxjpb2l0b" path="res://font/xolonium/Xolonium-Regular.ttf" id="1_glv3e"]
 [ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="1_xjap1"]
@@ -19,15 +19,37 @@ theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_colors/default_color = Color(1, 1, 1, 1)  # White for clarity
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)  # Subtle shadow
+theme_override_colors/font_outline_color = Color(1, 0.8, 0, 0.8)  # Glow effect (yellowish)
+theme_override_constants/outline_size = 2  # Thin outline for glow
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 bbcode_enabled = true
 fit_content = true
-scroll_active = false  # Disable scrolling by default
+scroll_active = false
 text = "[center][b]Welcome to Chaos[/b]\nUnleash the Glow[/center]"
 script = ExtResource("2_kp8m3")
+visible_characters = 0  # Start hidden for typing effect
+
+[node name="TypingTimer" type="Timer" parent="."]
+wait_time = 0.05  # Speed of typing effect
+one_shot = false
+autostart = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_audio")
-volume_db = -10.0  # Lowered volume for subtlety
+volume_db = -10.0  # Subtle volume
+pitch_scale = 1.0  # Base pitch, vary in script
 autoplay = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade_in"
+
+[animation "fade_in" length=1.0]
+track_0/path = NodePath(".:modulate")
+track_0/interp = 1
+track_0/loop_wrap = true
+track_0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
