@@ -1,131 +1,182 @@
+# StatDisplayUI.gd
 extends ColorRect
 
-# Node references
-@onready var main = $MainStats/SplitContainer
-@onready var stat_container = $MainStats/SplitContainer/StatContainer
-@onready var value_container = $MainStats/SplitContainer/ValueContainer
+# --- Exports ---
+@export_group("Node References")
+# Assign the path to the VBoxContainer that will hold the stat labels
+@export var stats_list_container_path: NodePath = ^""
 
-# Player stats references with type hints
-var immunities: Array[String] = PlayerStats.immunities
-var buffs: Array[String] = PlayerStats.buffs
-var afflictions: Array[String] = PlayerStats.afflictions
+@export_group("Styling")
+# Allow overriding the font size in the editor
+@export var font_size_override: int = 16
+# Color tint applied when hovering over a stat label
+@export var hover_modulate_color: Color = Color(0.8, 0.8, 0.8, 1.0)
+# Colors for different stat types (Consider using a Theme resource for larger projects)
+@export var immunity_color: Color = Color.MEDIUM_SEA_GREEN
+@export var buff_color: Color = Color.CORNFLOWER_BLUE
+@export var affliction_color: Color = Color.TOMATO
 
-# Custom styling constants
-const FONT_SIZE: int = 20
-const LABEL_PADDING: Vector2 = Vector2(10, 5)
-const HOVER_COLOR: Color = Color(0.8, 0.8, 0.8, 1.0)
-
-# Stat type enum for better organization
-enum StatType {
-    IMMUNITY,
-    BUFF,
-    AFFLICTION
-}
-
-# Cached descriptions for tooltips
+# --- Constants ---
+# Tooltip Data (Consider moving to an external resource/data singleton for larger games)
 const STAT_DESCRIPTIONS: Dictionary = {
-    "poison": "Prevents damage over time from poison effects",
-    "speed": "Increases movement speed by 20%",
-    "burn": "Causes damage over time from fire"
+    "poison": "Prevents damage over time from poison effects.",
+    "speed": "Increases movement speed by 20%.",
+    "burn": "Causes damage over time from fire.",
+    # Add other descriptions here...
 }
 
-# Called when the node enters the scene tree
+# --- Node Cache ---
+@onready var stats_list_container: VBoxContainer = get_node_or_null(stats_list_container_path)
+
+#-----------------------------------------------------------------------------#
+# Godot Lifecycle Functions                                                   #
+#-----------------------------------------------------------------------------#
+
 func _ready() -> void:
-    update_stats()
-    # Connect signal with error checking
-    if PlayerStats.is_connected("pause_game", Callable(self, "update_stats")):
-        PlayerStats.disconnect("pause_game", Callable(self, "update_stats"))
-    PlayerStats.connect("pause_game", Callable(self, "_on_game_paused"))
+    # Validate node path is assigned and points to the correct type
+    if not stats_list_container:
+        printerr("Stat Display UI Error: stats_list_container node not found or path not set.")
+        printerr("Please assign the NodePath in the inspector for: ", name)
+        return
+    elif not stats_list_container is VBoxContainer:
+        printerr("Stat Display UI Error: Node at stats_list_container_path is not a VBoxContainer.")
+        return
 
-# Main update function
-func update_stats() -> void:
-    # Update local arrays
-    immunities = PlayerStats.immunities
-    buffs = PlayerStats.buffs
-    afflictions = PlayerStats.afflictions
-    
-    # Clear existing children
-    _clear_containers()
-    
-    # Update all stat categories
-    _update_stat_category("Immunity", immunities, StatType.IMMUNITY)
-    _update_stat_category("Buff", buffs, StatType.BUFF)
-    _update_stat_category("Affliction", afflictions, StatType.AFFLICTION)
-
-# Clear all children from containers
-func _clear_containers() -> void:
-    for child in stat_container.get_children():
-        child.queue_free()
-    for child in value_container.get_children():
-        child.queue_free()
-
-# Update a specific stat category
-func _update_stat_category(category_name: String, stat_array: Array[String], type: StatType) -> void:
-    for stat in stat_array:
-        _create_stat_label(category_name, stat, type)
-
-# Create and configure stat labels
-func _create_stat_label(key: String, value: String, type: StatType) -> void:
-    # Create key label
-    var label_key := Label.new()
-    label_key.text = key
-    label_key.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-    _configure_label(label_key, type)
-    
-    # Create value label
-    var label_value := Label.new()
-    label_value.text = value
-    label_value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-    _configure_label(label_value, type)
-    
-    # Add tooltip if description exists
-    if STAT_DESCRIPTIONS.has(value.to_lower()):
-        label_value.tooltip_text = STAT_DESCRIPTIONS[value.to_lower()]
-    
-    # Add labels to containers
-    stat_container.add_child(label_key)
-    value_container.add_child(label_value)
-
-# Configure label appearance and behavior
-func _configure_label(label: Label, type: StatType) -> void:
-    label.add_theme_font_size_override("font_size", FONT_SIZE)
-    label.custom_minimum_size = Vector2(0, FONT_SIZE + LABEL_PADDING.y * 2)
-    
-    # Apply type-specific coloring
-    match type:
-        StatType.IMMUNITY:
-            label.add_theme_color_override("font_color", Color.GREEN)
-        StatType.BUFF:
-            label.add_theme_color_override("font_color", Color.BLUE)
-        StatType.AFFLICTION:
-            label.add_theme_color_override("font_color", Color.RED)
-    
-    # Add hover effect
-    label.mouse_filter = Control.MOUSE_FILTER_PASS
-    label.connect("mouse_entered", Callable(self, "_on_label_hover").bind(label, true))
-    label.connect("mouse_exited", Callable(self, "_on_label_hover").bind(label, false))
-
-# Handle game pause signal
-func _on_game_paused() -> void:
-    update_stats()
-
-# Hover effect handler
-func _on_label_hover(label: Label, is_hovering: bool) -> void:
-    if is_hovering:
-        label.modulate = HOVER_COLOR
+    # Connect to PlayerStats signal (assuming it emits 'stats_changed')
+    # IMPORTANT: Ensure PlayerStats actually emits this signal when stats are modified.
+    if PlayerStats.has_signal("stats_changed"):
+         # Check if already connected (safety measure)
+        if not PlayerStats.is_connected("stats_changed", _on_player_stats_changed):
+            # Using CONNECT_PERSIST ensures connection survives scene saves/loads if needed
+            var err = PlayerStats.connect("stats_changed", _on_player_stats_changed, CONNECT_PERSIST)
+            if err != OK:
+                printerr("Failed to connect to PlayerStats.stats_changed signal. Error code: ", err)
     else:
-        label.modulate = Color.WHITE
+        # Fallback or Warning: If no central signal exists, updates might not trigger automatically.
+        # You might need to manually call _update_display() or connect to other signals.
+        print_rich("[color=orange]Warning:[/color] PlayerStats singleton does not have a 'stats_changed' signal. Stat display may not update automatically.")
+        # Alternatively, you could revert to connecting to 'pause_game' or another signal if that's intended.
+        # PlayerStats.connect("pause_game", _on_player_stats_changed) # Example fallback
 
-# Utility function to add a new stat dynamically
-func add_stat(stat_type: StatType, stat_value: String) -> void:
-    match stat_type:
-        StatType.IMMUNITY:
-            if not immunities.has(stat_value):
-                immunities.append(stat_value)
-        StatType.BUFF:
-            if not buffs.has(stat_value):
-                buffs.append(stat_value)
-        StatType.AFFLICTION:
-            if not afflictions.has(stat_value):
-                afflictions.append(stat_value)
-    update_stats()
+    # Initial population of the display
+    _update_display()
+
+func _exit_tree() -> void:
+    # Disconnect signals when the node is removed from the tree to prevent errors
+    if PlayerStats.has_signal("stats_changed"):
+        if PlayerStats.is_connected("stats_changed", _on_player_stats_changed):
+            PlayerStats.disconnect("stats_changed", _on_player_stats_changed)
+    # Disconnect any other signals connected in _ready (like 'pause_game' if used as fallback)
+    # if PlayerStats.is_connected("pause_game", _on_player_stats_changed):
+        # PlayerStats.disconnect("pause_game", _on_player_stats_changed)
+
+#-----------------------------------------------------------------------------#
+# Signal Handlers                                                             #
+#-----------------------------------------------------------------------------#
+
+# Called when PlayerStats indicates that data has changed
+func _on_player_stats_changed() -> void:
+    _update_display()
+
+# --- Internal Functions ---
+
+# Clears and redraws the entire list of stats
+func _update_display() -> void:
+    if not stats_list_container: return # Should have been caught in _ready, but good practice
+
+    # 1. Clear previous entries
+    for child in stats_list_container.get_children():
+        child.queue_free()
+
+    # 2. Add Headers and Stat Labels directly from PlayerStats
+    # --- Immunities ---
+    _add_category_header("Immunities")
+    if PlayerStats.immunities.is_empty():
+        _add_placeholder_label("(None)")
+    else:
+        for immunity in PlayerStats.immunities:
+            _add_stat_label(immunity, immunity_color)
+
+    # --- Buffs ---
+    _add_category_header("Buffs")
+    if PlayerStats.buffs.is_empty():
+        _add_placeholder_label("(None)")
+    else:
+        for buff in PlayerStats.buffs:
+            _add_stat_label(buff, buff_color)
+
+    # --- Afflictions ---
+    _add_category_header("Afflictions")
+    if PlayerStats.afflictions.is_empty():
+        _add_placeholder_label("(None)")
+    else:
+        for affliction in PlayerStats.afflictions:
+            _add_stat_label(affliction, affliction_color)
+
+
+# Helper to create and add a category header label
+func _add_category_header(text: String) -> void:
+    var header := Label.new()
+    header.name = text + "Header" # Give it a somewhat unique name for debugging
+    header.text = text + ":"
+    # Optional: Add specific styling for headers (e.g., bold, slightly larger font)
+    # You might want to create a theme variation for headers.
+    header.add_theme_font_size_override("font_size", font_size_override + 1) # Slightly larger
+    # Example using theme constant (if defined in project settings or theme):
+    # header.add_theme_font_override("font", preload("res://path/to/bold_font.tres"))
+    # header.add_theme_constant_override("line_spacing", 5) # Add space below
+    header.modulate = Color.WHITE # Ensure it's not colored like stats
+    stats_list_container.add_child(header)
+    # Optional: Add a small separator after the header
+    # var sep = HSeparator.new()
+    # stats_list_container.add_child(sep)
+
+
+# Helper to create and add a label for an individual stat
+func _add_stat_label(stat_name: String, color: Color) -> void:
+    var label := Label.new()
+    label.name = stat_name + "Label" # Debugging name
+    label.text = "- " + stat_name # Indent slightly with a dash
+    label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER # Align text vertically if label height > font height
+
+    # Apply Theme Overrides (Consider using a Theme resource)
+    label.add_theme_font_size_override("font_size", font_size_override)
+    label.add_theme_color_override("font_color", color)
+
+    # Tooltip
+    var stat_key = stat_name.to_lower() # Normalize for dictionary lookup
+    if STAT_DESCRIPTIONS.has(stat_key):
+        label.tooltip_text = STAT_DESCRIPTIONS[stat_key]
+        label.mouse_filter = Control.MOUSE_FILTER_PASS # Ensure mouse can interact for tooltip
+    else:
+         label.mouse_filter = Control.MOUSE_FILTER_IGNORE # No tooltip, ignore mouse
+
+    # Connect hover effects only if there's a tooltip (or always if desired)
+    if label.mouse_filter == Control.MOUSE_FILTER_PASS:
+        label.mouse_entered.connect(_on_label_mouse_entered.bind(label))
+        label.mouse_exited.connect(_on_label_mouse_exited.bind(label))
+
+    stats_list_container.add_child(label)
+
+
+# Helper to add a placeholder label (e.g., "(None)")
+func _add_placeholder_label(text: String) -> void:
+    var label := Label.new()
+    label.name = "PlaceholderLabel"
+    label.text = text
+    label.modulate = Color(0.7, 0.7, 0.7) # Dim color for placeholder
+    label.add_theme_font_size_override("font_size", font_size_override)
+    # Optional: Make it italic via theme override or font resource
+    # label.add_theme_font_override("font", preload("res://path/to/italic_font.tres"))
+    label.mouse_filter = Control.MOUSE_FILTER_IGNORE # No interaction needed
+    stats_list_container.add_child(label)
+
+
+# --- Hover Effect Handlers ---
+func _on_label_mouse_entered(label: Label) -> void:
+    # Apply hover modulation tint
+    label.modulate = hover_modulate_color
+
+func _on_label_mouse_exited(label: Label) -> void:
+    # Reset modulation tint to default (white = no tint)
+    label.modulate = Color.WHITE
