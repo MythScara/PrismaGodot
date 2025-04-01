@@ -1,6 +1,166 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmp54ol1hoiry"]
+# res://script/player_inventory.gd
+extends Node
 
-[ext_resource type="Script" path="res://script/player_inventory.gd" id="1_fqsm2"]
+signal inventory_changed()
+signal item_added(item_name, quantity)
+signal item_removed(item_name, quantity)
 
-[node name="PlayerInventory" type="Node"]
-script = ExtResource("1_fqsm2")
+var inventory = {} # Dictionary to store items: {"item_name": quantity}
+var capacity = 20 # Maximum number of items the inventory can hold (optional)
+
+func _ready():
+	# Load inventory from save data (optional)
+	load_inventory()
+
+func add_item(item_name: String, quantity: int = 1) -> bool:
+	"""Adds an item to the inventory.
+
+	Args:
+		item_name: The name of the item to add.
+		quantity: The number of items to add (default: 1).
+
+	Returns:
+		True if the item was successfully added, False otherwise (e.g., inventory full).
+	"""
+	if capacity > 0 and get_total_items() + quantity > capacity:
+		print("Inventory is full!")
+		return false
+
+	if inventory.has(item_name):
+		inventory[item_name] += quantity
+	else:
+		inventory[item_name] = quantity
+
+	emit_signal("inventory_changed")
+	emit_signal("item_added", item_name, quantity)
+	# Save inventory (optional)
+	save_inventory()
+	return true
+
+func remove_item(item_name: String, quantity: int = 1) -> bool:
+	"""Removes an item from the inventory.
+
+	Args:
+		item_name: The name of the item to remove.
+		quantity: The number of items to remove (default: 1).
+
+	Returns:
+		True if the item was successfully removed, False otherwise (e.g., not enough items).
+	"""
+	if inventory.has(item_name):
+		if inventory[item_name] >= quantity:
+			inventory[item_name] -= quantity
+			if inventory[item_name] <= 0:
+				inventory.erase(item_name)
+			emit_signal("inventory_changed")
+			emit_signal("item_removed", item_name, quantity)
+			# Save inventory (optional)
+			save_inventory()
+			return true
+		else:
+			print("Not enough " + item_name + " in inventory.")
+			return false
+	else:
+		print(item_name + " not found in inventory.")
+		return false
+
+func has_item(item_name: String, quantity: int = 1) -> bool:
+	"""Checks if the inventory contains at least the specified quantity of an item.
+
+	Args:
+		item_name: The name of the item to check for.
+		quantity: The minimum quantity required (default: 1).
+
+	Returns:
+		True if the inventory has enough of the item, False otherwise.
+	"""
+	return inventory.has(item_name) and inventory[item_name] >= quantity
+
+func get_item_count(item_name: String) -> int:
+	"""Returns the current quantity of a specific item in the inventory.
+
+	Args:
+		item_name: The name of the item.
+
+	Returns:
+		The quantity of the item, or 0 if the item is not in the inventory.
+	"""
+	return inventory.get(item_name, 0)
+
+func get_inventory() -> Dictionary:
+	"""Returns a copy of the current inventory dictionary."""
+	return inventory.duplicate()
+
+func get_total_items() -> int:
+	"""Returns the total number of items in the inventory."""
+	var total = 0
+	for quantity in inventory.values():
+		total += quantity
+	return total
+
+func set_capacity(new_capacity: int) -> void:
+	"""Sets the maximum capacity of the inventory.
+	A capacity of 0 or less means unlimited capacity.
+	"""
+	capacity = max(0, new_capacity)
+	if capacity > 0 and get_total_items() > capacity:
+		print("Warning: Inventory exceeds new capacity!")
+		emit_signal("inventory_changed") # Might want to handle this differently
+
+func get_capacity() -> int:
+	"""Returns the current capacity of the inventory."""
+	return capacity
+
+# --- Optional: Saving and Loading ---
+
+func save_inventory(save_path: String = "user://player_inventory.save") -> void:
+	"""Saves the inventory data to a file."""
+	var save_data = {"inventory": inventory}
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	if file:
+		file.store_var(save_data)
+		file.close()
+		print("Inventory saved to: " + save_path)
+	else:
+		printerr("Error: Could not save inventory to: " + save_path)
+
+func load_inventory(save_path: String = "user://player_inventory.save") -> void:
+	"""Loads the inventory data from a file."""
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	if file:
+		var loaded_data = file.get_var()
+		file.close()
+		if loaded_data.has("inventory") and typeof(loaded_data["inventory"]) == TYPE_DICTIONARY:
+			inventory = loaded_data["inventory"]
+			emit_signal("inventory_changed")
+			print("Inventory loaded from: " + save_path)
+		else:
+			printerr("Error: Invalid inventory save data.")
+	else:
+		print("No inventory save file found at: " + save_path)
+
+# --- Optional: Helper Functions (Example) ---
+
+func is_inventory_full() -> bool:
+	"""Checks if the inventory is currently full."""
+	return capacity > 0 and get_total_items() >= capacity
+
+# --- Example Usage (for testing) ---
+# func _process(delta):
+# 	if Input.is_action_just_pressed("ui_accept"):
+# 		add_item("Gold Coin", randi_range(1, 5))
+# 	if Input.is_action_just_pressed("ui_cancel"):
+# 		remove_item("Gold Coin", 1)
+# 	if Input.is_action_just_pressed("ui_left"):
+# 		print("Inventory:", get_inventory())
+# 		print("Total Items:", get_total_items())
+# 		print("Is full?", is_inventory_full())
+
+# func _on_player_inventory_inventory_changed():
+# 	print("Inventory has changed!")
+
+# func _on_player_inventory_item_added(item_name, quantity):
+# 	print("Added", quantity, item_name)
+
+# func _on_player_inventory_item_removed(item_name, quantity):
+# 	print("Removed", quantity, item_name)
