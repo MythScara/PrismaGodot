@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://hlfb4t55bws6"]
 
-[ext_resource type="Script" path="res://script/menu_interface.gd" id="1_6xjga"]
+[ext_resource type="Script" uid="uid://bxhkh177cxvex" path="res://script/menu_interface.gd" id="1_6xjga"]
 [ext_resource type="Texture2D" uid="uid://dlsell7l14jut" path="res://asset/panels/settings_extra_panel.png" id="2_hfbip"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_7df8m"]
 [ext_resource type="Texture2D" uid="uid://8xedbb177e0x" path="res://asset/button_icons/minimal_menu_button.png" id="4_mur3x"]
-[ext_resource type="Script" path="res://script/object/item_display.gd" id="5_6ijcg"]
-[ext_resource type="Script" path="res://script/inventory/stat_field.gd" id="6_inmj0"]
-[ext_resource type="Script" path="res://script/inventory/extra_field.gd" id="7_rbu8o"]
+[ext_resource type="Script" uid="uid://brwqy71n6tr71" path="res://script/object/item_display.gd" id="5_6ijcg"]
+[ext_resource type="Script" uid="uid://cevt2628h2t44" path="res://script/inventory/stat_field.gd" id="6_inmj0"]
+[ext_resource type="Script" uid="uid://drcnr5vjuudnh" path="res://script/inventory/extra_field.gd" id="7_rbu8o"]
 [ext_resource type="Texture2D" uid="uid://bgena3cfeyi6e" path="res://asset/panels/inventory_cell_panel.png" id="8_2xove"]
-[ext_resource type="Script" path="res://script/object/item_spec.gd" id="9_r6ure"]
-[ext_resource type="Script" path="res://script/settings_screen.gd" id="10_5p4su"]
+[ext_resource type="Script" uid="uid://dr1af1b7q7ail" path="res://script/object/item_spec.gd" id="9_r6ure"]
+[ext_resource type="Script" uid="uid://cnxb3u8xab3mw" path="res://script/settings_screen.gd" id="10_5p4su"]
 
 [node name="MenuInterface" type="Control"]
 visible = false

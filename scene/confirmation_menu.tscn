@@ -1,11 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://coivfl30ich1h"]
 
-[ext_resource type="Script" path="res://script/confirmation_screen.gd" id="1_p2jxp"]
+[ext_resource type="Script" uid="uid://8h268d7xafub" path="res://script/confirmation_screen.gd" id="1_p2jxp"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="2_ydj7p"]
-[ext_resource type="Texture2D" uid="uid://example" path="res://assets/ui/confirmation_bg.png" id="3_texture"]
-[ext_resource type="AudioStream" uid="uid://example" path="res://assets/sfx/button_click.wav" id="4_sfx"]
-[ext_resource type="FontFile" uid="uid://example" path="res://assets/fonts/title_font.tres" id="5_font"]
-[ext_resource type="Shader" uid="uid://example" path="res://shaders/ui_transition.tres" id="6_shader"]
+
+[sub_resource type="Resource" id="Resource_culip"]
+metadata/__load_path__ = "res://shaders/ui_transition.tres"
+
+[sub_resource type="Resource" id="Resource_dgrog"]
+metadata/__load_path__ = "res://assets/ui/confirmation_bg.png"
+
+[sub_resource type="Resource" id="Resource_6mlod"]
+metadata/__load_path__ = "res://assets/fonts/title_font.tres"
+
+[sub_resource type="Resource" id="Resource_cqujv"]
+metadata/__load_path__ = "res://assets/sfx/button_click.wav"
 
 [node name="ConfirmationMenu" type="CanvasLayer"]
 layer = 10
@@ -20,14 +28,14 @@ grow_vertical = 2
 script = ExtResource("1_p2jxp")
 
 [node name="Background" type="TextureRect" parent="ConfirmationScreen"]
-material = ExtResource("6_shader")
+material = SubResource("Resource_culip")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_texture")
+texture = SubResource("Resource_dgrog")
 expand_mode = 1
 
 [node name="BackgroundFade" type="ColorRect" parent="ConfirmationScreen"]
@@ -51,7 +59,7 @@ offset_left = -960.0
 offset_right = 960.0
 offset_bottom = 256.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_font")
+theme_override_fonts/font = SubResource("Resource_6mlod")
 theme_override_font_sizes/font_size = 90
 text = "CHARACTER CREATION : CONFIRM"
 horizontal_alignment = 1
@@ -145,7 +153,7 @@ text = "RETURN TO CHARACTER CREATION"
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ConfirmationScreen"]
-stream = ExtResource("4_sfx")
+stream = SubResource("Resource_cqujv")
 
 [connection signal="pressed" from="ConfirmationScreen/StartAdventureButton" to="ConfirmationScreen" method="_on_start_adventure_button_pressed"]
 [connection signal="pressed" from="ConfirmationScreen/ReturnButton" to="ConfirmationScreen" method="_on_return_button_pressed"]

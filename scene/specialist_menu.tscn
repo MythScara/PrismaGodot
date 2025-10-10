@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://b64xklwdq3pxa"]
 
-[ext_resource type="Script" path="res://script/specialist_screen.gd" id="1_br61r"]
+[ext_resource type="Script" uid="uid://de2cjecvr7061" path="res://script/specialist_screen.gd" id="1_br61r"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="1_p3f6k"]
 [ext_resource type="PackedScene" uid="uid://iai1jn8gcebl" path="res://scene/test_level_scene.tscn" id="2_iok0q"]
 [ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="2_jeatg"]
-[ext_resource type="Script" path="res://script/specialist_buttons.gd" id="2_y5xso"]
+[ext_resource type="Script" uid="uid://bpeeqhsiin3o3" path="res://script/specialist_buttons.gd" id="2_y5xso"]
 [ext_resource type="Texture2D" uid="uid://b1hken8ex51bd" path="res://asset/splash_backgrounds/main_menu_background.png" id="3_57aa5"]
 [ext_resource type="Texture2D" uid="uid://o8jxufx0n72p" path="res://asset/panels/minimal_wide_panel.png" id="4_yorat"]
 [ext_resource type="Texture2D" uid="uid://xd1fiy4k57j6" path="res://asset/emblems/human_emblem.png" id="5_bjic7"]

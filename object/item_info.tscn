@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rhx0brxv4mr7"]
 
-[ext_resource type="Script" path="res://script/object/item_info.gd" id="1_thh4v"]
+[ext_resource type="Script" uid="uid://8bb1wew4r8jl" path="res://script/object/item_info.gd" id="1_thh4v"]
 [ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/ranged weapon/assault rifle.png" id="2_y1wat"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_kwjjm"]
 
