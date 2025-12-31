@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rhx0brxv4mr7"]
 
-[ext_resource type="Script" uid="uid://8bb1wew4r8jl" path="res://script/object/item_info.gd" id="1_thh4v"]
+[ext_resource type="Script" path="res://script/object/item_info.gd" id="1_thh4v"]
 [ext_resource type="Texture2D" uid="uid://7d8fq5i35qgy" path="res://asset/ranged weapon/assault rifle.png" id="2_y1wat"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="3_kwjjm"]
 
@@ -26,9 +26,9 @@ color = Color(0, 0, 0, 1)
 [node name="VDivide" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 120.0
+offset_top = 178.0
 offset_right = 388.0
-offset_bottom = 124.0
+offset_bottom = 182.0
 color = Color(0.160784, 0.160784, 0.160784, 1)
 
 [node name="HDivide" type="ColorRect" parent="."]
@@ -36,7 +36,7 @@ layout_mode = 0
 offset_left = 142.0
 offset_top = 40.0
 offset_right = 146.0
-offset_bottom = 120.0
+offset_bottom = 178.0
 color = Color(0.160784, 0.160784, 0.160784, 1)
 
 [node name="Name" type="Label" parent="."]
@@ -54,8 +54,8 @@ layout_mode = 0
 offset_left = 146.0
 offset_top = 44.0
 offset_right = 384.0
-offset_bottom = 60.0
-theme_override_font_sizes/font_size = 16
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
 text = "assault rifle"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -64,10 +64,10 @@ uppercase = true
 [node name="ItemTier" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 60.0
+offset_top = 70.0
 offset_right = 384.0
-offset_bottom = 76.0
-theme_override_font_sizes/font_size = 16
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 20
 text = "adamantine"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -76,10 +76,10 @@ uppercase = true
 [node name="ItemElement" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 76.0
+offset_top = 96.0
 offset_right = 384.0
-offset_bottom = 92.0
-theme_override_font_sizes/font_size = 16
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 20
 text = "solar"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -88,10 +88,10 @@ uppercase = true
 [node name="ItemExtra" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 92.0
+offset_top = 122.0
 offset_right = 384.0
-offset_bottom = 108.0
-theme_override_font_sizes/font_size = 16
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 20
 text = "fully-automatic"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -100,10 +100,10 @@ uppercase = true
 [node name="ItemQuality" type="Label" parent="."]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 108.0
+offset_top = 148.0
 offset_right = 384.0
-offset_bottom = 124.0
-theme_override_font_sizes/font_size = 16
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 20
 text = "quality : 100"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -114,7 +114,7 @@ layout_mode = 0
 offset_left = 8.0
 offset_top = 44.0
 offset_right = 138.0
-offset_bottom = 120.0
+offset_bottom = 174.0
 texture = ExtResource("2_y1wat")
 expand_mode = 1
 stretch_mode = 5
@@ -122,19 +122,14 @@ stretch_mode = 5
 [node name="Scroll" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 124.0
+offset_top = 182.0
 offset_right = 388.0
-offset_bottom = 360.0
+offset_bottom = 376.0
 horizontal_scroll_mode = 0
 
 [node name="StatBar" type="VBoxContainer" parent="Scroll"]
 custom_minimum_size = Vector2(364, 0)
 layout_mode = 2
-
-[node name="StatsGrid" type="GridContainer" parent="Scroll/StatBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-columns = 2
 
 [node name="ItemDescription" type="Label" parent="Scroll/StatBar"]
 clip_contents = true
@@ -144,15 +139,11 @@ theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 uppercase = true
 
-[node name="ButtonBar" type="HBoxContainer" parent="."]
+[node name="EquipButton" type="Button" parent="."]
 layout_mode = 0
-offset_top = 360.0
+offset_top = 375.0
 offset_right = 392.0
 offset_bottom = 400.0
-alignment = 1
-
-[node name="EquipButton" type="Button" parent="ButtonBar"]
-layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
 theme_override_font_sizes/font_size = 20
@@ -161,29 +152,3 @@ theme_override_styles/hover = ExtResource("3_kwjjm")
 theme_override_styles/pressed = ExtResource("3_kwjjm")
 theme_override_styles/normal = ExtResource("3_kwjjm")
 text = "EQUIP"
-
-[node name="SellButton" type="Button" parent="ButtonBar"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = ExtResource("3_kwjjm")
-theme_override_styles/hover = ExtResource("3_kwjjm")
-theme_override_styles/pressed = ExtResource("3_kwjjm")
-theme_override_styles/normal = ExtResource("3_kwjjm")
-text = "SELL"
-
-[node name="DropButton" type="Button" parent="ButtonBar"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0.607843, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.607843, 1, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = ExtResource("3_kwjjm")
-theme_override_styles/hover = ExtResource("3_kwjjm")
-theme_override_styles/pressed = ExtResource("3_kwjjm")
-theme_override_styles/normal = ExtResource("3_kwjjm")
-text = "DROP"
-
-[connection signal="pressed" from="ButtonBar/EquipButton" to="." method="_on_EquipButton_pressed"]
-[connection signal="pressed" from="ButtonBar/SellButton" to="." method="_on_SellButton_pressed"]
-[connection signal="pressed" from="ButtonBar/DropButton" to="." method="_on_DropButton_pressed"]

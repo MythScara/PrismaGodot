@@ -1,281 +1,306 @@
 extends Node
 
-# UI References grouped by category
-class_name PlayerHUD
+@onready var health_bar = $GameInterface/Health/HealthBar
+@onready var health_text = $GameInterface/Health/HealthText
 
-# Stat Displays
-@onready var stat_displays = {
-	"health": {
-		"bar": $GameInterface/Health/HealthBar,
-		"text": $GameInterface/Health/HealthText
-	},
-	"overshield": {
-		"bar": $GameInterface/Overshield/OvershieldBar,
-		"text": $GameInterface/Overshield/OvershieldText
-	},
-	"magic": {
-		"bar": $GameInterface/Magic/MagicBar,
-		"text": $GameInterface/Magic/MagicText
-	},
-	"stamina": {
-		"bar": $GameInterface/Stamina/StaminaBar,
-		"text": $GameInterface/Stamina/StaminaText
-	}
-}
+@onready var overshield_bar = $GameInterface/Overshield/OvershieldBar
+@onready var overshield_text = $GameInterface/Overshield/OvershieldText
 
-# Experience Displays
-@onready var exp_displays = {
-	"experience": $GameInterface/Experience/ExperienceBar,
-	"specialist": $GameInterface/Experience/SpecialistBar,
-	"species_icon": $GameInterface/Experience/SpecialistBar/Species,
-	"specialist_icon": $GameInterface/Experience/SpecialistBar/Specialist,
-	"player_level": $GameInterface/Experience/PlayerBar/Level,
-	"specialist_rank": $GameInterface/Experience/PlayerBar/Rank,
-	"rank_point": $GameInterface/Experience/PlayerBar/RankPoint,
-	"level_point": $GameInterface/Experience/PlayerBar/LevelPoint
-}
+@onready var magic_bar = $GameInterface/Magic/MagicBar
+@onready var magic_text = $GameInterface/Magic/MagicText
 
-# Weapon Displays
-@onready var weapon_displays = {
-	"ranged": {
-		"icon": $GameInterface/RangedWeapon/Weapon,
-		"ammo": $GameInterface/RangedWeapon/Ammo,
-		"active": $GameInterface/RangedWeapon/ActiveMode,
-		"meter": $GameInterface/RangedWeapon/ActiveMode/AmmoRect
-	},
-	"melee": {
-		"icon": $GameInterface/MeleeWeapon/Weapon,
-		"charge": $GameInterface/MeleeWeapon/Charge,
-		"active": $GameInterface/MeleeWeapon/ActiveMode,
-		"meter": $GameInterface/MeleeWeapon/ActiveMode/ChargeRect
-	}
-}
+@onready var stamina_bar = $GameInterface/Stamina/StaminaBar
+@onready var stamina_text = $GameInterface/Stamina/StaminaText
 
-# Interface References
+@onready var experience_bar = $GameInterface/Experience/ExperienceBar
+@onready var specialist_bar = $GameInterface/Experience/SpecialistBar
+
+@onready var species_icon = $GameInterface/Experience/SpecialistBar/Species
+@onready var specialist_icon = $GameInterface/Experience/SpecialistBar/Specialist
+
+@onready var player_level = $GameInterface/Experience/PlayerBar/Level
+@onready var specialist_rank = $GameInterface/Experience/PlayerBar/Rank
+
+@onready var rank_point = $GameInterface/Experience/PlayerBar/RankPoint
+@onready var level_point = $GameInterface/Experience/PlayerBar/LevelPoint
+
+@onready var ranged_weapon = $GameInterface/RangedWeapon/Weapon
+@onready var melee_weapon = $GameInterface/MeleeWeapon/Weapon
+
+@onready var ammo = $GameInterface/RangedWeapon/Ammo
+@onready var charge = $GameInterface/MeleeWeapon/Charge
+
+@onready var ranged_active = $GameInterface/RangedWeapon/ActiveMode
+@onready var melee_active = $GameInterface/MeleeWeapon/ActiveMode
+
+@onready var ranged_meter = $GameInterface/RangedWeapon/ActiveMode/AmmoRect
+@onready var melee_meter = $GameInterface/MeleeWeapon/ActiveMode/ChargeRect
+
 @onready var game_ui = $GameInterface
 @onready var menu_ui = $MenuInterface
-@onready var inventory_screen = $MenuInterface/InventoryScreen
+
 @onready var selection_field = $MenuInterface/InventoryScreen/SelectionScroll/SelectionField
 @onready var information_field = $MenuInterface/InventoryScreen/InfoScroll/InformationField
 
-# Selection Slots
-@onready var selection_slots = [
-	$GameInterface/SelectionSlots/Slot1,
-	$GameInterface/SelectionSlots/Slot2,
-	$GameInterface/SelectionSlots/Slot3,
-	$GameInterface/SelectionSlots/Slot4
-]
+@onready var slot1 = $GameInterface/SelectionSlots/Slot1
+@onready var slot2 = $GameInterface/SelectionSlots/Slot2
+@onready var slot3 = $GameInterface/SelectionSlots/Slot3
+@onready var slot4 = $GameInterface/SelectionSlots/Slot4
 @onready var slot_label = $GameInterface/SelectionSlots/SelectionLabel
 
-# State Variables
-var weapon_stats: Dictionary
-var damage: float = 0.0
-var reloading: bool = false
-var active_weapon: String = "None"
+@onready var inventory_screen = $MenuInterface/InventoryScreen
 
-# Constants
-const STAT_MAP = {
-	"HP": "health",
-	"MP": "magic",
-	"STM": "stamina",
-	"SHD": "overshield"
-}
+var weapon_stats
+var damage = 0
+var reloading = false
 
-func _ready() -> void:
-	menu_ui.hide()
-	_connect_signals()
-	await initial_setup()
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.visible = false
+	menu_ui.visible = false
+	PlayerStats.connect("stat_update", Callable(self, "update_values"))
+	PlayerStats.connect("exp_update", Callable(self, "update_exp"))
+	PlayerStats.connect("spec_update", Callable(self, "update_spec"))
 
-func _connect_signals() -> void:
-	if not PlayerStats.is_connected("stat_update", update_values):
-		PlayerStats.connect("stat_update", update_values)
-	if not PlayerStats.is_connected("exp_update", update_exp):
-		PlayerStats.connect("exp_update", update_exp)
-	if not PlayerStats.is_connected("spec_update", update_spec):
-		PlayerStats.connect("spec_update", update_spec)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
 
-func initial_setup() -> void:
-	# Initialize stat bars
-	for stat_key in STAT_MAP:
-		var display = stat_displays[STAT_MAP[stat_key]]
-		_initialize_bar(display, PlayerStats.stats[stat_key])
+func initial_setup():
+	# Define a dictionary to map stats to their respective bars and text labels.
+	var progress_bars = {
+		"HP": {"bar": health_bar, "text": health_text},
+		"MP": {"bar": magic_bar, "text": magic_text},
+		"STM": {"bar": stamina_bar, "text": stamina_text},
+		"SHD": {"bar": overshield_bar, "text": overshield_text}
+	}
 
-	# Initialize experience
-	_initialize_experience()
+	# Loop through each stat, setting the bar's max value, value, and corresponding text.
+	for stat in progress_bars.keys():
+		var components = progress_bars[stat]
+		var bar = components["bar"]
+		var text_label = components["text"]
+		bar.max_value = PlayerStats.stats[stat]
+		bar.value = PlayerStats.stats[stat]  # Assuming you want to initialize the value to max_value
+		text_label.text = str(PlayerStats.stats[stat])
 
-	# Initialize weapons
-	_initialize_weapons()
+	# Handle the experience bar separately since it doesn't fit the same pattern.
+	experience_bar.max_value = PlayerStats.player_level[2]
+	experience_bar.value = PlayerStats.player_level[1]
+	player_level.text = "Level " + str(PlayerStats.player_level[0])
+	specialist_bar.max_value = PlayerStats.specialist_levels[PlayerStats.specialist][2]
+	specialist_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
+	specialist_rank.text = PlayerStats.specialist.to_lower() + " Rank " + str(PlayerStats.specialist_levels[PlayerStats.specialist][0])
 
-func _initialize_bar(display: Dictionary, value: float) -> void:
-	display.bar.max_value = value
-	display.bar.value = value
-	display.text.text = str(value)
-
-func _initialize_experience() -> void:
-	exp_displays.experience.max_value = PlayerStats.player_level[2]
-	exp_displays.experience.value = PlayerStats.player_level[1]
-	exp_displays.player_level.text = "Level %d" % PlayerStats.player_level[0]
+	# Load textures for species and specialist icons.
+	species_icon.texture = load("res://asset/emblems/" + PlayerStats.species.to_lower() + "_emblem.png")
+	specialist_icon.texture = load("res://asset/specialist/" + PlayerStats.specialist.to_lower() + "_emblem.png")
+	ranged_weapon.texture = load("res://asset/ranged weapon/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
+	ammo.text = str(PlayerStats.ranged_values["MAG"])
+	melee_weapon.texture = load("res://asset/melee weapon/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
+	charge.text = str(PlayerStats.melee_values["STE"])
 	
-	_update_specialist_display()
-	
-	_load_texture_safe(exp_displays.species_icon, "res://asset/emblems/", PlayerStats.species, "_emblem.png")
+	# Ensure the UI is visible.
+	self.visible = true
 
-func _initialize_weapons() -> void:
-	_load_texture_safe(weapon_displays.ranged.icon, "res://asset/ranged weapon/", PlayerStats.ranged_stats["Type"], ".png")
-	weapon_displays.ranged.ammo.text = str(PlayerStats.ranged_values["MAG"])
-	
-	_load_texture_safe(weapon_displays.melee.icon, "res://asset/melee weapon/", PlayerStats.melee_stats["Type"], ".png")
-	weapon_displays.melee.charge.text = str(PlayerStats.melee_values["STE"])
+func clear_selection():
+	if selection_field.get_child_count() > 0:
+		for child in selection_field.get_children():
+			child.queue_free()
+		for child in information_field.get_children():
+			child.queue_free()
 
-func _load_texture_safe(node: Node, path: String, name: String, suffix: String) -> void:
-	var full_path = "%s%s%s" % [path, name.to_lower(), suffix]
-	var texture = load(full_path)
-	if texture:
-		node.texture = texture
-	else:
-		push_warning("Failed to load texture: %s" % full_path)
-
-func swap_active(state: String) -> void:
-	if reloading: return
+func swap_active(state):
+	if reloading:
+		return
 	
 	match state:
 		"Ranged":
-			_set_weapon_state("ranged", true)
-			_set_weapon_state("melee", false)
+			melee_active.visible = false
+			ranged_active.visible = true
 			weapon_stats = PlayerStats.ranged_stats
 			PlayerStats.attack_cooldown = PlayerStats.ranged_values["FR"]
-			active_weapon = "Ranged"
 		"Melee":
-			_set_weapon_state("ranged", false)
-			_set_weapon_state("melee", true)
+			ranged_active.visible = false
+			melee_active.visible = true
 			weapon_stats = PlayerStats.melee_stats
 			PlayerStats.attack_cooldown = PlayerStats.melee_values["ASP"]
-			active_weapon = "Melee"
 		"Swap":
-			swap_active("Melee" if active_weapon == "Ranged" else "Ranged")
+			if ranged_active.visible == true:
+				ranged_active.visible = false
+				melee_active.visible = true
+				weapon_stats = PlayerStats.melee_stats
+				PlayerStats.attack_cooldown = PlayerStats.melee_values["ASP"]
+			else:
+				melee_active.visible = false
+				ranged_active.visible = true
+				weapon_stats = PlayerStats.ranged_stats
+				PlayerStats.attack_cooldown = PlayerStats.ranged_values["FR"]
 		"None":
-			_set_weapon_state("ranged", false)
-			_set_weapon_state("melee", false)
-			weapon_stats = {}
-			active_weapon = "None"
+			melee_active.visible = false
+			ranged_active.visible = false
+			weapon_stats = null
 
-func _set_weapon_state(weapon: String, state: bool) -> void:
-	weapon_displays[weapon].active.visible = state
-
-func attack_action() -> void:
-	if reloading or active_weapon == "None": return
-	
-	var weapon = weapon_displays[active_weapon.to_lower()]
-	var current = int(weapon.ammo.text if active_weapon == "Ranged" else weapon.charge.text)
-	
-	if current > 0:
-		current -= 1
-		var max_value = (PlayerStats.ranged_values["MAG"] if active_weapon == "Ranged" 
-			else PlayerStats.melee_values["STE"])
-		var amount = float(current) / max_value
-		
-		if active_weapon == "Ranged":
-			weapon.ammo.text = str(current)
+func attack_action():
+	if ranged_active.visible == true:
+		if reloading:
+			return
+			
+		var cur = int(ammo.text)
+		var amount
+		if cur > 0:
+			cur -= 1
+			ammo.text = str(cur)
+			amount = float(cur) / PlayerStats.ranged_values["MAG"]
+			ranged_meter.color = meter_update(amount)
 			damage += PlayerStats.ranged_values["DMG"]
 		else:
-			weapon.charge.text = str(current)
-			damage += PlayerStats.melee_values["POW"]
+			reload()
+	elif melee_active.visible == true:
+		if reloading:
+			return
 			
-		weapon.meter.color = meter_update(amount)
+		var cur = int(charge.text)
+		var amount
+		if cur > 0:
+			cur -= 1
+			charge.text = str(cur)
+			amount = float(cur) / PlayerStats.melee_values["STE"]
+			melee_meter.color = meter_update(amount)
+			damage += PlayerStats.melee_values["POW"]
+		else:
+			reload()
 	else:
-		reload()
+		pass
 
-func reload() -> void:
-	if reloading or active_weapon == "None" or stat_displays["magic"]["bar"].value < 1:
-		if stat_displays["magic"]["bar"].value < 1:
-			print("Insufficient Magic")
+func reload():
+	
+	var time_r = PlayerStats.ranged_values["RLD"]
+	var time_m = PlayerStats.melee_values["CHG"]
+	
+	if reloading:
 		return
-
+	
+	if magic_bar.value < 1:
+		print("Insufficient Magic")
+		return
+	
 	reloading = true
-	var weapon = weapon_displays[active_weapon.to_lower()]
-	weapon.active.color = Color.RED
+	print_debug(damage)
 	
-	var reload_time = (PlayerStats.ranged_values["RLD"] if active_weapon == "Ranged" 
-		else PlayerStats.melee_values["CHG"])
-	
-	await get_tree().create_timer(reload_time).timeout
-	
-	var max_value = (PlayerStats.ranged_values["MAG"] if active_weapon == "Ranged" 
-		else PlayerStats.melee_values["STE"])
-	
-	if active_weapon == "Ranged":
-		weapon.ammo.text = str(max_value)
-	else:
-		weapon.charge.text = str(max_value)
-	
-	var cost = -max_value * 100
-	change_stat("MP", cost)
-	
-	weapon.active.color = Color.WHITE
-	weapon.meter.color = Color.GREEN
+	if ranged_active.visible == true:
+		ranged_active.color = Color(1, 0, 0, 1)
+		await get_tree().create_timer(time_r).timeout
+		ammo.text = str(PlayerStats.ranged_values["MAG"])
+		var cost = -int(ammo.text)*100
+		change_stat("MP", cost)
+		ranged_active.color = Color(1, 1, 1, 1)
+		ranged_meter.color = Color(0, 1, 0, 1)
+	elif melee_active.visible == true:
+		melee_active.color = Color(1, 0, 0, 1)
+		await get_tree().create_timer(time_m).timeout
+		charge.text = str(PlayerStats.melee_values["STE"])
+		var cost = -int(charge.text)*100
+		change_stat("MP", cost)
+		melee_active.color = Color(1, 1, 1, 1)
+		melee_meter.color = Color(0, 1, 0, 1)
+		
 	reloading = false
 	damage = 0
 
-func meter_update(amount: float) -> Color:
-	return Color(1 - amount, amount, 0, 1)
+func meter_update(amount):
+	return Color(1 - amount, amount, 0 ,1)
 
-func update_values(stat: String) -> void:
-	if stat in STAT_MAP:
-		stat_displays[STAT_MAP[stat]].bar.max_value = PlayerStats.stats[stat]
+func update_exp():
+	experience_bar.max_value = PlayerStats.player_level[2]
+	experience_bar.value = PlayerStats.player_level[1]
+	player_level.text = "Level " + str(PlayerStats.player_level[0])
+	if PlayerStats.stat_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = false
+	if PlayerStats.element_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = false
 
-func change_stat(stat: String, value: float) -> void:
-	if stat in STAT_MAP:
-		var display = stat_displays[STAT_MAP[stat]]
-		display.bar.value = clamp(display.bar.value + value, 0, display.bar.max_value)
-		display.text.text = str(display.bar.value)
+func update_spec():
+	if PlayerStats.specialist != null:
+		specialist_bar.max_value = PlayerStats.specialist_levels[PlayerStats.specialist][2]
+		specialist_bar.value = PlayerStats.specialist_levels[PlayerStats.specialist][1]
+		specialist_rank.text = PlayerStats.specialist.to_lower() + " Rank " + str(PlayerStats.specialist_levels[PlayerStats.specialist][0])
+		specialist_icon.texture = load("res://asset/specialist/" + PlayerStats.specialist.to_lower() + "_emblem.png")
+	if PlayerStats.stat_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/LevelPoint.visible = false
+	if PlayerStats.element_points[0] > 0:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = true
+	else:
+		$GameInterface/Experience/PlayerBar/RankPoint.visible = false
 
-func update_exp() -> void:
-	exp_displays.experience.max_value = PlayerStats.player_level[2]
-	exp_displays.experience.value = PlayerStats.player_level[1]
-	exp_displays.player_level.text = "Level %d" % PlayerStats.player_level[0]
-	_update_point_indicators()
+func update_values(stat):
+	match stat:
+		"HP":
+			health_bar.max_value = PlayerStats.stats["HP"]
+		"MP":
+			magic_bar.max_value = PlayerStats.stats["MP"]
+		"SHD":
+			overshield_bar.max_value = PlayerStats.stats["SHD"]
+		"STM":
+			stamina_bar.max_value = PlayerStats.stats["STM"]
 
-func update_spec() -> void:
-	if PlayerStats.specialist:
-		_update_specialist_display()
-		_update_point_indicators()
+func update_weapons(type):
+	if type == "Ranged":
+		ranged_weapon.texture = load("res://asset/ranged weapon/" + PlayerStats.ranged_stats["Type"].to_lower() + ".png")
+		ammo.text = str(PlayerStats.ranged_values["MAG"])
+	elif type == "Melee":
+		melee_weapon.texture = load("res://asset/melee weapon/" + PlayerStats.melee_stats["Type"].to_lower() + ".png")
+		charge.text = str(PlayerStats.melee_values["STE"])
+	else:
+		print("Invalid Type")
 
-func _update_specialist_display() -> void:
-	var spec = PlayerStats.specialist
-	if spec:
-		var spec_levels = PlayerStats.specialist_levels[spec]
-		exp_displays.specialist.max_value = spec_levels[2]
-		exp_displays.specialist.value = spec_levels[1]
-		exp_displays.specialist_rank.text = "%s Rank %d" % [spec.to_lower(), spec_levels[0]]
-		_load_texture_safe(exp_displays.specialist_icon, "res://asset/specialist/", spec, "_emblem.png")
+func change_stat(stat, value):
+	match stat:
+		"HP":
+			health_bar.value += value
+			health_text.text = str(health_bar.value)
+		"MP":
+			magic_bar.value += value
+			magic_text.text = str(magic_bar.value)
+		"SHD":
+			overshield_bar.value += value
+			overshield_text.text = str(overshield_bar.value)
+		"STM":
+			stamina_bar.value += value
+			stamina_text.text = str(stamina_bar.value)
 
-func _update_point_indicators() -> void:
-	exp_displays.level_point.visible = PlayerStats.stat_points[0] > 0
-	exp_displays.rank_point.visible = PlayerStats.element_points[0] > 0
-
-func update_weapons(type: String) -> void:
-	var weapon = weapon_displays[type.to_lower()]
-	var stats = PlayerStats.ranged_stats if type == "Ranged" else PlayerStats.melee_stats
-	var values = PlayerStats.ranged_values if type == "Ranged" else PlayerStats.melee_values
+func set_display(type, image, item_name, values, slot = 0):
+	inventory_screen.display_field(type, image, item_name, values, slot)
 	
-	_load_texture_safe(weapon.icon, "res://asset/%s weapon/" % type.to_lower(), stats["Type"], ".png")
-	weapon.ammo.text = str(values["MAG" if type == "Ranged" else "STE"])
+func swap_selection(state):
+	match state:
+		"Technique": 
+			slot_label.text = "TECHNIQUE"
+		"Battle Magic": 
+			slot_label.text = "BATTLE MAGIC"
+		"Support Magic": 
+			slot_label.text = "SUPPORT MAGIC"
+		"Battle Item": 
+			slot_label.text = "BATTLE ITEM"
+		"Support Item": 
+			slot_label.text = "SUPPORT ITEM"
 
-func swap_selection(state: String) -> void:
-	slot_label.text = state.to_upper()
-
-func update_technique(tech: int = -1) -> void:
-	var techniques = PlayerStats.techniques
-	for i in range(selection_slots.size()):
-		if (tech == -1 or tech == i) and techniques[i] != null:
-			var path = "res://asset/technique/%s.png" % techniques[i][0].to_lower()
-			_load_texture_safe(selection_slots[i], "", path, "")
-			selection_slots[i].texture_progress = selection_slots[i].texture_under
-
-# New Features
-func toggle_ui() -> void:
-	game_ui.visible = !game_ui.visible
-
-func set_stat_color(stat: String, color: Color) -> void:
-	if stat in STAT_MAP:
-		stat_displays[STAT_MAP[stat]].bar.modulate = color
+func update_technique(tech = null):
+	var technique = PlayerStats.techniques
+	return
+	
+	if technique[0] != null and tech == null or tech == 0:
+		slot1.texture_under = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
+		slot1.texture_progress = load("res://asset/technique/" + technique[0][0].to_lower() + ".png")
+	if technique[1] != null and tech == null or tech == 1:
+		slot2.texture_under = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
+		slot2.texture_progress = load("res://asset/technique/" + technique[1][0].to_lower() + ".png")
+	if technique[2] != null and tech == null or tech == 2:
+		slot3.texture_under = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")
+		slot3.texture_progress = load("res://asset/technique/" + technique[2][0].to_lower() + ".png")

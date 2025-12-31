@@ -71,8 +71,7 @@ var archive_inventory = {
 	"Aspect": {},
 	"Specialist": {},
 	"Vehicle": {},
-	"Faction": {},
-	"Potion": {}
+	"Faction": {}
 }
 
 func add_to_inventory(category: String, item_name: String, item_values: Dictionary) -> void:
