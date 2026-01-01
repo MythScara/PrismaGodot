@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SpecialistResource" load_steps=2 format=3 uid="uid://bqqrni1v16w6m"]
-
-[ext_resource type="Script" uid="uid://cdd43sb356o86" path="res://script/specialist_resource.gd" id="1_xikmt"]
-
-[resource]
-script = ExtResource("1_xikmt")
-name = "Archer"
-metadata/_custom_type_script = "uid://cdd43sb356o86"
