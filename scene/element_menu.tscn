@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://brayaanbjj2q1"]
+[gd_scene load_steps=12 format=3 uid="uid://brayaanbjj2q1"]
 
-[ext_resource type="Script" path="res://script/element_screen.gd" id="1_bawap"]
+[ext_resource type="Script" uid="uid://bw6ufrgehp3mu" path="res://script/element_screen.gd" id="1_bawap"]
 [ext_resource type="StyleBox" uid="uid://dx8pdckt4l1rb" path="res://resource/buttonstyle.tres" id="2_slbkg"]
 [ext_resource type="FontFile" uid="uid://csv62pf5suogx" path="res://font/xolonium/Xolonium-Bold.ttf" id="2_syvfx"]
 [ext_resource type="PackedScene" uid="uid://b64xklwdq3pxa" path="res://scene/specialist_menu.tscn" id="2_vlx38"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bs13p45bohhnw" path="res://asset/button_icons/add_button.png" id="8_d7si3"]
 [ext_resource type="Texture2D" uid="uid://biy5ncrywh8m1" path="res://asset/button_icons/sub_button.png" id="9_4whwl"]
 [ext_resource type="Texture2D" uid="uid://sbsil81gtk57" path="res://asset/panels/standard_message_panel.png" id="10_5engg"]
+[ext_resource type="Texture2D" uid="uid://b7j6kt633o10l" path="res://asset/element_orbs/Sprite-Solar.png" id="11_aquek"]
 
 [node name="ElementMenu" type="CanvasLayer"]
 
@@ -111,8 +112,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "SOLAR"
@@ -131,8 +132,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "NATURE"
@@ -151,8 +152,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "SPIRIT"
@@ -171,8 +172,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "VOID"
@@ -191,8 +192,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "ARC"
@@ -211,8 +212,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "FROST"
@@ -231,8 +232,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "METAL"
@@ -251,8 +252,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 toggle_mode = true
 text = "DIVINE"
@@ -271,8 +272,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 text = "CONTINUE"
 icon = ExtResource("7_1k3x2")
@@ -290,8 +291,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 icon = ExtResource("8_d7si3")
 flat = true
@@ -308,8 +309,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0.784314, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 icon = ExtResource("9_4whwl")
 flat = true
@@ -373,8 +374,8 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 text = "CONTINUE"
 flat = true
@@ -390,13 +391,19 @@ theme_override_colors/font_pressed_color = Color(0, 0.588235, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0.588235, 0, 1)
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_slbkg")
-theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/pressed = ExtResource("2_slbkg")
+theme_override_styles/hover = ExtResource("2_slbkg")
 theme_override_styles/focus = ExtResource("2_slbkg")
 text = "CANCEL
 "
 flat = true
 alignment = 0
+
+[node name="SpriteSolar" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1421, 916)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_aquek")
 
 [connection signal="pressed" from="ElementScreen/SolarButton" to="ElementScreen" method="_on_solar_button_pressed"]
 [connection signal="pressed" from="ElementScreen/NatureButton" to="ElementScreen" method="_on_nature_button_pressed"]

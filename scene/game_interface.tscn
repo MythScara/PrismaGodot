@@ -1,0 +1,610 @@
+[gd_scene load_steps=23 format=3 uid="uid://ch2xdyxcedgd"]
+
+[ext_resource type="Texture2D" uid="uid://dqkh7frb4hnb7" path="res://asset/hud_icons/health_icon.png" id="1_ijb2q"]
+[ext_resource type="Texture2D" uid="uid://dd633w5mpq1ml" path="res://asset/progress_bars/health_bar_empty.png" id="2_h4xy4"]
+[ext_resource type="Texture2D" uid="uid://b242elr63dyjs" path="res://asset/progress_bars/health_bar_full.png" id="3_i6bfw"]
+[ext_resource type="Texture2D" uid="uid://du23brfkmc47b" path="res://asset/hud_icons/overshield_icon.png" id="4_tw3d4"]
+[ext_resource type="Texture2D" uid="uid://cdta3x2tj3qj2" path="res://asset/progress_bars/overshield_bar_empty.png" id="5_wciaj"]
+[ext_resource type="Texture2D" uid="uid://mf1uw5c1thag" path="res://asset/progress_bars/overshield_bar_full.png" id="6_05mgi"]
+[ext_resource type="Texture2D" uid="uid://bhh40vrv80dfg" path="res://asset/hud_icons/magic_icon.png" id="7_o0f1n"]
+[ext_resource type="Texture2D" uid="uid://c7sv0114inoeb" path="res://asset/progress_bars/magic_bar_empty.png" id="8_af8ko"]
+[ext_resource type="Texture2D" uid="uid://csdfcqnvdiinp" path="res://asset/progress_bars/magic_bar_full.png" id="9_jcmrv"]
+[ext_resource type="Texture2D" uid="uid://c574ldfbl62pf" path="res://asset/hud_icons/stamina_alternate_icon.png" id="10_li6h0"]
+[ext_resource type="Texture2D" uid="uid://tgpky0fxo1xw" path="res://asset/progress_bars/stamina_bar_empty.png" id="11_giptj"]
+[ext_resource type="Texture2D" uid="uid://8f7cn6dd4cof" path="res://asset/progress_bars/stamina_bar_full.png" id="12_idf81"]
+[ext_resource type="Texture2D" uid="uid://co0q45fjjau07" path="res://asset/progress_bars/level_bar_empty.png" id="13_k8nh1"]
+[ext_resource type="Texture2D" uid="uid://bhdfmrmo6atst" path="res://asset/progress_bars/level_bar_full.png" id="14_wk2w5"]
+[ext_resource type="Texture2D" uid="uid://bbrcswjc4sotc" path="res://asset/hud_icons/emblem_icon.png" id="15_6t50w"]
+[ext_resource type="Texture2D" uid="uid://fdt0lhcsfd40" path="res://asset/panels/preview_dual_panel.png" id="16_kdyv7"]
+[ext_resource type="Texture2D" uid="uid://b20umuda1sx50" path="res://asset/hud_icons/stamina_icon.png" id="17_a5lo4"]
+[ext_resource type="Texture2D" uid="uid://dm3c2cs16rmpu" path="res://asset/hud_icons/experience_small_icon.png" id="18_limem"]
+[ext_resource type="Texture2D" uid="uid://2e6ddmenpq30" path="res://asset/ranged weapon/light machine gun.png" id="19_8q2pf"]
+[ext_resource type="Texture2D" uid="uid://bls5r0gybslf0" path="res://asset/melee weapon/long sword.png" id="20_i0v86"]
+[ext_resource type="Texture2D" uid="uid://b042pygd31oh1" path="res://asset/hud_icons/technique_background.png" id="21_bcng7"]
+[ext_resource type="Texture2D" uid="uid://c6qumy4ffbhg7" path="res://asset/hud_icons/emblem_hero_alternate_icon.png" id="22_e3h07"]
+
+[node name="GameInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="Health" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="HealthIcon" type="Sprite2D" parent="Health"]
+position = Vector2(251, 1009)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ijb2q")
+
+[node name="HealthBar" type="TextureProgressBar" parent="Health"]
+layout_mode = 0
+offset_left = 81.8999
+offset_top = 1000.8
+offset_right = 404.9
+offset_bottom = 1034.8
+scale = Vector2(0.5, 0.5)
+rounded = true
+texture_under = ExtResource("2_h4xy4")
+texture_progress = ExtResource("3_i6bfw")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="HealthText" type="Label" parent="Health"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1002.0
+offset_right = 400.0
+offset_bottom = 1032.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overshield" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="OvershieldIcon" type="Sprite2D" parent="Overshield"]
+position = Vector2(251, 1025)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_tw3d4")
+
+[node name="OvershieldBar" type="TextureProgressBar" parent="Overshield"]
+layout_mode = 0
+offset_left = 81.8999
+offset_top = 1016.8
+offset_right = 404.9
+offset_bottom = 1050.8
+scale = Vector2(0.5, 0.5)
+rounded = true
+texture_under = ExtResource("5_wciaj")
+texture_progress = ExtResource("6_05mgi")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="OvershieldText" type="Label" parent="Overshield"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1018.0
+offset_right = 400.0
+offset_bottom = 1048.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Magic" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="MagicIcon" type="Sprite2D" parent="Magic"]
+position = Vector2(251, 1041)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_o0f1n")
+
+[node name="MagicBar" type="TextureProgressBar" parent="Magic"]
+layout_mode = 0
+offset_left = 81.8999
+offset_top = 1032.8
+offset_right = 404.9
+offset_bottom = 1066.8
+scale = Vector2(0.5, 0.5)
+rounded = true
+texture_under = ExtResource("8_af8ko")
+texture_progress = ExtResource("9_jcmrv")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="MagicText" type="Label" parent="Magic"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1034.0
+offset_right = 400.0
+offset_bottom = 1064.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stamina" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="StaminaIcon" type="Sprite2D" parent="Stamina"]
+position = Vector2(250.875, 1057)
+scale = Vector2(0.146, 0.146)
+texture = ExtResource("10_li6h0")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="Stamina"]
+layout_mode = 0
+offset_left = 81.8999
+offset_top = 1048.8
+offset_right = 404.9
+offset_bottom = 1082.8
+scale = Vector2(0.5, 0.5)
+rounded = true
+texture_under = ExtResource("11_giptj")
+texture_progress = ExtResource("12_idf81")
+texture_progress_offset = Vector2(5, 5)
+
+[node name="StaminaText" type="Label" parent="Stamina"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1050.0
+offset_right = 400.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Experience" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="Experience"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 993.0
+offset_right = 799.0
+offset_bottom = 999.0
+scale = Vector2(0.305, 1)
+rounded = true
+texture_under = ExtResource("13_k8nh1")
+texture_progress = ExtResource("14_wk2w5")
+
+[node name="SpecialistBar" type="TextureProgressBar" parent="Experience"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 1000.0
+offset_right = 372.0
+offset_bottom = 1358.0
+scale = Vector2(0.18, 0.18)
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("15_6t50w")
+texture_progress = ExtResource("15_6t50w")
+tint_under = Color(1, 1, 1, 0.568627)
+
+[node name="Species" type="Sprite2D" parent="Experience/SpecialistBar"]
+position = Vector2(177.778, 177.778)
+scale = Vector2(1.56034, 1.56034)
+
+[node name="Specialist" type="Sprite2D" parent="Experience/SpecialistBar"]
+position = Vector2(177.778, 177.778)
+scale = Vector2(1.56034, 1.56034)
+
+[node name="PlayerBar" type="Sprite2D" parent="Experience"]
+position = Vector2(136, 984)
+scale = Vector2(0.307298, 0.333334)
+texture = ExtResource("16_kdyv7")
+
+[node name="Rank" type="Label" parent="Experience/PlayerBar"]
+offset_left = -391.0
+offset_top = -24.0
+offset_right = 52.0
+offset_bottom = 24.0
+text = "Specialist rank"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Level" type="Label" parent="Experience/PlayerBar"]
+offset_left = 104.0
+offset_top = -24.0
+offset_right = 338.0
+offset_bottom = 24.0
+text = "Level"
+uppercase = true
+
+[node name="RankPoint" type="Sprite2D" parent="Experience/PlayerBar"]
+position = Vector2(78, 0)
+scale = Vector2(1.07597, 1.01613)
+texture = ExtResource("17_a5lo4")
+
+[node name="LevelPoint" type="Sprite2D" parent="Experience/PlayerBar"]
+position = Vector2(364.467, 7.70092e-05)
+scale = Vector2(1.7133, 1.57948)
+texture = ExtResource("18_limem")
+
+[node name="RangedWeapon" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="ActiveMode" type="ColorRect" parent="RangedWeapon"]
+layout_mode = 0
+offset_left = 1663.0
+offset_top = 1023.0
+offset_right = 1905.0
+offset_bottom = 1065.0
+
+[node name="AmmoRect" type="ColorRect" parent="RangedWeapon/ActiveMode"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 41.0
+color = Color(0, 1, 0, 1)
+
+[node name="Background" type="TextureRect" parent="RangedWeapon"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 1024.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+texture = ExtResource("16_kdyv7")
+expand_mode = 1
+
+[node name="Weapon" type="TextureRect" parent="RangedWeapon"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 1024.0
+offset_right = 1824.0
+offset_bottom = 1064.0
+texture = ExtResource("19_8q2pf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Ammo" type="Label" parent="RangedWeapon"]
+layout_mode = 0
+offset_left = 1824.0
+offset_top = 1024.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="RangedWeapon"]
+layout_mode = 0
+offset_left = 1640.0
+offset_top = 1024.0
+offset_right = 1664.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 20
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeleeWeapon" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="ActiveMode" type="ColorRect" parent="MeleeWeapon"]
+visible = false
+layout_mode = 0
+offset_left = 1663.0
+offset_top = 975.0
+offset_right = 1905.0
+offset_bottom = 1017.0
+
+[node name="ChargeRect" type="ColorRect" parent="MeleeWeapon/ActiveMode"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 41.0
+color = Color(0, 1, 0, 1)
+
+[node name="Background" type="TextureRect" parent="MeleeWeapon"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 976.0
+offset_right = 1904.0
+offset_bottom = 1016.0
+texture = ExtResource("16_kdyv7")
+expand_mode = 1
+
+[node name="Weapon" type="TextureRect" parent="MeleeWeapon"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 976.0
+offset_right = 2498.0
+offset_bottom = 1148.0
+scale = Vector2(0.191846, 0.232558)
+texture = ExtResource("20_i0v86")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Charge" type="Label" parent="MeleeWeapon"]
+layout_mode = 0
+offset_left = 1824.0
+offset_top = 976.0
+offset_right = 1904.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MeleeWeapon"]
+layout_mode = 0
+offset_left = 1640.0
+offset_top = 976.0
+offset_right = 1664.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 20
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionSlots" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Slot1Background" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(840, 916)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot2Background" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(920, 916)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot3Background" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(1000, 916)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot4Background" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(1080, 915)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot1" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 884.0
+offset_right = 936.0
+offset_bottom = 1012.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot1"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot1"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 884.0
+offset_right = 1016.0
+offset_bottom = 1012.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot2"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot2"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 884.0
+offset_right = 1096.0
+offset_bottom = 1012.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot3"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot3"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot4" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 884.0
+offset_right = 1176.0
+offset_bottom = 1012.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot4"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot4"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "V"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionLabel" type="Label" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 859.0
+offset_right = 1112.0
+offset_bottom = 881.0
+theme_override_font_sizes/font_size = 18
+text = "Battle Magic"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Slot1Background2" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(879, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot2Background2" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(959, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot3Background2" type="Sprite2D" parent="SelectionSlots"]
+position = Vector2(1039, 1024)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_bcng7")
+
+[node name="Slot5" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 992.0
+offset_right = 975.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot5"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot5"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot6" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 927.0
+offset_top = 992.0
+offset_right = 1055.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot6"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot6"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot7" type="TextureProgressBar" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 992.0
+offset_right = 1135.0
+offset_bottom = 1120.0
+scale = Vector2(0.5, 0.5)
+rounded = true
+fill_mode = 4
+tint_under = Color(1, 1, 1, 0.294118)
+
+[node name="Overlay" type="Sprite2D" parent="SelectionSlots/Slot7"]
+position = Vector2(64, 64)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_e3h07")
+
+[node name="Label" type="Label" parent="SelectionSlots/Slot7"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 84.0
+offset_bottom = 176.0
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionLabel2" type="Label" parent="SelectionSlots"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 967.0
+offset_right = 1112.0
+offset_bottom = 989.0
+theme_override_font_sizes/font_size = 18
+text = "Technique"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
